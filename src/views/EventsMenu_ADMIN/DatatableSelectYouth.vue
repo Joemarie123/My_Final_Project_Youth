@@ -1,14 +1,14 @@
 <template>
     
 
-    <div id="app">
+    <div >
   <v-app>
     
    <!--  <h2>Selected: {{displayItems}}</h2> -->
   
 <!--    <h5  v-for="person in selected" :key="person.name">{{person.name}}</h5> -->
 
-<v-row>
+<!-- <v-row> -->
 <!-- <v-col lg="12" md="12" sm="12" >
  
  <v-text-field  height="30px"  dense  outlined>
@@ -18,11 +18,11 @@
  <v-text-field style="margin-top: -10px;" height="30px"  dense  outlined>
  </v-text-field>
 </v-col> -->
-</v-row>
+<!-- </v-row> -->
 
 
 <v-row>
-    <v-col lg="4" style="margin-top: -140px;">
+    <v-col lg="4">
     <v-data-table @click='sinag(item-key)' 
       id="mytable"
      
@@ -105,7 +105,7 @@
     <v-col lg="3" md="12" sm="12">
 
       
-      <v-card height="650" class="wrapper" style="margin-top: -140px;">
+      <v-card height="650" class="wrapper" >
 
 
         <div class="text-center " >
@@ -171,7 +171,7 @@
 
 <v-col lg="5" md="12" sm="12">
 
-<v-card height="650"  class="wrapper" style="margin-top: -140px;" >
+<v-card height="650"  class="wrapper">
 
 
   <div class="text-center " >
@@ -199,6 +199,8 @@
     
     <template v-slot:item.image="{ item }">
 
+
+
 <v-avatar size="40">
          <img v-bind:src="`/${item.image}`" alt="">
  </v-avatar>
@@ -207,6 +209,8 @@
 
 
     <template slot="item.remove_sinag"  slot-scope="props_remove_sinag">
+
+
 
 
       <v-btn color="green" dark @click="()=>editItem(props_remove_sinag.item)">
@@ -240,6 +244,9 @@
           
               <v-container>
                 <v-row>
+
+                
+
                   <v-col
                     cols="12"
                     sm="6"
@@ -250,6 +257,9 @@
                       label="name"
                     ></v-text-field>
                   </v-col>
+
+
+
                   <v-col
                     cols="12"
                     sm="6"

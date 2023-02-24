@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <Navbar/>
-    <v-main> 
-        <v-card id="Employer">
+    
+        <v-card >
         <v-card-title>
           <span class="text-h7" :style="color=red">YOUTH ASSESSMENT SURVEY QUESTIONNAIRE</span>
         </v-card-title>
@@ -278,13 +278,13 @@
                         </p>
                       </v-col>
 
-                      <v-col cols="12" md="12" sm="12">
+                  <!--     <v-col cols="12" md="12" sm="12">
                         <p class="font-weight-bold"  >
                           NAME OF ENUMERATOR
                         </p>
-                      </v-col>
+                      </v-col> -->
 
-
+<!-- 
                       <v-col cols="12" md="3" sm="12">
                         <v-text-field
                          
@@ -294,9 +294,9 @@
                        >
                        </v-text-field>
 
-                      </v-col>
+                      </v-col> -->
                       
-                      <v-col cols="12" md="3" sm="12">
+                     <!--  <v-col cols="12" md="3" sm="12">
                         <v-text-field
                          
                          label="First Name"
@@ -306,8 +306,8 @@
                        </v-text-field>
 
 
-                      </v-col>
-                      <v-col cols="12" md="3" sm="12">
+                      </v-col> -->
+                     <!--  <v-col cols="12" md="3" sm="12">
                         <v-text-field
                          
                          label="Middle Name"
@@ -317,10 +317,8 @@
                        </v-text-field>
 
 
-                      </v-col>
-                      <v-col cols="12" md="3" sm="12">
+                      </v-col> -->
                      
-                      </v-col>
                       <v-col cols="12" md="3" sm="12">
                         <div>
                           <!-- <div class="mb-1">
@@ -432,9 +430,10 @@
                       <v-col cols="12" sm="12" md="2">
                         <p class="font-weight-bold">SEX</p>
                         <v-radio-group row>
-                          <v-radio @change="have_you_give_birth_in_the_last_2_years_65 = false,
+
+                          <v-radio value="Male" @change="have_you_give_birth_in_the_last_2_years_65 = false,
                                               if_pregnant_as_of_this_time_72=false"
-                                             
+                                      
                           
                           
                           
@@ -442,9 +441,9 @@
 
 
 
-                          <v-radio @change="have_you_give_birth_in_the_last_2_years_65 = true,                  
+                          <v-radio  @change="have_you_give_birth_in_the_last_2_years_65 = true,                  
                                             if_pregnant_as_of_this_time_72=true"
-                                           
+                                     value="Female"          
                           
                           
                            label="Female"></v-radio>
@@ -457,7 +456,7 @@
                       <v-col cols="12" sm="12" md="3">
                         <p class="font-weight-bold">Gender Preference</p>
                         <v-select 
-                      :items="['Lesbian','Gay','Bisexual' ,'Transgender','Nothing']"
+                      :items="['Lesbian','Gay','Bisexual' ,'Transgender','Queer'  ,'Intersex' ,'Asexual','Pansexual','Cisgender','Biological Sex','Gender Identity','Sexual Identity','Ally','Heterosexual Privilege','Heterosexism or Heteronormativity']"
                      
                       prepend-inner-icon="mdi-account-switch"
                       v-model="gender_preferences"
@@ -505,8 +504,10 @@
                       <v-col cols="12" sm="12" md="2">
                         <p class="font-weight-bold">Are you an overseas worker?</p>
                         <v-radio-group row>
-                          <v-radio   @change="country_destination = true" label="Yes" ></v-radio>
-                          <v-radio @change="country_destination = false" label="No"></v-radio>
+                          <v-radio   @change="country_destination = true"  value="yes"  label="Yes" ></v-radio>
+
+                          <v-radio @change="country_destination = false" value="no" label="No"></v-radio>
+
                         </v-radio-group>
                        
                       </v-col>
@@ -622,8 +623,8 @@
                       <v-col cols="12" sm="12" md="3" >
                         <p class="font-weight-bold">Are You Currently Attending School?</p>
                         <v-radio-group row>
-                          <v-radio  @change="what_grade_year_currently_attending = true, where_did_you_attend_school = true , are_you_graduate_senior_high=true, why_your_not_attending_school=false ,  whats_your_highest_educational_attainment=false" label="Yes"></v-radio>
-                          <v-radio  @change="what_grade_year_currently_attending = false, where_did_you_attend_school = false , are_you_graduate_senior_high=false , why_your_not_attending_school=true , whats_your_highest_educational_attainment=true"  label="No"></v-radio>
+                          <v-radio  @change="what_grade_year_currently_attending = true, where_did_you_attend_school = true , are_you_graduate_senior_high=true, why_your_not_attending_school=false ,  whats_your_highest_educational_attainment=false" value="yes" label="Yes"></v-radio>
+                          <v-radio  @change="what_grade_year_currently_attending = false, where_did_you_attend_school = false , are_you_graduate_senior_high=false , why_your_not_attending_school=true , whats_your_highest_educational_attainment=true" value="no"  label="No"></v-radio>
                         </v-radio-group>
                            
                       </v-col>
@@ -647,8 +648,8 @@
                       <v-col cols="12" sm="12" md="4" v-show="where_did_you_attend_school">
                         <p class="font-weight-bold">Where Did You Attend School</p>
                         <v-radio-group row>
-                          <v-radio label="Public"></v-radio>
-                          <v-radio label="Private"></v-radio>
+                          <v-radio value="public" label="Public"></v-radio>
+                          <v-radio  value="private"  label="Private"></v-radio>
                         </v-radio-group>
                        
                       </v-col>
@@ -730,8 +731,8 @@
                      <!--   <div v-show="are_you_graduate_senior_high"> -->
                       <p class="font-weight-bold">Are You a graduate of Senior high?</p>
                         <v-radio-group row>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio  value="no"    label="No"></v-radio>
                         </v-radio-group>
                  
                         <v-select
@@ -750,8 +751,8 @@
                       <v-col cols="12" sm="12" md="3" v-show="are_you_graduate_senior_high">
                       <p class="font-weight-bold">Are You a graduate of Senior high?</p>
                         <v-radio-group row>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio  value="no" label="No"></v-radio>
                         </v-radio-group>
        
                       </v-col>
@@ -818,8 +819,8 @@
                       <v-col cols="12" sm="12" md="2" v-show="are_you_passer_eligibility">
                         <p class="font-weight-bold">Are you passer of any Eligibility??</p>
                         <v-radio-group row>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no" label="No"></v-radio>
                         </v-radio-group>
                        
                         
@@ -846,8 +847,8 @@
                       <v-col cols="12" sm="12" md="2">
                         <p class="font-weight-bold">Are you currently attending any Skills training?</p>
                         <v-radio-group row>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no" label="No"></v-radio>
                         </v-radio-group>
   
                       </v-col>
@@ -855,8 +856,8 @@
                       <v-col cols="12" sm="12" md="2">
                         <p class="font-weight-bold">Have you attended any skills Training in the past?</p>
                         <v-radio-group row>
-                          <v-radio  @change="skill_training_program = true" label="Yes"></v-radio>
-                          <v-radio @change=" skill_training_program = false" label="No"></v-radio>
+                          <v-radio value="yes"  @change="skill_training_program = true" label="Yes"></v-radio>
+                          <v-radio value="no" @change=" skill_training_program = false" label="No"></v-radio>
                         </v-radio-group>
   
                       </v-col>
@@ -934,8 +935,8 @@
                       <v-col cols="12" sm="12" md="3" v-show="can_you_read_and_write_yes_no">
                         <p class="font-weight-bold">Can you read and write a simple message in any language or dialect?</p>
                         <v-radio-group row>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no" label="No"></v-radio>
                         </v-radio-group>
                        
                         
@@ -967,8 +968,8 @@
                       <v-col cols="12" sm="12" md="2">
                         <p class="font-weight-bold">Are you a Registered voter?</p>
                         <v-radio-group row>
-                          <v-radio   @change="can_you_read_and_write_yes_no = false" label="Yes"></v-radio>
-                          <v-radio  @change="can_you_read_and_write_yes_no = true" label="No"></v-radio>
+                          <v-radio  value="yes"  @change="can_you_read_and_write_yes_no = false" label="Yes"></v-radio>
+                          <v-radio   value="no"    @change="can_you_read_and_write_yes_no = true" label="No"></v-radio>
                         </v-radio-group>
                        
                         
@@ -976,8 +977,8 @@
                       <v-col cols="12" sm="12" md="3">
                         <p class="font-weight-bold">Did you Vote in the last SK Election?</p>
                         <v-radio-group row>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no"    label="No"></v-radio>
                         </v-radio-group>
                        
                         
@@ -985,8 +986,8 @@
                       <v-col cols="12" sm="12" md="5">
                         <p class="font-weight-bold">Did you vote in the last regular Election?</p>
                         <v-radio-group row>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio  value="no"    label="No"></v-radio>
                         </v-radio-group>
                        
                         
@@ -1077,8 +1078,8 @@
                       <v-col cols="12" sm="12" md="2">
                         <p class="font-weight-bold">Have you elected in any organization you are affiliated with?</p>
                         <v-radio-group row>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio  value="no"  label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
                     </v-row>
@@ -1104,15 +1105,15 @@
                       <v-col cols="12" sm="12" md="2">
                         <p class="font-weight-bold">Did you do any work for at least 1 hour during the past week?</p>
                         <v-radio-group row>
-                          <v-radio @change="how_many_works_job_business_you_have = true, what_kind_of_industry_did_the_household_member = true, whats_your_primary_occupation=true,do_you_have_job_or_business_during_past_week = false"  label="Yes"></v-radio>
-                          <v-radio @change="do_you_have_job_or_business_during_past_week = true,how_many_works_job_business_you_have = false,  whats_your_primary_occupation=false, what_kind_of_industry_did_the_household_member = false"  label="No"></v-radio>
+                          <v-radio value="yes" @change="how_many_works_job_business_you_have = true, what_kind_of_industry_did_the_household_member = true, whats_your_primary_occupation=true,do_you_have_job_or_business_during_past_week = false"  label="Yes"></v-radio>
+                          <v-radio  value="no" @change="do_you_have_job_or_business_during_past_week = true,how_many_works_job_business_you_have = false,  whats_your_primary_occupation=false, what_kind_of_industry_did_the_household_member = false"  label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
                       <v-col cols="12" sm="12" md="2" v-show="do_you_have_job_or_business_during_past_week">
                         <p class="font-weight-bold">Do you have a job or business during the past Week?</p>
                        <v-radio-group row>
-                          <v-radio  @change="whats_your_primary_occupation = true ,what_kind_of_industry_did_the_household_member = true"    label="Yes"></v-radio>
-                          <v-radio @change="whats_your_primary_occupation = false ,what_kind_of_industry_did_the_household_member = false"     label="No"></v-radio>
+                          <v-radio value="yes"  @change="whats_your_primary_occupation = true ,what_kind_of_industry_did_the_household_member = true"    label="Yes"></v-radio>
+                          <v-radio  value="no" @change="whats_your_primary_occupation = false ,what_kind_of_industry_did_the_household_member = false"     label="No"></v-radio>
                         </v-radio-group> 
                      
                       </v-col>
@@ -1319,9 +1320,9 @@
                      
                         <p class="font-weight-bold">What is the status/nature of employment? </p>
                         <v-radio-group row>
-                          <v-radio label="Permanent Job/ business/ unpaid family work"></v-radio>
-                          <v-radio label="Short-term or seasonal or casual job/ business/ unpaid family work"></v-radio>
-                          <v-radio label="Worked for different employers or customers on day-to-day or week-to-week basis"></v-radio>
+                          <v-radio value="Permanent_Job_business_unpaid_family_work" label="Permanent Job/ business/ unpaid family work"></v-radio>
+                          <v-radio  value="Short-term or seasonal or casual job/ business/ unpaid family work"    label="Short-term or seasonal or casual job/ business/ unpaid family work"></v-radio>
+                          <v-radio   value="Worked for different employers or customers on day-to-day or week-to-week basis"   label="Worked for different employers or customers on day-to-day or week-to-week basis"></v-radio>
                         </v-radio-group>
 
                    </v-col> 
@@ -1353,16 +1354,16 @@
                     <v-col cols="12" sm="12" md="2" >
                         <p class="font-weight-bold">(36) Did you want more hours of work during the past week?</p>
                         <v-radio-group row>
-                          <v-radio  @change="did_you_look_additional_word = true , whats_your_class_of_worker=false , did_you_look_work_to_eastablish_business=false"   label="Yes"></v-radio>
-                          <v-radio @change="did_you_look_additional_word = false , whats_your_class_of_worker=false , did_you_look_work_to_eastablish_business = true"  label="No"></v-radio>
+                          <v-radio value="yes"  @change="did_you_look_additional_word = true , whats_your_class_of_worker=false , did_you_look_work_to_eastablish_business=false"   label="Yes"></v-radio>
+                          <v-radio value="no"  @change="did_you_look_additional_word = false , whats_your_class_of_worker=false , did_you_look_work_to_eastablish_business = true"  label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
 
                       <v-col cols="12" sm="12" md="2"  v-show="did_you_look_additional_word">
                         <p class="font-weight-bold">(37) Did you look for additional work during the past week?</p>
                         <v-radio-group row>
-                          <v-radio @change="whats_your_class_of_worker = true"  label="Yes"></v-radio>
-                          <v-radio @change="whats_your_class_of_worker = false" label="No"></v-radio>
+                          <v-radio value="yes" @change="whats_your_class_of_worker = true"  label="Yes"></v-radio>
+                          <v-radio value="no"     @change="whats_your_class_of_worker = false" label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
 
@@ -1414,8 +1415,8 @@
                       <v-col cols="12" sm="12" md="2" v-show="did_you_look_work_to_eastablish_business">
                         <p class="font-weight-bold">(39) Did you look for work or try to establish business during the past week? </p>
                         <v-radio-group row>
-                          <v-radio  @change="was_this_your_first_time_to_look_for_work=true,what_you_have_been_doing_to_find_a_work=true, how_many_weeks_have_you_been_looking_for_work=true,why_did_you_not_look_for_work=false,when_was_the_last_time_you_looked_for_work=false  " label="Yes"></v-radio>
-                          <v-radio @change="was_this_your_first_time_to_look_for_work=false,what_you_have_been_doing_to_find_a_work=false, how_many_weeks_have_you_been_looking_for_work=false,why_did_you_not_look_for_work=true,when_was_the_last_time_you_looked_for_work=true " label="No"></v-radio>
+                          <v-radio value="yes"  @change="was_this_your_first_time_to_look_for_work=true,what_you_have_been_doing_to_find_a_work=true, how_many_weeks_have_you_been_looking_for_work=true,why_did_you_not_look_for_work=false,when_was_the_last_time_you_looked_for_work=false  " label="Yes"></v-radio>
+                          <v-radio value="no"  @change="was_this_your_first_time_to_look_for_work=false,what_you_have_been_doing_to_find_a_work=false, how_many_weeks_have_you_been_looking_for_work=false,why_did_you_not_look_for_work=true,when_was_the_last_time_you_looked_for_work=true " label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
 
@@ -1445,8 +1446,8 @@
                      
                         <p class="font-weight-bold">(40) Was this your first time to look for work or try to establish a business?</p>
                         <v-radio-group row>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio  value="no" label="No"></v-radio>
                        
                         </v-radio-group>
                    </v-col> 
@@ -1517,8 +1518,8 @@
                       <p class="font-weight-bold">(45) Had opportunity for work existed last week or within two weeks, would you have been available? </p>
                         <v-radio-group row>
                     
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio  value="no" label="No"></v-radio>
                         </v-radio-group>
                     
                       </v-col>
@@ -1527,8 +1528,8 @@
                         <p class="font-weight-bold">(46) Were you willing to take up work during the past week or within 2 weeks?</p>
                         <v-radio-group row>
                     
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no"   label="No"></v-radio>
                         </v-radio-group>
                     
                       </v-col>
@@ -1549,16 +1550,16 @@
                       <v-col  cols="12" md="2" sm="12" >
                         <p class="font-weight-bold">(48) Are You A Member of GSIS?</p>
                         <v-radio-group row>
-                        <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                        <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no" label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
 
                       <v-col  cols="12" md="3" sm="12" >
                         <p class="font-weight-bold">(49) Are You A Member of SSS?</p>
                         <v-radio-group row>
-                        <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                        <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no" label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
 
@@ -1588,8 +1589,8 @@
                      
                         <p class="font-weight-bold">(50) Are you a member of PhilHealth?</p>
                         <v-radio-group row>
-                          <v-radio @change="what_is_your_philhealth_membership = true ,are_your_depende_of_philhealth_member=false"    label="Yes"></v-radio>
-                          <v-radio  @change="are_your_depende_of_philhealth_member = true ,what_is_your_philhealth_membership=false"     label="No"></v-radio>
+                          <v-radio  value="yes" @change="what_is_your_philhealth_membership = true ,are_your_depende_of_philhealth_member=false"    label="Yes"></v-radio>
+                          <v-radio  value="no" @change="are_your_depende_of_philhealth_member = true ,what_is_your_philhealth_membership=false"     label="No"></v-radio>
                        
                         </v-radio-group>
                    </v-col> 
@@ -1611,8 +1612,8 @@
                      
                      <p class="font-weight-bold">(52) Are you a dependent of a PhilHealth Member?</p>
                      <v-radio-group row>
-                       <v-radio label="Yes"></v-radio>
-                       <v-radio label="No"></v-radio>
+                       <v-radio value="yes" label="Yes"></v-radio>
+                       <v-radio  value="no" label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col> 
@@ -1622,8 +1623,8 @@
                      
                      <p class="font-weight-bold">(53) Are you a solo parent taking care of a child/ children? </p>
                      <v-radio-group row>
-                       <v-radio  @change="do_you_have_solo_parent_id = true"   label="Yes"></v-radio>
-                       <v-radio @change="do_you_have_solo_parent_id = false" label="No"></v-radio>
+                       <v-radio value="yes" @change="do_you_have_solo_parent_id = true"   label="Yes"></v-radio>
+                       <v-radio  value="no"   @change="do_you_have_solo_parent_id = false" label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col>
@@ -1632,8 +1633,8 @@
                      
                      <p class="font-weight-bold">(54) Do you Have a Solo Parent ID? </p>
                      <v-radio-group row>
-                       <v-radio label="Yes"></v-radio>
-                       <v-radio label="No"></v-radio>
+                       <v-radio value="yes" label="Yes"></v-radio>
+                       <v-radio  value="no" label="No"></v-radio>
                      </v-radio-group>
                 </v-col>
 
@@ -1641,8 +1642,8 @@
                      
                      <p class="font-weight-bold">(55) Do you have any physical or mental disability?</p>
                      <v-radio-group row>
-                       <v-radio @change="what_type_of_disability_do_you_have=true,do_you_have_pwd_id=true" label="Yes"></v-radio>
-                       <v-radio @change="what_type_of_disability_do_you_have=false,do_you_have_pwd_id=false" label="No"></v-radio>
+                       <v-radio  value="yes"     @change="what_type_of_disability_do_you_have=true,do_you_have_pwd_id=true" label="Yes"></v-radio>
+                       <v-radio   value="no"    @change="what_type_of_disability_do_you_have=false,do_you_have_pwd_id=false" label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col>
@@ -1696,8 +1697,8 @@
                      
                      <p class="font-weight-bold">(57) Do you have a PWD ID?</p>
                      <v-radio-group row>
-                       <v-radio label="Yes"></v-radio>
-                       <v-radio label="No"></v-radio>
+                       <v-radio   value="yes" label="Yes"></v-radio>
+                       <v-radio  value="no" label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col>
@@ -1747,8 +1748,8 @@ required
                      
                      <p class="font-weight-bold">(60) Are you being diagnosed with health related issues or lifestyle diseases? </p>
                      <v-radio-group row>
-                       <v-radio  @change="what_kind_of_health_related_issues_or_lifestle_61 = true" label="Yes"></v-radio>
-                       <v-radio @change="what_kind_of_health_related_issues_or_lifestle_61 = false" label="No"></v-radio>
+                       <v-radio value="yes" @change="what_kind_of_health_related_issues_or_lifestle_61 = true" label="Yes"></v-radio>
+                       <v-radio  value="no"  @change="what_kind_of_health_related_issues_or_lifestle_61 = false" label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col>
@@ -1790,7 +1791,7 @@ required
                      
                      <p class="font-weight-bold">(62) During the past 12 months, did you avail any medical treatment or medication for any treatment? </p>
                      <v-radio-group row>
-                       <v-radio @change="where_did_you_avail_medical_treatment_62_A=true,
+                       <v-radio value="yes" @change="where_did_you_avail_medical_treatment_62_A=true,
                                         do_you_have_illness_or_any_health_related_62_B=false,
                                         what_kind_of_illness_or_health_realted_issues_63=false
                                         
@@ -1799,7 +1800,7 @@ required
 
 
 
-                       <v-radio @change="where_did_you_avail_medical_treatment_62_A=false,do_you_have_illness_or_any_health_related_62_B=true" label="No"></v-radio>
+                       <v-radio value="no" @change="where_did_you_avail_medical_treatment_62_A=false,do_you_have_illness_or_any_health_related_62_B=true" label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col>
@@ -1814,12 +1815,12 @@ required
                      
                      <p class="font-weight-bold">(62 - B) Do you have illness or any health-related issues of this time (upon survey time) </p>
                      <v-radio-group row>
-                       <v-radio @change="what_kind_of_illness_or_health_realted_issues_63 = true
+                       <v-radio value="yes" @change="what_kind_of_illness_or_health_realted_issues_63 = true
                                       
                                       
                                       
                                       "   label="Yes"></v-radio>
-                       <v-radio @change="what_kind_of_illness_or_health_realted_issues_63 = false" label="No"></v-radio>
+                       <v-radio value="no" @change="what_kind_of_illness_or_health_realted_issues_63 = false" label="No"></v-radio>
                     
 
                      </v-radio-group>
@@ -1845,8 +1846,8 @@ required
                     <p class="font-weight-bold">(64) Do you smoke or use tobacco/ cigarette </p>
                    
                     <v-radio-group row>
-                       <v-radio label="Yes"></v-radio>
-                       <v-radio label="No"></v-radio>
+                       <v-radio value="yes" label="Yes"></v-radio>
+                       <v-radio  value="no" label="No"></v-radio>
                     
                      </v-radio-group>
                   </v-col>
@@ -1859,7 +1860,7 @@ required
                                     what_health_services_did_you_receievein_in_the_goverment_69=true,
                                     during_delivery_where_did_you_give_birth_70=true"
                                     
-
+                        value="yes"
                           label="Yes"></v-radio>
 
 
@@ -1867,7 +1868,7 @@ required
                               what_health_services_did_you_receievein_in_the_goverment_69=false,
                               during_delivery_where_did_you_give_birth_70=false"
 
-
+                        value="no"
                           label="No"></v-radio>
                         </v-radio-group>
 
@@ -1960,8 +1961,8 @@ required
                      
                      <p class="font-weight-bold">(71) Was the public health midwife or any skilled birth attendant attended the birth delivery?</p>
                      <v-radio-group row>
-                       <v-radio label="Yes"></v-radio>
-                       <v-radio label="No"></v-radio>
+                       <v-radio value="yes" label="Yes"></v-radio>
+                       <v-radio value="no"  label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col>
@@ -1984,8 +1985,8 @@ required
                      
                      <p class="font-weight-bold">(73) If pregnant, are you a member of Philhealth or any insurances, or a dependent of a primary member?</p>
                      <v-radio-group row>
-                       <v-radio label="Yes"></v-radio>
-                       <v-radio label="No"></v-radio>
+                       <v-radio value="yes" label="Yes"></v-radio>
+                       <v-radio  value="no" label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col>
@@ -1995,8 +1996,8 @@ required
                      
                      <p class="font-weight-bold">(73 - 1) If married or sexually active woman, have you ever used contraceptive methods?  </p>
                      <v-radio-group row>
-                       <v-radio  @change="what_methods_have_you_used_73_2=true, why_did_you_not_use_contraceptive_73_3=false" label="Yes"></v-radio>
-                       <v-radio @change="why_did_you_not_use_contraceptive_73_3=true,what_methods_have_you_used_73_2=false "  label="No"></v-radio>
+                       <v-radio  value="yes" @change="what_methods_have_you_used_73_2=true, why_did_you_not_use_contraceptive_73_3=false" label="Yes"></v-radio>
+                       <v-radio value="no" @change="why_did_you_not_use_contraceptive_73_3=true,what_methods_have_you_used_73_2=false "  label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col>
@@ -2090,8 +2091,8 @@ required
                      
                      <p class="font-weight-bold">(74) Have you’ve been a victim of crime or violation of RA 9262 (VAWC Act) before?</p>
                      <v-radio-group row>
-                       <v-radio  @change="what_crime_or_violation_75_76_77_78 = true" label="Yes"></v-radio>
-                       <v-radio @change="what_crime_or_violation_75_76_77_78 = false" label="No"></v-radio>
+                       <v-radio value="yes"  @change="what_crime_or_violation_75_76_77_78 = true" label="Yes"></v-radio>
+                       <v-radio  value="no" @change="what_crime_or_violation_75_76_77_78 = false" label="No"></v-radio>
                     
                      </v-radio-group>
                       </v-col>
@@ -2209,8 +2210,8 @@ required
                      
                      <p class="font-weight-bold">(79) During the past 12 months, did you receive or a recipient of any programs and services? </p>
                      <v-radio-group row>
-                       <v-radio  @change="what_type_of_program_80_81=true"     label="Yes"></v-radio>
-                       <v-radio   @change="what_type_of_program_80_81=false" label="No"></v-radio>
+                       <v-radio  value="yes" @change="what_type_of_program_80_81=true"     label="Yes"></v-radio>
+                       <v-radio  value="no"   @change="what_type_of_program_80_81=false" label="No"></v-radio>
                     
                      </v-radio-group>
 
@@ -2408,8 +2409,8 @@ required
                      
                      <p class="font-weight-bold">(82)Do you have a disaster preparedness kit?</p>
                      <v-radio-group row>
-                       <v-radio  @change="do_you_have_following_preparedness_kit_83=true,did_you_attend_disaster_preparedness_84=false,disaster_related_training_seminars_84_1=false"   label="Yes"></v-radio>
-                       <v-radio  @change="do_you_have_following_preparedness_kit_83=false,did_you_attend_disaster_preparedness_84=true"   label="No"></v-radio>
+                       <v-radio value="yes" @change="do_you_have_following_preparedness_kit_83=true,did_you_attend_disaster_preparedness_84=false,disaster_related_training_seminars_84_1=false"   label="Yes"></v-radio>
+                       <v-radio value="no" @change="do_you_have_following_preparedness_kit_83=false,did_you_attend_disaster_preparedness_84=true"   label="No"></v-radio>
                     
                      </v-radio-group>
 
@@ -2424,8 +2425,8 @@ required
                         <p class="font-weight-bold">(83)Do you have the following in your disaster preparedness kit?</p>
                      <v-radio-group >
                       <p class="font-weight-bold">WATER</p>
-                       <v-radio     label="Yes"></v-radio>
-                       <v-radio   label="No"></v-radio>
+                       <v-radio value="yes"     label="Yes"></v-radio>
+                       <v-radio  value="no"  label="No"></v-radio>
                        <v-text-field label="How many Days will it last"></v-text-field>
                      </v-radio-group>
 
@@ -2436,8 +2437,8 @@ required
                  
                   <v-radio-group >
                   <p class="font-weight-bold">CANDLE</p>
-                    <v-radio     label="Yes"></v-radio>
-                  <v-radio   label="No"></v-radio>
+                    <v-radio  value="yes"   label="Yes"></v-radio>
+                  <v-radio   value="no" label="No"></v-radio>
                     <v-text-field label="How many Days will it last"></v-text-field>
                  </v-radio-group>
 
@@ -2448,8 +2449,8 @@ required
                  
           <v-radio-group >
           <p class="font-weight-bold">WHISTLE</p>
-            <v-radio     label="Yes"></v-radio>
-          <v-radio   label="No"></v-radio>
+            <v-radio  value="yes"    label="Yes"></v-radio>
+          <v-radio    value="no" label="No"></v-radio>
             <v-text-field label="How many Days will it last"></v-text-field>
          </v-radio-group>
 
@@ -2460,8 +2461,8 @@ required
                  
           <v-radio-group >
           <p class="font-weight-bold">CLOTHES</p>
-            <v-radio     label="Yes"></v-radio>
-          <v-radio   label="No"></v-radio>
+            <v-radio  value="yes"   label="Yes"></v-radio>
+          <v-radio    value="no"  label="No"></v-radio>
             <v-text-field label="How many Days will it last"></v-text-field>
          </v-radio-group>
 
@@ -2472,8 +2473,8 @@ required
                  
           <v-radio-group >
           <p class="font-weight-bold">BLANKET</p>
-            <v-radio     label="Yes"></v-radio>
-          <v-radio   label="No"></v-radio>
+            <v-radio  value="yes"   label="Yes"></v-radio>
+          <v-radio   value="no"  label="No"></v-radio>
             <v-text-field label="How many Days will it last"></v-text-field>
          </v-radio-group>
 
@@ -2484,8 +2485,8 @@ required
                  
           <v-radio-group >
           <p class="font-weight-bold">Food (canned goods, biscuits, bread)</p>
-            <v-radio     label="Yes"></v-radio>
-          <v-radio   label="No"></v-radio>
+            <v-radio  value="yes"    label="Yes"></v-radio>
+          <v-radio   value="no"  label="No"></v-radio>
             <v-text-field label="How many Days will it last"></v-text-field>
          </v-radio-group>
 
@@ -2496,8 +2497,8 @@ required
                  
           <v-radio-group >
           <p class="font-weight-bold">Radio/ Transistor (battery-operated)</p>
-            <v-radio     label="Yes"></v-radio>
-          <v-radio   label="No"></v-radio>
+            <v-radio   value="yes"  label="Yes"></v-radio>
+          <v-radio    value="no" label="No"></v-radio>
             <v-text-field label="How many Days will it last"></v-text-field>
          </v-radio-group>
 
@@ -2508,8 +2509,8 @@ required
                  
           <v-radio-group >
           <p class="font-weight-bold">Battery (cellphone, flashlight, radio, etc)</p>
-            <v-radio     label="Yes"></v-radio>
-          <v-radio   label="No"></v-radio>
+            <v-radio  value="yes"   label="Yes"></v-radio>
+          <v-radio   value="no"  label="No"></v-radio>
             <v-text-field label="How many Days will it last"></v-text-field>
          </v-radio-group>
 
@@ -2521,8 +2522,8 @@ required
                  
           <v-radio-group >
           <p class="font-weight-bold">Important documents (land title, valid ID, birth certificate, etc</p>
-            <v-radio     label="Yes"></v-radio>
-          <v-radio   label="No"></v-radio>
+            <v-radio  value="yes"   label="Yes"></v-radio>
+          <v-radio   value="no"  label="No"></v-radio>
             <v-text-field label="How many Days will it last"></v-text-field>
          </v-radio-group>
 
@@ -2534,8 +2535,8 @@ required
                  
                  <v-radio-group >
                  <p class="font-weight-bold">Flashlight/ Emergency light</p>
-                   <v-radio     label="Yes"></v-radio>
-                 <v-radio   label="No"></v-radio>
+                   <v-radio  value="yes"    label="Yes"></v-radio>
+                 <v-radio  value="no"  label="No"></v-radio>
                    <v-text-field label="How many Days will it last"></v-text-field>
                 </v-radio-group>
                   </v-col>
@@ -2544,8 +2545,8 @@ required
                  
                  <v-radio-group >
                  <p class="font-weight-bold">Matches/ Lighter</p>
-                   <v-radio     label="Yes"></v-radio>
-                 <v-radio   label="No"></v-radio>
+                   <v-radio value="yes"    label="Yes"></v-radio>
+                 <v-radio   value="no" label="No"></v-radio>
                    <v-text-field label="How many Days will it last"></v-text-field>
                 </v-radio-group>
                   </v-col>
@@ -2565,8 +2566,8 @@ required
                      
                      <p class="font-weight-bold">(84)Did you attend disaster preparedness training and drills?</p>
                      <v-radio-group row>
-                       <v-radio  @change="disaster_related_training_seminars_84_1=true,fire_evacuation_drill_84_3=false"  label="Yes"></v-radio>
-                       <v-radio  @change="disaster_related_training_seminars_84_1=false,fire_evacuation_drill_84_3=true" label="No"></v-radio>
+                       <v-radio value="yes" @change="disaster_related_training_seminars_84_1=true,fire_evacuation_drill_84_3=false"  label="Yes"></v-radio>
+                       <v-radio value="no"  @change="disaster_related_training_seminars_84_1=false,fire_evacuation_drill_84_3=true" label="No"></v-radio>
                     
                      </v-radio-group>
 
@@ -2576,8 +2577,8 @@ required
 
 <v-radio-group >
  <p class="font-weight-bold">Basic Life Support Cardio-Pulmonary Resuscitation (BLS-CPR)</p>
-  <v-radio     label="Yes"></v-radio>
-  <v-radio   label="No"></v-radio>
+  <v-radio value="yes"     label="Yes"></v-radio>
+  <v-radio  value="no"  label="No"></v-radio>
  
 </v-radio-group>
                 <v-select
@@ -2594,8 +2595,8 @@ required
 
 <v-radio-group >
 <p class="font-weight-bold">Community-based Disaster Management Training </p>
-<v-radio     label="Yes"></v-radio>
-<v-radio   label="No"></v-radio>
+<v-radio  value="yes"    label="Yes"></v-radio>
+<v-radio  value="no"  label="No"></v-radio>
 
 </v-radio-group>
 <v-select
@@ -2612,8 +2613,8 @@ required
 
 <v-radio-group >
 <p class="font-weight-bold">Incident Command System Training</p>
-<v-radio     label="Yes"></v-radio>
-<v-radio   label="No"></v-radio>
+<v-radio  value="yes"   label="Yes"></v-radio>
+<v-radio  value="no"  label="No"></v-radio>
 
 </v-radio-group>
 <v-select
@@ -2631,8 +2632,8 @@ required
 
 <v-radio-group >
 <p class="font-weight-bold">Evacuation Management Training</p>
-<v-radio     label="Yes"></v-radio>
-<v-radio   label="No"></v-radio>
+<v-radio  value="yes"   label="Yes"></v-radio>
+<v-radio  value="no" label="No"></v-radio>
 
 </v-radio-group>
 <v-select
@@ -2650,8 +2651,8 @@ required
 
 <v-radio-group >
 <p class="font-weight-bold">Camp  Management Training</p>
-<v-radio     label="Yes"></v-radio>
-<v-radio   label="No"></v-radio>
+<v-radio  value="yes"   label="Yes"></v-radio>
+<v-radio  value="no"  label="No"></v-radio>
 
 </v-radio-group>
 <v-select
@@ -2669,8 +2670,8 @@ required
 
 <v-radio-group >
 <p class="font-weight-bold">First Aid Training</p>
-<v-radio     label="Yes"></v-radio>
-<v-radio   label="No"></v-radio>
+<v-radio value="yes"    label="Yes"></v-radio>
+<v-radio  value="no"    label="No"></v-radio>
 
 </v-radio-group>
 <v-select
@@ -2697,8 +2698,8 @@ required
                   <p class="font-weight-bold">84.3 Have you attended any of the following Disaster Preparedness Drills?</p>
             <v-radio-group >
            <p class="font-weight-bold">Fire Evacuation Drill</p>
-           <v-radio     label="Yes"></v-radio>
-           <v-radio   label="No"></v-radio>
+           <v-radio   value="yes"  label="Yes"></v-radio>
+           <v-radio    value="no"   label="No"></v-radio>
           
           </v-radio-group>
                      <v-select
@@ -2716,8 +2717,8 @@ required
 
 <v-radio-group >
 <p class="font-weight-bold">Earthquake Evacuation Drill</p>
-<v-radio     label="Yes"></v-radio>
-<v-radio   label="No"></v-radio>
+<v-radio value="yes"    label="Yes"></v-radio>
+<v-radio  value="no" label="No"></v-radio>
 
 </v-radio-group>
 <v-select
@@ -2733,8 +2734,8 @@ required
 
 <v-radio-group >
 <p class="font-weight-bold">Flood Evacuation Drill</p>
-<v-radio     label="Yes"></v-radio>
-<v-radio   label="No"></v-radio>
+<v-radio   value="yes"  label="Yes"></v-radio>
+<v-radio   value="no"  label="No"></v-radio>
 
 </v-radio-group>
 <v-select
@@ -2751,8 +2752,8 @@ required
 
 <v-radio-group >
 <p class="font-weight-bold">Tsunami Evacuation Drill</p>
-<v-radio     label="Yes"></v-radio>
-<v-radio   label="No"></v-radio>
+<v-radio  value="yes"   label="Yes"></v-radio>
+<v-radio  value="no"     label="No"></v-radio>
 
 </v-radio-group>
 <v-select
@@ -2768,8 +2769,8 @@ required
 
 <v-radio-group >
 <p class="font-weight-bold">Lockdown Drill</p>
-<v-radio     label="Yes"></v-radio>
-<v-radio   label="No"></v-radio>
+<v-radio value="yes"    label="Yes"></v-radio>
+<v-radio  value="no"  label="No"></v-radio>
 
 </v-radio-group>
 <v-select
@@ -2785,8 +2786,8 @@ required
 
 <v-radio-group >
 <p class="font-weight-bold">Bomb Drill</p>
-<v-radio     label="Yes"></v-radio>
-<v-radio   label="No"></v-radio>
+<v-radio  value="yes"   label="Yes"></v-radio>
+<v-radio  value="no" label="No"></v-radio>
 
 </v-radio-group>
 <v-select
@@ -2896,8 +2897,8 @@ required
                           <v-text-field label="Other, specify" ></v-text-field>
                           <v-radio-group >
            <p class="font-weight-bold">86-A.Do you have cellular/ mobile phones?</p>
-                          <v-radio @change="what_mobile_phone_services_87=true"     label="Yes"></v-radio>
-                         <v-radio  @change="what_mobile_phone_services_87=false"  label="No"></v-radio>
+                          <v-radio value="yes" @change="what_mobile_phone_services_87=true"     label="Yes"></v-radio>
+                         <v-radio   value="no" @change="what_mobile_phone_services_87=false"  label="No"></v-radio>
                 </v-radio-group>
                         </v-checkbox-group>
                       </v-col>
@@ -2907,10 +2908,10 @@ required
                         <p class="font-weight-bold">87. What mobile phone services providers does the household have access to?</p>
                         <v-radio-group >
 
-                    <v-radio     label="Globe and subsidiaries"></v-radio>
-                      <v-radio   label="Smart and subsidiaries"></v-radio>
-                <v-radio   label="Both Globe and Smart"></v-radio>
-                  <v-radio   label="DITO"></v-radio>
+                    <v-radio   value="Globe and subsidiarie"  label="Globe and subsidiaries"></v-radio>
+                      <v-radio value="Smart and subsidiaries" label="Smart and subsidiaries"></v-radio>
+                <v-radio    value="Both Globe and Smart"   label="Both Globe and Smart"></v-radio>
+                  <v-radio  value="DITO" label="DITO"></v-radio>
                   </v-radio-group>
 
                       </v-col> 
@@ -2922,8 +2923,8 @@ required
          
                         <v-radio-group >
                         
-                  <v-radio   @change="what_is_your_means_intern_connection_89=true"  label="Yes"></v-radio>
-                    <v-radio   @change="what_is_your_means_intern_connection_89=false" label="No"></v-radio>
+                  <v-radio  value="yes"  @change="what_is_your_means_intern_connection_89=true"  label="Yes"></v-radio>
+                    <v-radio value="no"  @change="what_is_your_means_intern_connection_89=false" label="No"></v-radio>
                       </v-radio-group>
                       </v-col> 
 
@@ -3073,8 +3074,8 @@ required
                       
                         <v-radio-group row>
                   
-                      <v-radio     @change="where_would_you_like_volunteer_93=true,state_reason_92=false"   label="Yes"></v-radio>
-                     <v-radio       @change="where_would_you_like_volunteer_93=false,state_reason_92=true"    label="No"></v-radio>
+                      <v-radio  value="yes"   @change="where_would_you_like_volunteer_93=true,state_reason_92=false"   label="Yes"></v-radio>
+                     <v-radio   value="no"    @change="where_would_you_like_volunteer_93=false,state_reason_92=true"    label="No"></v-radio>
 
                      </v-radio-group>
 
@@ -3083,8 +3084,8 @@ required
                       
                         <v-radio-group row>
                   
-                      <v-radio      label="Yes"></v-radio>
-                     <v-radio       label="No"></v-radio>
+                      <v-radio   value="yes"   label="Yes"></v-radio>
+                     <v-radio     value="no"  label="No"></v-radio>
 
                      </v-radio-group>
 
@@ -3352,7 +3353,7 @@ required
           </v-stepper-items>
         </v-stepper>
       </v-card>
-    </v-main>
+   
   </v-app>
 </template>
 

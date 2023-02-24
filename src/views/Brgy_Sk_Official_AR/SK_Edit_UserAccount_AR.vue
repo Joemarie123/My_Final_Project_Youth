@@ -3,7 +3,7 @@
      <v-container>
         <v-row>
               <v-col  cols="5" sm="12" md="12" lg="5">
-                <v-card class="btn-hover color-1  " dark tile>
+                <v-card class="btn-hover color-1   " rounded-xl dark tile>
   
                   <v-col offset="1" cols="10">
   

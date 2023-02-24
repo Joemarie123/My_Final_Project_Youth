@@ -1,259 +1,274 @@
 <template>
-    <v-app id="inspire" :style="{background: $vuetify.theme.themes.dark.background}">
-      <SK_NavBar />
-      <v-container>
-        <v-row>
-          <v-col cols="12" sm="12">
+  <v-app id="inspire" :style="{background: $vuetify.theme.themes.dark.background}">
+    <SK_NavBar />
+    <v-container>
+      <v-row>
+        <v-col cols="12" sm="12">
+        
+          <v-row>
           
-            <v-row>
+            <v-col cols="12" sm="4" md="4" >
+               <v-card class="btn-hover color-1 mx-2 rounded-xl  draw-border" 
+               tile
+               elevation="16"> 
+                <v-row>
+
+                  <v-col cols="12" 
+                   sm="12" md="4"   >
+                    <v-list-item three-line>
+                      <v-list-item-content>
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/SK_Filter_DashBoard', query: { name: 'MALE' } }">
+                          <v-avatar size="60">
+                                <img src="/img1.png" alt="">
+                        </v-avatar>
+                      </v-btn>
+
+                      
+                        </div>
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Total Male</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                  </v-col>
+
+                  <v-col cols="12" 
+                   sm="12" md="4"   >
+                    <v-list-item three-line>
+                      <v-list-item-content>
+                        <div class="mb-4">
+
+                          <v-btn fab icon   :to="{ path: '/SK_Filter_DashBoard', query: { name: 'LGBTQIA+' } }">
+                          <v-avatar size="60">
+                                <img src="/lgbt.png" alt="">
+                        </v-avatar>
+                      </v-btn>
+
+                      
+                        </div>
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Total LGBTQIA+</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                  </v-col>
+
+                  <v-col cols="12" sm="12" md="4" >
+                    <v-list-item three-line>
+                      <v-list-item-content>
+
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/SK_Filter_DashBoard', query: { name: 'FEMALE' } }">
+                          <v-avatar size="60">
+                                <img src="/img3.png" alt="">
+                        </v-avatar>
+                        </v-btn>
+
+                        </div>
+  
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Total Female</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                  </v-col>
+  
+                </v-row>
+              </v-card>
+           
+            </v-col>
             
-              <v-col cols="12" sm="4" md="4" >
-                 <v-card class="btn-hover color-1 mx-2 rounded-xl mt-n7 draw-border" 
-                 tile
-                 elevation="16"> 
-                  <v-row>
-  
-  
-  
-                    <v-col cols="12" 
-                     sm="12" md="4"   >
-                      <v-list-item three-line>
-                        <v-list-item-content>
-                          <div class="mb-4">
-  
-                            <v-btn fab icon  @click="$router.push({ name: 'SK_Filter_DashBoard' })">
-                            <v-avatar size="60">
-                                  <img src="/img1.png" alt="">
-                          </v-avatar>
+            <v-col cols="12" sm="4"   >
+              <v-card class="btn-hover color-1 mx-2 rounded-xl  draw-border" 
+               tile
+               elevation="16"> 
+                <v-row>
+
+
+                  <v-col cols="12" 
+                   sm="12" md="4">
+                    <v-list-item three-line>
+                      <v-list-item-content>
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/SK_Filter_DashBoard', query: { name: 'SINGLE' } }">
+                          <v-avatar size="60">
+                                <img src="/img2.png" alt="">
+                        </v-avatar>
                         </v-btn>
+
+                        </div>
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Total Single</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>  
+                    
+                    
+                  </v-col>
   
-                        
-                          </div>
-                          <v-list-item-title class="headline mb-1 white--text">
-                          5,426
-                          </v-list-item-title>
-                          <v-list-item-subtitle class="white--text">Total Male</v-list-item-subtitle>
-                        </v-list-item-content>
-                      </v-list-item>
-                      
-                    </v-col>
-  
-                    <v-col cols="12" 
-                     sm="12" md="4"   >
-                      <v-list-item three-line>
-                        <v-list-item-content>
-                          <div class="mb-4">
-  
-                            <v-btn fab icon  @click="$router.push({ name: 'SK_Filter_DashBoard' })">
-                            <v-avatar size="60">
-                                  <img src="/lgbt.png" alt="">
-                          </v-avatar>
+                      <v-col cols="12" 
+                   sm="12" md="4">
+                    <v-list-item three-line>
+                      <v-list-item-content>
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/SK_Filter_DashBoard', query: { name: 'LIV-IN' } }">
+                          <v-avatar size="60">
+                                <img src="/livin.png" alt="">
+                        </v-avatar>
                         </v-btn>
+
+                        </div>
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Total Liv-in</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>  
+                    
+                    
+                  </v-col>
   
-                        
-                          </div>
-                          <v-list-item-title class="headline mb-1 white--text">
-                          5,426
-                          </v-list-item-title>
-                          <v-list-item-subtitle class="white--text">Total LGBTQ+</v-list-item-subtitle>
-                        </v-list-item-content>
-                      </v-list-item>
-                      
-                    </v-col>
-  
-  
-  
-  
-    
-                    <v-col cols="12" sm="12" md="4" >
-                      <v-list-item three-line>
-                        <v-list-item-content>
-  
-                          <div class="mb-4">
-  
-                            <v-btn fab icon  @click="$router.push({ name: 'SK_Filter_DashBoard' })">
-                            <v-avatar size="60">
-                                  <img src="/img3.png" alt="">
-                          </v-avatar>
-                          </v-btn>
-  
-                          </div>
-    
-                          <v-list-item-title class="headline mb-1 white--text">
-                          5,426
-                          </v-list-item-title>
-                          <v-list-item-subtitle class="white--text">Total Female</v-list-item-subtitle>
-                        </v-list-item-content>
-                      </v-list-item>
-                      
-                    </v-col>
-    
-                  </v-row>
-                </v-card>
-             
-              </v-col>
-              
-              <v-col cols="12" sm="4"   >
-                <v-card class="btn-hover color-1 mx-2 rounded-xl mt-n7 draw-border" 
-                 tile
-                 elevation="16"> 
-                  <v-row>
+                  <v-col cols="12" sm="12" md="4" >
+                    <v-list-item three-line>
+                      <v-list-item-content>
   
   
-                    <v-col cols="12" 
-                     sm="12" md="4">
-                      <v-list-item three-line>
-                        <v-list-item-content>
-                          <div class="mb-4">
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/SK_Filter_DashBoard', query: { name: 'MARRIED' } }">
+                          <v-avatar size="60">
+                                <img src="/married.png" alt="">
+                        </v-avatar>
+                      </v-btn>
+
+                        </div>
   
-                            <v-btn fab icon  @click="$router.push({ name: 'SK_Filter_DashBoard' })">
-                            <v-avatar size="60">
-                                  <img src="/img2.png" alt="">
-                          </v-avatar>
-                          </v-btn>
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Total Married</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                  </v-col>
   
-                          </div>
-                          <v-list-item-title class="headline mb-1 white--text">
-                          5,426
-                          </v-list-item-title>
-                          <v-list-item-subtitle class="white--text">Total Single</v-list-item-subtitle>
-                        </v-list-item-content>
-                      </v-list-item>  
-                      
-                      
-                    </v-col>
-    
-                        <v-col cols="12" 
-                     sm="12" md="4">
-                      <v-list-item three-line>
-                        <v-list-item-content>
-                          <div class="mb-4">
-  
-                            <v-btn fab icon  @click="$router.push({ name: 'SK_Filter_DashBoard' })">
-                            <v-avatar size="60">
-                                  <img src="/livin.png" alt="">
-                          </v-avatar>
-                          </v-btn>
-  
-                          </div>
-                          <v-list-item-title class="headline mb-1 white--text">
-                          5,426
-                          </v-list-item-title>
-                          <v-list-item-subtitle class="white--text">Total Liv-in</v-list-item-subtitle>
-                        </v-list-item-content>
-                      </v-list-item>  
-                      
-                      
-                    </v-col>
-    
-                    <v-col cols="12" sm="12" md="4" >
-                      <v-list-item three-line>
-                        <v-list-item-content>
-    
-    
-                          <div class="mb-4">
-  
-                            <v-btn fab icon  @click="$router.push({ name: 'SK_Filter_DashBoard' })">
-                            <v-avatar size="60">
-                                  <img src="/married.png" alt="">
-                          </v-avatar>
+                </v-row>
+              </v-card>
+           
+            </v-col>
+            <v-col cols="12" sm="4" md="4" >
+              <v-card class="btn-hover color-1 mx-6 rounded-xl  draw-border" 
+               tile
+               elevation="16"> 
+                <v-row>
+                  <v-col cols="12"  sm="12" md="4" >
+                    <v-list-item three-line>
+                      <v-list-item-content>
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/SK_Filter_DashBoard', query: { name: 'IP' } }">
+                          <v-avatar size="60">
+                                <img src="/pamulaan.png" alt="">
+                        </v-avatar>
                         </v-btn>
+
+                        </div>
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Total IP</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                  </v-col>
   
-                          </div>
-    
-                          <v-list-item-title class="headline mb-1 white--text">
-                          5,426
-                          </v-list-item-title>
-                          <v-list-item-subtitle class="white--text">Total Married</v-list-item-subtitle>
-                        </v-list-item-content>
-                      </v-list-item>
-                      
-                    </v-col>
-    
-                  </v-row>
-                </v-card>
-             
-              </v-col>
-              <v-col cols="12" sm="4">
-                <v-card class="btn-hover color-1 mx-6 rounded-xl mt-n7 draw-border" 
-                 tile
-                 elevation="16"> 
-                  <v-row>
-                    <v-col cols="12" offset-md="1" offset-sm="1" offset-lg="1"
-                     sm="12" md="5">
-                      <v-list-item three-line>
-                        <v-list-item-content>
-                          <div class="mb-4">
+                  <v-col cols="12"  sm="12" md="4">
+                    <v-list-item three-line>
+                      <v-list-item-content>
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/SK_Filter_DashBoard', query: { name: 'MUSLIM' } }">
+                          <v-avatar size="60">
+                                <img src="/muslim.jpg" alt="">
+                        </v-avatar>
+                        </v-btn>
+
+                        </div>
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Total Muslim</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                  </v-col>
   
-                            <v-btn fab icon  @click="$router.push({ name: 'SK_Filter_DashBoard' })">
-                            <v-avatar size="60">
-                                  <img src="/pamulaan.png" alt="">
-                          </v-avatar>
-                          </v-btn>
+                  <v-col cols="12" sm="12" md="4" >
+                    <v-list-item three-line>
+                      <v-list-item-content>
   
-                          </div>
-                          <v-list-item-title class="headline mb-1 white--text">
-                          5,426
-                          </v-list-item-title>
-                          <v-list-item-subtitle class="white--text">Total IP</v-list-item-subtitle>
-                        </v-list-item-content>
-                      </v-list-item>
-                      
-                    </v-col>
-    
-                    <v-col cols="12" sm="12" md="5"  offset-md="1" offset-sm="1" offset-lg="0">
-                      <v-list-item three-line>
-                        <v-list-item-content>
-    
-    
-                          <div class="mb-4">
   
-                            <v-btn fab icon  @click="$router.push({ name: 'SK_Filter_DashBoard' })">
-                            <v-avatar size="60">
-                                  <img src="/img5.png" alt="">
-                          </v-avatar>
-                          </v-btn>
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/SK_Filter_DashBoard', query: { name: 'PWD' } }">
+                          <v-avatar size="60">
+                                <img src="/pwd.jpg" alt="">
+                        </v-avatar>
+                        </v-btn>
+
+                        </div>
   
-                          </div>
-    
-                          <v-list-item-title class="headline mb-1 white--text">
-                          5,426
-                          </v-list-item-title>
-                          <v-list-item-subtitle class="white--text">Total Non-IP</v-list-item-subtitle>
-                        </v-list-item-content>
-                      </v-list-item>
-                      
-                    </v-col>
-    
-                  </v-row>
-                </v-card>
-             
-              </v-col>
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Total PWD</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                  </v-col>
   
-              <v-col cols="12" sm="12" md="12" lg="8">
-                <v-card class="btn-hover color-1 mx-2 mt-n4 rounded-xl draw-border" 
-              tile
-               >
-               <h1>Total Youth Members</h1>
-              <ChartComponent/>
-            </v-card>
-           </v-col>
+                </v-row>
+              </v-card>
+           
+            </v-col>
+
+            <v-col cols="12" sm="12" md="12" lg="8">
+              <v-card height="390" class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" 
+            tile
+             >
+             <h1>Apokon Total Youth Members - 50,000</h1>
+            <ChartComponent/>
+          </v-card>
+         </v-col>
+
+  <v-col cols="12" sm="12" md="12" lg="4" >
   
-    <v-col cols="12" sm="12" md="12" lg="4" >
-    
-      <v-card  class=" mx-2 mt-n3 mt-n8 draw-border" 
-              tile height="0"
-               >
-                  <SK_DataTable_Purok/>    
-        </v-card>          
-              </v-col>
-            </v-row>
-          
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-app>
-    </template>
+    <v-card  class=" mx-2 mt-n6  rounded-xl draw-border" 
+            tile height="0"
+             >
+                <SK_DataTable_Purok/>    
+      </v-card>          
+            </v-col>
+          </v-row>
+        
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
+  </template>
+  
     
     <script>
       import SK_DataTable_Purok from '@/views/Brgy_Sk_Official_AR/SK_DataTable_Purok'

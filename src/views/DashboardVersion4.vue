@@ -13,8 +13,6 @@
                elevation="16"> 
                 <v-row>
 
-
-
                   <v-col cols="12" 
                    sm="12" md="4"   >
                     <v-list-item three-line>
@@ -44,7 +42,7 @@
                       <v-list-item-content>
                         <div class="mb-4">
 
-                          <v-btn fab icon   :to="{ path: '/FilterDashBoard123', query: { name: 'LGBTQ+' } }">
+                          <v-btn fab icon   :to="{ path: '/FilterDashBoard123', query: { name: 'LGBTQIA+' } }">
                           <v-avatar size="60">
                                 <img src="/lgbt.png" alt="">
                         </v-avatar>
@@ -55,7 +53,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total LGBTQ+</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">Total LGBTQIA+</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -224,9 +222,9 @@
   
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'NON-IP' } }">
+                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'PWD' } }">
                           <v-avatar size="60">
-                                <img src="/img5.png" alt="">
+                                <img src="/pwd.jpg" alt="">
                         </v-avatar>
                         </v-btn>
 
@@ -235,7 +233,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total Non-IP</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">Total PWD</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     

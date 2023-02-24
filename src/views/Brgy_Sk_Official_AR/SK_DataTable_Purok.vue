@@ -98,33 +98,7 @@ export default {
 </script>
 
 
-<style>
-.v-data-table .v-data-table-header th  {
 
- 
-    
-
-  /* background: linear-gradient(#186f94, #0e7e48) padding-box, */
-       /*     linear-gradient(45deg, rgb(131, 139, 7), rgb(224, 221, 221)) border-box;  */
-
-
-         background: linear-gradient(#186f94, #0e7e48) padding-box,
-         linear-gradient(200deg  ,rgb(131, 139, 7) ,rgb(224, 221, 221) ,  rgba(130, 139, 7, 0),rgba(130, 139, 7, 0)  ) border-box,
-         linear-gradient(40deg  , rgba(130, 139, 7, 0),rgba(130, 139, 7, 0)  ) border-box;
-
-       /*   linear-gradient(45deg,rgba(130, 139, 7, 0) ,rgba(224, 221, 221, 0)) border-box;  */
-
-  border: 3px solid transparent;
-  border-radius: 50px;
-
-
-
-  font-size: 18px !important;
-  color: white !important;
-
-}
-
-</style>
 
 
 <style scoped> 

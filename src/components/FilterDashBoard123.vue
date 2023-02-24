@@ -63,24 +63,100 @@
 
 
               <v-container>
-                <v-row>
-                  <v-col cols="12" sm="6" md="4">
+                <div class="text-center ">
 
-                    <v-text-field v-model="editedItem.name" label="Full Name"></v-text-field>
+<v-alert dense dark color="blue darken-3">
+  EDIT USER PROFILE <strong> </strong>
+
+</v-alert>
+
+</div>
+
+               <v-row >
+
+                <v-col cols="10" sm="6" md="4"  offset-lg="5" offset-md="3" offset-sm="1">
+
+                <v-avatar size="90" class="mr-3">
+                            <img v-bind:src="`/${editedItem.image}`" alt="">
+                          </v-avatar>
+
+
+                        </v-col>
+               </v-row>
+
+
+
+               <v-row >
+
+<v-col cols="10" sm="6" md="4" offset-lg="4" offset-md="2" offset-sm="1" >
+
+  <v-text-field v-model="editedItem.name" label="Full Name"></v-text-field>
+
+        </v-col>
+</v-row>
+
+               
+
+
+
+
+                <v-row>
+
+
+
+
+                  
+                  <v-col cols="10" sm="6" md="4">
+
+                 
+                    <v-text-field v-model="editedItem.educational_level" label="Educational Level"></v-text-field>
+                  
                   </v-col>
-                  <v-col cols="12" sm="6" md="4">
+
+                  <v-col cols="10" sm="6" md="4">
                     <v-text-field v-model="editedItem.email" label="Email"></v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="4">
+                  
+                  <v-col cols="10" sm="6" md="4">
                     <v-text-field v-model="editedItem.mobilenum" label="Mobile Number"></v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.age" label="Age"></v-text-field>
+
+                  <v-col cols="10" sm="6" md="4">
+                    <v-text-field v-model="editedItem.birthday" label="Birth Day"></v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.barangay" label="Barangay"></v-text-field>
+
+                  <v-col cols="10" sm="6" md="4">
+                    <v-text-field v-model="editedItem.age" label="age"></v-text-field>
+                  </v-col>
+
+
+                  <v-col cols="10" sm="6" md="4">
+                  <v-text-field v-model="editedItem.barangay"
+                
+                  label="Barangay"></v-text-field>
 
                   </v-col>
+
+
+                  
+                  <v-col cols="10" sm="6" md="4">
+                    <v-text-field v-model="editedItem.ethnicity" label="Ethnicity"></v-text-field>
+                  </v-col>
+
+                       
+                  <v-col cols="10" sm="6" md="4">
+                    <v-text-field v-model="editedItem.gender" label="Gender"></v-text-field>
+                  </v-col>
+
+                  <v-col cols="10" sm="6" md="4">
+                    <v-text-field v-model="editedItem.civil_status" label="Civil Status"></v-text-field>
+                  </v-col>
+
+
+                  
+
+
+
                 </v-row>
               </v-container>
 
@@ -115,16 +191,14 @@
         <v-dialog v-model="dialog_events_attended" max-width="1000px" tile>
           <v-card>
 
-            <div class="text-center ">
+           <!--  <div class="text-center ">
 
               <v-alert dense dark color="blue darken-3">
                 EVENTS HISTORY <strong> </strong>
 
               </v-alert>
 
-            </div>
-
-
+            </div> -->
 
             <v-container>
               <v-row>
@@ -140,40 +214,66 @@
                       </v-col>
                  -->
                 <v-col cols="8 " sm="12" md="12">
-                  <v-data-table :headers="headers_event" :items="desserts" sort-by="calories" :hide-default-footer="true"
-                    :search="search_events">
-                    <template v-slot:top>
-                      <v-toolbar flat>
-                        <v-toolbar-title>
+                  <v-data-table :headers="headers_event" :items="desserts" :search="search_events" class="">
+      <template v-slot:top>
+          <v-toolbar flat dark color="blue darken-3">
+            
+              <v-toolbar-title>
 
                           <v-avatar size="60" class="mr-3">
                             <img v-bind:src="`/${editedItem.image}`" alt="">
                           </v-avatar>
 
-                        </v-toolbar-title>
-
-                        <v-text-field class="mt-5" v-model="editedItem.name" flat solo readonly></v-text-field>
-
-                        <v-divider class="mx-4" inset vertical></v-divider>
-                        <v-spacer></v-spacer>
 
 
-                        <v-text-field v-model="search_events" append-icon="mdi-magnify" label="Search" single-line
-                          hide-details></v-text-field>
+              </v-toolbar-title>
+              <v-text-field class="mt-5" v-model="editedItem.name" flat  readonly></v-text-field>
+              <v-spacer></v-spacer>
+              <v-spacer></v-spacer>
+              <v-text-field v-model="search_events" append-icon="mdi-magnify" label="Search" single-line hide-details
+                  outlined rounded dense></v-text-field>
+              <v-divider class="mx-4" vertical inset></v-divider>
 
-
-                        <v-btn text color="red" dark @click="dialog_events_attended = false">
-                          <v-icon>
+              <v-dialog v-model="dialog" max-width="550px" persistent>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn text color="red" dark @click="dialog_events_attended = false">
+                          <v-icon >
                             mdi-comment-remove-outline
                           </v-icon>
                         </v-btn>
+                  </template>
 
+          
 
-                      </v-toolbar>
-                    </template>
+              </v-dialog>
+              <v-dialog v-model="dialogDelete" max-width="500px">
+                  <v-card>
+                      <v-card-title class="text-h6">Are you sure to delete this Announcement?</v-card-title>
+                      <v-divider color="success"></v-divider>
+                      <v-card-actions>
+                          <v-spacer></v-spacer>
+                          <v-btn color="orange darken-1" text @click="closeDelete">Cancel</v-btn>
+                          <v-btn color="green darken-1" text @click="deleteItemConfirm">OK</v-btn>
+                          <v-spacer></v-spacer>
+                      </v-card-actions>
+                  </v-card>
+              </v-dialog>
+          </v-toolbar>
+      </template>
+      <template v-slot:item.actions="{ item }">
+          <v-icon small class="mr-2" @click="viewItem(item)">
+              mdi-eye
+          </v-icon>
+          <v-icon small class="mr-2" @click="editItem(item)">
+              mdi-pencil
+          </v-icon>
 
-                  </v-data-table>
-
+          <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+      </template>
+      <template slot="item.switch1" slot-scope="{ item }">
+          <v-switch v-model="item.switch1" color="success" dense></v-switch>
+      </template>
+  </v-data-table>
 
                 </v-col>
 
@@ -408,6 +508,8 @@
 
 
       </template>
+
+      
       <template v-slot:no-data>
         <v-btn color="primary" @click="initialize">
           Reset
@@ -541,11 +643,14 @@ export default {
             datesurvey: 'February 4,2022',
             voters:'Yes',
 
+              
+
           eventname: 'Tagum Lighting of Christmas tree',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          sinag:'Non-Sinag Member'
+          sinag:'Non-Sinag Member',
 
+          disability:"Mental/Intellectual"
 
         },
         {
@@ -573,6 +678,8 @@ export default {
           eventname: 'Youth Event Basket Ball Men',
           eventdate: 'January 4,2023',
           eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+
+          disability:"Hearing Disability"
 
 
         },
@@ -604,6 +711,8 @@ export default {
           eventdate: 'February 8,2023',
           eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
 
+          disability:"Psychological Disability"
+
         },
         {
 
@@ -633,6 +742,8 @@ export default {
           eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
 
 
+          disability:"Visual Diability"
+
         },
         {
           image: 'profilepic/armstrong.png',
@@ -658,6 +769,9 @@ export default {
           eventname: 'Tagum Youth Dota 2 Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+
+          disability:"Speech Impairement"
+
 
         },
         {
@@ -685,6 +799,8 @@ export default {
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
 
+
+          disability:"Mental/Intellectual"
         },
         {
           image: 'profilepic/lebron.png',
@@ -710,6 +826,10 @@ export default {
           eventname: 'Tagum Youth Soccer Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+
+          disability:"Disability due to chronic illness"
+
+
 
         },
         {
@@ -738,6 +858,9 @@ export default {
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
 
+          disability:"Orthopaedic (Musculoskeletal) Disability"
+
+
         },
         {
           image: 'profilepic/curay.png',
@@ -763,6 +886,9 @@ export default {
           eventname: 'Tagum Youth Golf Event ',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+
+          disability:"Learning Disability"
+
 
         },
 
@@ -790,6 +916,9 @@ export default {
           eventname: 'Tagum Lighting of Christmas tree',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+
+          disability:"Mental/Intellectual"
+
 
         },
 
@@ -868,7 +997,7 @@ export default {
       this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
-    else if (this.msg == "ALL YOUTH LGBTQ+") {
+    else if (this.msg == "ALL YOUTH LGBTQIA+") {
 
       this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender Preference", value: "genpref" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
@@ -899,9 +1028,9 @@ export default {
       this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
-    else if (this.msg == "ALL YOUTH NON-IP") {
+    else if (this.msg == "ALL YOUTH PWD") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Type of Disability", value: "disability" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
 

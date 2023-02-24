@@ -73,7 +73,8 @@ const routes = [
   {
     path: '/SK_Filter_DashBoard',
     name: 'SK_Filter_DashBoard',
-    component: SK_Filter_DashBoard
+    component: SK_Filter_DashBoard,
+    props: route => ({ name: route.query.name }),
   }, 
 
   {
