@@ -4,18 +4,6 @@
     <v-data-table :headers="headers" :items="desserts" sort-by="calories" class=" btn-hover color-1 elevation-1" dark
       :search="search">
 
-
-
-      <!--  <template v-slot:item.image="{ item }">
-
-    <v-avatar size="40">
-             <img v-bind:src="`/${item.image}`" alt="">
-     </v-avatar>
-
-    </template> -->
-
-
-
       <template v-slot:[`item.name`]="{ item }">
 
 
@@ -34,12 +22,20 @@
 
       <template v-slot:top>
         <v-toolbar flat dark class=" btn-hover color-1 elevation-1">
+
+          
           <v-toolbar-title>{{ msg }}</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
+       
 
           <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
             dark></v-text-field>
+     
+         
+
+
+
 
 
           <v-dialog v-model="dialog" max-width="700px" tile>
@@ -220,12 +216,12 @@
             
               <v-toolbar-title>
 
-                          <v-avatar size="60" class="mr-3">
+                          <v-avatar size="55" class="mr-3">
                             <img v-bind:src="`/${editedItem.image}`" alt="">
                           </v-avatar>
               </v-toolbar-title>
 
-              <v-text-field class="mt-5" v-model="editedItem.name" flat  readonly></v-text-field>
+              <v-text-field class="some-style mt-5" v-model="editedItem.name" flat   readonly></v-text-field>
               <v-spacer></v-spacer>
               <v-spacer></v-spacer>
               <v-text-field v-model="search_events" append-icon="mdi-magnify" label="Search" single-line hide-details
@@ -987,48 +983,54 @@ export default {
 
   mounted() {
     if (this.msg == "ALL YOUTH MALE") {
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" , align: "center" }, { text: "Age", value: "age"  }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
+
+    else if (this.msg == "ALL YOUTH undefined") {
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" , align: "center" }, { text: "Age", value: "age"  }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+    }
+
+    
     else if (this.msg == "ALL YOUTH FEMALE") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" , align: "center"}, { text: "Age", value: "age" , align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH LGBTQIA+") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender Preference", value: "genpref" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender Preference", value: "genpref" }, { text: "Mobile Number", value: "mobilenum" , align: "center"}, { text: "Age", value: "age" , align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
 
     else if (this.msg == "ALL YOUTH SINGLE") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" , align: "center" }, { text: "Age", value: "age" , align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH LIV-IN") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" , align: "center" }, { text: "Age", value: "age" , align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH MARRIED") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" , align: "center" }, { text: "Age", value: "age" , align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH IP") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Ethnicity/ tribe", value: "tribe" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Ethnicity/ tribe", value: "tribe" }, { text: "Mobile Number", value: "mobilenum" , align: "center" }, { text: "Age", value: "age" , align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH MUSLIM") {
-
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+ 
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum" , align: "center"}, { text: "Age", value: "age" , align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH PWD") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Types of Disability", value: "disability" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Types of Disability", value: "disability" }, { text: "Mobile Number", value: "mobilenum" , align: "center" }, { text: "Age", value: "age" , align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
 
@@ -1044,6 +1046,11 @@ export default {
 
 
 <style scoped>
+
+
+.some-style >>> .v-input__slot::before {
+  border-style: none !important;
+}
 
 .centered-input >>> input {
       text-align: center

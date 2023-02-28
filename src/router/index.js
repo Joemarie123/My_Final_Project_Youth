@@ -22,6 +22,8 @@ import ColumnChart from  '../components/ColumnChart.vue'
  import CreateEvents2 from '../views/EventsMenu_ADMIN/CreateEvents2.vue'
  import AttenDance from '../views/EventsMenu_ADMIN/AttenDance.vue'
 import FilterDashBoard123 from '../components/FilterDashBoard123.vue'
+import FilterFromDashBoard from '../components/FilterFromDashBoard.vue'
+
 
 
 
@@ -64,6 +66,15 @@ const routes = [
     name: 'Youth_Member_PersonalProfile',
     component: Youth_Member_PersonalProfile
   }, 
+
+  
+  {
+    path: '/FilterFromDashBoard',
+    name: 'FilterFromDashBoard',
+    component:FilterFromDashBoard
+  }, 
+
+
 
 
 
@@ -231,7 +242,8 @@ const routes = [
   {
     path: '/Navbar',
     name: 'Navbar',
-    component: Navbar
+    component: Navbar,
+    props:true,
   },
 
 

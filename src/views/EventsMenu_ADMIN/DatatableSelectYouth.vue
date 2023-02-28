@@ -67,7 +67,7 @@
           class=" btn-hover color-1 elevation-1"
 
         >
-          <v-toolbar-title>Attendance</v-toolbar-title>
+          <v-toolbar-title >Attendance</v-toolbar-title>
           <v-divider
             class="mx-4"
             inset

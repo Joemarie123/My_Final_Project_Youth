@@ -12,18 +12,18 @@
            </v-avatar>
            
           User Account List</v-toolbar-title>
+
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
 
         <v-row>
-          <v-col cols="8" >
+          <v-col cols="12" lg="8" md="12" sm="12">
 
             <v-text-field v-model="search" class="btn-hover" append-icon="mdi-magnify" label="Search" single-line hide-details
               dark></v-text-field>
-
           </v-col>
 
-          <v-col cols="4">
+          <v-col cols="12" lg="4" md="12" sm="12">
             <v-btn color="blue" tile class="btn-hover"  @click="create_user_account = true">
               <v-icon left>mdi-account-check</v-icon>
              Create User Account
@@ -88,28 +88,44 @@
 
         <v-dialog  v-model="create_user_account" dark  origin='center' max-width="500" >
         
-          <v-container>
+          <v-container >
         <v-row >   
         
         <v-col cols="12"   lg="12"  md="12" sm="12" class="mx-auto">
 
         
-          <v-card class="btn-hover color-1"  tile>
+          <v-card class="btn-hover color-1 rounded-lg"   tile>
           
-            <div class="text-center" >
-             <!--  <v-avatar size="100" color="indigo lighten-4">
-                <v-icon size="40" color="indigo">mdi-account</v-icon>
-              </v-avatar> -->
-              
+
+
+
+            
+
+            <v-row
+    
+    >
+      <v-col  md="10">
+        <div class="text-center" >
               <h1  >Create User Account</h1>
             </div>
+      </v-col>
+      <v-col
+        md="2"
+       
+      >
+      <v-btn text color="red" dark @click="create_user_account = false">
+                          <v-icon >
+                            mdi-comment-remove-outline
+                          </v-icon>
+                        </v-btn>
+      </v-col>
+    </v-row>
 
             <v-row>
   
   <v-col
   offset="1"
   cols="10"
-
   >
 
               <v-card-text>
@@ -806,7 +822,7 @@
    text-align:center;
    border: none;
    background-size: 300% 100%;
-   border-radius: 50px;
+   border-radius: 20px;
    moz-transition: all .4s ease-in-out;
    -o-transition: all .4s ease-in-out;
    -webkit-transition: all .4s ease-in-out;

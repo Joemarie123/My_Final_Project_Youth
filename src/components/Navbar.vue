@@ -27,13 +27,7 @@
     </v-app-bar>
 
 
-  <!--   <v-btn    color="blue" class="rounded-xl" >
-                  <v-icon left>mdi-account-check</v-icon>
-                LOG IN
-              
-                </v-btn> -->
-             
-    
+
     <v-navigation-drawer
    
     v-model="drawer"
@@ -168,6 +162,7 @@
 
 
 
+
         {
           icon: 'mdi-chevron-up',
           'icon-alt': 'mdi-chevron-down',
@@ -175,7 +170,7 @@
           text: 'Youth Record',
           model: false,
           children: [
-        { icon: 'mdi-tooltip-account', text: 'Search Record', route:'/YouTherecord'},
+        { icon: 'mdi-tooltip-account', text: 'Search Record',   route:'/YouTherecord'  },
         { icon: 'mdi-account-multiple-plus', text: 'Add Record', route:'/RegisterNew' },
         
           ],
