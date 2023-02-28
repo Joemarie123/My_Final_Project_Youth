@@ -164,10 +164,19 @@ methods:{
        this.$router.push('/SK_DashBoard'); 
       }
 
+      else if (this.usernamenako=="Youth-jesica",this.password=="12345"){
+
+        this.$router.push('/Youth_Member_Dashboard'); 
+
+      }
+
      else{
 
       this.$router.push('/DashboardVersion4'); 
      }  
+
+
+
 
   }
 

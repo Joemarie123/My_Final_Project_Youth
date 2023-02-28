@@ -65,6 +65,13 @@ import VueApexCharts from 'vue-apexcharts'
              
           },
           
+          grid: {
+  xaxis: {
+    lines: {
+      show: false
+    }
+  }
+}
 
 /* responsive: [
   {

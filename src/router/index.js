@@ -39,6 +39,11 @@ import FilterDashBoard123 from '../components/FilterDashBoard123.vue'
  import SK_Edit_UserAccount_AR from '../views/Brgy_Sk_Official_AR/SK_Edit_UserAccount_AR.vue'
  
 
+/* YOUTH MEMBER */
+import Youth_Member_Dashboard from '../views/Youth_Member_AR/Youth_Member_Dashboard.vue'
+import Youth_Member_PersonalProfile from '../views/Youth_Member_AR/Youth_Member_PersonalProfile.vue'
+
+
 
 
  
@@ -53,6 +58,23 @@ const routes = [
   },
 
   
+
+  {
+    path: '/Youth_Member_PersonalProfile',
+    name: 'Youth_Member_PersonalProfile',
+    component: Youth_Member_PersonalProfile
+  }, 
+
+
+
+  {
+    path: '/Youth_Member_Dashboard',
+    name: 'Youth_Member_Dashboard',
+    component: Youth_Member_Dashboard
+  }, 
+
+ 
+
   {
     path: '/SK_Edit_UserAccount_AR',
     name: 'SK_Edit_UserAccount_AR',

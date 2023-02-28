@@ -121,7 +121,7 @@
                     <v-text-field v-model="editedItem.mobilenum" label="Mobile Number"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" sm="6" md="4">
+                  <v-col cols="10" sm="6" md="4" >
                     <v-text-field v-model="editedItem.birthday" label="Birth Day"></v-text-field>
                   </v-col>
 
@@ -223,10 +223,8 @@
                           <v-avatar size="60" class="mr-3">
                             <img v-bind:src="`/${editedItem.image}`" alt="">
                           </v-avatar>
-
-
-
               </v-toolbar-title>
+
               <v-text-field class="mt-5" v-model="editedItem.name" flat  readonly></v-text-field>
               <v-spacer></v-spacer>
               <v-spacer></v-spacer>
@@ -1030,7 +1028,7 @@ export default {
 
     else if (this.msg == "ALL YOUTH PWD") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Type of Disability", value: "disability" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Types of Disability", value: "disability" }, { text: "Mobile Number", value: "mobilenum" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
 

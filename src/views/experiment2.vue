@@ -3,16 +3,25 @@
             <div>
 
                 <v-card class="mb-6">
+                  <h1 class="green--text text-center">
+               Dynamic TextField in Vuejs
+                </h1>
+               
+
               <v-col cols="12" md="12" sm="12">
-                <h4 class="green--text">
-                  Technical / Vocational and Other Trainings
-                </h4>
+             
+
+
+                
+          
+
+
                 <div v-for="(item, index) in form" :key="item">
-                  <v-row>
+                  <v-row justify="center">
                     <v-col cols="12" md="2">
                       <v-text-field
                         outlined
-                        label="Training / Vocational Course"
+                        label="First Name"
                         dense
                         color="success"
                         v-model="item.training_course"
@@ -20,21 +29,11 @@
                       >
                       </v-text-field>
                     </v-col>
+                
                     <v-col cols="12" md="2">
                       <v-text-field
                         outlined
-                        label="Hours of Training"
-                        type="number"
-                        dense
-                        color="success"
-                        v-model="item.hours_training"
-                      >
-                      </v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="2">
-                      <v-text-field
-                        outlined
-                        label="Training Institition"
+                        label="Last Name"
                         dense
                         color="success"
                         v-model="item.training_institution"
@@ -44,23 +43,14 @@
                     <v-col cols="12" md="2">
                       <v-text-field
                         outlined
-                        label="Skills Acquired"
+                        label="Middle Name"
                         dense
                         color="success"
                         v-model="item.skills_acquired"
                       >
                       </v-text-field>
                     </v-col>
-                    <v-col cols="12" md="2">
-                      <v-text-field
-                        outlined
-                        label="Certificate Acquired"
-                        dense
-                        color="success"
-                        v-model="item.certificate_acquired"
-                      >
-                      </v-text-field>
-                    </v-col>
+                   
                     <v-col cols="12" md="2">
                       <v-btn
                         color="error"
