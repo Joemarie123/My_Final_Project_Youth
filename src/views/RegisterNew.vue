@@ -379,7 +379,7 @@
                       prepend-inner-icon="mdi-map-marker"
                       v-model="SignupBarangay"
                       required
-                      color="white"
+                   
                     ></v-select>
                     
                       </v-col>
@@ -398,36 +398,13 @@
                     ></v-select>
                       </v-col>
 
-                     
-                    </v-row>
-                    
-                  </v-container>
-                  <small>*indicates required field</small>
-                </v-card-text>
-                <v-btn id="v-btn-c" color="green" @click="e1 = 2">
-                Continue
-              </v-btn>
-
-              <v-btn id="v-btn-c" class="ma-4" @click="dialog = false">
-                Cancel
-              </v-btn>
-
-              </v-card>
-
-             
-            </v-stepper-content>
-
-            <!-- One.one Stepper -->
-          
-            <!--   Second Stepper -->
-            <v-stepper-content step="2">
-              <v-card class="mb-12" color="grey lighten-4">
+                   
                 <v-card-text>
                   <v-container fluid>
                     <H4 >YOUTH CHARACTERISTICS</H4>
                     <v-row>
                       
-                      <v-col cols="12" sm="12" md="2">
+                      <v-col cols="12" sm="12" md="3">
                         <p class="font-weight-bold">SEX</p>
                         <v-radio-group row>
 
@@ -465,18 +442,6 @@
                        
                       </v-col>
 
-
-
-
-
-
-
-
-
-
-
-
-
                       <v-col cols="12" sm="12" md="3">
                         <p class="font-weight-bold">Ethnicity/ tribe: See codes below</p>
                         <v-select 
@@ -489,7 +454,7 @@
                        
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="4">
+                      <v-col cols="12" sm="12" md="3">
                         <p class="font-weight-bold">Religious Affiliation</p>
                         <v-select
                       :items="['Roman Catholic' , 'Iglesia Ni Cristo' , 'Evangelical' , 'Islam' , 'Seventh Day Adventist' , 'Church of Christ' , 'United Church of Christ in the Philippines' , 'Dating Daan']"
@@ -501,12 +466,12 @@
         
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2">
+                      <v-col cols="12" sm="12" md="3">
                         <p class="font-weight-bold">Are you an overseas worker?</p>
                         <v-radio-group row>
-                          <v-radio   @change="country_destination = true"  value="yes"  label="Yes" ></v-radio>
+                          <v-radio   @click="country_destination = true"  value="yes"  label="Yes" ></v-radio>
 
-                          <v-radio @change="country_destination = false" value="no" label="No"></v-radio>
+                          <v-radio @click="country_destination = false" value="no" label="No"></v-radio>
 
                         </v-radio-group>
                        
@@ -522,11 +487,38 @@
 
             
 
-
+                      <!--     COUNTRY OF DESTINATION START -->
                  
-                 <v-col cols="12" sm="12" md="3" class="ma-2" v-show="country_destination">
-                        <p class="font-weight-bold">What is the country of destination? </p>
+                          <v-dialog v-model="country_destination" max-width="380px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+                                  
+                                  <!-- <v-col cols="12" sm="12" md="12" >
+
+                                    <v-btn text color="red" dark @click="country_destination = false">
+                          <v-icon >
+                            mdi-comment-remove-outline
+                          </v-icon>
+                        </v-btn>
+                                  </v-col> -->
+
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What is the country of destination?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+
+
+                     <v-col cols="12" sm="12" md="4" class="mx-5" style="margin-top: -30px" >
+                     
                         <v-checkbox-group>
+                          
                           <v-checkbox
                             label="Australia"
                           ></v-checkbox>
@@ -556,11 +548,9 @@
                           ></v-checkbox>
                         </v-checkbox-group>
                       </v-col>
-
-
-                      <v-col cols="12" sm="12" md="3" class="ma-2" v-show="country_destination">
+                      <v-col cols="12" sm="12" md="5" class="mx-5" style="margin-top: -30px">
                         <v-checkbox-group>
-                          <p class="font-weight-bold">.</p>
+                         
                           <v-checkbox
                             label="Saudi Arabia"
                           ></v-checkbox>
@@ -580,17 +570,44 @@
                             label="USA"
                             style="margin-top: -10px"
                           ></v-checkbox>
-                          <v-text-field label="Other, specify" ></v-text-field>
+                         
                         </v-checkbox-group>
-                        
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2" class="ma-2">
+                  
+                      <v-col cols="10" sm="10" md="10"  style="margin-left: 20px; margin-top: -25px;" >
+                        <v-text-field label="Other, specify" ></v-text-field>
+                    </v-col>
+
+                   
+                    <v-col cols="12" sm="3" md="3" style="margin-left: 10px;">
                      
+                      <v-btn text color="green"  outlined dark @click="country_destination = false">
+                        Continue
+                        </v-btn>
+                     
+                    </v-col>
+
+                    <v-col cols="12" sm="3" md="3" style="margin-left: 10px;"  >
+                    <v-btn text color="red"  outlined dark @click="country_destination = false">
+                        Close
+                        </v-btn>
+                      </v-col>
+                  
+
+
+                    </v-row>
+                    </v-container>
+                    </v-card>
+                    </v-dialog>
+                         <!--     COUNTRY OF DESTINATION END -->
+
+                          <v-row>
+                      <v-col cols="12" sm="12" md="4" >
                      <h3>Where did you Reside 3 Years Ago?</h3>
                      <v-checkbox
                             label="Same Address Now"
-                            style="margin-top: -10px"
+                            
                           ></v-checkbox>
                           <v-text-field
                           label="Other Address, Specify"
@@ -599,42 +616,48 @@
                           </v-text-field>
                       </v-col>
 
-                      
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 3">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 1" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-             
-            </v-stepper-content>
-
-            <!-- Third Stepper -->
-            <v-stepper-content step="3">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <H4>EDUCATION AND LITERACY (1)</H4>
-                    <v-row>
-                     
                       <v-col cols="12" sm="12" md="3" >
+                        <H4>EDUCATION AND LITERACY (1)</H4>
                         <p class="font-weight-bold">Are You Currently Attending School?</p>
                         <v-radio-group row>
-                          <v-radio  @change="what_grade_year_currently_attending = true, where_did_you_attend_school = true , are_you_graduate_senior_high=true, why_your_not_attending_school=false ,  whats_your_highest_educational_attainment=false" value="yes" label="Yes"></v-radio>
-                          <v-radio  @change="what_grade_year_currently_attending = false, where_did_you_attend_school = false , are_you_graduate_senior_high=false , why_your_not_attending_school=true , whats_your_highest_educational_attainment=true" value="no"  label="No"></v-radio>
+                          <v-radio  @click="what_grade_year_currently_attending = true" value="yes" label="Yes"></v-radio>
+                          <v-radio  @click=" why_your_not_attending_school=true " value="no"  label="No"></v-radio>
                         </v-radio-group>
                            
                       </v-col>
 
-                      <v-col   cols="12" sm="12" md="4"  v-show="what_grade_year_currently_attending">
-                       
+                    </v-row>
 
+               <!--      EDUCATION AND LITERACY (1)  START-->
+
+                  
+           
+                  <v-container fluid>
+                    
+                    <v-row>
+                    
+                 <!--      if Yes in Are You Currently Attending School  START -->
+                 <v-dialog v-model="what_grade_year_currently_attending" max-width="380px"> 
+                  <v-card> 
+                              <v-container>
+
+                                <v-row>
+                                  
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What grade or year you are currently attending?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+                            
+
+                      <v-col   cols="12" sm="12" md="12"  style="margin-top: -10px" >
                        <v-select
                      :items="['Elementary - Grade 1', 'Elementary - Grade 2', 'Elementary - Grade 3' , 'Elementary - Grade 4', 'Elementary - Grade 5', 'Elementary - Grade 6' , 'Junior High - Grade 7' , 'Junior High - Grade 8' , 'Junior High - Grade 9' , 'Junior High - Grade 10' , 'Senior High - Grade 11' , 'Senior High - Grade 12' , '1st Year PS/N-T/TV' , '2nd Year PS/N-T/TV' , '1st Year College' , '2nd Year College' , '3rd Year College' , '4th Year College' ]"
-                     label="What grade or year you are currently attending?"
+                     label="Select Grade"
                      prepend-inner-icon="mdi-clipboard-account"
                      v-model="usrelevel"
                      required
@@ -644,8 +667,7 @@
                      </v-col>
                     
 
-
-                      <v-col cols="12" sm="12" md="4" v-show="where_did_you_attend_school">
+                      <v-col cols="10" sm="12" md="12" style="margin-top: -10px" >
                         <p class="font-weight-bold">Where Did You Attend School</p>
                         <v-radio-group row>
                           <v-radio value="public" label="Public"></v-radio>
@@ -654,8 +676,53 @@
                        
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="3" class="ma-2" v-show="why_your_not_attending_school">
-                        <p class="font-weight-bold">Why you are not attending school? </p>
+
+                      <v-col cols="12" sm="4" md="3" style="margin-left: 10px;">
+                     
+                     <v-btn text color="green"  outlined dark @click="what_grade_year_currently_attending = false">
+                       Continue
+                       </v-btn>
+                    
+                   </v-col>
+
+                   <v-col cols="12" sm="4" md="3" style="margin-left: 10px;"  >
+                   <v-btn text color="red"  outlined dark @click="what_grade_year_currently_attending = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                 
+                    </v-row>
+
+                    
+                    </v-container>
+                      </v-card> 
+
+                    </v-dialog>
+
+                       <!--      if Yes in Are You Currently Attending School  END -->
+
+
+
+          <!--      if No in Are You Currently Attending School  START -->
+
+          <v-dialog v-model="why_your_not_attending_school" max-width="700px"> 
+            <v-card> 
+                              <v-container>
+
+                                <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Why you are not attending school?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+
+                            <v-row>
+
+                      <v-col cols="12" sm="12" md="6" class="ml-4" >
+                      
                         <v-checkbox-group>
                           <v-checkbox
                             label="Schools are far/ Inaccessible"
@@ -676,12 +743,13 @@
                             label="Employment/ Looking for work"
                             style="margin-top: -10px"
                           ></v-checkbox>
+                          <v-text-field label="Others"></v-text-field>
                         </v-checkbox-group>
                       </v-col>
 
 
-                      <v-col cols="12" sm="12" md="3" class="ma-2" v-show="why_your_not_attending_school">
-                        <h4 >. </h4>
+                      <v-col cols="12" sm="12" md="5"  >
+                      
                         <v-checkbox-group>
                           <v-checkbox
                             label="Affected by armed conflict"
@@ -707,11 +775,14 @@
                             style="margin-top: -10px"
                           ></v-checkbox>
 
-                          <v-text-field label="Others"></v-text-field>
+                         
                         </v-checkbox-group>
                       </v-col>
+                    </v-row>
 
-                      <v-col cols="12" sm="12" md="2" v-show="whats_your_highest_educational_attainment">
+
+
+                      <v-col cols="12" sm="12" md="8" >
                         <p class="font-weight-bold">What is your highest educational attainment/ completed?</p>
 
                         <v-select
@@ -728,7 +799,7 @@
 
                    ></v-select>
 
-                     <!--   <div v-show="are_you_graduate_senior_high"> -->
+                    
                       <p class="font-weight-bold">Are You a graduate of Senior high?</p>
                         <v-radio-group row>
                           <v-radio value="yes" label="Yes"></v-radio>
@@ -742,36 +813,52 @@
                      v-model="strand"
                      required
                    ></v-select>
-                
-              <!--     </div> -->
+            
 
                       </v-col>
 
               
-                      <v-col cols="12" sm="12" md="3" v-show="are_you_graduate_senior_high">
-                      <p class="font-weight-bold">Are You a graduate of Senior high?</p>
-                        <v-radio-group row>
-                          <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio  value="no" label="No"></v-radio>
-                        </v-radio-group>
-       
-                      </v-col>
-
-               <v-col   cols="12" sm="12" md="3" v-show="are_you_graduate_senior_high"> 
-                       
-                           <v-select
-                     :items="['Accounting, Business Mgt', 'Science, tech. Eng’g& Mathematics ', 'Humanities and Social Sutdies' , 'General Academic', 'Home Economics', 'Agri-Forestry and Fishery' , 'Industrial Arts' , 'Info & Comm. Tech (ICT)' , 'Sports' , 'Arts and Design' , 'TVL Automotive'  ]"
-                     label="What Is Your Strand"
-                     prepend-inner-icon="mdi-clipboard-account"
-                     v-model="usrelevel"
-                     required
-                   ></v-select>
+           
+                   
+                   <v-row>
+                  
+                   <v-col cols="12" sm="4" md="3">
                      
+                     <v-btn text color="green"  outlined dark @click="why_your_not_attending_school = false">
+                       Continue
+                       </v-btn>
+                    
+                   </v-col>
+
+                   <v-col cols="12" sm="4" md="3"  >
+                   <v-btn text color="red"  outlined dark @click="why_your_not_attending_school = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+
+                    </v-row>
+                    
+                  </v-container>
+                </v-card> 
+                      
+
+                   </v-dialog>
+   <!--      if No in Are You Currently Attending School  END -->
 
 
-                   </v-col> 
 
-                 
+
+
+
+
+
+
+
+
+
+
+
+
 
                     </v-row>
 
@@ -782,18 +869,59 @@
 
 
                   </v-container>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 3.1">
+                 
+            
+            
+
+
+     <!--      EDUCATION AND LITERACY (1)  END-->
+
+
+
+
+
+
+
+
+
+
+
+                      
+                    </v-row>
+                   
+                  </v-container>
+                </v-card-text>
+            
+
+                     
+                    </v-row>
+                    
+                  </v-container>
+                  <small>*indicates required field</small>
+                </v-card-text>
+                <v-btn id="v-btn-c" color="green" @click="e1 = 2">
                 Continue
               </v-btn>
-              <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
-                </v-card-text>
+
+              <v-btn id="v-btn-c" class="ma-4" @click="dialog = false">
+                Cancel
+              </v-btn>
+
               </v-card>
 
-            
+             
             </v-stepper-content>
 
+            <!-- One.one Stepper -->
+          
+            <!--   Second Stepper -->
+           
+
+            <!-- Third Stepper -->
+          
+
             <!-- Fourth Stepper -->
-            <v-stepper-content step="3.1">
+            <v-stepper-content step="2">
               <v-card class="mb-12" color="grey lighten-4">
                 <v-card-text>
                   <v-container fluid>
