@@ -1,318 +1,238 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="desserts"
-    :sort-by="[{ key: 'calories', order: 'asc' }]"
-    class="elevation-1"
-   
-  >
-    <template v-slot:top>
-      <v-toolbar
-        flat
-      >
-        <v-toolbar-title>My CRUD</v-toolbar-title>
-        <v-divider
-          class="mx-4"
-          inset
-          vertical
-        ></v-divider>
-        <v-spacer></v-spacer>
-        <v-dialog
-          v-model="dialog"
-          max-width="500px"
-        >
-          <template v-slot:activator="{ props }">
-            <v-btn
-              color="primary"
-              dark
-              class="mb-2"
-              v-bind="props"
-            >
-              New Item
-            </v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ formTitle }}</span>
-            </v-card-title>
+  <v-data-table :headers="headers" :items="desserts" :search="search" class="">
+      <template v-slot:top>
+          <v-toolbar flat dark color="#1B5E20">
+              <v-toolbar-title>ANNOUNCEMENT POST </v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-spacer></v-spacer>
+              <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
+                  outlined rounded dense></v-text-field>
+              <v-divider class="mx-4" vertical inset></v-divider>
 
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.name"
-                      label="Dessert name"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.calories"
-                      label="Calories"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.fat"
-                      label="Fat (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.carbs"
-                      label="Carbs (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.protein"
-                      label="Protein (g)"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card-text>
+              <v-dialog v-model="dialog" max-width="550px" persistent>
+                  <template v-slot:activator="{ on, attrs }">
+                      <v-btn color="success" dark class="mb-2" v-bind="attrs" v-on="on">
+                          <v-icon> mdi-plus </v-icon> NEW ANNOUNCEMENT
+                      </v-btn>
+                  </template>
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                color="blue-darken-1"
-                variant="text"
-                @click="close"
-              >
-                Cancel
-              </v-btn>
-              <v-btn
-                color="blue-darken-1"
-                variant="text"
-                @click="save"
-              >
-                Save
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue-darken-1" variant="text" @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue-darken-1" variant="text" @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-toolbar>
-    </template>
-    <template v-slot:item.actions="{ item }">
-      <v-icon
-        size="small"
-        class="me-2"
-        @click="editItem(item.raw)"
-      >
-        mdi-pencil
-      </v-icon>
-      <v-icon
-        size="small"
-        @click="deleteItem(item.raw)"
-      >
-        mdi-delete
-      </v-icon>
-    </template>
-    <template v-slot:no-data>
-      <v-btn
-        color="primary"
-        @click="initialize"
-      >
-        Reset
-      </v-btn>
-    </template>
+                  <v-card>
+                      <v-card-title>
+                          <span class="text-h5" color="green">{{formTitle}}</span>
+                      </v-card-title>
+                      <v-divider color="green"></v-divider>
+
+                      <v-card-text>
+                          <v-container fluid>
+                              <v-row>
+                                  <v-col cols="12" sm="12" md="12">
+                                      <v-text-field label="Announcement Title" required outlined dense color="green"
+                                          v-model="editedItem.announcement_title">
+                                      </v-text-field>
+                                  </v-col>
+                                  <v-col cols="6" sm="6" md="6">
+                                      <v-text-field label="Date" type="date" required outlined dense color="green"
+                                          v-model="editedItem.date" class="mt-n6">
+                                      </v-text-field>
+                                  </v-col>
+                                  <v-col cols="6" sm="6" md="6">
+                                      <v-text-field label="Time" type="time" required outlined dense color="green"
+                                          v-model="editedItem.time" class="mt-n6">
+                                      </v-text-field>
+                                  </v-col>
+                                  <v-col cols="12" sm="12" md="12">
+                                      <v-text-field label="Location" type="text" required outlined dense color="green"
+                                          v-model="editedItem.location" class="mt-n6">
+                                      </v-text-field>
+                                  </v-col>
+                                  <v-col cols="12" sm="12" md="12">
+                                      <v-text-field label="Participants" type="text" required outlined dense
+                                          color="green" v-model="editedItem.participants" class="mt-n6">
+                                      </v-text-field>
+                                  </v-col>
+                                  <v-col cols="12" sm="12" md="12">
+                                      <v-textarea label="Details" type="text" required outlined dense color="green"
+                                          v-model="editedItem.details" class="mt-n6" auto-grow clearable>
+                                      </v-textarea>
+                                  </v-col>
+                              </v-row>
+                          </v-container>
+                          <v-container style="margin-top: -80px">
+                              <v-btn id="v-btn-c" color="success" @click=save>
+                                  Save
+                              </v-btn>
+                              <v-btn @click="dialog = false" class="ma-2"> Cancel </v-btn>
+                          </v-container>
+
+                      </v-card-text>
+                  </v-card>
+                  <!-- <v-dialog v-model="dialog1" max-width="290">
+                      <v-card>
+                          <v-card-title class="text-h5"> UNSAVED CHANGES </v-card-title>
+
+                          <v-card-text>
+                              You have created an Appointment. Do you want to save or
+                              discard it?
+                          </v-card-text>
+
+                          <v-card-actions>
+                              <v-spacer></v-spacer>
+
+                              <v-btn color="green darken-1" text @click="dialog = false">
+                                  Discard
+                              </v-btn>
+
+                              <v-btn color="green darken-1" text @click="dialog = false, show = false" type="submit">
+                                  Save
+                              </v-btn>
+                          </v-card-actions>
+                      </v-card>
+                  </v-dialog> -->
+              </v-dialog>
+              <v-dialog v-model="dialogDelete" max-width="500px">
+                  <v-card>
+                      <v-card-title class="text-h6">Are you sure to delete this Announcement?</v-card-title>
+                      <v-divider color="success"></v-divider>
+                      <v-card-actions>
+                          <v-spacer></v-spacer>
+                          <v-btn color="orange darken-1" text @click="closeDelete">Cancel</v-btn>
+                          <v-btn color="green darken-1" text @click="deleteItemConfirm">OK</v-btn>
+                          <v-spacer></v-spacer>
+                      </v-card-actions>
+                  </v-card>
+              </v-dialog>
+          </v-toolbar>
+      </template>
+      <template v-slot:item.actions="{ item }">
+          <v-icon small class="mr-2" @click="viewItem(item)">
+              mdi-eye
+          </v-icon>
+          <v-icon small class="mr-2" @click="editItem(item)">
+              mdi-pencil
+          </v-icon>
+
+          <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+      </template>
+      <template slot="item.switch1" slot-scope="{ item }">
+          <v-switch v-model="item.switch1" color="success" dense></v-switch>
+      </template>
   </v-data-table>
 </template>
 
 <script>
-  export default {
-    data: () => ({
+/* eslint-disable */
+
+export default {
+  components: {},
+
+  data: () => ({
+      search: "",
       dialog: false,
+      dialog1: false,
       dialogDelete: false,
       headers: [
-        {
-          title: 'Dessert (100g serving)',
-          align: 'start',
-          sortable: false,
-          key: 'name',
-        },
-        { title: 'Calories', key: 'calories' },
-        { title: 'Fat (g)', key: 'fat' },
-        { title: 'Carbs (g)', key: 'carbs' },
-        { title: 'Protein (g)', key: 'protein' },
-        { title: 'Actions', key: 'actions', sortable: false },
+          { text: "Announcement Title", value: "announcement_title" },
+          { text: "Participants", value: "participants" },
+          { text: "Actions", value: "actions", sortable: false, },
       ],
       desserts: [],
       editedIndex: -1,
       editedItem: {
-        name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0,
+
       },
       defaultItem: {
-        name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0,
+
       },
-    }),
-    computed: {
-      formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+  }),
+
+  computed: {
+      formTitle() {
+          return this.editedIndex === -1 ? "New Announcement" : "Edit Announcement";
       },
-    },
-    watch: {
-      dialog (val) {
-        val || this.close()
+  },
+
+  watch: {
+      dialog(val) {
+          val || this.close();
       },
-      dialogDelete (val) {
-        val || this.closeDelete()
+      dialogDelete(val) {
+          val || this.closeDelete();
       },
-    },
-    created () {
-      this.initialize()
-    },
-    methods: {
-      initialize () {
-        this.desserts = [
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-          },
-          {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-          },
-          {
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-          },
-          {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-          },
-          {
-            name: 'Jelly bean',
-            calories: 375,
-            fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-          },
-          {
-            name: 'Lollipop',
-            calories: 392,
-            fat: 0.2,
-            carbs: 98,
-            protein: 0,
-          },
-          {
-            name: 'Honeycomb',
-            calories: 408,
-            fat: 3.2,
-            carbs: 87,
-            protein: 6.5,
-          },
-          {
-            name: 'Donut',
-            calories: 452,
-            fat: 25.0,
-            carbs: 51,
-            protein: 4.9,
-          },
-          {
-            name: 'KitKat',
-            calories: 518,
-            fat: 26.0,
-            carbs: 65,
-            protein: 7,
-          },
-        ]
+  },
+
+  created() {
+      this.initialize();
+  },
+
+  methods: {
+      initialize() {
+          this.desserts = [
+              {
+                  announcement_title: "Applicant Training",
+                  participants: "Applicants",
+                  details: "ASASASA",
+                  date: "02/25/2023",
+                  time: "08:00 am",
+                  location: "Tagum City"
+              },
+              {
+                  announcement_title: "Scholars Orientation",
+                  participants: "Scholars",
+              },
+              {
+                  announcement_title: "Employers Meeting",
+                  participants: "Employers",
+              },
+          ];
       },
-      editItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialog = true
+
+      editItem(item) {
+          this.editedIndex = this.desserts.indexOf(item);
+          this.editedItem = Object.assign({}, item);
+          this.dialog = true;
       },
-      deleteItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
+
+      viewItem(item) {
+          this.editedIndex = this.desserts.indexOf(item);
+          this.edited.Item = Object.assign({}, item);
+          this.dialog = true;
       },
-      deleteItemConfirm () {
-        this.desserts.splice(this.editedIndex, 1)
-        this.closeDelete()
+
+      deleteItem(item) {
+          this.editedIndex = this.desserts.indexOf(item);
+          this.editedItem = Object.assign({}, item);
+          this.dialogDelete = true;
       },
-      close () {
-        this.dialog = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
+
+      deleteItemConfirm() {
+          this.desserts.splice(this.editedIndex, 1);
+          this.closeDelete();
       },
-      closeDelete () {
-        this.dialogDelete = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
+
+      close() {
+          this.dialog = false;
+          this.$nextTick(() => {
+              this.editedItem = Object.assign({}, this.defaultItem);
+              this.editedIndex = -1;
+          });
       },
-      save () {
-        if (this.editedIndex > -1) {
-          Object.assign(this.desserts[this.editedIndex], this.editedItem)
-        } else {
-          this.desserts.push(this.editedItem)
-        }
-        this.close()
+
+      closeDelete() {
+          this.dialogDelete = false;
+          this.$nextTick(() => {
+              this.editedItem = Object.assign({}, this.defaultItem);
+              this.editedIndex = -1;
+          });
       },
-    },
-  }
+
+      save() {
+          if (this.editedIndex > -1) {
+              Object.assign(this.desserts[this.editedIndex], this.editedItem);
+          } else {
+              this.desserts.push(this.editedItem);
+          }
+          this.close();
+      },
+  },
+};
 </script>

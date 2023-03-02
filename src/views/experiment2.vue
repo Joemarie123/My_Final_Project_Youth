@@ -10,12 +10,6 @@
 
               <v-col cols="12" md="12" sm="12">
              
-
-
-                
-          
-
-
                 <div v-for="(item, index) in form" :key="item">
                   <v-row justify="center">
                     <v-col cols="12" md="2">

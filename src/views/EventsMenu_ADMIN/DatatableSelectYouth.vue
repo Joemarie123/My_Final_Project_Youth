@@ -531,7 +531,7 @@ export default {
          
         },
         {
-          name: 'NE IL',
+          name: 'Binjamin Roble',
           sinagmember:true,
           image: 'profilepic/Neil.jpg'
         
