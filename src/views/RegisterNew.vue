@@ -418,7 +418,7 @@
 
                                        </v-alert>
                                  </div>
-                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                               
                             </v-col>
 
 
@@ -1066,7 +1066,7 @@
 
                         </v-checkbox-group>
                       </v-col>
-                      <v-col cols="12" sm="12" md="3" style="margin-top: 36px" >
+                      <v-col cols="12" sm="12" md="3"  style="margin-top: 36px" >
                       
                         <v-checkbox-group>
                           <v-checkbox
@@ -1116,9 +1116,9 @@
 
                       <v-col cols="12" sm="12" md="2">
                         <h4>ECONOMIC ACTIVITY (1)</h4>
-                        <p class="font-weight-bold">(28) Did you do any work for at least 1 hour during the past week?</p>
+                        <p class="font-weight-bold">(28)Did you do any work during the past week?</p>
                         <v-radio-group row>
-                          <v-radio value="yes" @click="how_many_works_job_business_you_have = true"  label="Yes"></v-radio>
+                          <v-radio value="yes" @click="whats_your_class_of_worker = true , do_you_have_job_or_business_during_past_week= false"  label="Yes"></v-radio>
                           <v-radio  value="no" @click="do_you_have_job_or_business_during_past_week = true,how_many_works_job_business_you_have = false,  whats_your_primary_occupation=false, what_kind_of_industry_did_the_household_member = false"  label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
@@ -1127,24 +1127,10 @@
                           <v-card>
                           <v-container>
                             <v-row>
-                              <v-col cols="12" sm="12" md="12" class="">
-                                    <div class="text-center ">
-                                    <v-alert dense dark color="blue darken-3">
-                                      How many works, jobs or businesses you Have?<strong> </strong>
+                          
 
-                                       </v-alert>
-                                 </div>
-                                <!--  <p class="text-center font-weight-bold" > </p> -->
-                            </v-col>
+                           
 
-
-                              <v-col cols="10" sm="10" md="10" class="mt-n6" >
-                     
-                        <v-text-field
-                          label="No of works/Jobs or Businesses"
-                         
-                        ></v-text-field>
-                      </v-col>
 
                       
                     <v-col cols="12" sm="3" md="6"  >
@@ -1169,34 +1155,180 @@
 
 
 
-                      <v-col cols="12" sm="12" md="2" v-show="do_you_have_job_or_business_during_past_week">
-                        <p class="font-weight-bold">Do you have a job or business during the past Week?</p>
+                          <v-col cols="12" sm="12" md="2" >
+                        <p class="font-weight-bold">(29)Do you have business during the past Week?</p>
                        <v-radio-group row>
-                          <v-radio value="yes"  @click="whats_your_primary_occupation = true ,what_kind_of_industry_did_the_household_member = true"    label="Yes"></v-radio>
-                          <v-radio  value="no" @change="whats_your_primary_occupation = false ,what_kind_of_industry_did_the_household_member = false"     label="No"></v-radio>
+                          <v-radio value="yes"  @click="  what_is_the_sector_of_your_business = true "    label="Yes"></v-radio>
+                          <v-radio  value="no" @click="did_you_look_work_to_eastablish_business = true "     label="No"></v-radio>
                         </v-radio-group> 
                      
                       </v-col>
 
-                    <!--     Whats Your Primary Occupation Poup Start -->
-                      <v-dialog  v-model="whats_your_primary_occupation"  max-width="650px">
-                      
-                     
-        
-                          <v-card>
-                            <v-container fluid>
-                              <v-row>
-                                <v-col cols="12" sm="12" md="12" class="">
-                                    <div class="text-center ">
+                      <v-dialog  v-model="what_is_the_sector_of_your_business"  max-width="650px">
+                     <v-card>
+                       <v-container fluid>
+                         <v-row>
+
+                          <v-col cols="12" sm="12" md="12" >
+                                    <div class="text-center">
                                     <v-alert dense dark color="blue darken-3">
-                                      What was your primary occupation during the past weeks?<strong> </strong>
+                                     What is the Sector of Your Business<strong> </strong>
 
                                        </v-alert>
                                  </div>
-                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                               
                             </v-col>
 
-                    <v-col cols="12" sm="12" md="12" class="mt-n6" >
+                            <v-col cols="12" sm="12" md="12"  style="margin-top: -31px" >
+                      
+                      <v-checkbox-group>
+                        <v-checkbox
+                          label="Agriculture; plantations;other rural sectors"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Basic Metal Production "
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Chemical industries"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Commerce"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Construction"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Education"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Financial services; professional service"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Financial services; professional service"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+
+                        <v-checkbox
+                          label="Forestry; wood; pulp and paper"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+
+                        <v-checkbox
+                          label="Health services"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+
+                        <v-checkbox
+                          label="Hotels; tourism; catering"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Mining (coal; other mining)"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Transport"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                      </v-checkbox-group>
+                      
+                    </v-col>
+
+
+
+
+                            <v-row>
+                            <v-col cols="12" sm="4" md="4">
+                     
+                     <v-btn text color="green"  outlined dark @click="what_is_the_sector_of_your_business = false">
+                       Continue
+                       </v-btn>
+                   <v-btn text color="red"  outlined dark @click="what_is_the_sector_of_your_business = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                    </v-row>
+
+
+                         </v-row>
+                          </v-container>
+             
+                        </v-card>
+                        </v-dialog>
+
+                    <!--     Whats Your Primary Occupation Poup Start -->
+
+                    <v-dialog  v-model="whats_your_class_of_worker"  max-width="650px">
+                     <v-card>
+                       <v-container fluid>
+                         <v-row>
+                          <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What is your class of worker?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                             
+                            </v-col>
+
+                          <v-col cols="12" sm="12" md="12"  class="mt-n7">
+                       
+                        <v-checkbox-group>
+                          <v-checkbox
+                            label="Working for private household"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Working private business/ establishment/ farm"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Working for government/ government corporation"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Self-employed with no paid employee"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                       
+                        </v-checkbox-group>
+                      </v-col>
+
+                      <v-col cols="12" sm="10" md="10" class="mt-n1">
+                                 <p class="font-weight-bold">How many work you Have?</p>
+                                </v-col>
+
+                                <v-col cols="10" sm="5" md="7" class="mt-n8" >
+                     
+                     <v-text-field
+                       label="No of Works"
+                      
+                     ></v-text-field>
+                   </v-col>
+
+                   <v-col cols="12" sm="10" md="10" class="mt-n6" >
+                     <p class="font-weight-bold">Did you look for additional work during the past week?</p>
+                     <v-radio-group row>
+                       <v-radio value="yes"  label="Yes"></v-radio>
+                       <v-radio value="no"    label="No"></v-radio>
+                     </v-radio-group>
+                   </v-col>
+
+
+
+
+                      <v-col cols="12" sm="12" md="12" class="mt-n2" >
+
+                      <p class="font-weight-bold">What was your primary occupation during the past weeks?</p>
+                    </v-col>
+
+                      <v-col cols="12" sm="12" md="6" class="mt-n9" >
                         
                         <v-checkbox-group>
                           <v-checkbox
@@ -1234,7 +1366,7 @@
                       </v-col>
 
 
-                      <v-col cols="12" sm="12" md="12" >
+                      <v-col cols="12" sm="12" md="6" class="mt-n4">
                        
                        
                           <v-checkbox-group>
@@ -1270,10 +1402,7 @@
                             style="margin-top: -10px"
                           ></v-checkbox>
 
-                          <v-checkbox
-                          label="Administrative & Support Service Activities"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
+                         
 
 
                         </v-col>
@@ -1283,6 +1412,11 @@
                        
                        
                           <v-checkbox-group>
+                            <v-checkbox
+                          label="Administrative & Support Service Activities"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+
                          
                           <v-checkbox
                             label="Public Administration & Defense; Compulsory Social Security"
@@ -1319,13 +1453,125 @@
 
                         </v-col>
 
-                        <v-col cols="10" sm="12" md="8"  >
+                        <v-col cols="10" sm="12" md="8" class="mt-n3"  >
 
                           <v-text-field
                           label="Other Service Activities"
                             style="margin-top: -10px"
                           ></v-text-field>
                         </v-col>
+
+
+                        <v-col   cols="10" sm="10" md="10" class="mt-n8" >
+                        <p class="font-weight-bold">In what kind of industry did the household member work during the past Weeks?</p>
+
+                       <v-select
+                       class="mt-n4"
+                     :items="['Mining Quarrying ', 'Manufacturing  ', 'Electricity, Gas, Steam, and Air conditioning Supply' , 'Schooling', 'Water Supply: Sewerage, Waste Management & Remediation activities' , 'Remediation' ]"
+                     label=""
+                     prepend-inner-icon="mdi-clipboard-account"
+                     v-model="usrelevel"
+                     required
+                   ></v-select>
+                   <v-text-field
+                          label="Other, specify"
+                            style="margin-top: -10px"
+                          ></v-text-field>
+
+                   </v-col> 
+
+
+                   <v-col   cols="12" sm="12" md="10" class="mt-n6" >
+                     
+                     <p class="font-weight-bold">What is the status/nature of employment? </p>
+                     <v-radio-group 
+                     class="mt-n4"
+                     row>
+                       <v-radio value="Permanent_Job_business_unpaid_family_work" label="Permanent Job/ business/ unpaid family work"></v-radio>
+                       <v-radio  value="Short-term or seasonal or casual job/ business/ unpaid family work"    label="Short-term or seasonal or casual job/ business/ unpaid family work"></v-radio>
+                       <v-radio   value="Worked for different employers or customers on day-to-day or week-to-week basis"   label="Worked for different employers or customers on day-to-day or week-to-week basis"></v-radio>
+                     </v-radio-group>
+
+                </v-col> 
+
+                <v-col   cols="10" sm="10" md="10" class="mt-n4"  >
+                    <p class="font-weight-bold">What was your normal working hours per day during the past week?</p>
+                    <v-select
+                     :items="['1 Hour', '2 Hours', '3 Hours', '4 Hours' , '5 Hours', '6 Hours', '7 Hours' , '8 Hours' , '9 Hours' , '10 Hours' , '11 Hours' , '12 Hours'  ]"
+                    label="Select No. Of Hours"
+                     prepend-inner-icon="mdi-clipboard-account"
+                     v-model="usrelevel"
+                     required
+                   ></v-select>
+
+                    </v-col>
+
+
+                    <v-col   cols="10" sm="10" md="10" class="mt-n5">
+                    <p class="font-weight-bold">What was the total number of hours worked during the past week?</p>
+                    <v-select
+                     :items="['1 Hour', '2 Hours', '3 Hours', '4 Hours' , '5 Hours', '6 Hours', '7 Hours' , '8 Hours' , '9 Hours' , '10 Hours' , '11 Hours' , '12 Hours'  ]"
+                    label="Select No. Of Hours"
+                     prepend-inner-icon="mdi-clipboard-account"
+                    
+                     required
+                   ></v-select>
+
+                    </v-col>
+
+                         </v-row>
+
+                         <v-row>
+                    <v-col cols="10" sm="3" md="5" class="mt-n4"  >
+                     
+                     <v-btn text color="green"   dark @click="whats_your_class_of_worker = false">
+                       Continue
+                       </v-btn>
+                    
+                   <v-btn text color="red"   dark @click="whats_your_class_of_worker = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                    </v-row>
+
+
+                        </v-container>
+                        </v-card>
+                         </v-dialog>
+                     
+
+
+
+              
+
+                          <v-col cols="12" sm="12" md="3"  v-show="did_you_look_work_to_eastablish_business">
+                           <p class="font-weight-bold"> Did you look for work or try to establish business during the past week?</p>
+                        <v-radio-group row>
+                          <v-radio value="yes"  @change="was_this_your_first_time_to_look_for_work=true,what_you_have_been_doing_to_find_a_work=true, how_many_weeks_have_you_been_looking_for_work=true,why_did_you_not_look_for_work=false,when_was_the_last_time_you_looked_for_work=false  " label="Yes"></v-radio>
+                          <v-radio value="no"  @change="was_this_your_first_time_to_look_for_work=false,what_you_have_been_doing_to_find_a_work=false, how_many_weeks_have_you_been_looking_for_work=false,why_did_you_not_look_for_work=true,when_was_the_last_time_you_looked_for_work=true " label="No"></v-radio>
+                        </v-radio-group>
+                      </v-col>
+
+                    
+
+
+
+                      <v-dialog  v-model="whats_your_primary_occupation"  max-width="650px">
+                     
+                          <v-card>
+                            <v-container fluid>
+                              <v-row>
+                                <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                     <strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                             
+                            </v-col>
+
+             
 
 
 
@@ -1596,57 +1842,14 @@
                     <h4>ECONOMIC ACTIVITY (2)</h4>
                     <v-row>
                       
-                      <v-col   cols="12" sm="12" md="4" class="ma-2" v-show="what_kind_of_industry_did_the_household_member">
-                        <p class="font-weight-bold">In what kind of industry did the household member work during the past Weeks?</p>
-
-                       <v-select
-                     :items="['Mining Quarrying ', 'Manufacturing  ', 'Electricity, Gas, Steam, and Air conditioning Supply' , 'Schooling', 'Water Supply: Sewerage, Waste Management & Remediation activities' , 'Remediation' ]"
-                     label=""
-                     prepend-inner-icon="mdi-clipboard-account"
-                     v-model="usrelevel"
-                     required
-                   ></v-select>
-                   <v-text-field
-                          label="Other, specify"
-                            style="margin-top: -10px"
-                          ></v-text-field>
-
-                   </v-col> 
-
-                       <v-col   cols="12" sm="12" md="6" class="ma-2" v-show="what_kind_of_industry_did_the_household_member">
                      
-                        <p class="font-weight-bold">What is the status/nature of employment? </p>
-                        <v-radio-group row>
-                          <v-radio value="Permanent_Job_business_unpaid_family_work" label="Permanent Job/ business/ unpaid family work"></v-radio>
-                          <v-radio  value="Short-term or seasonal or casual job/ business/ unpaid family work"    label="Short-term or seasonal or casual job/ business/ unpaid family work"></v-radio>
-                          <v-radio   value="Worked for different employers or customers on day-to-day or week-to-week basis"   label="Worked for different employers or customers on day-to-day or week-to-week basis"></v-radio>
-                        </v-radio-group>
 
-                   </v-col> 
+                    
 
-                   <v-col   cols="12" sm="12" md="3" v-show="what_kind_of_industry_did_the_household_member" >
-                    <p class="font-weight-bold">What was your normal working hours per day during the past week?</p>
-                    <v-select
-                     :items="['1 Hour', '2 Hours', '3 Hours', '4 Hours' , '5 Hours', '6 Hours', '7 Hours' , '8 Hours' , '9 Hours' , '10 Hours' , '11 Hours' , '12 Hours'  ]"
-                    label="Select No. Of Hours"
-                     prepend-inner-icon="mdi-clipboard-account"
-                     v-model="usrelevel"
-                     required
-                   ></v-select>
-
-                    </v-col>
+                  
 
 
-                    <v-col   cols="12" sm="12" md="3" v-show="what_kind_of_industry_did_the_household_member" >
-                    <p class="font-weight-bold">What was the total number of hours worked during the past week?</p>
-                    <v-text-field
-                         
-                         label="No. Of Hours"
-                         required
-                       >
-                       </v-text-field>
-
-                    </v-col>
+                    
 
                     <v-col cols="12" sm="12" md="2" >
                         <p class="font-weight-bold">(36) Did you want more hours of work during the past week?</p>
@@ -1656,39 +1859,9 @@
                         </v-radio-group>
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2"  v-show="did_you_look_additional_word">
-                        <p class="font-weight-bold">(37) Did you look for additional work during the past week?</p>
-                        <v-radio-group row>
-                          <v-radio value="yes" @change="whats_your_class_of_worker = true"  label="Yes"></v-radio>
-                          <v-radio value="no"     @change="whats_your_class_of_worker = false" label="No"></v-radio>
-                        </v-radio-group>
-                      </v-col>
-
-
-                      <v-col cols="12" sm="12" md="3" v-show="whats_your_class_of_worker">
-                        <p class="font-weight-bold">(38) What is your class of worker?</p>
-                        <v-checkbox-group>
-                          <v-checkbox
-                            label="Working for private household"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Working private business/ establishment/ farm"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Working for government/ government corporation"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Self-employed with no paid employee"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                       
-                        </v-checkbox-group>
-                      </v-col>
-
+                     
                       <v-col cols="12" sm="12" md="3"  v-show="whats_your_class_of_worker">
-                        <p class="font-weight-bold">.</p>
+                      
                         <v-checkbox-group>
 
 
@@ -1709,13 +1882,7 @@
                         </v-checkbox-group>
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2" v-show="did_you_look_work_to_eastablish_business">
-                        <p class="font-weight-bold">(39) Did you look for work or try to establish business during the past week? </p>
-                        <v-radio-group row>
-                          <v-radio value="yes"  @change="was_this_your_first_time_to_look_for_work=true,what_you_have_been_doing_to_find_a_work=true, how_many_weeks_have_you_been_looking_for_work=true,why_did_you_not_look_for_work=false,when_was_the_last_time_you_looked_for_work=false  " label="Yes"></v-radio>
-                          <v-radio value="no"  @change="was_this_your_first_time_to_look_for_work=false,what_you_have_been_doing_to_find_a_work=false, how_many_weeks_have_you_been_looking_for_work=false,why_did_you_not_look_for_work=true,when_was_the_last_time_you_looked_for_work=true " label="No"></v-radio>
-                        </v-radio-group>
-                      </v-col>
+                     
 
                     
 
@@ -3798,6 +3965,7 @@ export default {
  ],
 /*  END */
 
+what_is_the_sector_of_your_business:false,
 leardership_information:false,
 show_if_yes_graduate_senior_highschool:false,
 did_you_vote_in_the_last_sk_elections:false,
@@ -3822,7 +3990,7 @@ did_you_vote_in_the_last_sk_elections:false,
           /*  END */
 
       /*     ECONOMIC ACTIVITY (1) */
-  do_you_have_job_or_business_during_past_week:false,
+  
   how_many_works_job_business_you_have:false,
   whats_your_primary_occupation:false,
 

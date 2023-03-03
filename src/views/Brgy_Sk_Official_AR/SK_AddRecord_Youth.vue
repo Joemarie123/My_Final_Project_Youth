@@ -29,24 +29,7 @@
 
             <v-divider></v-divider>
 
-            <v-stepper-step :complete="e1 > 3" step="3">
-             3
-            </v-stepper-step>
-
-            <v-divider></v-divider>
-
-            <v-stepper-step :complete="e1 > 3.1" step="3.1">
-            4
-            </v-stepper-step>
-
-            <v-divider></v-divider>
-
-            <v-stepper-step :complete="e1 > 5" step="5">
-             5
-             
-            </v-stepper-step>
-
-            <v-divider></v-divider>
+       
 
             <v-stepper-step :complete="e1 > 6" step="6">
               6
@@ -147,7 +130,7 @@
                       prepend-inner-icon="mdi-map-marker"
                       v-model="SignupBarangay"
                       required
-                      color="white"
+                      
                     ></v-select>
 
                       </v-col>
@@ -161,49 +144,9 @@
 
 
                       <v-col cols="12" sm="12" md="3">
-                        <div>
-                          <!-- <div class="mb-1">
-                            <code>{{ activePicker || 'null' }}</code>
-                          </div> -->
-                          <v-menu
-                            ref="menu"
-                            v-model="menu"
-                            :close-on-content-click="false"
-                            transition="scale-transition"
-                            offset-y
-                            min-width="auto"
-                          >
-                            <template v-slot:activator="{ on, attrs }">
-                              <v-text-field
-                           
-                                v-model="date"
-                                label="Date of Survey"
-                                prepend-icon="mdi-calendar"
-                                readonly
-                                v-bind="attrs"
-                                v-on="on"
-                                
-                              ></v-text-field>
-                            </template>
-                            <v-date-picker
-                              v-model="date"
-                              :active-picker.sync="activePicker"
-                              :max="
-                                new Date(
-                                  Date.now() -
-                                    new Date().getTimezoneOffset() * 60000
-                                )
-                                  .toISOString()
-                                  .substr(0, 10)
-                              "
-                              min="1950-01-01"
-                              @change="save"
-                            ></v-date-picker>
-                          </v-menu>
-                        </div>
-
-
-                        
+                        <v-text-field label="Date Of Survey " type="date" required   color="green"
+                                         >
+                                      </v-text-field>
                       </v-col>
                      
                       <v-col cols="12" sm="12" md="3">
@@ -320,45 +263,9 @@
                       </v-col> -->
                      
                       <v-col cols="12" md="3" sm="12">
-                        <div>
-                          <!-- <div class="mb-1">
-                            <code>{{ activePicker || 'null' }}</code>
-                          </div> -->
-                          <v-menu
-                            ref="menu"
-                            v-model="menu2"
-                            :close-on-content-click="false"
-                            transition="scale-transition"
-                            offset-y
-                            min-width="auto"
-                          >
-                            <template v-slot:activator="{ on, attrs }">
-                              <v-text-field
-                                v-model="date2"
-                                label="Date of Birth "
-                                prepend-icon="mdi-calendar"
-                                readonly
-                                v-bind="attrs"
-                                v-on="on"
-                                
-                              ></v-text-field>
-                            </template>
-                            <v-date-picker
-                              v-model="date2"
-                              :active-picker.sync="activePicker2"
-                              :max="
-                                new Date(
-                                  Date.now() -
-                                    new Date().getTimezoneOffset() * 60000
-                                )
-                                  .toISOString()
-                                  .substr(0, 10)
-                              "
-                              min="1950-01-01"
-                              @change="save"
-                            ></v-date-picker>
-                          </v-menu>
-                        </div>
+                        <v-text-field label="Birth Day" type="date" required   color="green"
+                                         >
+                                      </v-text-field>
                       </v-col>
                       <v-col cols="12" md="3" sm="12">
                         <v-text-field
@@ -379,7 +286,7 @@
                       prepend-inner-icon="mdi-map-marker"
                       v-model="SignupBarangay"
                       required
-                      color="white"
+                   
                     ></v-select>
                     
                       </v-col>
@@ -398,36 +305,13 @@
                     ></v-select>
                       </v-col>
 
-                     
-                    </v-row>
-                    
-                  </v-container>
-                  <small>*indicates required field</small>
-                </v-card-text>
-                <v-btn id="v-btn-c" color="green" @click="e1 = 2">
-                Continue
-              </v-btn>
-
-              <v-btn id="v-btn-c" class="ma-4" @click="dialog = false">
-                Cancel
-              </v-btn>
-
-              </v-card>
-
-             
-            </v-stepper-content>
-
-            <!-- One.one Stepper -->
-          
-            <!--   Second Stepper -->
-            <v-stepper-content step="2">
-              <v-card class="mb-12" color="grey lighten-4">
+                   
                 <v-card-text>
                   <v-container fluid>
                     <H4 >YOUTH CHARACTERISTICS</H4>
                     <v-row>
                       
-                      <v-col cols="12" sm="12" md="2">
+                      <v-col cols="12" sm="12" md="3">
                         <p class="font-weight-bold">SEX</p>
                         <v-radio-group row>
 
@@ -465,18 +349,6 @@
                        
                       </v-col>
 
-
-
-
-
-
-
-
-
-
-
-
-
                       <v-col cols="12" sm="12" md="3">
                         <p class="font-weight-bold">Ethnicity/ tribe: See codes below</p>
                         <v-select 
@@ -489,7 +361,7 @@
                        
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="4">
+                      <v-col cols="12" sm="12" md="3">
                         <p class="font-weight-bold">Religious Affiliation</p>
                         <v-select
                       :items="['Roman Catholic' , 'Iglesia Ni Cristo' , 'Evangelical' , 'Islam' , 'Seventh Day Adventist' , 'Church of Christ' , 'United Church of Christ in the Philippines' , 'Dating Daan']"
@@ -501,12 +373,12 @@
         
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2">
+                      <v-col cols="12" sm="12" md="3">
                         <p class="font-weight-bold">Are you an overseas worker?</p>
                         <v-radio-group row>
-                          <v-radio   @change="country_destination = true"  value="yes"  label="Yes" ></v-radio>
+                          <v-radio   @click="country_destination = true"  value="yes"  label="Yes" ></v-radio>
 
-                          <v-radio @change="country_destination = false" value="no" label="No"></v-radio>
+                          <v-radio @click="country_destination = false" value="no" label="No"></v-radio>
 
                         </v-radio-group>
                        
@@ -522,11 +394,38 @@
 
             
 
-
+                      <!--     COUNTRY OF DESTINATION START -->
                  
-                 <v-col cols="12" sm="12" md="3" class="ma-2" v-show="country_destination">
-                        <p class="font-weight-bold">What is the country of destination? </p>
+                          <v-dialog v-model="country_destination" max-width="380px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+                                  
+                                  <!-- <v-col cols="12" sm="12" md="12" >
+
+                                    <v-btn text color="red" dark @click="country_destination = false">
+                          <v-icon >
+                            mdi-comment-remove-outline
+                          </v-icon>
+                        </v-btn>
+                                  </v-col> -->
+
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What is the country of destination?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+
+                     <v-col cols="12" sm="12" md="4" class="mx-5" style="margin-top: -30px" >
+                     
                         <v-checkbox-group>
+                          
                           <v-checkbox
                             label="Australia"
                           ></v-checkbox>
@@ -556,11 +455,9 @@
                           ></v-checkbox>
                         </v-checkbox-group>
                       </v-col>
-
-
-                      <v-col cols="12" sm="12" md="3" class="ma-2" v-show="country_destination">
+                      <v-col cols="12" sm="12" md="5" class="mx-5" style="margin-top: -30px">
                         <v-checkbox-group>
-                          <p class="font-weight-bold">.</p>
+                         
                           <v-checkbox
                             label="Saudi Arabia"
                           ></v-checkbox>
@@ -580,17 +477,44 @@
                             label="USA"
                             style="margin-top: -10px"
                           ></v-checkbox>
-                          <v-text-field label="Other, specify" ></v-text-field>
+                         
                         </v-checkbox-group>
-                        
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2" class="ma-2">
+                  
+                      <v-col cols="10" sm="10" md="10"  style="margin-left: 20px; margin-top: -25px;" >
+                        <v-text-field label="Other, specify" ></v-text-field>
+                    </v-col>
+
+                   
+                    <v-col cols="12" sm="3" md="3" style="margin-left: 10px;">
                      
+                      <v-btn text color="green"  outlined dark @click="country_destination = false">
+                        Continue
+                        </v-btn>
+                     
+                    </v-col>
+
+                    <v-col cols="12" sm="3" md="3" style="margin-left: 10px;"  >
+                    <v-btn text color="red"  outlined dark @click="country_destination = false">
+                        Close
+                        </v-btn>
+                      </v-col>
+                  
+
+
+                    </v-row>
+                    </v-container>
+                    </v-card>
+                    </v-dialog>
+                         <!--     COUNTRY OF DESTINATION END -->
+
+                          <v-row>
+                      <v-col cols="12" sm="12" md="4" >
                      <h3>Where did you Reside 3 Years Ago?</h3>
                      <v-checkbox
                             label="Same Address Now"
-                            style="margin-top: -10px"
+                            
                           ></v-checkbox>
                           <v-text-field
                           label="Other Address, Specify"
@@ -599,42 +523,74 @@
                           </v-text-field>
                       </v-col>
 
-                      
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 3">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 1" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
+                      <v-col  cols="12" sm="12" md="4" >
 
-             
-            </v-stepper-content>
-
-            <!-- Third Stepper -->
-            <v-stepper-content step="3">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <H4>EDUCATION AND LITERACY (1)</H4>
-                    <v-row>
-                     
-                      <v-col cols="12" sm="12" md="3" >
+                    
+                        <H4>EDUCATION AND LITERACY (1)</H4>
+                   
                         <p class="font-weight-bold">Are You Currently Attending School?</p>
-                        <v-radio-group row>
-                          <v-radio  @change="what_grade_year_currently_attending = true, where_did_you_attend_school = true , are_you_graduate_senior_high=true, why_your_not_attending_school=false ,  whats_your_highest_educational_attainment=false" value="yes" label="Yes"></v-radio>
-                          <v-radio  @change="what_grade_year_currently_attending = false, where_did_you_attend_school = false , are_you_graduate_senior_high=false , why_your_not_attending_school=true , whats_your_highest_educational_attainment=true" value="no"  label="No"></v-radio>
+                        <v-radio-group row class="">
+                          <v-radio  @click="what_grade_year_currently_attending = true" value="yes" label="Yes"></v-radio>
+                          <v-radio  @click=" why_your_not_attending_school=true " value="no"  label="No"></v-radio>
                         </v-radio-group>
                            
+                     
+
                       </v-col>
 
-                      <v-col   cols="12" sm="12" md="4"  v-show="what_grade_year_currently_attending">
-                       
+                      <v-col cols="12" sm="12" md="4" >
+                      <p class="font-weight-bold">Are You a graduate of Senior high?</p>
+                        <v-radio-group row>
+                          <v-radio  @change="show_if_yes_graduate_senior_highschool = true"      value="yes"  label="Yes"></v-radio>
+                          <v-radio @change="show_if_yes_graduate_senior_highschool = false" value="no"    label="No"></v-radio>
+                        </v-radio-group>
+                 
+                        <v-select
+                        v-show="show_if_yes_graduate_senior_highschool"
+                     :items="['Accounting, Business Mgt', 'Science, tech. Eng’g& Mathematics ', 'Humanities and Social Sutdies' , 'General Academic', 'Home Economics', 'Agri-Forestry and Fishery' , 'Industrial Arts' , 'Info & Comm. Tech (ICT)' , 'Sports' , 'Arts and Design' , 'TVL Automotive'   , 'TVL CSS'  , 'TVL Programming']"
+                     label="What Is Your Strand"
+                     prepend-inner-icon="mdi-clipboard-account"
+                     v-model="strand"
+                     required
+                   ></v-select>
 
+
+                  </v-col>
+
+
+
+                    </v-row>
+
+               <!--      EDUCATION AND LITERACY (1)  START-->
+
+                  
+           
+                  <v-container fluid>
+                    
+                    <v-row>
+                    
+                 <!--      if Yes in Are You Currently Attending School  START -->
+                 <v-dialog v-model="what_grade_year_currently_attending" max-width="380px"> 
+                  <v-card> 
+                              <v-container>
+
+                                <v-row>
+                                  
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What grade or year you are currently attending?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+                            
+
+                      <v-col   cols="12" sm="12" md="12"  style="margin-top: -10px" >
                        <v-select
                      :items="['Elementary - Grade 1', 'Elementary - Grade 2', 'Elementary - Grade 3' , 'Elementary - Grade 4', 'Elementary - Grade 5', 'Elementary - Grade 6' , 'Junior High - Grade 7' , 'Junior High - Grade 8' , 'Junior High - Grade 9' , 'Junior High - Grade 10' , 'Senior High - Grade 11' , 'Senior High - Grade 12' , '1st Year PS/N-T/TV' , '2nd Year PS/N-T/TV' , '1st Year College' , '2nd Year College' , '3rd Year College' , '4th Year College' ]"
-                     label="What grade or year you are currently attending?"
+                     label="Select Grade"
                      prepend-inner-icon="mdi-clipboard-account"
                      v-model="usrelevel"
                      required
@@ -644,8 +600,7 @@
                      </v-col>
                     
 
-
-                      <v-col cols="12" sm="12" md="4" v-show="where_did_you_attend_school">
+                      <v-col cols="10" sm="12" md="12" style="margin-top: -10px" >
                         <p class="font-weight-bold">Where Did You Attend School</p>
                         <v-radio-group row>
                           <v-radio value="public" label="Public"></v-radio>
@@ -654,8 +609,53 @@
                        
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="3" class="ma-2" v-show="why_your_not_attending_school">
-                        <p class="font-weight-bold">Why you are not attending school? </p>
+
+                      <v-col cols="12" sm="4" md="3" style="margin-left: 10px;">
+                     
+                     <v-btn text color="green"  outlined dark @click="what_grade_year_currently_attending = false">
+                       Continue
+                       </v-btn>
+                    
+                   </v-col>
+
+                   <v-col cols="12" sm="4" md="3" style="margin-left: 10px;"  >
+                   <v-btn text color="red"  outlined dark @click="what_grade_year_currently_attending = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                 
+                    </v-row>
+
+                    
+                    </v-container>
+                      </v-card> 
+
+                    </v-dialog>
+
+                       <!--      if Yes in Are You Currently Attending School  END -->
+
+
+
+          <!--      if No in Are You Currently Attending School  START -->
+
+          <v-dialog v-model="why_your_not_attending_school" max-width="700px"> 
+            <v-card> 
+                              <v-container>
+
+                                <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Why you are not attending school?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+
+                            <v-row>
+
+                      <v-col cols="12" sm="12" md="6" class="ml-4" >
+                      
                         <v-checkbox-group>
                           <v-checkbox
                             label="Schools are far/ Inaccessible"
@@ -676,12 +676,13 @@
                             label="Employment/ Looking for work"
                             style="margin-top: -10px"
                           ></v-checkbox>
+                        
                         </v-checkbox-group>
                       </v-col>
 
 
-                      <v-col cols="12" sm="12" md="3" class="ma-2" v-show="why_your_not_attending_school">
-                        <h4 >. </h4>
+                      <v-col cols="10" sm="8" md="5" class="ml-2" >
+                      
                         <v-checkbox-group>
                           <v-checkbox
                             label="Affected by armed conflict"
@@ -706,12 +707,16 @@
                             label="Already finished schooling"
                             style="margin-top: -10px"
                           ></v-checkbox>
-
                           <v-text-field label="Others"></v-text-field>
+                         
                         </v-checkbox-group>
                       </v-col>
+                    </v-row>
 
-                      <v-col cols="12" sm="12" md="2" v-show="whats_your_highest_educational_attainment">
+
+                    
+
+                      <v-col cols="12" sm="12" md="7" lg="7" >
                         <p class="font-weight-bold">What is your highest educational attainment/ completed?</p>
 
                         <v-select
@@ -719,7 +724,7 @@
                         @change="funcionselect"
 
 
-                     :items="['Elementary Level, Junior Level', 'Junior High School Level ', 'Junior High School Finisher' , 'Senior High School Level', 'Senior High School Finisher', 'College Level' , 'College Graduate' , 'Post Graduate' ]"
+                     :items="['Elementary Level', 'Junior Level', 'Junior High School Level ', 'Junior High School Finisher' , 'Senior High School Level', 'Senior High School Finisher', 'College Level' , 'College Graduate' , 'Post Graduate' ]"
                      label="Select Grade"
                      prepend-inner-icon="mdi-clipboard-account"
                      v-model="selectgrade"
@@ -728,50 +733,79 @@
 
                    ></v-select>
 
-                     <!--   <div v-show="are_you_graduate_senior_high"> -->
-                      <p class="font-weight-bold">Are You a graduate of Senior high?</p>
-                        <v-radio-group row>
-                          <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio  value="no"    label="No"></v-radio>
+                   
+                    <p class="font-weight-bold" v-show="whats_your_college_course">What is your college course?</p>
+                    <v-text-field
+                    v-show="whats_your_college_course"
+                         label="write the course"
+                         required
+                       >
+                       </v-text-field>
+
+                  
+                       
+                        <p class="font-weight-bold" v-show="are_you_passer_eligibility">Are you passer of any Eligibility??</p>
+                        <v-radio-group v-show="are_you_passer_eligibility" row>
+                          <v-radio  @change="what_eligibility_did_you_make_it = true" value="yes" label="Yes"></v-radio>
+                          <v-radio  @change="what_eligibility_did_you_make_it = false" value="no" label="No"></v-radio>
                         </v-radio-group>
-                 
-                        <v-select
-                     :items="['Accounting, Business Mgt', 'Science, tech. Eng’g& Mathematics ', 'Humanities and Social Sutdies' , 'General Academic', 'Home Economics', 'Agri-Forestry and Fishery' , 'Industrial Arts' , 'Info & Comm. Tech (ICT)' , 'Sports' , 'Arts and Design' , 'TVL Automotive'  ]"
-                     label="What Is Your Strand"
-                     prepend-inner-icon="mdi-clipboard-account"
-                     v-model="strand"
-                     required
-                   ></v-select>
-                
-              <!--     </div> -->
+                       
+                      
+
+                    
+                       
+                       <p v-show="what_eligibility_did_you_make_it" class="font-weight-bold">What Eligibility did you Make it</p>
+                      <v-select
+                      v-show="what_eligibility_did_you_make_it"
+                    :items="['Prof-Civil Service', 'SubProf-Civil Service ', 'RA 108' , 'PD 907' , 'PRC License' ]"
+                    label="Select Eligibility"
+                    prepend-inner-icon="mdi-clipboard-account"
+                    v-model="usrelevel"
+                    required
+                  ></v-select>
+
+
+                   
+
+
+
+
+
+
 
                       </v-col>
 
               
-                      <v-col cols="12" sm="12" md="3" v-show="are_you_graduate_senior_high">
-                      <p class="font-weight-bold">Are You a graduate of Senior high?</p>
-                        <v-radio-group row>
-                          <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio  value="no" label="No"></v-radio>
-                        </v-radio-group>
-       
-                      </v-col>
 
-               <v-col   cols="12" sm="12" md="3" v-show="are_you_graduate_senior_high"> 
-                       
-                           <v-select
-                     :items="['Accounting, Business Mgt', 'Science, tech. Eng’g& Mathematics ', 'Humanities and Social Sutdies' , 'General Academic', 'Home Economics', 'Agri-Forestry and Fishery' , 'Industrial Arts' , 'Info & Comm. Tech (ICT)' , 'Sports' , 'Arts and Design' , 'TVL Automotive'  ]"
-                     label="What Is Your Strand"
-                     prepend-inner-icon="mdi-clipboard-account"
-                     v-model="usrelevel"
-                     required
-                   ></v-select>
+
+
+
+           
+                   
+                   <v-row>
+                  
+                   <v-col cols="12" sm="4" md="3" style="margin-left: 10px;">
                      
+                     <v-btn text color="green"  outlined dark @click="why_your_not_attending_school = false">
+                       Continue
+                       </v-btn>
+                    
+                   </v-col>
 
+                   <v-col cols="12" sm="4" md="3"  style="margin-left: 10px;">
+                   <v-btn text color="red"  outlined dark @click="why_your_not_attending_school = false">
+                       Close
+                       </v-btn>
+                     </v-col>
 
-                   </v-col> 
+                    </v-row>
+                    
+                  </v-container>
+                </v-card> 
+                      
 
-                 
+                   </v-dialog>
+   <!--      if No in Are You Currently Attending School  END -->
 
                     </v-row>
 
@@ -782,18 +816,59 @@
 
 
                   </v-container>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 3.1">
+                 
+            
+            
+
+
+     <!--      EDUCATION AND LITERACY (1)  END-->
+
+
+
+
+
+
+
+
+
+
+
+                      
+                    </v-row>
+                   
+                  </v-container>
+                </v-card-text>
+            
+
+                     
+                    </v-row>
+                    
+                  </v-container>
+                  <small>*indicates required field</small>
+                </v-card-text>
+                <v-btn id="v-btn-c" color="green" @click="e1 = 2">
                 Continue
               </v-btn>
-              <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
-                </v-card-text>
+
+              <v-btn id="v-btn-c" class="ma-4" @click="dialog = false">
+                Cancel
+              </v-btn>
+
               </v-card>
 
-            
+             
             </v-stepper-content>
 
+            <!-- One.one Stepper -->
+          
+            <!--   Second Stepper -->
+           
+
+            <!-- Third Stepper -->
+          
+
             <!-- Fourth Stepper -->
-            <v-stepper-content step="3.1">
+            <v-stepper-content step="2">
               <v-card class="mb-12" color="grey lighten-4">
                 <v-card-text>
                   <v-container fluid>
@@ -805,45 +880,6 @@
                       </v-col>
 
                       
-                     <v-col   cols="12" sm="12" md="3" v-show="whats_your_college_course" >
-                    <p class="font-weight-bold">What is your college course?</p>
-                    <v-text-field
-                         
-                         label="write the course"
-                         required
-                       >
-                       </v-text-field>
-
-                    </v-col>
-
-                      <v-col cols="12" sm="12" md="2" v-show="are_you_passer_eligibility">
-                        <p class="font-weight-bold">Are you passer of any Eligibility??</p>
-                        <v-radio-group row>
-                          <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio value="no" label="No"></v-radio>
-                        </v-radio-group>
-                       
-                        
-                      </v-col>
-
-                      <v-col   cols="12" sm="12" md="3" v-show="what_eligibility_did_you_make_it">
-                       
-                        <p class="font-weight-bold">What Eligibility did you Make it</p>
-                       <v-select
-                     :items="['Prof-Civil Service', 'SubProf-Civil Service ', 'RA 108' , 'PD 907' ]"
-                     label="Select Eligibility"
-                     prepend-inner-icon="mdi-clipboard-account"
-                     v-model="usrelevel"
-                     required
-                   ></v-select>
-
-
-                     </v-col>
-
-
-
-                    
-
                       <v-col cols="12" sm="12" md="2">
                         <p class="font-weight-bold">Are you currently attending any Skills training?</p>
                         <v-radio-group row>
@@ -856,26 +892,31 @@
                       <v-col cols="12" sm="12" md="2">
                         <p class="font-weight-bold">Have you attended any skills Training in the past?</p>
                         <v-radio-group row>
-                          <v-radio value="yes"  @change="skill_training_program = true" label="Yes"></v-radio>
-                          <v-radio value="no" @change=" skill_training_program = false" label="No"></v-radio>
+                          <v-radio value="yes"  @click="skill_training_program = true, can_you_read_and_write_yes_no= false" label="Yes"></v-radio>
+                          <v-radio value="no" @click=" can_you_read_and_write_yes_no = true" label="No"></v-radio>
                         </v-radio-group>
   
                       </v-col>
 
+                <!--       SKILLS TRAINING POUP START -->
+                <v-dialog v-model="skill_training_program" max-width="380px"> 
+                  <v-card> 
+                              <v-container>
+                                <v-row>
+                                  
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      How many skills training have you attended including the current one?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
 
 
-
-<!-- 
-                      <v-col cols="12" sm="12" md="3" v-show="how_many_skills_training_have_you_attend">
-                        <p class="font-weight-bold">How many skills training have you attended including The current one?</p>
-                   
-                       
-                        
-                      </v-col> -->
-
-
-                      <v-col cols="12" sm="12" md="3" v-show="skill_training_program">
-                        <p class="font-weight-bold">How many skills training have you attended including the current one?</p>
+                      <v-col cols="12" sm="12" md="8" class="mx-5"  style="margin-top: -30px">
+                  
                         <v-checkbox-group>
                           <v-checkbox
                             label="Carpentry"
@@ -899,8 +940,8 @@
                         </v-checkbox-group>
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2"  v-show="skill_training_program" >
-                        <p class="font-weight-bold">.</p>
+                      <v-col cols="12" sm="12" md="8" class="mx-5" style="margin-top: -30px" >
+                        
                         <v-checkbox-group>
                           <v-checkbox
                             label="Plumbing"
@@ -921,18 +962,45 @@
                             label="Practical Electricity"
                             style="margin-top: -10px"
                           ></v-checkbox>
-                          <v-text-field
-                         
-                         label="Others"
-                         required
-                       >
-                       </v-text-field>
+                  
                        
                         </v-checkbox-group>
                       </v-col>
 
 
-                      <v-col cols="12" sm="12" md="3" v-show="can_you_read_and_write_yes_no">
+                        <v-col cols="10" class="mx-4" style="margin-top: -20px">
+                      <v-text-field
+                         
+                         label="Others"
+                         required
+                       >
+                       </v-text-field>
+
+                      </v-col>
+
+
+                      <v-col cols="12" sm="3" md="3" style="margin-left: 10px;">
+                     
+                     <v-btn text color="green"  outlined dark @click="skill_training_program = false">
+                       Continue
+                       </v-btn>
+                    
+                   </v-col>
+
+                   <v-col cols="12" sm="3" md="3" style="margin-left: 10px;"  >
+                   <v-btn text color="red"  outlined dark @click="skill_training_program = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                    
+                    </v-row>
+                  </v-container>
+                    </v-card> 
+                     
+                        
+                      </v-dialog>
+
+                      <v-col cols="12" sm="12" md="4" v-show="can_you_read_and_write_yes_no">
                         <p class="font-weight-bold">Can you read and write a simple message in any language or dialect?</p>
                         <v-radio-group row>
                           <v-radio value="yes" label="Yes"></v-radio>
@@ -942,58 +1010,21 @@
                         
                       </v-col>
 
+                         <!--       SKILLS TRAINING POUP END -->
 
+                <!--       GOVERNANCE POUP START -->
 
-
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 5">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 3" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-             
-            </v-stepper-content>
-
-            <!-- Governance Stepper -->
-            <v-stepper-content step="5">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <h4>GOVERNANCE</h4>
-                    <v-row>
-                     
-                      <v-col cols="12" sm="12" md="2">
+                        <v-col cols="12" sm="12" md="2">
+                        <h4>GOVERNANCE</h4>
                         <p class="font-weight-bold">Are you a Registered voter?</p>
                         <v-radio-group row>
-                          <v-radio  value="yes"  @change="can_you_read_and_write_yes_no = false" label="Yes"></v-radio>
-                          <v-radio   value="no"    @change="can_you_read_and_write_yes_no = true" label="No"></v-radio>
+                          <v-radio  @click="did_you_vote_in_the_last_sk_elections = true" value="yes"  label="Yes"></v-radio>
+                          <v-radio   value="no"   label="No"></v-radio>
                         </v-radio-group>
                        
                         
                       </v-col>
-                      <v-col cols="12" sm="12" md="3">
-                        <p class="font-weight-bold">Did you Vote in the last SK Election?</p>
-                        <v-radio-group row>
-                          <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio value="no"    label="No"></v-radio>
-                        </v-radio-group>
-                       
-                        
-                      </v-col>
-                      <v-col cols="12" sm="12" md="5">
-                        <p class="font-weight-bold">Did you vote in the last regular Election?</p>
-                        <v-radio-group row>
-                          <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio  value="no"    label="No"></v-radio>
-                        </v-radio-group>
-                       
-                        
-                      </v-col>
-                   
-                      <v-col cols="12" sm="12" md="4" class="ma-2">
+                      <v-col cols="12" sm="12" md="3" >
                         <p class="font-weight-bold">What organization are you affiliated/ member with for the last three Years?</p>
                         <v-checkbox-group>
                           <v-checkbox
@@ -1035,8 +1066,8 @@
 
                         </v-checkbox-group>
                       </v-col>
-                      <v-col cols="12" sm="12" md="4" class="ma-2">
-                        <p class="font-weight-bold">.</p>
+                      <v-col cols="12" sm="12" md="3"  style="margin-top: 36px" >
+                      
                         <v-checkbox-group>
                           <v-checkbox
                             label="Society of Peer Educators of the Philippines (SPEDdO)"
@@ -1078,56 +1109,227 @@
                       <v-col cols="12" sm="12" md="2">
                         <p class="font-weight-bold">Have you elected in any organization you are affiliated with?</p>
                         <v-radio-group row>
-                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio @click="leardership_information = true"  value="yes" label="Yes"></v-radio>
                           <v-radio  value="no"  label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 6">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 3.1" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
 
-              
-            </v-stepper-content>
-
-            <!-- ECONOMIC ACTIVITY (1) Stepper -->
-            <v-stepper-content step="6">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <h4>ECONOMIC ACTIVITY (1)</h4>
-                  <v-container fluid>
-                  
-                    <v-row>
                       <v-col cols="12" sm="12" md="2">
-                        <p class="font-weight-bold">Did you do any work for at least 1 hour during the past week?</p>
+                        <h4>ECONOMIC ACTIVITY (1)</h4>
+                        <p class="font-weight-bold">(28)Did you do any work during the past week?</p>
                         <v-radio-group row>
-                          <v-radio value="yes" @change="how_many_works_job_business_you_have = true, what_kind_of_industry_did_the_household_member = true, whats_your_primary_occupation=true,do_you_have_job_or_business_during_past_week = false"  label="Yes"></v-radio>
-                          <v-radio  value="no" @change="do_you_have_job_or_business_during_past_week = true,how_many_works_job_business_you_have = false,  whats_your_primary_occupation=false, what_kind_of_industry_did_the_household_member = false"  label="No"></v-radio>
+                          <v-radio value="yes" @click="whats_your_class_of_worker = true , do_you_have_job_or_business_during_past_week= false"  label="Yes"></v-radio>
+                          <v-radio  value="no" @click="do_you_have_job_or_business_during_past_week = true,how_many_works_job_business_you_have = false,  whats_your_primary_occupation=false, what_kind_of_industry_did_the_household_member = false"  label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
-                      <v-col cols="12" sm="12" md="2" v-show="do_you_have_job_or_business_during_past_week">
-                        <p class="font-weight-bold">Do you have a job or business during the past Week?</p>
+
+                        <v-dialog v-model="how_many_works_job_business_you_have" max-width="500px">
+                          <v-card>
+                          <v-container>
+                            <v-row>
+                          
+
+                           
+
+
+                      
+                    <v-col cols="12" sm="3" md="6"  >
+                     
+                     <v-btn text color="green" outlined dark @click="how_many_works_job_business_you_have = false">
+                       Continue
+                       </v-btn>
+                    
+                   <v-btn text color="red"  outlined dark @click="how_many_works_job_business_you_have = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                   
+
+
+                            </v-row>
+
+                          </v-container>
+                        </v-card>
+                          </v-dialog>
+
+
+
+
+                          <v-col cols="12" sm="12" md="2" >
+                        <p class="font-weight-bold">(29)Do you have business during the past Week?</p>
                        <v-radio-group row>
-                          <v-radio value="yes"  @change="whats_your_primary_occupation = true ,what_kind_of_industry_did_the_household_member = true"    label="Yes"></v-radio>
-                          <v-radio  value="no" @change="whats_your_primary_occupation = false ,what_kind_of_industry_did_the_household_member = false"     label="No"></v-radio>
+                          <v-radio value="yes"  @click="  what_is_the_sector_of_your_business = true "    label="Yes"></v-radio>
+                          <v-radio  value="no" @click="did_you_look_work_to_eastablish_business = true "     label="No"></v-radio>
                         </v-radio-group> 
                      
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2" v-show="how_many_works_job_business_you_have">
-                        <p class="font-weight-bold">How many works, jobs or businesses you Have?</p>
-                        <v-text-field
-                          label="No of works/Jobs or Businesses"
-                         
-                        ></v-text-field>
+                      <v-dialog  v-model="what_is_the_sector_of_your_business"  max-width="650px">
+                     <v-card>
+                       <v-container fluid>
+                         <v-row>
+
+                          <v-col cols="12" sm="12" md="12" >
+                                    <div class="text-center">
+                                    <v-alert dense dark color="blue darken-3">
+                                     What is the Sector of Your Business<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+                            <v-col cols="12" sm="12" md="12"  style="margin-top: -31px" >
+                      
+                      <v-checkbox-group>
+                        <v-checkbox
+                          label="Agriculture; plantations;other rural sectors"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Basic Metal Production "
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Chemical industries"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Commerce"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Construction"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Education"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Financial services; professional service"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Financial services; professional service"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+
+                        <v-checkbox
+                          label="Forestry; wood; pulp and paper"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+
+                        <v-checkbox
+                          label="Health services"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+
+                        <v-checkbox
+                          label="Hotels; tourism; catering"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Mining (coal; other mining)"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Transport"
+                          style="margin-top: -10px"
+                        ></v-checkbox>
+                      </v-checkbox-group>
+                      
+                    </v-col>
+
+
+
+
+                            <v-row>
+                            <v-col cols="12" sm="4" md="4">
+                     
+                     <v-btn text color="green"  outlined dark @click="what_is_the_sector_of_your_business = false">
+                       Continue
+                       </v-btn>
+                   <v-btn text color="red"  outlined dark @click="what_is_the_sector_of_your_business = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                    </v-row>
+
+
+                         </v-row>
+                          </v-container>
+             
+                        </v-card>
+                        </v-dialog>
+
+                    <!--     Whats Your Primary Occupation Poup Start -->
+
+                    <v-dialog  v-model="whats_your_class_of_worker"  max-width="650px">
+                     <v-card>
+                       <v-container fluid>
+                         <v-row>
+                          <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What is your class of worker?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                             
+                            </v-col>
+
+                          <v-col cols="12" sm="12" md="12"  class="mt-n7">
+                       
+                        <v-checkbox-group>
+                          <v-checkbox
+                            label="Working for private household"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Working private business/ establishment/ farm"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Working for government/ government corporation"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Self-employed with no paid employee"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                       
+                        </v-checkbox-group>
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2" v-show="whats_your_primary_occupation">
-                        <p class="font-weight-bold">What was your primary occupation during the past weeks?</p>
+                      <v-col cols="12" sm="10" md="10" class="mt-n1">
+                                 <p class="font-weight-bold">How many work you Have?</p>
+                                </v-col>
+
+                                <v-col cols="10" sm="5" md="7" class="mt-n8" >
+                     
+                     <v-text-field
+                       label="No of Works"
+                      
+                     ></v-text-field>
+                   </v-col>
+
+                   <v-col cols="12" sm="10" md="10" class="mt-n6" >
+                     <p class="font-weight-bold">Did you look for additional work during the past week?</p>
+                     <v-radio-group row>
+                       <v-radio value="yes"  label="Yes"></v-radio>
+                       <v-radio value="no"    label="No"></v-radio>
+                     </v-radio-group>
+                   </v-col>
+
+
+
+
+                      <v-col cols="12" sm="12" md="12" class="mt-n2" >
+
+                      <p class="font-weight-bold">What was your primary occupation during the past weeks?</p>
+                    </v-col>
+
+                      <v-col cols="12" sm="12" md="6" class="mt-n9" >
+                        
                         <v-checkbox-group>
                           <v-checkbox
                             label="Managers"
@@ -1164,14 +1366,11 @@
                       </v-col>
 
 
-                      <v-col cols="12" sm="12" md="3" v-show="whats_your_primary_occupation">
-                        <p class="font-weight-bold">.</p>
+                      <v-col cols="12" sm="12" md="6" class="mt-n4">
+                       
                        
                           <v-checkbox-group>
-                         
-
-                        
-
+             
                           <v-checkbox
                             label="Plant & Machine Operations & Assemblers"
                             style="margin-top: -10px"
@@ -1203,23 +1402,22 @@
                             style="margin-top: -10px"
                           ></v-checkbox>
 
-                          <v-checkbox
-                          label="Administrative & Support Service Activities"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
+                         
 
 
                         </v-col>
 
 
-                        <v-col cols="12" sm="12" md="3" v-show="whats_your_primary_occupation">
-                        <p class="font-weight-bold">.</p>
+                        <v-col cols="12" sm="12" md="12" >
+                       
                        
                           <v-checkbox-group>
+                            <v-checkbox
+                          label="Administrative & Support Service Activities"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+
                          
-
-                        
-
                           <v-checkbox
                             label="Public Administration & Defense; Compulsory Social Security"
                             style="margin-top: -10px"
@@ -1241,8 +1439,6 @@
                             style="margin-top: -10px"
                           ></v-checkbox>
 
-                      
-
                           <v-checkbox
                           label="Activities of Households as Employers; Undifferentiated Goods & Services-producing activities of Households for own use"
                             style="margin-top: -10px"
@@ -1253,27 +1449,375 @@
                             style="margin-top: -10px"
                           ></v-checkbox>
 
+                      
+
+                        </v-col>
+
+                        <v-col cols="10" sm="12" md="8" class="mt-n3"  >
+
                           <v-text-field
                           label="Other Service Activities"
                             style="margin-top: -10px"
                           ></v-text-field>
-
-
-
                         </v-col>
 
 
+                        <v-col   cols="10" sm="10" md="10" class="mt-n8" >
+                        <p class="font-weight-bold">In what kind of industry did the household member work during the past Weeks?</p>
 
-                        <v-col cols="12" sm="12" md="3" v-show="whats_your_primary_occupation">
-                        <p class="font-weight-bold">.</p>
+                       <v-select
+                       class="mt-n4"
+                     :items="['Mining Quarrying ', 'Manufacturing  ', 'Electricity, Gas, Steam, and Air conditioning Supply' , 'Schooling', 'Water Supply: Sewerage, Waste Management & Remediation activities' , 'Remediation' ]"
+                     label=""
+                     prepend-inner-icon="mdi-clipboard-account"
+                     v-model="usrelevel"
+                     required
+                   ></v-select>
+                   <v-text-field
+                          label="Other, specify"
+                            style="margin-top: -10px"
+                          ></v-text-field>
+
+                   </v-col> 
+
+
+                   <v-col   cols="12" sm="12" md="10" class="mt-n6" >
+                     
+                     <p class="font-weight-bold">What is the status/nature of employment? </p>
+                     <v-radio-group 
+                     class="mt-n4"
+                     row>
+                       <v-radio value="Permanent_Job_business_unpaid_family_work" label="Permanent Job/ business/ unpaid family work"></v-radio>
+                       <v-radio  value="Short-term or seasonal or casual job/ business/ unpaid family work"    label="Short-term or seasonal or casual job/ business/ unpaid family work"></v-radio>
+                       <v-radio   value="Worked for different employers or customers on day-to-day or week-to-week basis"   label="Worked for different employers or customers on day-to-day or week-to-week basis"></v-radio>
+                     </v-radio-group>
+
+                </v-col> 
+
+                <v-col   cols="10" sm="10" md="10" class="mt-n4"  >
+                    <p class="font-weight-bold">What was your normal working hours per day during the past week?</p>
+                    <v-select
+                     :items="['1 Hour', '2 Hours', '3 Hours', '4 Hours' , '5 Hours', '6 Hours', '7 Hours' , '8 Hours' , '9 Hours' , '10 Hours' , '11 Hours' , '12 Hours'  ]"
+                    label="Select No. Of Hours"
+                     prepend-inner-icon="mdi-clipboard-account"
+                     v-model="usrelevel"
+                     required
+                   ></v-select>
+
+                    </v-col>
+
+
+                    <v-col   cols="10" sm="10" md="10" class="mt-n5">
+                    <p class="font-weight-bold">What was the total number of hours worked during the past week?</p>
+                    <v-select
+                     :items="['1 Hour', '2 Hours', '3 Hours', '4 Hours' , '5 Hours', '6 Hours', '7 Hours' , '8 Hours' , '9 Hours' , '10 Hours' , '11 Hours' , '12 Hours'  ]"
+                    label="Select No. Of Hours"
+                     prepend-inner-icon="mdi-clipboard-account"
+                    
+                     required
+                   ></v-select>
+
+                    </v-col>
+
+                         </v-row>
+
+                         <v-row>
+                    <v-col cols="10" sm="3" md="5" class="mt-n4"  >
+                     
+                     <v-btn text color="green"   dark @click="whats_your_class_of_worker = false">
+                       Continue
+                       </v-btn>
+                    
+                   <v-btn text color="red"   dark @click="whats_your_class_of_worker = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                    </v-row>
+
+
+                        </v-container>
+                        </v-card>
+                         </v-dialog>
+                     
+
+
+
+              
+
+                          <v-col cols="12" sm="12" md="3"  v-show="did_you_look_work_to_eastablish_business">
+                           <p class="font-weight-bold"> Did you look for work or try to establish business during the past week?</p>
+                        <v-radio-group row>
+                          <v-radio value="yes"  @change="was_this_your_first_time_to_look_for_work=true,what_you_have_been_doing_to_find_a_work=true, how_many_weeks_have_you_been_looking_for_work=true,why_did_you_not_look_for_work=false,when_was_the_last_time_you_looked_for_work=false  " label="Yes"></v-radio>
+                          <v-radio value="no"  @change="was_this_your_first_time_to_look_for_work=false,what_you_have_been_doing_to_find_a_work=false, how_many_weeks_have_you_been_looking_for_work=false,why_did_you_not_look_for_work=true,when_was_the_last_time_you_looked_for_work=true " label="No"></v-radio>
+                        </v-radio-group>
+                      </v-col>
+
+                    
+
+
+
+                      <v-dialog  v-model="whats_your_primary_occupation"  max-width="650px">
+                     
+                          <v-card>
+                            <v-container fluid>
+                              <v-row>
+                                <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                     <strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                             
+                            </v-col>
+
+             
+
+
+
+                      </v-row>
+
+                      <v-row>
+                    <v-col cols="10" sm="3" md="5" class="ml-n4 mt-n7"  >
+                     
+                     <v-btn text color="green"   dark @click="whats_your_primary_occupation = false">
+                       Continue
+                       </v-btn>
+                    
+                   <v-btn text color="red"   dark @click="whats_your_primary_occupation = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                    </v-row>
+
+                 
+
+                      </v-container>
+                      </v-card>
+                      
+                      </v-dialog>
+                   <!--      Whats Your Primary Occupation END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      <v-dialog v-model="leardership_information" max-width="900px">
+
+                        <v-card>
+                          <v-container fluid>
+
+                            <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Leadership Information<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+
+                            <div v-for="(item, index) in form" :key="item">
+                            <v-row justify="center" >
+                  
+
+              
+                           
+
+                    <v-col cols="10"  md="2">
+                      <v-text-field
                        
-                          <v-checkbox-group>
+                        label="Organization"
+                        
+                        color="success"
+                        v-model="item.organization"
+                        autofocus
+                      >
+                      </v-text-field>
+                    </v-col>
+
+                    <v-col cols="10" md="2">
+                      <v-text-field
+                        
+                        label="Position"
+                        v-model="item.position"
+                        color="success"
+                      
+                      >
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="10" md="2">
+                      <v-text-field 
+                      v-model="item.startofterm"
+                      style="margin-left: -5px;" label="Start of Term" type="date" required   color="green"
+                                         >
+                                      </v-text-field>
+                    
+                    </v-col>
+
+                    <v-col cols="10" md="2">
+                      <v-text-field
+                      v-model="item.endofterm"
+                       label="End of Term" type="date" required   color="green"
+                                         >
+                                      </v-text-field>
+                    </v-col>
+                  
+                  
+                    <v-col cols="10" md="3">
+                      <v-btn
+                      style="margin-left: 16px;"
+                        color="error"
+                        outlined
+                        @click="removerow(index)"
+                      >
+                        Remove
+                      </v-btn>
+                      <v-btn  style="margin-left: 10px;"  color="warning" @click="addrow(index)">
+                        Add
+                      </v-btn>
+                    </v-col>
+
+               
+
+                </v-row>
+              </div>
+
+
+                <v-row>
+                    <v-col cols="12" sm="3" md="3" style="margin-left: 15px;" >
+                     
+                     <v-btn text color="green" class="ml-3" outlined dark @click="leardership_information = false">
+                       Continue
+                       </v-btn>
+                    
+                   <v-btn text color="red"  outlined dark @click="leardership_information = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                    </v-row>
+
+                     
+             
           
-                          </v-checkbox-group>
+                            
+                          </v-container>
+                        </v-card>
+                      </v-dialog>
+
+
+                  <!--      IF YES Did you Vote in the last SK Election POUP  START-->
+
+                  <v-dialog v-model="did_you_vote_in_the_last_sk_elections" max-width="400px"> 
+                    <v-card> 
+                  <v-container fluid>
+                   
+                    <v-row>
+                     
+                      <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Did you Vote in the last SK Election?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+                      
+                      <v-col cols="12" sm="12" md="12"  style="margin-top: -30px;">
+
+                        <v-radio-group row>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no"    label="No"></v-radio>
+                        </v-radio-group>
+                       
+                        
+                      </v-col>
+
+
+                      <v-col cols="12" sm="12" md="12">
+                      <p class="font-weight-bold text-left">Did you vote in the last regular Election?</p>
+                    </v-col>
+
+
+                    
+                    <v-col cols="12" sm="12" md="12"  style="margin-top: -30px;">
+                        
+                        <v-radio-group row>
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio  value="no"    label="No"></v-radio>
+                        </v-radio-group>
+                       
+                        
+                      </v-col>
+                 
+                
+                   
+                      <v-col cols="12" sm="3" md="3" style="margin-left: 10px;">
+                     
+                     <v-btn text color="green"  outlined dark @click="did_you_vote_in_the_last_sk_elections = false">
+                       Continue
+                       </v-btn>
+                    
+                   </v-col>
+
+                   <v-col cols="12" sm="3" md="3" style="margin-left: 10px;"  >
+                   <v-btn text color="red"  outlined dark @click="did_you_vote_in_the_last_sk_elections = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+                 
+
+
+                    </v-row>
+                
+               
+                  </v-container>
+                </v-card> 
+                </v-dialog>
+                <!--      IF YES Did you Vote in the last SK Election POUP  END   -->
+
+      <!--       GOVERNANCE POUP END -->
+
+                    </v-row>
+                    <v-btn id="v-btn-c" color="green" @click="e1 = 6">
+                Continue
+              </v-btn>
+              <v-btn @click="e1 = 1" class="ma-2"> Back </v-btn>
+                  </v-container>
+                </v-card-text>
+              </v-card>
+
+             
+            </v-stepper-content>
+
+            <!-- ECONOMIC ACTIVITY (1) Stepper -->
+            <v-stepper-content step="6">
+              <v-card class="mb-12" color="grey lighten-4">
+                <v-card-text>
+                 
+                  <v-container fluid>
+                  
+                    <v-row>
+
+                     
 
 
 
-                        </v-col>
+
+                    
+                     
+
 
                        
 
@@ -1298,58 +1842,14 @@
                     <h4>ECONOMIC ACTIVITY (2)</h4>
                     <v-row>
                       
-                      <v-col   cols="12" sm="12" md="4" class="ma-2" v-show="what_kind_of_industry_did_the_household_member">
-                        <p class="font-weight-bold">In what kind of industry did the household member work during the past Weeks?</p>
-
-                       <v-select
-                     :items="['Mining Quarrying ', 'Manufacturing  ', 'Electricity, Gas, Steam, and Air conditioning Supply' , 'Schooling', 'Water Supply: Sewerage, Waste Management & Remediation activities' , 'Remediation' ]"
-                     label=""
-                     prepend-inner-icon="mdi-clipboard-account"
-                     v-model="usrelevel"
-                     required
-                   ></v-select>
-                   <v-text-field
-                          label="Other, specify"
-                            style="margin-top: -10px"
-                          ></v-text-field>
-
-
-                   </v-col> 
-
-                       <v-col   cols="12" sm="12" md="6" class="ma-2" v-show="what_kind_of_industry_did_the_household_member">
                      
-                        <p class="font-weight-bold">What is the status/nature of employment? </p>
-                        <v-radio-group row>
-                          <v-radio value="Permanent_Job_business_unpaid_family_work" label="Permanent Job/ business/ unpaid family work"></v-radio>
-                          <v-radio  value="Short-term or seasonal or casual job/ business/ unpaid family work"    label="Short-term or seasonal or casual job/ business/ unpaid family work"></v-radio>
-                          <v-radio   value="Worked for different employers or customers on day-to-day or week-to-week basis"   label="Worked for different employers or customers on day-to-day or week-to-week basis"></v-radio>
-                        </v-radio-group>
 
-                   </v-col> 
+                    
 
-                   <v-col   cols="12" sm="12" md="3" v-show="what_kind_of_industry_did_the_household_member" >
-                    <p class="font-weight-bold">What was your normal working hours per day during the past week?</p>
-                    <v-select
-                     :items="['1 Hour', '2 Hours', '3 Hours', '4 Hours' , '5 Hours', '6 Hours', '7 Hours' , '8 Hours' , '9 Hours' , '10 Hours' , '11 Hours' , '12 Hours'  ]"
-                    label="Select No. Of Hours"
-                     prepend-inner-icon="mdi-clipboard-account"
-                     v-model="usrelevel"
-                     required
-                   ></v-select>
-
-                    </v-col>
+                  
 
 
-                    <v-col   cols="12" sm="12" md="3" v-show="what_kind_of_industry_did_the_household_member" >
-                    <p class="font-weight-bold">What was the total number of hours worked during the past week?</p>
-                    <v-text-field
-                         
-                         label="No. Of Hours"
-                         required
-                       >
-                       </v-text-field>
-
-                    </v-col>
+                    
 
                     <v-col cols="12" sm="12" md="2" >
                         <p class="font-weight-bold">(36) Did you want more hours of work during the past week?</p>
@@ -1359,39 +1859,9 @@
                         </v-radio-group>
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2"  v-show="did_you_look_additional_word">
-                        <p class="font-weight-bold">(37) Did you look for additional work during the past week?</p>
-                        <v-radio-group row>
-                          <v-radio value="yes" @change="whats_your_class_of_worker = true"  label="Yes"></v-radio>
-                          <v-radio value="no"     @change="whats_your_class_of_worker = false" label="No"></v-radio>
-                        </v-radio-group>
-                      </v-col>
-
-
-                      <v-col cols="12" sm="12" md="3" v-show="whats_your_class_of_worker">
-                        <p class="font-weight-bold">(38) What is your class of worker?</p>
-                        <v-checkbox-group>
-                          <v-checkbox
-                            label="Working for private household"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Working private business/ establishment/ farm"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Working for government/ government corporation"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Self-employed with no paid employee"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                       
-                        </v-checkbox-group>
-                      </v-col>
-
+                     
                       <v-col cols="12" sm="12" md="3"  v-show="whats_your_class_of_worker">
-                        <p class="font-weight-bold">.</p>
+                      
                         <v-checkbox-group>
 
 
@@ -1412,13 +1882,7 @@
                         </v-checkbox-group>
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="2" v-show="did_you_look_work_to_eastablish_business">
-                        <p class="font-weight-bold">(39) Did you look for work or try to establish business during the past week? </p>
-                        <v-radio-group row>
-                          <v-radio value="yes"  @change="was_this_your_first_time_to_look_for_work=true,what_you_have_been_doing_to_find_a_work=true, how_many_weeks_have_you_been_looking_for_work=true,why_did_you_not_look_for_work=false,when_was_the_last_time_you_looked_for_work=false  " label="Yes"></v-radio>
-                          <v-radio value="no"  @change="was_this_your_first_time_to_look_for_work=false,what_you_have_been_doing_to_find_a_work=false, how_many_weeks_have_you_been_looking_for_work=false,why_did_you_not_look_for_work=true,when_was_the_last_time_you_looked_for_work=true " label="No"></v-radio>
-                        </v-radio-group>
-                      </v-col>
+                     
 
                     
 
@@ -3357,17 +3821,101 @@ required
   </v-app>
 </template>
 
+<!-- <script>
+import { reactive } from "vue";
+export default {
+  
+  setup() {
+    const form = reactive([
+      {
+        firstname: "",
+        lastname: "",
+        middlename: "",
+     
+      },
+    ]);
+    const addrow = () => {
+      form.push({
+        firstname: "",
+        lastname: "",
+        middlename: "",
+      
+      });
+    };
+    
+    const removerow = (index) => {
+      if (form.length > 1) {
+        form.splice(index, 1);
+      }
+    };
+   
+    return {
+      reactive,
+      form,
+      addrow,
+      removerow,
+    
+    };
+  },
+}
+</script> -->
+
+
 <script>
+
+import { reactive } from "vue";
  import SK_NavBar from "@/views/Brgy_Sk_Official_AR/SK_NavBar.vue";
 
 export default {
+  
+  
     components: {
       SK_NavBar
     },
-  data() {
-    return {
-      e1: 1,
 
+    setup() {
+    const form = reactive([
+      {
+        organization: "",
+        position: "",
+        startofterm: "",
+        endofterm: "",
+      },
+    ]);
+    const addrow = () => {
+      form.push({
+        organization: "",
+        position: "",
+        startofterm: "",
+        endofterm: "",
+      
+      });
+    };
+    
+    const removerow = (index) => {
+      if (form.length > 1) {
+        form.splice(index, 1);
+      }
+    };
+   
+    return {
+      reactive,
+      form,
+      addrow,
+      removerow,
+    
+    };
+  },
+
+  data() {
+
+    
+   
+    
+    return {
+     
+      e1: 1,
+    
      /*  Codes FOR 61 What kind of health Related */
       items61:[
             'Cardiovascular Diseases',
@@ -3417,6 +3965,11 @@ export default {
  ],
 /*  END */
 
+what_is_the_sector_of_your_business:false,
+leardership_information:false,
+show_if_yes_graduate_senior_highschool:false,
+did_you_vote_in_the_last_sk_elections:false,
+
       country_destination:false,
 
    /*    EDUCATION AND LITERACY (1) */
@@ -3437,7 +3990,7 @@ export default {
           /*  END */
 
       /*     ECONOMIC ACTIVITY (1) */
-  do_you_have_job_or_business_during_past_week:false,
+  
   how_many_works_job_business_you_have:false,
   whats_your_primary_occupation:false,
 
@@ -3552,6 +4105,8 @@ where_would_you_like_volunteer_93:false,
     
     };
   },
+  
+  
   watch: {
     menu(val) {
       val && setTimeout(() => (this.activePicker = "YEAR"));
@@ -3579,6 +4134,7 @@ where_would_you_like_volunteer_93:false,
 
     },
 
+    
 
 
     functionselect_civil_status(){
@@ -3650,6 +4206,8 @@ else if(this.select_health_facility== 0){
 },
 
 
+
+
   funcionselect(){
 
 if (this.selectgrade=="College Graduate") 
@@ -3657,12 +4215,12 @@ if (this.selectgrade=="College Graduate")
 
   this.whats_your_college_course = true;
   this.are_you_passer_eligibility= true;
-  this.what_eligibility_did_you_make_it = true;
+ /*  this.what_eligibility_did_you_make_it = true; */
 }
 else{
   this.whats_your_college_course = false;
   this.are_you_passer_eligibility= false;
-  this.what_eligibility_did_you_make_it = false;
+ /*  this.what_eligibility_did_you_make_it = false; */
 }
 },
 
@@ -3673,6 +4231,7 @@ else{
       this.$refs.menu.save(date);
     },
   },
+  
 };
 </script>
 
