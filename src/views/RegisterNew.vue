@@ -510,7 +510,7 @@
                          <!--     COUNTRY OF DESTINATION END -->
 
                           <v-row>
-                      <v-col cols="12" sm="12" md="4" >
+                      <v-col cols="12" sm="12" md="4" class="ml-4" >
                      <h3>Where did you Reside 3 Years Ago?</h3>
                      <v-checkbox
                             label="Same Address Now"
@@ -523,7 +523,7 @@
                           </v-text-field>
                       </v-col>
 
-                      <v-col  cols="12" sm="12" md="4" >
+                      <v-col  cols="12" sm="12" md="3" class="ml-4" >
 
                     
                         <H4>EDUCATION AND LITERACY (1)</H4>
@@ -538,7 +538,7 @@
 
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="4" >
+                      <v-col cols="12" sm="12" md="4"  class="ml-4"  >
                       <p class="font-weight-bold">Are You a graduate of Senior high?</p>
                         <v-radio-group row>
                           <v-radio  @change="show_if_yes_graduate_senior_highschool = true"      value="yes"  label="Yes"></v-radio>
@@ -844,7 +844,7 @@
                     </v-row>
                     
                   </v-container>
-                  <small>*indicates required field</small>
+                 
                 </v-card-text>
                 <v-btn id="v-btn-c" color="green" @click="e1 = 2">
                 Continue
@@ -1159,12 +1159,24 @@
                         <p class="font-weight-bold">(29)Do you have business during the past Week?</p>
                        <v-radio-group row>
                           <v-radio value="yes"  @click="  what_is_the_sector_of_your_business = true "    label="Yes"></v-radio>
-                          <v-radio  value="no" @click="did_you_look_work_to_eastablish_business = true "     label="No"></v-radio>
+                          <v-radio  value="no"    label="No"></v-radio>
                         </v-radio-group> 
                      
                       </v-col>
 
-                      <v-dialog  v-model="what_is_the_sector_of_your_business"  max-width="650px">
+                      <v-col cols="12" sm="12" md="2" >
+                        <p class="font-weight-bold">(36) Did you want more hours of work during the past week?</p>
+                        <v-radio-group row>
+                          <v-radio value="yes"  @change="did_you_look_additional_word = true , whats_your_class_of_worker=false , did_you_look_work_to_eastablish_business=false"   label="Yes"></v-radio>
+                          <v-radio value="no"  @change="did_you_look_additional_word = false , whats_your_class_of_worker=false , did_you_look_work_to_eastablish_business = true"  label="No"></v-radio>
+                        </v-radio-group>
+                      </v-col>
+
+
+
+
+
+                      <v-dialog  v-model="what_is_the_sector_of_your_business"  max-width="470px">
                      <v-card>
                        <v-container fluid>
                          <v-row>
@@ -1179,7 +1191,7 @@
                                
                             </v-col>
 
-                            <v-col cols="12" sm="12" md="12"  style="margin-top: -31px" >
+                            <v-col cols="10" sm="12" md="10" class="ml-1" style="margin-top: -31px" >
                       
                       <v-checkbox-group>
                         <v-checkbox
@@ -1242,9 +1254,11 @@
 
 
 
+                         </v-row>
 
-                            <v-row>
-                            <v-col cols="12" sm="4" md="4">
+                         
+                         <v-row>
+                            <v-col cols="12" sm="4" md="6">
                      
                      <v-btn text color="green"  outlined dark @click="what_is_the_sector_of_your_business = false">
                        Continue
@@ -1255,8 +1269,6 @@
                      </v-col>
                     </v-row>
 
-
-                         </v-row>
                           </v-container>
              
                         </v-card>
@@ -1547,12 +1559,217 @@
                           <v-col cols="12" sm="12" md="3"  v-show="did_you_look_work_to_eastablish_business">
                            <p class="font-weight-bold"> Did you look for work or try to establish business during the past week?</p>
                         <v-radio-group row>
-                          <v-radio value="yes"  @change="was_this_your_first_time_to_look_for_work=true,what_you_have_been_doing_to_find_a_work=true, how_many_weeks_have_you_been_looking_for_work=true,why_did_you_not_look_for_work=false,when_was_the_last_time_you_looked_for_work=false  " label="Yes"></v-radio>
-                          <v-radio value="no"  @change="was_this_your_first_time_to_look_for_work=false,what_you_have_been_doing_to_find_a_work=false, how_many_weeks_have_you_been_looking_for_work=false,why_did_you_not_look_for_work=true,when_was_the_last_time_you_looked_for_work=true " label="No"></v-radio>
+                          <v-radio value="yes"  @click="was_this_your_first_time_to_look_for_work=true" label="Yes"></v-radio>
+                          <v-radio value="no"  @click="why_did_you_not_look_for_work=true" label="No"></v-radio>
                         </v-radio-group>
                       </v-col>
 
+
+                      <v-col cols="12" md="2" sm="12" >
+                        <p class="font-weight-bold">(46) Were you willing to take up work during the past week or within 2 weeks?</p>
+                        <v-radio-group row>
                     
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no"   label="No"></v-radio>
+                        </v-radio-group>
+                    
+                      </v-col>
+
+
+                      <v-col cols="12" md="2" sm="12" >
+                        <p class="font-weight-bold">(47) In the past 12 months, how much total salary/ wages did you receive?</p>
+                        <v-text-field
+                         
+                         label="Give estimate value Php "
+                         required
+                       >
+                       </v-text-field>
+
+                      </v-col>
+
+                      <v-col  cols="12" md="2" sm="12" >
+                        <p class="font-weight-bold">(48) Are You A Member of GSIS?</p>
+                        <v-radio-group row>
+                        <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no" label="No"></v-radio>
+                        </v-radio-group>
+                      </v-col>
+
+                      <v-col  cols="12" md="3" sm="12" >
+                        <p class="font-weight-bold">(49) Are You A Member of SSS?</p>
+                        <v-radio-group row>
+                        <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio value="no" label="No"></v-radio>
+                        </v-radio-group>
+                      </v-col>
+
+
+                    
+                      <v-dialog  v-model="why_did_you_not_look_for_work" max-width="450px">
+                     
+                     <v-card>
+                       <v-container fluid>
+                         <v-row>
+                          <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Why did you not look for work?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+                            
+
+                          <v-col cols="10" sm="12" md="10" class="mt-n6" >
+                       
+                        <v-select
+                      :items="['Tired/believe no work available ', 'Awaiting results of previous job application' , 'Temporary illness/disability' , 'Bad weather', 'Waiting for hire/ job recall', 'Too young/ old or retired/ permanent disability', 'Household/ family duties', 'Schooling',  ]"
+                      label="Select Option"
+                      prepend-inner-icon="mdi-account-off"
+                      v-model="dfdfdf"
+                      required
+                    ></v-select>
+                    <v-text-field
+                         
+                         label="(43) Other, specify"
+                         required
+                         prepend-inner-icon="mdi-cellphone-basic"
+                       >
+                       </v-text-field>
+
+                      </v-col>
+
+
+                      <v-col cols="10" sm="12" md="10" class="mt-n6" >
+                        <p class="font-weight-bold">(44)When was the last time you looked for work?</p>
+                       <v-select
+                     :items="['Within this week ', 'Within last week' , 'Temporary illness/disability' , 'Bad weather', 'Waiting for hire/ job recall', 'Too young/ old or retired/ permanent disability', 'Household/ family duties', 'Schooling',  ]"
+                     label="Select Option"
+                     prepend-inner-icon="mdi-account-off"
+                     v-model="dddd"
+                     required
+                   ></v-select>
+                
+                     </v-col>
+
+
+
+
+                         </v-row>
+
+
+                         <v-row>
+
+                          <v-col cols="10" sm="3" md="6" class="mt-n6"  >
+                     
+                     <v-btn text color="green"  outlined dark @click="why_did_you_not_look_for_work = false">
+                       Continue
+                       </v-btn>
+                    
+                 
+                   <v-btn text color="red"  outlined dark @click="why_did_you_not_look_for_work = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+
+                         </v-row>
+
+
+
+
+                        </v-container>
+                         </v-card>
+                         </v-dialog>
+
+
+
+
+                      <v-dialog  v-model="was_this_your_first_time_to_look_for_work"  max-width="550px">
+                     
+                     <v-card>
+                       <v-container fluid>
+                         <v-row>
+
+                          
+                          <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Was this your first time to look for work or try to establish a business?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+                          <v-col   cols="10" sm="12" md="10" class="mt-n8">
+                     
+                     <v-radio-group row>
+                       <v-radio value="yes" label="Yes"></v-radio>
+                       <v-radio  value="no" label="No"></v-radio>
+                    
+                     </v-radio-group>
+                      </v-col> 
+
+                      <v-col   cols="10" sm="12" md="10" class="mt-n4" >
+                    <p class="font-weight-bold">(41)  What you have been doing to find a work?</p>
+
+                       <v-select
+                     :items="['Registered in public employment agency', 'Registered in private employment agency', 'Approached employer directly' , 'Approached relatives or friends' , 'Placed or answered advertisements ' , 'Searched and applied Online']"
+                    prepend-inner-icon="mdi-clipboard-account"
+                    label="Select Option"
+                     v-model="usrelevel"
+                     required
+                   ></v-select>
+
+
+                     </v-col>
+
+
+                     <v-col cols="10" sm="12" md="10" class="mt-n5" >
+                      <p class="font-weight-bold">(42) How many weeks have you been looking for work?</p>
+                        <v-text-field
+                         
+                          label="Write # of weeks"
+                          required
+                          prepend-inner-icon="mdi-calendar"
+                        >
+                        </v-text-field>
+
+                      </v-col>
+
+                      <v-col cols="10" md="10" sm="12" class="mt-n5">
+                      <p class="font-weight-bold">(45) Had opportunity for work existed last week or within two weeks, would you have been available? </p>
+                        <v-radio-group row>
+                    
+                          <v-radio value="yes" label="Yes"></v-radio>
+                          <v-radio  value="no" label="No"></v-radio>
+                        </v-radio-group>
+                    
+                      </v-col>
+
+
+                         </v-row>
+
+                         <v-row>
+                        <v-col cols="12" sm="3" md="5" class="mt-n2" >
+                     
+                     <v-btn text color="green"  outlined dark @click="was_this_your_first_time_to_look_for_work = false">
+                       Continue
+                       </v-btn>
+                    
+                   <v-btn text color="red"  outlined dark @click="was_this_your_first_time_to_look_for_work = false">
+                       Close
+                       </v-btn>
+                   
+                 </v-col>
+
+
+                        </v-row>
+                        
+                        </v-container>
+                         </v-card>
+                        </v-dialog>
 
 
 
@@ -1851,7 +2068,7 @@
 
                     
 
-                    <v-col cols="12" sm="12" md="2" >
+                    <v-col cols="12" sm="12" md="3" >
                         <p class="font-weight-bold">(36) Did you want more hours of work during the past week?</p>
                         <v-radio-group row>
                           <v-radio value="yes"  @change="did_you_look_additional_word = true , whats_your_class_of_worker=false , did_you_look_work_to_eastablish_business=false"   label="Yes"></v-radio>
@@ -1906,127 +2123,13 @@
                     <h4>ECONOMIC ACTIVITY (3)</h4>
                     <v-row>
         
-                       <v-col   cols="12" sm="12" md="3"  v-show="was_this_your_first_time_to_look_for_work">
-                     
-                        <p class="font-weight-bold">(40) Was this your first time to look for work or try to establish a business?</p>
-                        <v-radio-group row>
-                          <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio  value="no" label="No"></v-radio>
-                       
-                        </v-radio-group>
-                   </v-col> 
+                    
+                   
+
 
                   
-                   <v-col   cols="12" sm="12" md="3"  v-show="what_you_have_been_doing_to_find_a_work" >
-                    <p class="font-weight-bold">(41)  What you have been doing to find a work?</p>
 
-                       <v-select
-                     :items="['Registered in public employment agency', 'Registered in private employment agency', 'Approached employer directly' , 'Approached relatives or friends' , 'Placed or answered advertisements ' , 'Searched and applied Online']"
-                    prepend-inner-icon="mdi-clipboard-account"
-                    label="Select Option"
-                     v-model="usrelevel"
-                     required
-                   ></v-select>
-
-
-                     </v-col>
-                
-
-
-                     <v-col cols="12" sm="12" md="3"  v-show="how_many_weeks_have_you_been_looking_for_work">
-                      <p class="font-weight-bold">(42) How many weeks have you been looking for work?</p>
-                        <v-text-field
-                         
-                          label="Write # of weeks"
-                          required
-                          prepend-inner-icon="mdi-calendar"
-                        >
-                        </v-text-field>
-
-                      </v-col>
-
-
-                      <v-col cols="12" sm="12" md="3"  v-show="why_did_you_not_look_for_work" >
-                        <p class="font-weight-bold">(43) Why did you not look for work?</p>
-                        <v-select
-                      :items="['Tired/believe no work available ', 'Awaiting results of previous job application' , 'Temporary illness/disability' , 'Bad weather', 'Waiting for hire/ job recall', 'Too young/ old or retired/ permanent disability', 'Household/ family duties', 'Schooling',  ]"
-                      label="(43)  "
-                      prepend-inner-icon="mdi-account-off"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-                    <v-text-field
-                         
-                         label="(43) Other, specify"
-                         required
-                         prepend-inner-icon="mdi-cellphone-basic"
-                       >
-                       </v-text-field>
-
-                      </v-col>
-
-                      <v-col cols="12" sm="12" md="3" v-show="when_was_the_last_time_you_looked_for_work">
-                        <p class="font-weight-bold">(44) When was the last time you looked for work?</p>
-                       <v-select
-                     :items="['Within this week ', 'Within last week' , 'Temporary illness/disability' , 'Bad weather', 'Waiting for hire/ job recall', 'Too young/ old or retired/ permanent disability', 'Household/ family duties', 'Schooling',  ]"
-                     label="(44) Select"
-                     prepend-inner-icon="mdi-account-off"
-                     v-model="Barangay"
-                     required
-                   ></v-select>
-                 
-
-                     </v-col>
-
-                     <v-col cols="12" md="3" sm="12" >
-                      <p class="font-weight-bold">(45) Had opportunity for work existed last week or within two weeks, would you have been available? </p>
-                        <v-radio-group row>
                     
-                          <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio  value="no" label="No"></v-radio>
-                        </v-radio-group>
-                    
-                      </v-col>
-
-                      <v-col cols="12" md="3" sm="12" >
-                        <p class="font-weight-bold">(46) Were you willing to take up work during the past week or within 2 weeks?</p>
-                        <v-radio-group row>
-                    
-                          <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio value="no"   label="No"></v-radio>
-                        </v-radio-group>
-                    
-                      </v-col>
-
-
-                      <v-col cols="12" md="3" sm="12" >
-                        <p class="font-weight-bold">(47) In the past 12 months, how much total salary/ wages did you receive?</p>
-                        <v-text-field
-                         
-                         label="Give estimate value Php "
-                         required
-                       >
-                       </v-text-field>
-                       
-                    
-                      </v-col>
-
-                      <v-col  cols="12" md="2" sm="12" >
-                        <p class="font-weight-bold">(48) Are You A Member of GSIS?</p>
-                        <v-radio-group row>
-                        <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio value="no" label="No"></v-radio>
-                        </v-radio-group>
-                      </v-col>
-
-                      <v-col  cols="12" md="3" sm="12" >
-                        <p class="font-weight-bold">(49) Are You A Member of SSS?</p>
-                        <v-radio-group row>
-                        <v-radio value="yes" label="Yes"></v-radio>
-                          <v-radio value="no" label="No"></v-radio>
-                        </v-radio-group>
-                      </v-col>
-
                   
                     </v-row>
                     <v-btn id="v-btn-c" color="green" @click="e1 = 9">

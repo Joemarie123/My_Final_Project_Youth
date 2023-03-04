@@ -4,39 +4,61 @@
     <div >
   <v-app>
     
-   <!--  <h2>Selected: {{displayItems}}</h2> -->
-  
-<!--    <h5  v-for="person in selected" :key="person.name">{{person.name}}</h5> -->
 
-<!-- <v-row> -->
-<!-- <v-col lg="12" md="12" sm="12" >
- 
- <v-text-field  height="30px"  dense  outlined>
- </v-text-field>
- <v-text-field style="margin-top: -10px;" height="30px"  dense  outlined>
- </v-text-field>
- <v-text-field style="margin-top: -10px;" height="30px"  dense  outlined>
- </v-text-field>
-</v-col> -->
-<!-- </v-row> -->
+
 
 
 <v-row>
-    <v-col lg="4">
+
+
+    <v-col lg="4" sm="12">
+      <v-card v-for="items in selected_event" :key="items.id" height="200px">
+   <div class="text-center ">
+  <v-alert dense dark color="blue darken-3">
+    Youth Member Details<strong> </strong>
+
+   </v-alert> 
+   </div>
+
+
+
+  <p  class="font-weight-bold ml-5">Event Name: {{ items.eventname }} </p>                     
+
+   <p class="font-weight-bold ml-5 mt-n2">Event Date:  {{ items.eventdate }} </p>
+
+   <p class="ml-5">Event Details:  {{ items.eventdetails }}  </p>
+   
+  
+
+          
+
+
+
+  </v-card>
+  <v-card>
+  <v-col cols="12" md="11"  class="ml-4 mt-n6">
+  
+  <v-text-field  v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
+              ></v-text-field>
+            </v-col>
+
+
+           
     <v-data-table @click='sinag(item-key)' 
       id="mytable"
      
       v-model="selected"
       :headers="headers"
       :items="desserts"
-      :items-per-page="10"
+      :items-per-page="7"
       class="wrapper elevation-1"
       item-key="name"
-      height="590"
+      height="420"
       :hide-default-footer="true"
       :hide-default-header="true"
         tile
         :search="search"
+      
     >
 
     
@@ -61,48 +83,33 @@
 
     <template v-slot:top>
 
-        <v-toolbar
-          flat
-          dark
-          class=" btn-hover color-1 elevation-1"
+    <!--   <v-alert dense dark color="blue darken-3">
+    Attendance<strong> </strong>
 
-        >
-          <v-toolbar-title >Attendance</v-toolbar-title>
           <v-divider
             class="mx-4"
             inset
             vertical
           ></v-divider>
           <v-spacer></v-spacer>
-          <v-row>
-          <v-col cols="8">
+         
+       
 
-            <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
+            <v-text-field class="mt-n2" v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
               dark></v-text-field>
 
-          </v-col>
-
-          <v-col cols="4">
-            <v-btn color="blue" class="rounded-xl">
-             
-             Submit
-
-            </v-btn>
-          </v-col>
-        </v-row>
-
- 
-        </v-toolbar>
+       
+   </v-alert> -->
   
       </template>
 
     </v-data-table>
-    
+  </v-card>
 
  
   </v-col>
 
-    <v-col lg="3" md="12" sm="12">
+    <v-col lg="3" md="12" sm="12" >
 
       
       <v-card height="650" class="wrapper" >
@@ -136,6 +143,7 @@
     :items="non_sinagmembers"
     :hide-default-footer="true"
     :hide-default-header="true"
+   
     >
 
 
@@ -169,7 +177,7 @@
 </v-col>
 
 
-<v-col lg="5" md="12" sm="12">
+<v-col lg="5" md="12" sm="12" >
 
 <v-card height="650"  class="wrapper">
 
@@ -179,7 +187,7 @@
       <v-alert
             dense
      dark
-     color="blue darken-3"
+     color="green darken-2"
     >
      SINAG MEMBERS <strong> </strong>
     </v-alert>
@@ -237,15 +245,11 @@
     
     <v-dialog>
     <template >
-
-
-          
+ 
           <v-card>
           
               <v-container>
                 <v-row>
-
-                
 
                   <v-col
                     cols="12"
@@ -268,6 +272,7 @@
               
                   </v-col>
               
+                  
                   <v-col
                     cols="12"
                     sm="6"
@@ -304,9 +309,28 @@
     </v-data-table>
 
 
+
 </v-card>
 
+
+<v-col cols="12" offset="1">
+            <v-btn  dark width="300" color="blue darken-4" class="rounded-xl" >
+             
+             Submit
+
+            </v-btn>
+       
+          
+            <v-btn  dark width="300"  color="red darken-4" class="rounded-xl">
+             
+             cancel
+
+            </v-btn>
+
+            </v-col>
+    
 </v-col>
+
 
 
 
@@ -430,6 +454,7 @@ export default {
 
 
       selected:[], 
+     
       search: '',
       headers: [
       { text: 'Image', value: 'image',  align: 'center' },
@@ -479,7 +504,85 @@ export default {
       ],
 
         
-        
+      listevent: [
+        {
+
+                id:1,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+            {
+              id:2,
+                eventname: 'Youth Event Basket Ball Men',
+                eventdate: 'January 4,2023',
+                eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+           
+            },
+            {
+              id:3,
+                eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
+                eventdate: 'February 8,2023',
+                eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+           
+            },
+            {
+              id:4,
+                eventname: 'Youth Event Sepak takraw',
+                eventdate: 'March 11,2022',
+                eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
+           
+            },
+            {
+              id:5,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+            {
+              id:6,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+            {
+              id:7,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+
+            {
+              id:8,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+            {
+
+              id:9,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+            
+            {
+              id:10,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+
+        ],
+
+        selected_event:[],
 
 
       desserts: [
@@ -580,6 +683,14 @@ export default {
       ],
     }
   },
+
+  created() {
+      this.selected_event.push(this.listevent.find(e => e.id == this.$route.params.id));
+
+      // console.log("selected=>", this.selected);
+      // console.log("selected=>", this.$route.params.id);
+  },
+
 /* 
   methods: {
 
