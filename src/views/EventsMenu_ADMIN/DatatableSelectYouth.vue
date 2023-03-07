@@ -38,8 +38,8 @@
   <v-card>
   <v-col cols="12" md="11"  class="ml-4 mt-n6">
   
-  <v-text-field  v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
-              ></v-text-field>
+    <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
+                  outlined rounded dense></v-text-field>
             </v-col>
 
 

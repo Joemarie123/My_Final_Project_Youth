@@ -169,7 +169,7 @@
            
             </v-col>
             <v-col cols="12" sm="4" md="4" >
-              <v-card class="btn-hover color-1 mx-6 rounded-xl  draw-border" 
+              <v-card class="btn-hover color-1 mx-2 rounded-xl  draw-border" 
                tile
                elevation="16"> 
                 <v-row>
@@ -255,7 +255,7 @@
 
   <v-col cols="12" sm="12" md="12" lg="4" >
   
-    <v-card  class=" mx-2 mt-n6  rounded-xl draw-border" 
+    <v-card  class="  mt-n6  rounded-xl draw-border" 
             tile height="0"
              >
                 <DataTable1/>    

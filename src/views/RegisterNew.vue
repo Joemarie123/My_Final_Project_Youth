@@ -29,33 +29,13 @@
 
             <v-divider></v-divider>
 
+            <v-stepper-step :complete="e1 > 3" step="3">
+           3
+            </v-stepper-step>
+
+            <v-divider></v-divider>
+
        
-
-            <v-stepper-step :complete="e1 > 6" step="6">
-              6
-            </v-stepper-step>
-          
-            <v-divider></v-divider>
-
-            <v-stepper-step :complete="e1 > 7" step="7">
-             7
-            </v-stepper-step>
-
-            <v-divider></v-divider>
-
-            <v-stepper-step :complete="e1 > 8" step="8">
-             8
-            </v-stepper-step>
-          
-            <v-divider></v-divider>
-
-
-            <v-stepper-step :complete="e1 > 9" step="9">
-             9
-            </v-stepper-step>
-          
-            <v-divider></v-divider>
-
 
             <v-stepper-step :complete="e1 > 10" step="10">
             10
@@ -316,7 +296,9 @@
                         <v-radio-group row>
 
                           <v-radio value="Male" @change="have_you_give_birth_in_the_last_2_years_65 = false,
-                                              if_pregnant_as_of_this_time_72=false"
+                                              if_pregnant_as_of_this_time_72=false,
+                                              do_you_smoke_or_use_tobacco=false
+                                              "
                                       
                           
                           
@@ -326,7 +308,9 @@
 
 
                           <v-radio  @change="have_you_give_birth_in_the_last_2_years_65 = true,                  
-                                            if_pregnant_as_of_this_time_72=true"
+                                            if_pregnant_as_of_this_time_72=true,
+                                            do_you_smoke_or_use_tobacco=true
+                                            "
                                      value="Female"          
                           
                           
@@ -487,23 +471,25 @@
                     </v-col>
 
                    
-                    <v-col cols="12" sm="3" md="3" style="margin-left: 10px;">
-                     
-                      <v-btn text color="green"  outlined dark @click="country_destination = false">
-                        Continue
-                        </v-btn>
-                     
-                    </v-col>
-
-                    <v-col cols="12" sm="3" md="3" style="margin-left: 10px;"  >
-                    <v-btn text color="red"  outlined dark @click="country_destination = false">
-                        Close
-                        </v-btn>
-                      </v-col>
                   
 
 
                     </v-row>
+
+                    <v-row>
+
+<v-col cols="10" sm="2" md="12"  class="mt-n6">
+ 
+  <v-btn text color="green"  outlined dark @click="country_destination = false">
+    Continue
+    </v-btn>
+ 
+<v-btn text color="red"  outlined dark @click="country_destination = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
                     </v-container>
                     </v-card>
                     </v-dialog>
@@ -610,21 +596,32 @@
                       </v-col>
 
 
-                      <v-col cols="12" sm="4" md="3" style="margin-left: 10px;">
+                    
+                 
+                    </v-row>
+
+
+                    <v-row>
+                      <v-col cols="10" sm="4" md="12" >
                      
                      <v-btn text color="green"  outlined dark @click="what_grade_year_currently_attending = false">
                        Continue
                        </v-btn>
                     
-                   </v-col>
-
-                   <v-col cols="12" sm="4" md="3" style="margin-left: 10px;"  >
+                  
                    <v-btn text color="red"  outlined dark @click="what_grade_year_currently_attending = false">
                        Close
                        </v-btn>
                      </v-col>
-                 
-                    </v-row>
+
+                      </v-row>
+
+
+
+
+
+
+
 
                     
                     </v-container>
@@ -680,7 +677,6 @@
                         </v-checkbox-group>
                       </v-col>
 
-
                       <v-col cols="10" sm="8" md="5" class="ml-2" >
                       
                         <v-checkbox-group>
@@ -716,7 +712,7 @@
 
                     
 
-                      <v-col cols="12" sm="12" md="7" lg="7" >
+                      <v-col cols="12" sm="8" md="6" lg="6" >
                         <p class="font-weight-bold">What is your highest educational attainment/ completed?</p>
 
                         <v-select
@@ -765,34 +761,19 @@
                   ></v-select>
 
 
-                   
-
-
-
-
-
-
 
                       </v-col>
 
               
-
-
-
-
-           
                    
                    <v-row>
                   
-                   <v-col cols="12" sm="4" md="3" style="margin-left: 10px;">
+                   <v-col cols="10" sm="4" md="4" >
                      
                      <v-btn text color="green"  outlined dark @click="why_your_not_attending_school = false">
                        Continue
                        </v-btn>
                     
-                   </v-col>
-
-                   <v-col cols="12" sm="4" md="3"  style="margin-left: 10px;">
                    <v-btn text color="red"  outlined dark @click="why_your_not_attending_school = false">
                        Close
                        </v-btn>
@@ -859,15 +840,9 @@
              
             </v-stepper-content>
 
-            <!-- One.one Stepper -->
+    
           
             <!--   Second Stepper -->
-           
-
-            <!-- Third Stepper -->
-          
-
-            <!-- Fourth Stepper -->
             <v-stepper-content step="2">
               <v-card class="mb-12" color="grey lighten-4">
                 <v-card-text>
@@ -979,21 +954,25 @@
                       </v-col>
 
 
-                      <v-col cols="12" sm="3" md="3" style="margin-left: 10px;">
+          
+                    
+                    </v-row>
+
+                  <v-row>
+                    <v-col cols="10" sm="3" md="12" class="mt-n5">
                      
                      <v-btn text color="green"  outlined dark @click="skill_training_program = false">
                        Continue
                        </v-btn>
                     
-                   </v-col>
-
-                   <v-col cols="12" sm="3" md="3" style="margin-left: 10px;"  >
+                 
                    <v-btn text color="red"  outlined dark @click="skill_training_program = false">
                        Close
                        </v-btn>
                      </v-col>
-                    
                     </v-row>
+
+
                   </v-container>
                     </v-card> 
                      
@@ -1626,15 +1605,15 @@
                         <v-select
                       :items="['Tired/believe no work available ', 'Awaiting results of previous job application' , 'Temporary illness/disability' , 'Bad weather', 'Waiting for hire/ job recall', 'Too young/ old or retired/ permanent disability', 'Household/ family duties', 'Schooling',  ]"
                       label="Select Option"
-                      prepend-inner-icon="mdi-account-off"
+                      prepend-inner-icon="mdi-account-star"
                       v-model="dfdfdf"
                       required
                     ></v-select>
                     <v-text-field
                          
-                         label="(43) Other, specify"
+                         label="Other, specify"
                          required
-                         prepend-inner-icon="mdi-cellphone-basic"
+                         prepend-inner-icon="mdi-account-plus"
                        >
                        </v-text-field>
 
@@ -1816,19 +1795,6 @@
                    <!--      Whats Your Primary Occupation END -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                       <v-dialog v-model="leardership_information" max-width="900px">
 
                         <v-card>
@@ -1912,7 +1878,7 @@
 
 
                 <v-row>
-                    <v-col cols="12" sm="3" md="3" style="margin-left: 15px;" >
+                    <v-col cols="12" sm="3" md="3" class="mt-7" style="margin-left: 15px;" >
                      
                      <v-btn text color="green" class="ml-3" outlined dark @click="leardership_information = false">
                        Continue
@@ -1951,7 +1917,7 @@
                                 <!--  <p class="text-center font-weight-bold" > </p> -->
                             </v-col>
                       
-                      <v-col cols="12" sm="12" md="12"  style="margin-top: -30px;">
+                      <v-col cols="10" sm="12" md="12"  style="margin-top: -40px;">
 
                         <v-radio-group row>
                           <v-radio value="yes" label="Yes"></v-radio>
@@ -1962,13 +1928,13 @@
                       </v-col>
 
 
-                      <v-col cols="12" sm="12" md="12">
+                      <v-col cols="10" sm="12" md="12" style="margin-top: -25px;">
                       <p class="font-weight-bold text-left">Did you vote in the last regular Election?</p>
                     </v-col>
 
 
                     
-                    <v-col cols="12" sm="12" md="12"  style="margin-top: -30px;">
+                    <v-col cols="10" sm="12" md="12"  style="margin-top: -50px;">
                         
                         <v-radio-group row>
                           <v-radio value="yes" label="Yes"></v-radio>
@@ -1978,26 +1944,28 @@
                         
                       </v-col>
                  
+
+                    </v-row>
                 
-                   
-                      <v-col cols="12" sm="3" md="3" style="margin-left: 10px;">
+
+                      <v-row>
+
+                        <v-col cols="10" sm="3" md="12" >
                      
                      <v-btn text color="green"  outlined dark @click="did_you_vote_in_the_last_sk_elections = false">
                        Continue
                        </v-btn>
                     
-                   </v-col>
-
-                   <v-col cols="12" sm="3" md="3" style="margin-left: 10px;"  >
+                  
                    <v-btn text color="red"  outlined dark @click="did_you_vote_in_the_last_sk_elections = false">
                        Close
                        </v-btn>
                      </v-col>
-                 
 
 
-                    </v-row>
-                
+                        </v-row>
+
+
                
                   </v-container>
                 </v-card> 
@@ -2007,7 +1975,7 @@
       <!--       GOVERNANCE POUP END -->
 
                     </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 6">
+                    <v-btn id="v-btn-c" color="green" @click="e1 = 3">
                 Continue
               </v-btn>
               <v-btn @click="e1 = 1" class="ma-2"> Back </v-btn>
@@ -2019,133 +1987,11 @@
             </v-stepper-content>
 
             <!-- ECONOMIC ACTIVITY (1) Stepper -->
-            <v-stepper-content step="6">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                 
-                  <v-container fluid>
-                  
-                    <v-row>
+    
 
-                     
-
-
-
-
-                    
-                     
-
-
-                       
-
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 7">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 5" class="ma-2"> Back </v-btn>
-                  </v-container>
-               
-                </v-card-text>
-              </v-card>
-
-            
-            </v-stepper-content>
-
-           <!-- ECONOMIC ACTIVITY (2) Stepper -->
-            <v-stepper-content step="7">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <h4>ECONOMIC ACTIVITY (2)</h4>
-                    <v-row>
-                      
-                     
-
-                    
-
-                  
-
-
-                    
-
-                    <v-col cols="12" sm="12" md="3" >
-                        <p class="font-weight-bold">(36) Did you want more hours of work during the past week?</p>
-                        <v-radio-group row>
-                          <v-radio value="yes"  @change="did_you_look_additional_word = true , whats_your_class_of_worker=false , did_you_look_work_to_eastablish_business=false"   label="Yes"></v-radio>
-                          <v-radio value="no"  @change="did_you_look_additional_word = false , whats_your_class_of_worker=false , did_you_look_work_to_eastablish_business = true"  label="No"></v-radio>
-                        </v-radio-group>
-                      </v-col>
-
-                     
-                      <v-col cols="12" sm="12" md="3"  v-show="whats_your_class_of_worker">
-                      
-                        <v-checkbox-group>
-
-
-                          <v-checkbox
-                            label="Employer in own family-operated farm-business"
-                           
-                          ></v-checkbox>
-
-                          <v-checkbox
-                            label="Working with pay on own family-operated farm or business"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Working without pay on own family-operated farm or business"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          
-                        </v-checkbox-group>
-                      </v-col>
-
-                     
-
-                    
-
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 8">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 6" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-             
-            </v-stepper-content>
-
-           <!-- ECONOMIC ACTIVITY (3) Stepper -->
-           <v-stepper-content step="8">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <h4>ECONOMIC ACTIVITY (3)</h4>
-                    <v-row>
-        
-                    
-                   
-
-
-                  
-
-                    
-                  
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 9">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 7" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-             
-            </v-stepper-content>
-
-
+           
                <!-- HEALTH AND NUTRITION (1) Stepper -->
-           <v-stepper-content step="9">
+           <v-stepper-content step="3">
               <v-card class="mb-12" color="grey lighten-4">
                 <v-card-text>
                   <v-container fluid>
@@ -2156,16 +2002,32 @@
                      
                         <p class="font-weight-bold">(50) Are you a member of PhilHealth?</p>
                         <v-radio-group row>
-                          <v-radio  value="yes" @change="what_is_your_philhealth_membership = true ,are_your_depende_of_philhealth_member=false"    label="Yes"></v-radio>
-                          <v-radio  value="no" @change="are_your_depende_of_philhealth_member = true ,what_is_your_philhealth_membership=false"     label="No"></v-radio>
+                          <v-radio  value="yes" @click="what_is_your_philhealth_membership = true ,are_your_depende_of_philhealth_member=false"    label="Yes"></v-radio>
+                          <v-radio  value="no" @click="are_your_depende_of_philhealth_member = true ,what_is_your_philhealth_membership=false"     label="No"></v-radio>
                        
                         </v-radio-group>
+
+
                    </v-col> 
-                  
+
+                   <v-dialog v-model="what_is_your_philhealth_membership" max-width="380px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                    What is your PhilHealth membership type?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
 
 
-                   <v-col cols="12" sm="12" md="3" v-show="what_is_your_philhealth_membership">
-                    <p class="font-weight-bold">(51) What is your PhilHealth membership type?</p>
+                   <v-col cols="10" sm="12" md="12" class="mt-n4" >
+      
                         <v-select
                       :items="['Philhealth- OFW', 'Philhealth- Employed' , 'Philhealth- Individually paying' , 'Philhealth- Sponsored', 'Philhealth- Life time', 'Philhealth- Senior Citizen', 'Philhealth- Indigent']"
                       label="Select Type "
@@ -2175,9 +2037,53 @@
                     ></v-select>
                   </v-col>
 
-                    <v-col   cols="12" sm="12" md="2" v-show="are_your_depende_of_philhealth_member" >
-                     
-                     <p class="font-weight-bold">(52) Are you a dependent of a PhilHealth Member?</p>
+                </v-row>
+
+                <v-row>
+
+<v-col cols="10" sm="2" md="12" class="mt-n4" >
+ 
+  <v-btn text color="green"  outlined dark @click="what_is_your_philhealth_membership = false">
+    Continue
+    </v-btn>
+ 
+<v-btn text color="red"  outlined dark @click="what_is_your_philhealth_membership = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+
+
+              </v-container>
+              </v-card> 
+
+
+              
+     
+                </v-dialog>
+
+
+                <v-dialog v-model="are_your_depende_of_philhealth_member" max-width="380px"> 
+                  <v-card> 
+                              <v-container>
+
+                                <v-row justify="center">
+
+                                  <v-col cols="12" sm="12" md="12" >
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Are you a dependent of a PhilHealth Member?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+
+
+                            
+                    <v-col   cols="10" sm="12" md="12" class="mt-n7" >
+                    
                      <v-radio-group row>
                        <v-radio value="yes" label="Yes"></v-radio>
                        <v-radio  value="no" label="No"></v-radio>
@@ -2185,41 +2091,127 @@
                      </v-radio-group>
                 </v-col> 
 
+                
+
+              </v-row>
+
+              <v-row>
+                  
+                  <v-col cols="12" sm="4" md="12" >
+                    
+                    <v-btn text color="green"  outlined dark @click="are_your_depende_of_philhealth_member = false">
+                      Continue
+                      </v-btn>
+                   
+                  <v-btn text color="red"  outlined dark @click="are_your_depende_of_philhealth_member = false">
+                      Close
+                      </v-btn>
+                    </v-col>
+
+                   </v-row>
+
+            </v-container>
+          </v-card> 
+          </v-dialog>
+
+
+
+
+
+
 
                 <v-col   cols="12" sm="12" md="2"  >
                      
                      <p class="font-weight-bold">(53) Are you a solo parent taking care of a child/ children? </p>
                      <v-radio-group row>
-                       <v-radio value="yes" @change="do_you_have_solo_parent_id = true"   label="Yes"></v-radio>
-                       <v-radio  value="no"   @change="do_you_have_solo_parent_id = false" label="No"></v-radio>
+                       <v-radio value="yes" @click="do_you_have_solo_parent_id = true"   label="Yes"></v-radio>
+                       <v-radio  value="no"   @click="do_you_have_solo_parent_id = false" label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col>
 
-                <v-col cols="12" sm="12" md="2"  v-show="do_you_have_solo_parent_id" >
-                     
-                     <p class="font-weight-bold">(54) Do you Have a Solo Parent ID? </p>
+
+                <v-dialog v-model="do_you_have_solo_parent_id" max-width="380px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Do you Have a Solo Parent ID?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+
+
+                <v-col cols="10" sm="12" md="12" class="mt-n7"  >
+                
                      <v-radio-group row>
                        <v-radio value="yes" label="Yes"></v-radio>
                        <v-radio  value="no" label="No"></v-radio>
                      </v-radio-group>
                 </v-col>
 
+                
+              </v-row>
+
+
+              <v-row>
+
+<v-col cols="10" sm="2" md="12" class="mt-n4" >
+ 
+  <v-btn text color="green"  outlined dark @click="do_you_have_solo_parent_id = false">
+    Continue
+    </v-btn>
+ 
+<v-btn text color="red"  outlined dark @click="do_you_have_solo_parent_id = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+
+
+
+            </v-container>
+              </v-card> 
+                </v-dialog>
+
+
+
                 <v-col   cols="12" sm="12" md="2"  >
                      
                      <p class="font-weight-bold">(55) Do you have any physical or mental disability?</p>
                      <v-radio-group row>
-                       <v-radio  value="yes"     @change="what_type_of_disability_do_you_have=true,do_you_have_pwd_id=true" label="Yes"></v-radio>
-                       <v-radio   value="no"    @change="what_type_of_disability_do_you_have=false,do_you_have_pwd_id=false" label="No"></v-radio>
+                       <v-radio  value="yes" @click="what_type_of_disability_do_you_have=true" label="Yes"></v-radio>
+                       <v-radio   value="no"  label="No"></v-radio>
                     
                      </v-radio-group>
                 </v-col>
                       
+                <v-dialog v-model="what_type_of_disability_do_you_have" max-width="380px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
 
 
-                      <v-col   cols="12" sm="12" md="3"  v-show="what_type_of_disability_do_you_have">
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What type of disability do you have?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+
+                      <v-col   cols="10" sm="12" md="12" class="mt-n7">
                      
-                     <p class="font-weight-bold">(56) What type of disability do you have? </p>
+                   
                    
                      <v-checkbox-group>
                           <v-checkbox
@@ -2260,7 +2252,7 @@
 
                 </v-col>
 
-                <v-col   cols="12" sm="12" md="2" v-show="do_you_have_pwd_id" >
+                <v-col   cols="10" sm="12" md="12" class="mt-n4" >
                      
                      <p class="font-weight-bold">(57) Do you have a PWD ID?</p>
                      <v-radio-group row>
@@ -2269,6 +2261,31 @@
                     
                      </v-radio-group>
                 </v-col>
+
+            
+        </v-row>
+
+        <v-row>
+
+<v-col cols="10" sm="2" md="12"  class="mt-n1">
+ 
+  <v-btn text color="green"  outlined dark @click="what_type_of_disability_do_you_have = false">
+    Continue
+    </v-btn>
+ 
+<v-btn text color="red"  outlined dark @click="what_type_of_disability_do_you_have = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+
+      </v-container>
+      </v-card> 
+      </v-dialog> 
+
+
+
 
                 <v-col   cols="12" sm="12" md="2"  >
                      
@@ -2291,11 +2308,383 @@ required
                 <v-text-field label="Multiple Disability, Specify"></v-text-field>
               </v-col>
 
+              <v-col   cols="12" sm="12" md="2">
+                     
+                     <p class="font-weight-bold">(60) Are you being diagnosed with health related issues or lifestyle diseases? </p>
+                     <v-radio-group row>
+                       <v-radio value="yes" @click="what_kind_of_health_related_issues_or_lifestle_61 = true" label="Yes"></v-radio>
+                       <v-radio  value="no"   label="No"></v-radio>
+                    
+                     </v-radio-group>
+                </v-col>
+
+                <v-col   cols="12" sm="12" md="2" >
+                     
+                     <p class="font-weight-bold">(62) During the past 12 months, did you avail any medical treatment or medication for any treatment? </p>
+                     <v-radio-group row>
+                       <v-radio value="yes" @click="where_did_you_avail_medical_treatment_62_A=true,do_you_have_illness_or_any_health_related_62_B=false"
+                                      
+                                         label="Yes"></v-radio>
+                       <v-radio value="no" @click="do_you_have_illness_or_any_health_related_62_B=true" label="No"></v-radio>
+                    
+                     </v-radio-group>
+                </v-col>
+
+
+                <v-col   cols="12" sm="12" md="2" v-show="do_you_have_illness_or_any_health_related_62_B">
+                     
+                     <p class="font-weight-bold">(62 - B) Do you have illness or any health-related issues of this time (upon survey time) </p>
+                     <v-radio-group row>
+                       <v-radio value="yes" @click="what_kind_of_illness_or_health_realted_issues_63 = true
+                                      
+                                      
+                                      
+                                      "   label="Yes"></v-radio>
+                       <v-radio value="no" @click="what_kind_of_illness_or_health_realted_issues_63 = false" label="No"></v-radio>
+                    
+
+                     </v-radio-group>
+                </v-col>
+
+
+                  
+                <v-col cols="12" sm="12" md="2" v-show="do_you_smoke_or_use_tobacco" >
+                    <p class="font-weight-bold">(64) Do you smoke or use tobacco/ cigarette </p>
+                   
+                    <v-radio-group row>
+                       <v-radio value="yes" label="Yes"></v-radio>
+                       <v-radio  value="no" label="No"></v-radio>
+                    
+                     </v-radio-group>
+                  </v-col>
+
+
+
+                  <v-col cols="12" sm="12" md="3" v-show="have_you_give_birth_in_the_last_2_years_65" >
+                    <p class="font-weight-bold">(65) Have you given birth in the last two years? </p>
+                    <v-radio-group row>
+                          <v-radio @click="which_type_of_health_facility_did_you_visit=true,  
+                                    what_health_services_did_you_receievein_in_the_goverment_69=true,
+                                    during_delivery_where_did_you_give_birth_70=true"
+                                    
+                        value="yes"
+                          label="Yes"></v-radio>
+
+
+                          <v-radio @click="which_type_of_health_facility_did_you_visit=false, 
+                              what_health_services_did_you_receievein_in_the_goverment_69=false,
+                              during_delivery_where_did_you_give_birth_70=false"
+
+                        value="no"
+                          label="No"></v-radio>
+                        </v-radio-group>
+
+                  </v-col>
+
+
+
+  <v-dialog v-model="which_type_of_health_facility_did_you_visit" max-width="420px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Which type of health facility did you visit for maternal health services during your most recent pregnancy?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+
+                                  <v-col cols="10" sm="12" md="12" class="mt-n4" >
+                 
+                   
+                    <v-select 
+                    @change="funtionselection_code_66"
+                      :items="['Barangay Health Station' , 'City Health Office'  , 'Regional Hospital' , 'Private Clinic (Hospital)' , 'Traditional Birth Attendant' ]"
+                     label="Select Health Facility"
+                      prepend-inner-icon="mdi-hospital-building"
+                      v-model="select_health_facility"
+                      required
+                    ></v-select>
+                    
+                  </v-col>
+
+                  <v-col cols="10" sm="12" md="12" class="mt-n8" v-show="what_was_the_primary_reason_of_not_seeking_service_goverment_67" >
+                    <p class="font-weight-bold">(67) What was the primary reason of not seeking maternal health service in any government facility. </p>
+                   
+                    <v-select 
+                      :items="['Service not necessary','Long waiting time' , 'Doctors/ health personnel are always not available ' , 'Medicines are always not available ' ]"
+                     label="Reasons for not seeking health services from government facilities"
+                      prepend-inner-icon="mdi-account-convert"
+                      v-model="Barangay"
+                      required
+                    ></v-select>
+                    
+                  </v-col>
+
+                  <v-col cols="10" sm="12" md="12" class="mt-n6" v-show="how_many_times_did_you_visited_the_government_health_68">
+                    <p class="font-weight-bold">(68) How many times did you visited the government health facility during your pregnancy? </p>
+                   
+                    <v-select 
+                      :items="['1 to 3' , 'More than 3 visits but not as required number of visits' , 'Complete prenatal & postnatal care visits as advised the attending doctor'  ]"
+                     label="No Of Visits"
+                      prepend-inner-icon="mdi-account-convert"
+                      v-model="Barangay"
+                      required
+                    ></v-select>
+                  </v-col>
+
+                  <v-col   cols="10" sm="12" md="12" class="mt-n6" >
+                  <p class="font-weight-bold">(69) What health services did you receive when you visited the government health facility during pregnancy? </p>
+              
+                  <v-checkbox-group>
+                          <v-checkbox
+                            label="Physical Exam (weight, blood, pressure, heart rate)"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Gynecological Exam"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Ultrasound"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="HIV/STI/STD Testing"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Nutritious Supplement"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+
+                          <v-checkbox
+                            label="Tetanus Vaccinet"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                        
+                        </v-checkbox-group>
+
+
+                </v-col>
+
+
+
+
+
+
+
+  <v-col cols="10" sm="2" md="12"  class="mt-n3">
+ 
+ <v-btn text color="green"  outlined dark @click="what_kind_of_illness_or_health_realted_issues_63 = false">
+   Continue
+   </v-btn>
+
+<v-btn text color="red"  outlined dark @click="what_kind_of_illness_or_health_realted_issues_63 = false">
+   Close
+   </v-btn>
+ </v-col>
+
+</v-row>
+
+                         </v-container> 
+                         </v-card>         
+                </v-dialog>    
+
+                  
+
+
+
+                <v-dialog v-model="what_kind_of_illness_or_health_realted_issues_63" max-width="380px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What kind of  illness or health-related issues does you have in this time?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+
+                                  <v-col cols="10" sm="12" md="12" class="mt-n5">
+                        <v-select
+                      :items="['Fever', 'Cold' , 'Cough' , 'Sore throat/ tonsillitis', 'Diarrhea', 'Headache', 'Tiredness' , 'Body aches and pains' , 'Skin Rashes', 'Chest pains', 'Loss of taste and smell', 'Loss of speech', 'Loss of movement', 'Disconnection of Fingers or toes', 'None'] "
+                      label="Select Type of Health Issues "
+                      prepend-inner-icon="mdi-thermometer-lines"
+                      v-model="philhealth_membership"
+                      required
+                    ></v-select>
+                  </v-col>
+
+                 
+<v-col cols="10" sm="2" md="12"  class="mt-n6">
+ 
+ <v-btn text color="green"  outlined dark @click="what_kind_of_illness_or_health_realted_issues_63 = false">
+   Continue
+   </v-btn>
+
+<v-btn text color="red"  outlined dark @click="what_kind_of_illness_or_health_realted_issues_63 = false">
+   Close
+   </v-btn>
+ </v-col>
+
+</v-row>
+
+                         </v-container> 
+                         </v-card>         
+                </v-dialog>                 
+
+
+
+
+
+
+
+                <v-dialog v-model="where_did_you_avail_medical_treatment_62_A" max-width="380px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Where did you avail medical treatment?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+
+                                  <v-col   cols="10" sm="12" md="10" class="mt-n6" >
+                     <v-text-field label="Write"></v-text-field>
+                </v-col>
+                        
+                               
+                              
+                             
+                            </v-row> 
+
+                            
+                    <v-row>
+
+<v-col cols="10" sm="2" md="12"  class="mt-n6">
+ 
+  <v-btn text color="green"  outlined dark @click="where_did_you_avail_medical_treatment_62_A = false">
+    Continue
+    </v-btn>
+ 
+<v-btn text color="red"  outlined dark @click="where_did_you_avail_medical_treatment_62_A = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+
+                          </v-container> 
+                          </v-card>         
+                 </v-dialog> 
+
+            
+                <v-dialog v-model="what_kind_of_health_related_issues_or_lifestle_61" max-width="380px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What kind of health related issues or lifestyle diseases you have?  <strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                            </v-col>
+
+                  <v-col   cols="10" sm="12" md="10" class="mt-n7">
+                 
+                    <v-checkbox-group>
+                          <v-checkbox
+                            label="Cardiovascular Diseases"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Obesity & Type 2 Diseases"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Cancer"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Hypertension"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Disease associated with smoking & alcohol"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Infectious Diseases"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Respiratory Diseases"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Mental Health Problem/illness"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-text-field
+                         
+                         label="Others"
+                         required
+                       >
+                       </v-text-field>
+
+                        </v-checkbox-group>
+             
+                </v-col>
+
+             
+              </v-row>
+
+                     <v-row>
+                      <v-col cols="10" sm="4" md="12" class="mt-n5" >
+                     
+                     <v-btn text color="green"  outlined dark @click="what_kind_of_health_related_issues_or_lifestle_61 = false">
+                       Continue
+                       </v-btn>
+                    
+                  
+                   <v-btn text color="red"  outlined dark @click="what_kind_of_health_related_issues_or_lifestle_61 = false">
+                       Close
+                       </v-btn>
+                     </v-col>
+
+                      </v-row>
+
+            </v-container>
+            </v-card> 
+                </v-dialog>
+
+
+
                     </v-row>
                     <v-btn id="v-btn-c" color="green" @click="e1 = 10">
                 Continue
               </v-btn>
-              <v-btn @click="e1 = 8" class="ma-2"> Back </v-btn>
+              <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
                   </v-container>
                 </v-card-text>
               </v-card>
@@ -2311,206 +2700,21 @@ required
                     <h4>HEALTH AND NUTRITION (2)</h4>
                     <v-row>
         
-                      <v-col   cols="12" sm="12" md="3">
                      
-                     <p class="font-weight-bold">(60) Are you being diagnosed with health related issues or lifestyle diseases? </p>
-                     <v-radio-group row>
-                       <v-radio value="yes" @change="what_kind_of_health_related_issues_or_lifestle_61 = true" label="Yes"></v-radio>
-                       <v-radio  value="no"  @change="what_kind_of_health_related_issues_or_lifestle_61 = false" label="No"></v-radio>
-                    
-                     </v-radio-group>
-                </v-col>
-
-
-                <v-col   cols="12" sm="12" md="3" v-show="what_kind_of_health_related_issues_or_lifestle_61">
-                  <p class="font-weight-bold">(61) What kind of health related issues or lifestyle diseases you have?  </p>
-              
-              <v-combobox
-            v-model="select"
-            :items="items61"
-            label="See Codes"
-            multiple
-            chips
-          >
-            <template v-slot:selection="data">
-              <v-chip
-                :key="JSON.stringify(data.item)"
-                v-bind="data.attrs"
-                :input-value="data.selected"
-                :disabled="data.disabled"
-                @click:close="data.parent.selectItem(data.item)"
-              >
-                <v-avatar
-                  class="accent white--text"
-                  left
-                  v-text="data.item.slice(0, 1).toUpperCase()"
-                ></v-avatar>
-                {{ data.item }}
-              </v-chip>
-            </template> 
-            
-          </v-combobox>
-                </v-col>
-
-
-
-                <v-col   cols="12" sm="12" md="3" >
-                     
-                     <p class="font-weight-bold">(62) During the past 12 months, did you avail any medical treatment or medication for any treatment? </p>
-                     <v-radio-group row>
-                       <v-radio value="yes" @change="where_did_you_avail_medical_treatment_62_A=true,
-                                        do_you_have_illness_or_any_health_related_62_B=false,
-                                        what_kind_of_illness_or_health_realted_issues_63=false
-                                        
-                                        " label="Yes"></v-radio>
+               
 
 
 
 
-                       <v-radio value="no" @change="where_did_you_avail_medical_treatment_62_A=false,do_you_have_illness_or_any_health_related_62_B=true" label="No"></v-radio>
-                    
-                     </v-radio-group>
-                </v-col>
+                 <!--   -->
+               
 
-                <v-col   cols="12" sm="12" md="3" v-show="where_did_you_avail_medical_treatment_62_A">
-                     
-                     <p class="font-weight-bold">(62 - A) Where did you avail medical treatment? </p>
-                     <v-text-field label=""></v-text-field>
-                </v-col>
-
-                <v-col   cols="12" sm="12" md="3" v-show="do_you_have_illness_or_any_health_related_62_B">
-                     
-                     <p class="font-weight-bold">(62 - B) Do you have illness or any health-related issues of this time (upon survey time) </p>
-                     <v-radio-group row>
-                       <v-radio value="yes" @change="what_kind_of_illness_or_health_realted_issues_63 = true
-                                      
-                                      
-                                      
-                                      "   label="Yes"></v-radio>
-                       <v-radio value="no" @change="what_kind_of_illness_or_health_realted_issues_63 = false" label="No"></v-radio>
-                    
-
-                     </v-radio-group>
-                </v-col>
+                
 
                 
 
 
-                <v-col cols="12" sm="12" md="3" v-show="what_kind_of_illness_or_health_realted_issues_63" >
-                    <p class="font-weight-bold">(63) What kind of  illness or health-related issues does you have in this time? </p>
-                        <v-select
-                      :items="['Fever', 'Cold' , 'Cough' , 'Sore throat/ tonsillitis', 'Diarrhea', 'Headache', 'Tiredness' , 'Body aches and pains' , 'Skin Rashes', 'Chest pains', 'Loss of taste and smell', 'Loss of speech', 'Loss of movement', 'Disconnection of Fingers or toes', 'None'] "
-                      label="Select Type of Health Issues "
-                      prepend-inner-icon="mdi-thermometer-lines"
-                      v-model="philhealth_membership"
-                      required
-                    ></v-select>
-                  </v-col>
-
-
-
-                  <v-col cols="12" sm="12" md="3" >
-                    <p class="font-weight-bold">(64) Do you smoke or use tobacco/ cigarette </p>
-                   
-                    <v-radio-group row>
-                       <v-radio value="yes" label="Yes"></v-radio>
-                       <v-radio  value="no" label="No"></v-radio>
-                    
-                     </v-radio-group>
-                  </v-col>
-
-                 <!--   -->
-                  <v-col cols="12" sm="12" md="3" v-show="have_you_give_birth_in_the_last_2_years_65" >
-                    <p class="font-weight-bold">(65) Have you given birth in the last two years? </p>
-                    <v-radio-group row>
-                          <v-radio @change="which_type_of_health_facility_did_you_visit=true,  
-                                    what_health_services_did_you_receievein_in_the_goverment_69=true,
-                                    during_delivery_where_did_you_give_birth_70=true"
-                                    
-                        value="yes"
-                          label="Yes"></v-radio>
-
-
-                          <v-radio @change="which_type_of_health_facility_did_you_visit=false, 
-                              what_health_services_did_you_receievein_in_the_goverment_69=false,
-                              during_delivery_where_did_you_give_birth_70=false"
-
-                        value="no"
-                          label="No"></v-radio>
-                        </v-radio-group>
-
-                  </v-col>
-
-                  <v-col cols="12" sm="12" md="3" v-show="which_type_of_health_facility_did_you_visit" >
-                    <p class="font-weight-bold">(66) which type of health facility did you visit for maternal health services during your most recent pregnancy?  </p>
-                   
-                    <v-select 
-                    @change="funtionselection_code_66"
-                      :items="['Barangay Health Station' , 'City Health Office'  , 'Regional Hospital' , 'Private Clinic (Hospital)' , 'Traditional Birth Attendant' ]"
-                     label="Select Health Facility"
-                      prepend-inner-icon="mdi-account-convert"
-                      v-model="select_health_facility"
-                      required
-                    ></v-select>
-                    
-                  </v-col>
-
-                  <v-col cols="12" sm="12" md="3" v-show="what_was_the_primary_reason_of_not_seeking_service_goverment_67" >
-                    <p class="font-weight-bold">(67) What was the primary reason of not seeking maternal health service in any government facility. </p>
-                   
-                    <v-select 
-                      :items="['Service not necessary','Long waiting time' , 'Doctors/ health personnel are always not available ' , 'Medicines are always not available ' ]"
-                     label="Reasons for not seeking health services from government facilities"
-                      prepend-inner-icon="mdi-account-convert"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-                    
-                  </v-col>
-
-                  <v-col cols="12" sm="12" md="3"  v-show="how_many_times_did_you_visited_the_government_health_68">
-                    <p class="font-weight-bold">(68) How many times did you visited the government health facility during your pregnancy? </p>
-                   
-                    <v-select 
-                      :items="['1 to 3' , 'More than 3 visits but not as required number of visits' , 'Complete prenatal & postnatal care visits as advised the attending doctor'  ]"
-                     label="No Of Visits"
-                      prepend-inner-icon="mdi-account-convert"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-                  </v-col>
-
-
-                  <v-col   cols="12" sm="12" md="3" v-show="what_health_services_did_you_receievein_in_the_goverment_69">
-                  <p class="font-weight-bold">(69) What health services did you receive when you visited the government health facility during pregnancy? </p>
-              
-                  <v-combobox
-                  v-model="select69"
-               :items="items69"
-                label="See Codes"
-                   multiple
-                  chips
-                    >
-
-            <template v-slot:selection="data69">
-              <v-chip
-                :key="JSON.stringify(data69.item)"
-                v-bind="data69.attrs"
-                :input-value="data69.selected"
-                :disabled="data69.disabled"
-                @click:close="data69.parent.selectItem(data69.item)"
-              >
-                <v-avatar
-                  class="accent white--text"
-                  left
-                  v-text="data69.item.slice(0, 1).toUpperCase()"
-                ></v-avatar>
-                {{ data69.item }}
-              </v-chip>
-            </template> 
-            
-          </v-combobox>
-                </v-col>
+               
 
 
                 <v-col cols="12" sm="12" md="3" v-show="during_delivery_where_did_you_give_birth_70">
@@ -2636,7 +2840,7 @@ required
                     <v-btn id="v-btn-c" color="green" @click="e1 = 11">
                 Continue
               </v-btn>
-              <v-btn @click="e1 = 9" class="ma-2"> Back </v-btn>
+              <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
                   </v-container>
                 </v-card-text>
               </v-card>
@@ -4269,6 +4473,7 @@ if (this.select_health_facility=="Private Clinic (Hospital)")
 
   this.what_was_the_primary_reason_of_not_seeking_service_goverment_67=true;
   this.how_many_times_did_you_visited_the_government_health_68=false;
+  this.how_many_times_did_you_visited_the_government_health_68=false;
 
 
 }
@@ -4276,13 +4481,15 @@ else if(this.select_health_facility=="Traditional Birth Attendant"){
  
   this.what_was_the_primary_reason_of_not_seeking_service_goverment_67=true;
   this.how_many_times_did_you_visited_the_government_health_68=false;
+  this.how_many_times_did_you_visited_the_government_health_68=false;
+  
 }
 
 else if(this.select_health_facility=="Barangay Health Station"){
 
   this.how_many_times_did_you_visited_the_government_health_68=true;
   this.what_was_the_primary_reason_of_not_seeking_service_goverment_67=false;
-
+  this.how_many_times_did_you_visited_the_government_health_68=true;
 
 } 
 
@@ -4290,13 +4497,15 @@ else if(this.select_health_facility=="City Health Office"){
 
   this.how_many_times_did_you_visited_the_government_health_68=true;
   this.what_was_the_primary_reason_of_not_seeking_service_goverment_67=false;
-
+  this.how_many_times_did_you_visited_the_government_health_68=true;
 } 
 
 else if(this.select_health_facility=="Regional Hospital"){
 
   this.how_many_times_did_you_visited_the_government_health_68=true;
   this.what_was_the_primary_reason_of_not_seeking_service_goverment_67=false;
+  this.how_many_times_did_you_visited_the_government_health_68=true;
+
 
 } 
 
