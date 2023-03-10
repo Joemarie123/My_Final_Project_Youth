@@ -221,7 +221,7 @@
 
 
 
-      <v-btn color="green" dark @click="()=>editItem(props_remove_sinag.item)">
+      <v-btn outlined color="green" dark @click="()=>editItem(props_remove_sinag.item)">
         Input Hours
       </v-btn>
     
@@ -237,74 +237,6 @@
     
 
     </template>
-
-   
-
-
-
-    
-    <v-dialog>
-    <template >
- 
-          <v-card>
-          
-              <v-container>
-                <v-row>
-
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.name"
-                      label="name"
-                    ></v-text-field>
-                  </v-col>
-
-
-
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-              
-                  </v-col>
-              
-                  
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.hours"
-                      label="hours"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </v-container>
-          
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-             
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="save"
-              >
-                Save
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-    
-      </template>
-    </v-dialog> 
-
-
-
 
     </v-data-table>
 
@@ -344,33 +276,52 @@
     <v-card>
     <v-container>
 
-  
-      <v-row>
-       
+      <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Input Hours<strong> </strong>
 
-        <v-col cols="8" md="11"  >
-        <v-text-field
-        v-model="editedItem.name"
-        flat solo 
-        readonly
-        label="Name">
-        </v-text-field>
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+                            <v-row>
+
+<v-col cols="10" md="3"  class="ml-4">
+<v-avatar size="50">
+<img v-bind:src="`/${editedItem.image}`" alt="">
+
+</v-avatar>
+
+</v-col>  
+
+
+<v-text-field
+class="ml-n4 mt-2"
+v-model="editedItem.name"
+flat solo 
+readonly
+label="Name">
+</v-text-field>
+
+<v-col cols="10" md="9" offset="1" class="mt-n6">
         <v-select
                 v-model="editedItem.hours"
                       :items="['1 Hour', '2 Hours' , '3 Hours' , '4 Hours', '5 Hours', '6 Hours' , '7 Hours' , '8 Hours']"
-                     
+                      label="Select Hours"
                       prepend-inner-icon="mdi-clock"
                     
-                      required
-                    ></v-select>
+         ></v-select>
+        </v-col> 
 
-        </v-col>
+</v-row>
 
 
+      <v-row>
+       
+       
       
-
-      
-              <v-col offset="1" cols="5"   >
+              <v-col offset="1" cols="5" class="mt-n6"   >
              
               <v-btn @click="save"  color="blue" class="rounded-xl" >
                 <v-icon left>mdi-account-check</v-icon>
@@ -380,7 +331,7 @@
             </v-col>
           
 
-              <v-col offset="" cols="4"   >
+              <v-col offset="" cols="4" class="mt-n6"  >
                
               <v-btn @click="close" color="green" class="rounded-xl">
                 <v-icon left>mdi-account-check</v-icon>
@@ -634,7 +585,7 @@ export default {
          
         },
         {
-          name: 'Binjamin Roble',
+          name: 'Benjamin Roble',
           sinagmember:true,
           image: 'profilepic/Neil.jpg'
         

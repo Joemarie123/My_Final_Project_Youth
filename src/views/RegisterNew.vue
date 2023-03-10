@@ -35,42 +35,8 @@
 
             <v-divider></v-divider>
 
-       
-
-            <v-stepper-step :complete="e1 > 10" step="10">
-            10
-            </v-stepper-step>
-          
-            <v-divider></v-divider>
-
-
-            <v-stepper-step :complete="e1 > 11" step="11">
-             11
-            </v-stepper-step>
-          
-            <v-divider></v-divider>
-
-
-            <v-stepper-step :complete="e1 > 12" step="12">
-             12
-            </v-stepper-step>
-          
-            <v-divider></v-divider>
-            
-            <v-stepper-step :complete="e1 > 13" step="13">
-             13
-            </v-stepper-step>
-          
-            <v-divider></v-divider>
-
-            <v-stepper-step :complete="e1 > 14" step="14">
-             14
-            </v-stepper-step>
-          
-            <v-divider></v-divider>
-
-            <v-stepper-step :complete="e1 > 15" step="15">
-             15
+            <v-stepper-step :complete="e1 > 4" step="4">
+            4
             </v-stepper-step>
           
             <v-divider></v-divider>
@@ -288,16 +254,21 @@
                    
                 <v-card-text>
                   <v-container fluid>
-                    <H4 >YOUTH CHARACTERISTICS</H4>
+
+                  
+                    <H4  >YOUTH CHARACTERISTICS</H4>
+                 
+
                     <v-row>
                       
                       <v-col cols="12" sm="12" md="3">
-                        <p class="font-weight-bold">SEX</p>
+                        <p class="font-weight-bold">Gender</p>
                         <v-radio-group row>
 
                           <v-radio value="Male" @change="have_you_give_birth_in_the_last_2_years_65 = false,
                                               if_pregnant_as_of_this_time_72=false,
-                                              do_you_smoke_or_use_tobacco=false
+                                              do_you_smoke_or_use_tobacco=false,
+                                              if_married_or_sexually_active_woman_73_1=false
                                               "
                                       
                           
@@ -309,7 +280,8 @@
 
                           <v-radio  @change="have_you_give_birth_in_the_last_2_years_65 = true,                  
                                             if_pregnant_as_of_this_time_72=true,
-                                            do_you_smoke_or_use_tobacco=true
+                                            do_you_smoke_or_use_tobacco=true,
+                                            if_married_or_sexually_active_woman_73_1=true
                                             "
                                      value="Female"          
                           
@@ -509,7 +481,7 @@
                           </v-text-field>
                       </v-col>
 
-                      <v-col  cols="12" sm="12" md="3" class="ml-4" >
+                      <v-col  cols="12" sm="12" md="4"  >
 
                     
                         <H4>EDUCATION AND LITERACY (1)</H4>
@@ -524,7 +496,7 @@
 
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="4"  class="ml-4"  >
+                      <v-col cols="12" sm="12" md="3"   >
                       <p class="font-weight-bold">Are You a graduate of Senior high?</p>
                         <v-radio-group row>
                           <v-radio  @change="show_if_yes_graduate_senior_highschool = true"      value="yes"  label="Yes"></v-radio>
@@ -604,7 +576,7 @@
                     <v-row>
                       <v-col cols="10" sm="4" md="12" >
                      
-                     <v-btn text color="green"  outlined dark @click="what_grade_year_currently_attending = false">
+                     <v-btn  color="green"  outlined dark @click="what_grade_year_currently_attending = false">
                        Continue
                        </v-btn>
                     
@@ -770,7 +742,7 @@
                   
                    <v-col cols="10" sm="4" md="4" >
                      
-                     <v-btn text color="green"  outlined dark @click="why_your_not_attending_school = false">
+                     <v-btn  color="green"  outlined dark @click="why_your_not_attending_school = false">
                        Continue
                        </v-btn>
                     
@@ -961,7 +933,7 @@
                   <v-row>
                     <v-col cols="10" sm="3" md="12" class="mt-n5">
                      
-                     <v-btn text color="green"  outlined dark @click="skill_training_program = false">
+                     <v-btn  color="green"  outlined dark @click="skill_training_program = false">
                        Continue
                        </v-btn>
                     
@@ -1114,7 +1086,7 @@
                       
                     <v-col cols="12" sm="3" md="6"  >
                      
-                     <v-btn text color="green" outlined dark @click="how_many_works_job_business_you_have = false">
+                     <v-btn  color="green" outlined dark @click="how_many_works_job_business_you_have = false">
                        Continue
                        </v-btn>
                     
@@ -1239,7 +1211,7 @@
                          <v-row>
                             <v-col cols="12" sm="4" md="6">
                      
-                     <v-btn text color="green"  outlined dark @click="what_is_the_sector_of_your_business = false">
+                     <v-btn  color="green"  outlined dark @click="what_is_the_sector_of_your_business = false">
                        Continue
                        </v-btn>
                    <v-btn text color="red"  outlined dark @click="what_is_the_sector_of_your_business = false">
@@ -2331,6 +2303,15 @@ required
                 </v-col>
 
 
+
+
+
+
+
+
+
+
+
                 <v-col   cols="12" sm="12" md="2" v-show="do_you_have_illness_or_any_health_related_62_B">
                      
                      <p class="font-weight-bold">(62 - B) Do you have illness or any health-related issues of this time (upon survey time) </p>
@@ -2360,7 +2341,7 @@ required
 
 
 
-                  <v-col cols="12" sm="12" md="3" v-show="have_you_give_birth_in_the_last_2_years_65" >
+                  <v-col cols="12" sm="12" md="2" v-show="have_you_give_birth_in_the_last_2_years_65" >
                     <p class="font-weight-bold">(65) Have you given birth in the last two years? </p>
                     <v-radio-group row>
                           <v-radio @click="which_type_of_health_facility_did_you_visit=true,  
@@ -2380,6 +2361,1341 @@ required
                         </v-radio-group>
 
                   </v-col>
+
+
+                  <v-col   cols="12" sm="12" md="3" v-show="if_pregnant_as_of_this_time_72" >
+                     
+                     <p class="font-weight-bold">(72) If pregnant as of this time (of survey), specify number of months pregnant.</p>
+                     <v-select
+                     @change="functionselect_pregnant"
+                      :items="['No Pregnant','1 Month', '2 Months' , '3 Months' , '4 Months' ,'5 Months' ,'6 Months' ,'7 Months' ,'8 Months' ,'9 Months' ] "
+                      label="Select Months"
+                      prepend-inner-icon="mdi-thermometer-lines"
+                      v-model="if_pregnant"
+                      required
+                    ></v-select>
+
+                </v-col>
+
+                <v-col   cols="12" sm="12" md="2" v-show="if_pregnant_are_you_member_philhealth_73" >
+                     
+                     <p class="font-weight-bold">(73)Are you a member of Philhealth or any insurances, or a dependent of a primary member?</p>
+                     <v-radio-group row>
+                       <v-radio value="yes" label="Yes"></v-radio>
+                       <v-radio  value="no" label="No"></v-radio>
+                    
+                     </v-radio-group>
+                </v-col>
+
+                <v-col   cols="12" sm="12" md="2"  v-show="if_married_or_sexually_active_woman_73_1" >
+                     
+                     <p class="font-weight-bold">(73 - 1) If married or sexually active woman, have you ever used contraceptive methods?  </p>
+                     <v-radio-group row>
+                       <v-radio  value="yes" @click="what_methods_have_you_used_73_2=true" label="Yes"></v-radio>
+                       <v-radio value="no" @click="why_did_you_not_use_contraceptive_73_3=true"  label="No"></v-radio>
+                    
+                     </v-radio-group>
+                </v-col>
+
+
+                
+                <v-col   cols="12" sm="12" md="2">
+                  <h4>PEACE AND SECURITY</h4>
+                     <p class="font-weight-bold">(74) Have you’ve been a victim of crime or violation of RA 9262 (VAWC Act) before?</p>
+                     <v-radio-group row>
+                       <v-radio value="yes"  @click="what_crime_or_violation_75_76_77_78 = true" label="Yes"></v-radio>
+                       <v-radio  value="no"  label="No"></v-radio>
+                    
+                     </v-radio-group>
+                      </v-col>
+
+
+                      <v-col   cols="12" sm="12" md="2">
+                        <h4>ACCESS TO PROGRAMS AND SERVICES</h4>
+                     <p class="font-weight-bold">(79) During the past 12 months, did you receive or a recipient of any programs and services? </p>
+                     <v-radio-group row>
+                       <v-radio  value="yes" @click="what_type_of_program_80_81=true"     label="Yes"></v-radio>
+                       <v-radio  value="no"   @click="what_type_of_program_80_81=false" label="No"></v-radio>
+                    
+                     </v-radio-group>
+
+                      </v-col>
+
+
+                      <v-col   cols="12" sm="12" md="2">
+                        <h4>DISASTER PREPAREDNESS (1)</h4>
+                     <p class="font-weight-bold">(82)Do you have a disaster preparedness kit?</p>
+                     <v-radio-group row>
+                       <v-radio value="yes" @click="do_you_have_following_preparedness_kit_83=true,did_you_attend_disaster_preparedness_84=false"  label="Yes"></v-radio>
+                       <v-radio value="no" @change="do_you_have_following_preparedness_kit_83=false,did_you_attend_disaster_preparedness_84=true"   label="No"></v-radio>
+                    
+                     </v-radio-group>
+
+                      </v-col>
+
+                      <v-col   cols="12" sm="12" md="2" v-show="did_you_attend_disaster_preparedness_84">
+                     <p class="font-weight-bold">(84)Did you attend disaster preparedness training and drills?</p>
+                     <v-radio-group row>
+                       <v-radio value="yes" @click="disaster_related_training_seminars_84_1=true"  label="Yes"></v-radio>
+                       <v-radio value="no"  @click="fire_evacuation_drill_84_3=true" label="No"></v-radio>
+                    
+                     </v-radio-group>
+
+                      </v-col>
+
+
+
+              <v-dialog v-model="what_mobile_phone_services_87" max-width="420px"> 
+                            <v-card > 
+                              <v-container>
+                   <v-row>
+
+                    <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What mobile phone services providers does the household have access to?<strong> </strong>
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+                    
+                    <v-col   cols="10" sm="12" md="12" class="mt-n6" >
+              
+                        <v-radio-group >
+
+                    <v-radio   value="Globe and subsidiarie"  label="Globe and subsidiaries"></v-radio>
+                      <v-radio value="Smart and subsidiaries" label="Smart and subsidiaries"></v-radio>
+                <v-radio    value="Both Globe and Smart"   label="Both Globe and Smart"></v-radio>
+                  <v-radio  value="DITO" label="DITO"></v-radio>
+                  </v-radio-group>
+
+                      </v-col> 
+
+                  </v-row>
+
+                  <v-row>
+
+<v-col cols="10" sm="12" md="12"  class="mt-n1">
+ 
+  <v-btn  color="green" class="pa-2" outlined dark @click="what_mobile_phone_services_87 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn  color="red" class="pa-2 ml-2" outlined dark @click="what_mobile_phone_services_87 = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+
+                </v-container>
+                </v-card>
+               </v-dialog>                  
+
+
+
+                      <v-dialog v-model="fire_evacuation_drill_84_3" max-width="800px"> 
+                            <v-card class="pa-7"> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" >
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3" >
+                                      Have you attended any of the following Disaster Preparedness Drills?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+      
+      <v-row>
+        <v-col   cols="10" sm="12" md="4" class=" mt-n8 "  >                
+        <p class="mt-6 ml-4  ">Flood Evacuation Drill</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n7"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n5" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="4" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">Tsunami Evacuation Drill</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+
+
+     
+     
+      <v-row>
+        <v-col   cols="10" sm="12" md="4" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">Lockdown Drill</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+
+
+     <v-row>
+        <v-col   cols="10" sm="12" md="4" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">Bomb Drill</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="4" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">Earthquake Evacuation Drill</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+      
+      <v-row>
+        <v-col   cols="10" sm="12" md="4"  class="ml-3 mt-n6 ml-md-3 mt-md-n8" > 
+         <v-text-field  elevation="5" color="green"  dense label="Others Specify"></v-text-field>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-1 mt-n12"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+
+
+                                </v-row>
+
+
+                                <v-row>
+
+<v-col cols="10" sm="12" md="12"  class="mt-n3">
+ 
+  <v-btn  color="green" class="pa-2" outlined dark @click="fire_evacuation_drill_84_3 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn  color="red" class="pa-2 ml-2" outlined dark @click="fire_evacuation_drill_84_3 = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+                                     </v-container>
+                                    </v-card> 
+                                      </v-dialog>
+
+
+
+                      <v-dialog v-model="disaster_related_training_seminars_84_1" max-width="800px"> 
+                            <v-card class="pa-7"> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" >
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3" >
+                                     Disaster Related Training/Seminars<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+      
+      <v-row>
+        <v-col   cols="10" sm="12" md="4" class=" mt-n8 "  >                
+        <p class="mt-6 ml-4  ">Incident Command System Training</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n7"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n5" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="4" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">Evacuation Management Training</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+
+
+     
+     
+      <v-row>
+        <v-col   cols="10" sm="12" md="4" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">Basic Life Support Cardio-Pulmonary Resuscitation</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+
+
+     <v-row>
+        <v-col   cols="10" sm="12" md="4" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">Community-based Disaster Management Training</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+      
+      <v-row>
+        <v-col   cols="10" sm="12" md="4" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">Camp  Management Training</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="4" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">First Aid Training</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+
+
+    
+      <v-row>
+        <v-col   cols="10" sm="12" md="4"  class="ml-3 mt-n6 ml-md-3 mt-md-n8" > 
+         <v-text-field  elevation="5" color="green"  dense label="Others Specify"></v-text-field>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-1 mt-n12"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="5"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+          <v-select
+                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
+                      label="When was The Training"
+                      prepend-inner-icon="mdi-calendar"
+                      v-model="Barangay"
+                      required
+                      solo
+                      elevation="5"
+                      color="green"
+                    ></v-select>
+        </v-col>
+      </v-row>
+
+
+                                </v-row>
+
+
+                                <v-row>
+
+<v-col cols="10" sm="12" md="12"  class="mt-n3">
+ 
+  <v-btn  color="green" class="pa-2" outlined dark @click="disaster_related_training_seminars_84_1 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn  color="red" class="pa-2 ml-2" outlined dark @click="disaster_related_training_seminars_84_1 = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+                                     </v-container>
+                                    </v-card> 
+                                      </v-dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      <v-dialog v-model="do_you_have_following_preparedness_kit_83" max-width="800px"> 
+                            <v-card class="pa-7"> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Do you have a Disaster Preparedness Kit?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+
+        <v-row > 
+        <v-col   cols="10" sm="12" md="12" class="ml-4 mt-n2 mb-4"  >            
+          <p  class="font-weight-bold">Do you Have The Following in Your Disaster Preparedness Kit?</p>
+        </v-col>
+
+
+      </v-row>
+
+     
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">Water</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+      </v-row>
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">CANDLE</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+      </v-row>
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">WHISTLE</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+      </v-row>
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">CLOTHES</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+      </v-row>
+
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n14"  >                
+        <p class="mt-6 ml-4 ">BLANKET</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n14"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+      </v-row>
+
+
+
+
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n15"  >                
+        <p class="mt-6 ml-4 ">Flashlight/ Emergency light</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n15"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+
+
+      </v-row>
+
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n15" >                
+        <p class="mt-6 ml-4 ">Matches/Lightert</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n15"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+
+      </v-row>
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n15" >                
+        <p class="mt-6 ml-4 ">Food (canned goods, biscuits, bread)</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n15"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+
+      </v-row>
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n15" >                
+        <p class="mt-6 ml-4 ">Radio/ Transistor (battery-operated)</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n15"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+
+      </v-row>
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n15" >                
+        <p class="mt-6 ml-4 ">Battery (cellphone, flashlight, radio, etc)</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n15"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+
+      </v-row>
+
+
+      <v-row>
+        <v-col   cols="10" sm="12" md="5" class="mt-n15" >                
+        <p class="mt-6 ml-4 ">Important documents (land title, valid ID, birth certificate, etc)</p>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n15"> 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+      
+
+      </v-row>
+
+
+
+      <v-row>
+        <v-col   cols="11" sm="12" md="5"  class="ml-3 mt-n6 ml-md-4 mt-md-n8" > 
+         <v-text-field  elevation="5" color="green"  dense label="Others Specify"></v-text-field>
+        </v-col>
+
+        <v-col   cols="10" sm="12" md="3" class="ml-4 mt-n13 ml-md-1 mt-md-n13"  > 
+          <v-radio-group row>
+        <v-radio  value="yes" label="Yes"></v-radio>
+         <v-radio  value="no"  label="No"></v-radio>
+        </v-radio-group>
+        </v-col>
+
+        <v-col   cols="11" sm="12" md="4"  class="ml-3 mt-n6 ml-md-n10 mt-md-n11" > 
+         <v-text-field outlined elevation="5" color="green" solo dense label="How many Days will it last"></v-text-field>
+        </v-col>
+
+
+      </v-row>
+
+
+
+                                </v-row>
+
+
+<v-row>
+
+<v-col cols="10" sm="12" md="12"  class="mt-n3">
+ 
+  <v-btn  color="green" class="pa-2" outlined dark @click="do_you_have_following_preparedness_kit_83 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn  color="red" class="pa-2 ml-2" outlined dark @click="do_you_have_following_preparedness_kit_83 = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+                                     </v-container>
+                                    </v-card> 
+                                      </v-dialog>
+
+
+                      <v-dialog v-model="what_type_of_program_80_81" max-width="750px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What type of program/service did you receive or as a recipient of?<strong> </strong>
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+                                  <v-col   cols="10" sm="12" md="6" class="mt-n7" >
+                     <v-checkbox-group>
+                          <v-checkbox
+                            label="Sustainable Livelihood Program"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Food for work"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Cash for work"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="PantawidPamilyang Pilipino Program (4Ps)"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Agrarian Reform Community Development Program"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Training for Work Scholarship Program (TWSP)"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Community Based Employment Program (CBEB)"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                        
+                        
+                <!--   <v-text-field label="Others/Specify"></v-text-field> -->
+                </v-checkbox-group>
+
+                    </v-col>
+
+                    <v-col   cols="10" sm="12" md="6"  class="mt-n7">
+                  
+                  <v-checkbox-group>
+                       <v-checkbox
+                         label="Other Health Insurance (Maxicare, Medicare, etc.)"
+                       ></v-checkbox>
+                       <v-checkbox
+                         label="Health Care Assistance"
+                         style="margin-top: -10px"
+                       ></v-checkbox>
+                       <v-checkbox
+                         label="Supplemental Feeding"
+                         style="margin-top: -10px"
+                       ></v-checkbox>
+                       <v-checkbox
+                         label="Skills and Livelihood Training Program"
+                         style="margin-top: -10px"
+                       ></v-checkbox>
+                       <v-checkbox
+                         label="Credit Assistance Program"
+                         style="margin-top: -10px"
+                       ></v-checkbox>
+                       <v-checkbox
+                         label="Housing Program"
+                         style="margin-top: -10px"
+                       ></v-checkbox>
+                       <v-checkbox
+                         label="SulongDunong Program"
+                         style="margin-top: -10px"
+                       ></v-checkbox>
+                     
+                     
+             <!--   <v-text-field label="Others/Specify"></v-text-field> -->
+             </v-checkbox-group>
+
+                 </v-col>
+
+                 <v-col   cols="10" sm="12" md="6" class="mt-n7" >
+                     
+                     <v-checkbox-group>
+                          <v-checkbox
+                            label="DOST Scholarship Program"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="CHED Scholarship Program"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Special Program for the Employment of Students (SPES)"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Animal Dispersal Program"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+
+                        </v-checkbox-group>
+                   
+                    </v-col>
+
+                    <v-col   cols="10" sm="12" md="6" class="mt-n2" >
+                      <v-checkbox-group>
+                    <v-checkbox
+                            label="Crisis Intervention program"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Pagkalingasa Bayan Program"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Health Indigency Program"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                        
+                          <v-text-field label="Others/Specify" ></v-text-field>
+                  
+                </v-checkbox-group>
+              </v-col>
+
+             
+          
+           
+
+
+                    <v-col   cols="10" sm="12" md="7" class="mt-n6">
+                     
+                     <p class="font-weight-bold">(81) Who was/were the implementer/s of the program/s, project/s or service/s?</p>
+
+                     <v-checkbox-group>
+                          <v-checkbox
+                            label="SNational Government (DSWD, DA, DOST, DTI, TESDA, DepEd, CHED, DAR, DILG, DOLE, etc)"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Provincial Government"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Municipal Government"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                         
+                          <v-checkbox
+                            label="Barangay LGU"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Congressional/District"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Private Organizations/NGOs"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                    
+                        
+                  <v-text-field label="Others/Specify"></v-text-field>
+                <!--   <v-text-field label="Others/Specify"></v-text-field> -->
+                </v-checkbox-group>
+
+                    </v-col>
+                        
+                                </v-row>
+
+                                <v-row>
+
+<v-col cols="10" sm="2" md="12"  class="mt-n6">
+ 
+  <v-btn 
+   color="green"  outlined dark @click="what_type_of_program_80_81 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn text color="red"  outlined dark @click="what_type_of_program_80_81 = false">
+    Close
+    </v-btn>  
+  </v-col>
+
+</v-row>
+
+                                    </v-container>
+                                       </v-card> 
+                                      </v-dialog>
+
+
+
+
+                      <v-dialog v-model="what_crime_or_violation_75_76_77_78" max-width="450px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What crime or violation of RA 9262 you were a victim of?<strong> </strong>
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+                                  <v-col cols="10" sm="12" md="12" class="mt-n4" v-show="what_crime_or_violation_75_76_77_78" >
+                       
+                    <v-checkbox-group>
+                          <v-checkbox
+                            label="Theft"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Robbery"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Rape and other type of sexual abuse"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Physical Injury"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Car napping"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                                           
+                          <v-checkbox
+                            label="Cattle rustling"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="All type of physical abuse"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="All type of Psychological Abuse"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Economic Abuse"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Emotional Abuse"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                        
+                  <v-text-field label="Others/Specify"></v-text-field>
+              
+                        </v-checkbox-group>
+                  </v-col>
+
+
+              
+
+                <v-col cols="10" sm="12" md="12" class="mt-n6">
+                    <p class="font-weight-bold">(76) Where did the crime or violence happen? </p>
+                        <v-select
+                        
+                      :items="['Within the house/household', 'Within the relative’s/ neighbor’s household' , 'Within the barangay' , 'Outside the barangay but within the municipality/city', 'Outside the municipality', 'Outside the province']"
+                      label="Location of Crime/Violence"
+                      prepend-inner-icon="mdi-map-marker"
+                      v-model="crime_violence"
+                      required
+                    ></v-select>
+                  </v-col>
+
+                    
+                  <v-col cols="10" sm="12" md="12" class="mt-n6">
+                    <p class="font-weight-bold">(77) Who was/ were the perpetrator/s of the crime/ violence?</p>
+                        <v-select
+                      :items="['Member of the household ', 'Not member of the household but know to the household', 'Do not know']"
+                      label="Location of Crime/Violence"
+                      prepend-inner-icon="mdi-map-marker"
+                      v-model="crime_violence"
+                      required
+                    ></v-select>
+                  </v-col>
+
+                  <v-col cols="10" sm="12" md="12" class="mt-n6">
+   <p class="font-weight-bold">(78) what kind of assistance did you receive? See codes below Case Assistance</p>
+                        <v-select
+                      :items="['Financial Assistance', 'Case filing Assistance & provision of lawyer', 'Case Referral Assistance ' ,'Psycho-social Assistance' ,'Temporary Shelter Assistance']"
+                      label="Location of Crime/Violence"
+                      prepend-inner-icon="mdi-map-marker"
+                      v-model="what_kind_of_assistance"
+                      required
+                    ></v-select>
+                  </v-col>
+
+                
+                                </v-row>
+
+                                
+                    <v-row>
+
+<v-col cols="10" sm="2" md="12"  class="mt-n6">
+ 
+  <v-btn text color="green"  outlined dark @click="what_crime_or_violation_75_76_77_78 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn text color="red"  outlined dark @click="what_crime_or_violation_75_76_77_78 = false">
+    Close
+    </v-btn>  
+  </v-col>
+
+</v-row>
+
+                              </v-container>
+                                </v-card> 
+                              </v-dialog>
+
+                
+                <v-dialog v-model="what_methods_have_you_used_73_2" max-width="420px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      what method/s have you used? (multiple responses) see codes below
+	Contraceptive Methods?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+                                  <v-col   cols="10" sm="12" md="12" class="mt-n7" >
+              
+                      
+                    <v-checkbox-group>
+                          <v-checkbox
+                            label="Hormonal (pills or Depo Provera Indection)"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Barrier Method"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Long – acting reversible (IUD)"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Emergency Method (emergency contraceptive pill or copper IUD)"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Fertility Awareness (rhythm/natural method)"
+                            style="margin-top: -10px"
+                   ></v-checkbox>
+                   <v-checkbox
+                            label="Permanent Method (tubal ligation)"
+                            style="margin-top: -10px"
+                   ></v-checkbox>
+                        
+                  <v-text-field label="Others/Specify"></v-text-field>
+                </v-checkbox-group>
+              
+
+                </v-col>
+
+
+
+                                </v-row>
+
+                                <v-row>
+
+<v-col cols="10" sm="2" md="12"  class="mt-n6">
+ 
+  <v-btn  color="green"  outlined dark @click="what_methods_have_you_used_73_2 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn text color="red"  outlined dark @click="what_methods_have_you_used_73_2 = false">
+    Close
+    </v-btn>
+  </v-col>
+
+                            </v-row>
+                              </v-container>
+                                </v-card> 
+                                </v-dialog>
+
+
+                                <v-dialog v-model="why_did_you_not_use_contraceptive_73_3" max-width="420px"> 
+                            <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      why did married or sexually active woman did not ever use contraceptive methods?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+                                  <v-col   cols="10" sm="12" md="12" class="mt-n7" >
+                                    <v-checkbox-group>
+                          
+                          <v-checkbox
+                            label="Culture/ Tradition"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="No contraceptive method available in nearest health facility"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Cannot afford to buy"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Health problem"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-text-field
+                          label="Other Address, Specify"
+                          >
+                          
+                          </v-text-field>
+                        </v-checkbox-group>
+                </v-col>
+
+                                </v-row>
+                 
+                    <v-row>
+
+<v-col cols="10" sm="2" md="12"  class="mt-n6">
+ 
+  <v-btn  color="green"  outlined dark @click="why_did_you_not_use_contraceptive_73_3 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn text color="red"  outlined dark @click="why_did_you_not_use_contraceptive_73_3 = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+
+                                   </v-container>
+                                 </v-card> 
+                                    </v-dialog>
+
+
+
+
+
+
+
 
 
 
@@ -2427,10 +3743,11 @@ required
                     
                   </v-col>
 
-                  <v-col cols="10" sm="12" md="12" class="mt-n6" v-show="how_many_times_did_you_visited_the_government_health_68">
+                  <v-col cols="10" sm="12" md="12" class="mt-n7" v-show="how_many_times_did_you_visited_the_government_health_68">
                     <p class="font-weight-bold">(68) How many times did you visited the government health facility during your pregnancy? </p>
                    
                     <v-select 
+                    class="mt-n5"
                       :items="['1 to 3' , 'More than 3 visits but not as required number of visits' , 'Complete prenatal & postnatal care visits as advised the attending doctor'  ]"
                      label="No Of Visits"
                       prepend-inner-icon="mdi-account-convert"
@@ -2442,7 +3759,7 @@ required
                   <v-col   cols="10" sm="12" md="12" class="mt-n6" >
                   <p class="font-weight-bold">(69) What health services did you receive when you visited the government health facility during pregnancy? </p>
               
-                  <v-checkbox-group>
+                  <v-checkbox-group  class="mt-n7">
                           <v-checkbox
                             label="Physical Exam (weight, blood, pressure, heart rate)"
                           ></v-checkbox>
@@ -2473,7 +3790,29 @@ required
 
                 </v-col>
 
+                <v-col cols="10" sm="12" md="12" class="mt-n5">
+                    <p class="font-weight-bold">(70) During delivery, where did you give birth? See codes below </p>
+                        <v-select
+                        class="mt-n3"
+                        @change="function_during_deliry_where_did_you_give_birth"
+                      :items="['Public Health Facility', 'Private Clinic/Hospital' , 'At home' ] "
+                      label="Select Type of Health Issues "
+                      prepend-inner-icon="mdi-hospital"
+                      v-model="during_delivery_where_did_you_give_birth"
+                      required
+                    ></v-select>
+                  </v-col>
 
+   
+                  <v-col   cols="10" sm="12" md="12" v-show="was_the_public_health_midwife_71" class="mt-n7" >
+                     
+                     <p class="font-weight-bold">(71) Was the public health midwife or any skilled birth attendant attended the birth delivery?</p>
+                     <v-radio-group row class="mt-n3">
+                       <v-radio value="yes" label="Yes"></v-radio>
+                       <v-radio value="no"  label="No"></v-radio>
+                    
+                     </v-radio-group>
+                </v-col>
 
 
 
@@ -2481,11 +3820,11 @@ required
 
   <v-col cols="10" sm="2" md="12"  class="mt-n3">
  
- <v-btn text color="green"  outlined dark @click="what_kind_of_illness_or_health_realted_issues_63 = false">
+ <v-btn  color="green"  outlined dark @click="which_type_of_health_facility_did_you_visit = false">
    Continue
    </v-btn>
 
-<v-btn text color="red"  outlined dark @click="what_kind_of_illness_or_health_realted_issues_63 = false">
+<v-btn text color="red"  outlined dark @click="which_type_of_health_facility_did_you_visit = false">
    Close
    </v-btn>
  </v-col>
@@ -2681,163 +4020,7 @@ required
 
 
                     </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 10">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-             
-            </v-stepper-content>
-
-                <!-- HEALTH AND NUTRITION (2) Stepper -->
-           <v-stepper-content step="10">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <h4>HEALTH AND NUTRITION (2)</h4>
-                    <v-row>
-        
-                     
-               
-
-
-
-
-                 <!--   -->
-               
-
-                
-
-                
-
-
-               
-
-
-                <v-col cols="12" sm="12" md="3" v-show="during_delivery_where_did_you_give_birth_70">
-                    <p class="font-weight-bold">(70) During delivery, where did you give birth? See codes below </p>
-                        <v-select
-                      :items="['Public Health Facility', 'Private Clinic/Hospital' , 'At home' ] "
-                      label="Select Type of Health Issues "
-                      prepend-inner-icon="mdi-thermometer-lines"
-                      v-model="philhealth_membership"
-                      required
-                    ></v-select>
-                  </v-col>
-
-              <v-col   cols="12" sm="12" md="3" v-show="was_the_public_health_midwife_71">
-                     
-                     <p class="font-weight-bold">(71) Was the public health midwife or any skilled birth attendant attended the birth delivery?</p>
-                     <v-radio-group row>
-                       <v-radio value="yes" label="Yes"></v-radio>
-                       <v-radio value="no"  label="No"></v-radio>
-                    
-                     </v-radio-group>
-                </v-col>
-
-                <v-col   cols="12" sm="12" md="3" v-show="if_pregnant_as_of_this_time_72" >
-                     
-                     <p class="font-weight-bold">(72) If pregnant as of this time (of survey), specify number of months pregnant.</p>
-                     <v-select
-                     @change="functionselect_pregnant"
-                      :items="['No Pregnant','1 Month', '2 Months' , '3 Months' , '4 Months' ,'5 Months' ,'6 Months' ,'7 Months' ,'8 Months' ,'9 Months' ] "
-                      label="Select Months"
-                      prepend-inner-icon="mdi-thermometer-lines"
-                      v-model="if_pregnant"
-                      required
-                    ></v-select>
-
-                </v-col>
-
-                <v-col   cols="12" sm="12" md="3" v-show="if_pregnant_are_you_member_philhealth_73" >
-                     
-                     <p class="font-weight-bold">(73) If pregnant, are you a member of Philhealth or any insurances, or a dependent of a primary member?</p>
-                     <v-radio-group row>
-                       <v-radio value="yes" label="Yes"></v-radio>
-                       <v-radio  value="no" label="No"></v-radio>
-                    
-                     </v-radio-group>
-                </v-col>
-
-             <!--    -->
-                <v-col   cols="12" sm="12" md="3"  v-show="if_married_or_sexually_active_woman_73_1" >
-                     
-                     <p class="font-weight-bold">(73 - 1) If married or sexually active woman, have you ever used contraceptive methods?  </p>
-                     <v-radio-group row>
-                       <v-radio  value="yes" @change="what_methods_have_you_used_73_2=true, why_did_you_not_use_contraceptive_73_3=false" label="Yes"></v-radio>
-                       <v-radio value="no" @change="why_did_you_not_use_contraceptive_73_3=true,what_methods_have_you_used_73_2=false "  label="No"></v-radio>
-                    
-                     </v-radio-group>
-                </v-col>
-
-
-                <v-col   cols="12" sm="12" md="3" v-show="what_methods_have_you_used_73_2" >
-                  <p class="font-weight-bold">(73 - 2) what method/s have you used? (multiple responses) see codes below
-	Contraceptive Methods
- </p>
-            <v-combobox
-            v-model="select73_2"
-            :items="items73_2"
-            label="See Codes"
-            multiple
-            chips
-             >
-            <template v-slot:selection="data73_2">
-              <v-chip
-                :key="JSON.stringify(data73_2.item)"
-                v-bind="data73_2.attrs"
-                :input-value="data73_2.selected"
-                :disabled="data73_2.disabled"
-                @click:close="data73_2.parent.selectItem(data73_2.item)"
-              >
-                <v-avatar
-                  class="accent white--text"
-                  left
-                  v-text="data73_2.item.slice(0, 1).toUpperCase()"
-                ></v-avatar>
-                {{ data73_2.item }}
-              </v-chip>
-            </template> 
-            
-          </v-combobox>
-
-                </v-col>
-
-
-                <v-col   cols="12" sm="12" md="3" v-show="why_did_you_not_use_contraceptive_73_3">
-                  <p class="font-weight-bold">(73 - 3) why did married or sexually active woman did not ever use contraceptive methods?</p>
-            <v-combobox
-            v-model="select73_3"
-            :items="items73_3"
-            label="See Codes"
-            multiple
-            chips
-             >
-            <template v-slot:selection="data73_3">
-              <v-chip
-                :key="JSON.stringify(data73_3.item)"
-                v-bind="data73_3.attrs"
-                :input-value="data73_3.selected"
-                :disabled="data73_3.disabled"
-                @click:close="data73_3.parent.selectItem(data73_3.item)"
-              >
-                <v-avatar
-                  class="accent white--text"
-                  left
-                  v-text="data73_3.item.slice(0, 1).toUpperCase()"
-                ></v-avatar>
-                {{ data73_3.item }}
-              </v-chip>
-            </template>          
-          </v-combobox>
-                </v-col>
-
-
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 11">
+                    <v-btn id="v-btn-c" color="green" @click="e1 = 4">
                 Continue
               </v-btn>
               <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
@@ -2850,754 +4033,20 @@ required
 
 
 
-  <!-- G.	PEACE AND SECURITY Stepper -->
-           <v-stepper-content step="11">
+
+
+
+
+
+<!-- 	I.	INFORMATION AND COMMUNICATION -->
+<v-stepper-content step="4">
               <v-card class="mb-12" color="grey lighten-4">
                 <v-card-text>
                   <v-container fluid>
-                    <h4>PEACE AND SECURITY</h4>
+
                     <v-row>
         
-                      <v-col   cols="12" sm="12" md="3">
-                     
-                     <p class="font-weight-bold">(74) Have you’ve been a victim of crime or violation of RA 9262 (VAWC Act) before?</p>
-                     <v-radio-group row>
-                       <v-radio value="yes"  @change="what_crime_or_violation_75_76_77_78 = true" label="Yes"></v-radio>
-                       <v-radio  value="no" @change="what_crime_or_violation_75_76_77_78 = false" label="No"></v-radio>
-                    
-                     </v-radio-group>
-                      </v-col>
-
-
-
-                      <v-col cols="12" sm="12" md="3" v-show="what_crime_or_violation_75_76_77_78" >
-                    <p class="font-weight-bold">(75) ) What crime or violation of RA 9262 you were a victim of? </p>          
-                    <v-checkbox-group>
-                          <v-checkbox
-                            label="Theft"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Robbery"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Rape and other type of sexual abuse"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Physical Injury"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Car napping"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                        
-                        </v-checkbox-group>
-                  </v-col>
-
-                  <v-col cols="12" sm="12" md="2"  v-show="what_crime_or_violation_75_76_77_78">
-                    <p class="font-weight-bold">.</p>          
-                    <v-checkbox-group>
-                          <v-checkbox
-                            label="Cattle rustling"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="All type of physical abuse"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="All type of Psychological Abuse"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Economic Abuse"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Emotional Abuse"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                        
-                  <v-text-field label="Others/Specify"></v-text-field>
-                </v-checkbox-group>
-                </v-col>
-
-                <v-col cols="12" sm="12" md="3" v-show="what_crime_or_violation_75_76_77_78">
-                    <p class="font-weight-bold">(76) Where did the crime or violence happen? </p>
-                        <v-select
-                      :items="['Within the house/household', 'Within the relative’s/ neighbor’s household' , 'Within the barangay' , 'Outside the barangay but within the municipality/city', 'Outside the municipality', 'Outside the province']"
-                      label="Location of Crime/Violence"
-                      prepend-inner-icon="mdi-map-marker"
-                      v-model="crime_violence"
-                      required
-                    ></v-select>
-                  </v-col>
-
-                  <v-col cols="12" sm="12" md="3" v-show="what_crime_or_violation_75_76_77_78">
-                    <p class="font-weight-bold">(77) Who was/ were the perpetrator/s of the crime/ violence?</p>
-                        <v-select
-                      :items="['Member of the household ', 'Not member of the household but know to the household', 'Do not know']"
-                      label="Location of Crime/Violence"
-                      prepend-inner-icon="mdi-map-marker"
-                      v-model="crime_violence"
-                      required
-                    ></v-select>
-                  </v-col>
-
-
-                  <v-col cols="12" sm="12" md="3" v-show="what_crime_or_violation_75_76_77_78">
-   <p class="font-weight-bold">(78) what kind of assistance did you receive? See codes below Case Assistance</p>
-                        <v-select
-                      :items="['Financial Assistance', 'Case filing Assistance & provision of lawyer', 'Case Referral Assistance ' ,'Psycho-social Assistance' ,'Temporary Shelter Assistance']"
-                      label="Location of Crime/Violence"
-                      prepend-inner-icon="mdi-map-marker"
-                      v-model="what_kind_of_assistance"
-                      required
-                    ></v-select>
-                  </v-col>
-
-
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 12">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 10" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-            </v-stepper-content>
-
- <!-- H.	ACCESS TO PROGRAMS AND SERVICES -->
- <v-stepper-content step="12">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <h4>ACCESS TO PROGRAMS AND SERVICES</h4>
-                    <v-row>
-        
-                      <v-col   cols="12" sm="12" md="3">
-                     
-                     <p class="font-weight-bold">(79) During the past 12 months, did you receive or a recipient of any programs and services? </p>
-                     <v-radio-group row>
-                       <v-radio  value="yes" @change="what_type_of_program_80_81=true"     label="Yes"></v-radio>
-                       <v-radio  value="no"   @change="what_type_of_program_80_81=false" label="No"></v-radio>
-                    
-                     </v-radio-group>
-
-                      </v-col>
-
-
-                      <v-col   cols="12" sm="12" md="3" v-show="what_type_of_program_80_81">
-                     
-                     <p class="font-weight-bold">(80) What type of program/service did you receive or as a recipient of?</p>
-
-                     <v-checkbox-group>
-                          <v-checkbox
-                            label="Sustainable Livelihood Program"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Food for work"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Cash for work"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="PantawidPamilyang Pilipino Program (4Ps)"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Agrarian Reform Community Development Program"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Training for Work Scholarship Program (TWSP)"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Community Based Employment Program (CBEB)"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                        
-                        
-                <!--   <v-text-field label="Others/Specify"></v-text-field> -->
-                </v-checkbox-group>
-
-                    </v-col>
-
-                    <v-col   cols="12" sm="12" md="3" v-show="what_type_of_program_80_81">
-                     
-                     <p class="font-weight-bold">.</p>
-
-                     <v-checkbox-group>
-                          <v-checkbox
-                            label="Other Health Insurance (Maxicare, Medicare, etc.)"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Health Care Assistance"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Supplemental Feeding"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Skills and Livelihood Training Program"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Credit Assistance Program"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Housing Program"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="SulongDunong Program"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                        
-                        
-                <!--   <v-text-field label="Others/Specify"></v-text-field> -->
-                </v-checkbox-group>
-
-                    </v-col>
-
-                    <v-col   cols="12" sm="12" md="3" v-show="what_type_of_program_80_81">
-                     
-                     <p class="font-weight-bold">.</p>
-
-                     <v-checkbox-group>
-                          <v-checkbox
-                            label="DOST Scholarship Program"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="CHED Scholarship Program"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Special Program for the Employment of Students (SPES)"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Animal Dispersal Program"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Crisis Intervention program"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Pagkalingasa Bayan Program"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Health Indigency Program"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                        
-                        
-                  <v-text-field label="Others/Specify" ></v-text-field>
-                </v-checkbox-group>
-
-                    </v-col>
-
-               
-                    <v-col   cols="12" sm="12" md="3" v-show="what_type_of_program_80_81">
-                     
-                     <p class="font-weight-bold">(81) Who was/were the implementer/s of the program/s, project/s or service/s?</p>
-
-                     <v-checkbox-group>
-                          <v-checkbox
-                            label="SNational Government (DSWD, DA, DOST, DTI, TESDA, DepEd, CHED, DAR, DILG, DOLE, etc)"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Provincial Government"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Municipal Government"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                         
-                        
-                <!--   <v-text-field label="Others/Specify"></v-text-field> -->
-                </v-checkbox-group>
-
-                    </v-col>
-                        
-                    <v-col   cols="12" sm="12" md="3" v-show="what_type_of_program_80_81">
-                     
-                     <p class="font-weight-bold">.</p>
-
-                     <v-checkbox-group>
-                          <v-checkbox
-                            label="Barangay LGU"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Congressional/District"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Private Organizations/NGOs"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                    
-                        
-                  <v-text-field label="Others/Specify"></v-text-field>
-                </v-checkbox-group>
-
-                    </v-col>
-               
-              
-
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 13">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 11" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-            </v-stepper-content>
-
-
-
- <!-- 	I.	DISASTER PREPAREDNESS  1-->
- <v-stepper-content step="13">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <h4>DISASTER PREPAREDNESS (1)</h4>
-                    <v-row>
-        
-                      <v-col   cols="12" sm="12" md="2">
-                     
-                     <p class="font-weight-bold">(82)Do you have a disaster preparedness kit?</p>
-                     <v-radio-group row>
-                       <v-radio value="yes" @change="do_you_have_following_preparedness_kit_83=true,did_you_attend_disaster_preparedness_84=false,disaster_related_training_seminars_84_1=false"   label="Yes"></v-radio>
-                       <v-radio value="no" @change="do_you_have_following_preparedness_kit_83=false,did_you_attend_disaster_preparedness_84=true"   label="No"></v-radio>
-                    
-                     </v-radio-group>
-
-                      </v-col>
-
-                    
-                      <!--  <p class="font-weight-bold">(83) Do you have the following in your disaster preparedness kit?</p> -->
-
-
-                      <v-col   cols="12" sm="12" md="2" v-show="do_you_have_following_preparedness_kit_83" >
-          
-                        <p class="font-weight-bold">(83)Do you have the following in your disaster preparedness kit?</p>
-                     <v-radio-group >
-                      <p class="font-weight-bold">WATER</p>
-                       <v-radio value="yes"     label="Yes"></v-radio>
-                       <v-radio  value="no"  label="No"></v-radio>
-                       <v-text-field label="How many Days will it last"></v-text-field>
-                     </v-radio-group>
-
-                      </v-col>
-
-                      <v-col   cols="12" sm="12" md="2" v-show="do_you_have_following_preparedness_kit_83">
-          
-                 
-                  <v-radio-group >
-                  <p class="font-weight-bold">CANDLE</p>
-                    <v-radio  value="yes"   label="Yes"></v-radio>
-                  <v-radio   value="no" label="No"></v-radio>
-                    <v-text-field label="How many Days will it last"></v-text-field>
-                 </v-radio-group>
-
-                   </v-col>
-                 
-                   <v-col   cols="12" sm="12" md="2" v-show="do_you_have_following_preparedness_kit_83">
-          
-                 
-          <v-radio-group >
-          <p class="font-weight-bold">WHISTLE</p>
-            <v-radio  value="yes"    label="Yes"></v-radio>
-          <v-radio    value="no" label="No"></v-radio>
-            <v-text-field label="How many Days will it last"></v-text-field>
-         </v-radio-group>
-
-           </v-col>
-          
-           <v-col   cols="12" sm="12" md="2" v-show="do_you_have_following_preparedness_kit_83">
-          
-                 
-          <v-radio-group >
-          <p class="font-weight-bold">CLOTHES</p>
-            <v-radio  value="yes"   label="Yes"></v-radio>
-          <v-radio    value="no"  label="No"></v-radio>
-            <v-text-field label="How many Days will it last"></v-text-field>
-         </v-radio-group>
-
-           </v-col>
-          
-           <v-col   cols="12" sm="12" md="2" v-show="do_you_have_following_preparedness_kit_83">
-          
-                 
-          <v-radio-group >
-          <p class="font-weight-bold">BLANKET</p>
-            <v-radio  value="yes"   label="Yes"></v-radio>
-          <v-radio   value="no"  label="No"></v-radio>
-            <v-text-field label="How many Days will it last"></v-text-field>
-         </v-radio-group>
-
-           </v-col>
-           
-           <v-col   cols="12" sm="12" md="2" offset-md="2"  v-show="do_you_have_following_preparedness_kit_83">
-          
-                 
-          <v-radio-group >
-          <p class="font-weight-bold">Food (canned goods, biscuits, bread)</p>
-            <v-radio  value="yes"    label="Yes"></v-radio>
-          <v-radio   value="no"  label="No"></v-radio>
-            <v-text-field label="How many Days will it last"></v-text-field>
-         </v-radio-group>
-
-           </v-col>
-           
-           <v-col   cols="12" sm="12" md="2" v-show="do_you_have_following_preparedness_kit_83" >
-          
-                 
-          <v-radio-group >
-          <p class="font-weight-bold">Radio/ Transistor (battery-operated)</p>
-            <v-radio   value="yes"  label="Yes"></v-radio>
-          <v-radio    value="no" label="No"></v-radio>
-            <v-text-field label="How many Days will it last"></v-text-field>
-         </v-radio-group>
-
-           </v-col>
-  
-           <v-col   cols="12" sm="12" md="2" v-show="do_you_have_following_preparedness_kit_83" >
-          
-                 
-          <v-radio-group >
-          <p class="font-weight-bold">Battery (cellphone, flashlight, radio, etc)</p>
-            <v-radio  value="yes"   label="Yes"></v-radio>
-          <v-radio   value="no"  label="No"></v-radio>
-            <v-text-field label="How many Days will it last"></v-text-field>
-         </v-radio-group>
-
-           </v-col>
-
-
-           <v-col   cols="12" sm="12" md="2" v-show="do_you_have_following_preparedness_kit_83" >
-          
-                 
-          <v-radio-group >
-          <p class="font-weight-bold">Important documents (land title, valid ID, birth certificate, etc</p>
-            <v-radio  value="yes"   label="Yes"></v-radio>
-          <v-radio   value="no"  label="No"></v-radio>
-            <v-text-field label="How many Days will it last"></v-text-field>
-         </v-radio-group>
-
-           </v-col>
-
-
-
-                  <v-col   cols="12" sm="12" md="2" v-show="do_you_have_following_preparedness_kit_83">
-                 
-                 <v-radio-group >
-                 <p class="font-weight-bold">Flashlight/ Emergency light</p>
-                   <v-radio  value="yes"    label="Yes"></v-radio>
-                 <v-radio  value="no"  label="No"></v-radio>
-                   <v-text-field label="How many Days will it last"></v-text-field>
-                </v-radio-group>
-                  </v-col>
-       
-                  <v-col   cols="12" sm="12" md="2" offset-md="2"  v-show="do_you_have_following_preparedness_kit_83" >
-                 
-                 <v-radio-group >
-                 <p class="font-weight-bold">Matches/ Lighter</p>
-                   <v-radio value="yes"    label="Yes"></v-radio>
-                 <v-radio   value="no" label="No"></v-radio>
-                   <v-text-field label="How many Days will it last"></v-text-field>
-                </v-radio-group>
-                  </v-col>
-
-                  <v-col   cols="12" sm="12" md="2" v-show="do_you_have_following_preparedness_kit_83" >
-                 
-                 <v-radio-group >
-                 <p class="font-weight-bold">Others, specify</p>
-                
-                   <v-text-field></v-text-field>
-                </v-radio-group>
-                  </v-col>
-
-             <!--        dire mag start ang bag-o -->
-
-                     <v-col   cols="12" sm="12" md="2" v-show="did_you_attend_disaster_preparedness_84">
-                     
-                     <p class="font-weight-bold">(84)Did you attend disaster preparedness training and drills?</p>
-                     <v-radio-group row>
-                       <v-radio value="yes" @change="disaster_related_training_seminars_84_1=true,fire_evacuation_drill_84_3=false"  label="Yes"></v-radio>
-                       <v-radio value="no"  @change="disaster_related_training_seminars_84_1=false,fire_evacuation_drill_84_3=true" label="No"></v-radio>
-                    
-                     </v-radio-group>
-
-                      </v-col>
-
-                      <v-col   cols="12" sm="12" md="3" v-show="disaster_related_training_seminars_84_1">
-
-<v-radio-group >
- <p class="font-weight-bold">Basic Life Support Cardio-Pulmonary Resuscitation (BLS-CPR)</p>
-  <v-radio value="yes"     label="Yes"></v-radio>
-  <v-radio  value="no"  label="No"></v-radio>
- 
-</v-radio-group>
-                <v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
- </v-col>
-
- <v-col   cols="12" sm="12" md="2" v-show="disaster_related_training_seminars_84_1">
-
-
-<v-radio-group >
-<p class="font-weight-bold">Community-based Disaster Management Training </p>
-<v-radio  value="yes"    label="Yes"></v-radio>
-<v-radio  value="no"  label="No"></v-radio>
-
-</v-radio-group>
-<v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-</v-col>
-
-<v-col   cols="12" sm="12" md="2" v-show="disaster_related_training_seminars_84_1">
-
-
-<v-radio-group >
-<p class="font-weight-bold">Incident Command System Training</p>
-<v-radio  value="yes"   label="Yes"></v-radio>
-<v-radio  value="no"  label="No"></v-radio>
-
-</v-radio-group>
-<v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-</v-col>
-
-
-<v-col   cols="12" sm="12" md="3" offset-md="4" v-show="disaster_related_training_seminars_84_1">
-
-
-<v-radio-group >
-<p class="font-weight-bold">Evacuation Management Training</p>
-<v-radio  value="yes"   label="Yes"></v-radio>
-<v-radio  value="no" label="No"></v-radio>
-
-</v-radio-group>
-<v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-</v-col>
-
-
-<v-col   cols="12" sm="12" md="2"  v-show="disaster_related_training_seminars_84_1">
-
-
-<v-radio-group >
-<p class="font-weight-bold">Camp  Management Training</p>
-<v-radio  value="yes"   label="Yes"></v-radio>
-<v-radio  value="no"  label="No"></v-radio>
-
-</v-radio-group>
-<v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-</v-col>
-
-
-<v-col   cols="12" sm="12" md="2" v-show="disaster_related_training_seminars_84_1" >
-
-
-<v-radio-group >
-<p class="font-weight-bold">First Aid Training</p>
-<v-radio value="yes"    label="Yes"></v-radio>
-<v-radio  value="no"    label="No"></v-radio>
-
-</v-radio-group>
-<v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-</v-col>
-
-<v-col   cols="12" sm="12" md="4" offset-md="4" v-show="disaster_related_training_seminars_84_1"  >
-
-<v-radio-group >
-<p class="font-weight-bold">Others, specify</p>
-
-<v-text-field ></v-text-field>
-</v-radio-group>
-</v-col>
-
-<!-- Disaster Preparedness 3 -->
-
-<v-col   cols="12" sm="12" md="2" v-show="fire_evacuation_drill_84_3" >
-                  <p class="font-weight-bold">84.3 Have you attended any of the following Disaster Preparedness Drills?</p>
-            <v-radio-group >
-           <p class="font-weight-bold">Fire Evacuation Drill</p>
-           <v-radio   value="yes"  label="Yes"></v-radio>
-           <v-radio    value="no"   label="No"></v-radio>
-          
-          </v-radio-group>
-                     <v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-            </v-col>
-                    
-
-            
-            <v-col   cols="12" sm="12" md="2" v-show="fire_evacuation_drill_84_3" >
-
-<v-radio-group >
-<p class="font-weight-bold">Earthquake Evacuation Drill</p>
-<v-radio value="yes"    label="Yes"></v-radio>
-<v-radio  value="no" label="No"></v-radio>
-
-</v-radio-group>
-<v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-</v-col>
-
-<v-col   cols="12" sm="12" md="2" v-show="fire_evacuation_drill_84_3" >
-
-<v-radio-group >
-<p class="font-weight-bold">Flood Evacuation Drill</p>
-<v-radio   value="yes"  label="Yes"></v-radio>
-<v-radio   value="no"  label="No"></v-radio>
-
-</v-radio-group>
-<v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-</v-col>
-
-
-<v-col   cols="12" sm="12" md="2" v-show="fire_evacuation_drill_84_3" >
-
-<v-radio-group >
-<p class="font-weight-bold">Tsunami Evacuation Drill</p>
-<v-radio  value="yes"   label="Yes"></v-radio>
-<v-radio  value="no"     label="No"></v-radio>
-
-</v-radio-group>
-<v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-</v-col>
-
-<v-col   cols="12" sm="12" md="2" offset-md="4" v-show="fire_evacuation_drill_84_3" >
-
-<v-radio-group >
-<p class="font-weight-bold">Lockdown Drill</p>
-<v-radio value="yes"    label="Yes"></v-radio>
-<v-radio  value="no"  label="No"></v-radio>
-
-</v-radio-group>
-<v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-</v-col>
-
-<v-col   cols="12" sm="12" md="2"  v-show="fire_evacuation_drill_84_3">
-
-<v-radio-group >
-<p class="font-weight-bold">Bomb Drill</p>
-<v-radio  value="yes"   label="Yes"></v-radio>
-<v-radio  value="no" label="No"></v-radio>
-
-</v-radio-group>
-<v-select
-                      :items="['Within This Month', 'Within the past six months' , 'Within this year' , 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
-                      label="When was The Training"
-                      prepend-inner-icon="mdi-calendar"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-</v-col>
-
-<!-- END -->
-
-
-
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 14">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 12" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-            </v-stepper-content>
-
-
-
-<!-- 	I.	DISASTER PREPAREDNESS  2-->
-          <v-stepper-content step="14">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <h4>DISASTER PREPAREDNESS (2)</h4>
-                    <v-row> 
-        
-                     
-
-                      <v-col cols="12" sm="12" md="3" class="ma-2" >
+                      <v-col cols="12" sm="12" md="3" class="mt-n1" >
                         <p class="font-weight-bold">(85)During disaster and emergencies, where did you get information and warning?</p>
                         <v-checkbox-group>
                           <v-checkbox
@@ -3622,28 +4071,9 @@ required
                           <v-text-field label="Other, specify" ></v-text-field>
                         </v-checkbox-group>
                       </v-col>
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 15">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 13" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
 
-            </v-stepper-content>
-
-
-
-<!-- 	I.	INFORMATION AND COMMUNICATION -->
-<v-stepper-content step="15">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <h4>INFORMATION AND COMMUNICATION </h4>
-                    <v-row>
-        
-                      <v-col cols="12" sm="12" md="4" >
+                      <v-col cols="12" sm="12" md="5" >
+                        <h4>INFORMATION AND COMMUNICATION</h4>
                         <p class="font-weight-bold">(86)Where did you learn about the local and national news and information?</p>
                         <v-checkbox-group>
                           <v-checkbox
@@ -3666,75 +4096,33 @@ required
                             style="margin-top: -10px"
                           ></v-checkbox>
                           <v-text-field label="Other, specify" ></v-text-field>
-                          <v-radio-group >
-           <p class="font-weight-bold">86-A.Do you have cellular/ mobile phones?</p>
-                          <v-radio value="yes" @change="what_mobile_phone_services_87=true"     label="Yes"></v-radio>
-                         <v-radio   value="no" @change="what_mobile_phone_services_87=false"  label="No"></v-radio>
-                </v-radio-group>
+                        
                         </v-checkbox-group>
                       </v-col>
 
 
-                      <v-col   cols="12" sm="12" md="2"  v-show="what_mobile_phone_services_87">
-                        <p class="font-weight-bold">87. What mobile phone services providers does the household have access to?</p>
-                        <v-radio-group >
+                      <v-col cols="12" sm="12" md="2" >
+                        <p class="font-weight-bold">Do you have cellular/mobile phones?</p>
+                      <v-radio-group row>
+        
+                          <v-radio value="yes" @click="what_mobile_phone_services_87=true"     label="Yes"></v-radio>
+                         <v-radio   value="no" @click="what_mobile_phone_services_87=false"  label="No"></v-radio>
+                </v-radio-group>
+              </v-col>
 
-                    <v-radio   value="Globe and subsidiarie"  label="Globe and subsidiaries"></v-radio>
-                      <v-radio value="Smart and subsidiaries" label="Smart and subsidiaries"></v-radio>
-                <v-radio    value="Both Globe and Smart"   label="Both Globe and Smart"></v-radio>
-                  <v-radio  value="DITO" label="DITO"></v-radio>
-                  </v-radio-group>
-
-                      </v-col> 
-
-
-                      
-                      <v-col   cols="12" sm="12" md="2" >
-                        <p class="font-weight-bold">88. Do you have access to internet?</p>
+              
+              <v-col   cols="12" sm="12" md="2" >
+                        <p class="font-weight-bold">Do you have access to internet?</p>
          
-                        <v-radio-group >
+                        <v-radio-group row >
                         
-                  <v-radio  value="yes"  @change="what_is_your_means_intern_connection_89=true"  label="Yes"></v-radio>
+                     <v-radio  value="yes"  @click="what_is_your_means_intern_connection_89=true"  label="Yes"></v-radio>
                     <v-radio value="no"  @change="what_is_your_means_intern_connection_89=false" label="No"></v-radio>
                       </v-radio-group>
                       </v-col> 
 
-
-                      <v-col   cols="12" sm="12" md="3" v-show="what_is_your_means_intern_connection_89" >
-                        <p class="font-weight-bold">89. What is your means for internet connection?</p>
-                        <v-select
-                      :items="['Cellular/ Mobile data', 'Wireless/ Wifi' , 'Broadband Internet Access via cable, DSL, or fiber connection' , 'Dial-up', 'Satellite']"
-                      label="Select"
-                      prepend-inner-icon="mdi-wifi"
-                      v-model="Barangay"
-                      required
-                    ></v-select>
-
-                      </v-col> 
-
-
-
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 16">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 14" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-            </v-stepper-content>
-
-
-<!-- 	I.	OTHER ISSUES AND CONCERNS & NEEDS -->
-<v-stepper-content step="16">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <h4>OTHER ISSUES AND CONCERNS & NEEDS </h4>
-                    <v-row>
-        
-                      <v-col cols="12" sm="12" md="4" >
+                      <v-col cols="12" sm="12" md="3" >
+                        <h4>OTHER ISSUES AND CONCERNS & NEEDS </h4>
                         <p class="font-weight-bold">(90)What are your personal issues, concerns, and needs?</p>
                         <v-checkbox-group>
                           <v-checkbox
@@ -3757,24 +4145,50 @@ required
                             style="margin-top: -10px"
                           ></v-checkbox>
                         
-                        
                         </v-checkbox-group>
+                       
                       </v-col>
 
-
-                      <v-col cols="12" sm="12" md="4" >
-                        <p class="font-weight-bold">.</p>
+                      <v-col cols="12" sm="12" md="3" >
+                       
                         <v-checkbox-group>
                           <v-checkbox
+                            label="Electricity"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Water System facility"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Housing Facility/ Project"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Livelihood Project"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Livelihood Training"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                          style="margin-top: -10px"
                             label="Farm inputs (farm seeds, fertilizer, pesticides)"
                           ></v-checkbox>
                           <v-checkbox
                             label="Access to micro credit facility"
                             style="margin-top: -10px"
                           ></v-checkbox>
+                        
+                        
+                        </v-checkbox-group>
+                      </v-col>
+
+                      <v-col cols="12" sm="12" md="3" >
+                        <v-checkbox-group>
                           <v-checkbox
                             label="Improved access to education"
-                            style="margin-top: -10px"
+                           
                           ></v-checkbox>
                           <v-checkbox
                             label="Improved access to health and nutrition services"
@@ -3784,17 +4198,9 @@ required
                             label="Improved access to agricultural facilities (irrigation, farm, equipment, etc.)"
                             style="margin-top: -10px"
                           ></v-checkbox>
-                        
-                        
-                        </v-checkbox-group>
-                      </v-col>
-
-                      
-                      <v-col cols="12" sm="12" md="4" >
-                        <p class="font-weight-bold">.</p>
-                        <v-checkbox-group>
                           <v-checkbox
                             label="Employment opportunities"
+                            style="margin-top: -10px"
                           ></v-checkbox>
                           <v-checkbox
                             label="Flooding/ Community drainage/ Canal"
@@ -3804,20 +4210,112 @@ required
                             label="Poor road maintenance"
                             style="margin-top: -10px"
                           ></v-checkbox>
+                        </v-checkbox-group>
+                      </v-col>
+
+                      <v-col cols="12" sm="12" md="3" >
+                        <v-checkbox-group>
+                      
                           <v-checkbox
                             label="Access to teenage/ adolescent"
-                            style="margin-top: -10px"
+                           
                           ></v-checkbox>
                           <v-checkbox
                             label="Access to educational & skills training scholarship"
                             style="margin-top: -10px"
                           ></v-checkbox>
-                        
                           <v-text-field 
                           label="Others, specify"
                           ></v-text-field>
                         </v-checkbox-group>
                       </v-col>
+
+
+
+                      <v-dialog v-model="what_is_your_means_intern_connection_89" max-width="480">
+                        <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      What is your means for internet connection?<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+
+                    <v-col   cols="11" sm="12" md="12" class="mt-n5"  >
+      
+                        <v-select
+                      :items="['Cellular/ Mobile data', 'Wireless/ Wifi' , 'Broadband Internet Access via cable, DSL, or fiber connection' , 'Dial-up', 'Satellite']"
+                      label="  Select"
+                      prepend-inner-icon="mdi-wifi"
+                      v-model="Barangay"
+                      required
+                    ></v-select>
+
+                      </v-col> 
+
+
+                        
+                      </v-row>
+                      <v-row>
+
+<v-col cols="10" sm="12" md="12" class="mt-n3">
+ 
+  <v-btn  color="green" class="pa-2" outlined dark @click="what_is_your_means_intern_connection_89 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn  color="red" class="pa-2 ml-2" outlined dark @click="what_is_your_means_intern_connection_89 = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+                    </v-container>
+                  </v-card> 
+
+             
+         
+                      </v-dialog> 
+
+
+
+                 
+
+
+
+                    </v-row>
+                    <v-btn id="v-btn-c" color="green" @click="e1 = 16">
+                Continue
+              </v-btn>
+              <v-btn @click="e1 = 3" class="ma-2"> Back </v-btn>
+                  </v-container>
+                </v-card-text>
+              </v-card>
+
+            </v-stepper-content>
+
+
+<!-- 	I.	OTHER ISSUES AND CONCERNS & NEEDS -->
+<v-stepper-content step="16">
+              <v-card class="mb-12" color="grey lighten-4">
+                <v-card-text>
+                  <v-container fluid>
+                    <h4>OTHER ISSUES AND CONCERNS & NEEDS </h4>
+                    <v-row>
+        
+                     
+
+
+                    
+                      
+                    
 
 
                     </v-row>
@@ -4429,19 +4927,32 @@ where_would_you_like_volunteer_93:false,
 
         if(this.if_pregnant=="No Pregnant"){
 
-          this.if_married_or_sexually_active_woman_73_1=false;
+          this.if_pregnant_are_you_member_philhealth_73=false;
+
 
         }
           else{
 
-            this.if_married_or_sexually_active_woman_73_1=true;
+            this.if_pregnant_are_you_member_philhealth_73=true;
 
           }
-
-
     },
 
     
+    function_during_deliry_where_did_you_give_birth(){
+
+        if(this.during_delivery_where_did_you_give_birth=="At home"){
+
+       this.was_the_public_health_midwife_71=true;
+
+                }
+                 else{
+
+    this.was_the_public_health_midwife_71=false;
+
+                    }
+},
+
 
 
     functionselect_civil_status(){
