@@ -4229,14 +4229,57 @@ required
                       </v-col>
 
                       <v-col cols="12" sm="12" md="3" >
+                        <h4>ACTIVE CITIZENSHIP/ RA 9418 or Volunteer Act of 2007 </h4>
                         <p class="font-weight-bold">(91)Are you interested to join any voluntary work?</p>
                       
                         <v-radio-group row>
                   
-                      <v-radio  value="yes"   @click="where_would_you_like_volunteer_93=true,state_reason_92=false"   label="Yes"></v-radio>
-                     <v-radio   value="no"    @click="state_reason_92=true"    label="No"></v-radio>
+                      <v-radio  value="yes"   @click="where_would_you_like_volunteer_93=true,during_what_hours_are_you_available_volunteer=true"   label="Yes"></v-radio>
+                     <v-radio   value="no"    @click="state_reason_92=true,during_what_hours_are_you_available_volunteer=false"    label="No"></v-radio>
                     </v-radio-group>
                     </v-col>
+
+                    <v-col cols="12" sm="12" md="3" >
+                        <p class="font-weight-bold">Are you a Sinag Member</p>
+                      
+                        <v-radio-group row>
+                  
+                      <v-radio   value="yes"   label="Yes"></v-radio>
+                     <v-radio     value="no"  label="No"></v-radio>
+
+                     </v-radio-group>
+
+                    </v-col>
+
+                    <v-col cols="12" md="3" sm="12" v-show="during_what_hours_are_you_available_volunteer">
+                      <p class="font-weight-bold">During what hours are you available for volunteer assignment?</p>
+                        <v-select
+
+                      
+                      :items="['Weekday morning' , 'Weekday afternoon' , 'Weekday evening' , 'Weekend morning' , 'Weekend afternoon' , 'Weekend evening' , 'Any day will do' , 'Any time will do' ]"
+                      label="Select Type"
+                      prepend-inner-icon="mdi-calendar-multiple-check"
+                    
+                      required
+                    ></v-select>
+                  
+                      </v-col>
+
+
+                      <v-col cols="12" md="3" sm="12" v-show="during_what_hours_are_you_available_volunteer" >
+                      <p class="font-weight-bold">Reason/s for Volunteering. See codes below</p>
+                    <v-select
+
+                        class="mt-9"
+                      :items="['To gain or improve Skills' , 'To gain experience' , 'To gain Friends' , 'To gain employment skills' , 'To share skills and talents' , 'For academic credit']"
+                      label="Select Reason"
+                        prepend-inner-icon="mdi-account-plus"
+
+                    required
+                        ></v-select>
+                          </v-col>
+
+
 
 
                     
@@ -4639,62 +4682,11 @@ required
               <v-card class="mb-12" color="grey lighten-4">
                 <v-card-text>
                   <v-container fluid>
-                    <h4>ACTIVE CITIZENSHIP/ RA 9418 or Volunteer Act of 2007 </h4>
+                    
                     <v-row>
         
-                      <v-col cols="12" sm="12" md="3" >
-                        <p class="font-weight-bold">(91)Are you interested to join any voluntary work?</p>
-                      
-                        <v-radio-group row>
+             
                   
-                      <v-radio  value="yes"   @change="where_would_you_like_volunteer_93=true,state_reason_92=false"   label="Yes"></v-radio>
-                     <v-radio   value="no"    @change="where_would_you_like_volunteer_93=false,state_reason_92=true"    label="No"></v-radio>
-
-                     </v-radio-group>
-
-                     <v-col cols="12" sm="12" md="8" >
-                        <p class="font-weight-bold">Are you a Sinag Member</p>
-                      
-                        <v-radio-group row>
-                  
-                      <v-radio   value="yes"   label="Yes"></v-radio>
-                     <v-radio     value="no"  label="No"></v-radio>
-
-                     </v-radio-group>
-
-                    </v-col>
-
-
-                      </v-col>
-
-
-                     <v-col cols="12" md="3" sm="12" v-show="where_would_you_like_volunteer_93" >
-                      <p class="font-weight-bold">During what hours are you available for volunteer assignment?</p>
-                        <v-select
-
-                      
-                      :items="['Weekday morning' , 'Weekday afternoon' , 'Weekday evening' , 'Weekend morning' , 'Weekend afternoon' , 'Weekend evening' , 'Any day will do' , 'Any time will do' ]"
-                      label="Select Type"
-                      prepend-inner-icon="mdi-calendar-multiple-check"
-                    
-                      required
-                    ></v-select>
-                  
-
-                    <p class="font-weight-bold">Reason/s for Volunteering. See codes below</p>
-                    <v-select
-
-  
-:items="['To gain or improve Skills' , 'To gain experience' , 'To gain Friends' , 'To gain employment skills' , 'To share skills and talents' , 'For academic credit']"
-label="Select Reason"
-prepend-inner-icon="mdi-account-plus"
-
-required
-></v-select>
-
-
-
-                      </v-col>
 
 
                     </v-row>
@@ -4989,6 +4981,7 @@ what_is_your_means_intern_connection_89:false,
 /* ACTIVE CITIZENSHIP/ RA 9418 or Volunteer Act of 2007 */
 state_reason_92:false,
 where_would_you_like_volunteer_93:false,
+during_what_hours_are_you_available_volunteer:false,
 /* END */
 
 
