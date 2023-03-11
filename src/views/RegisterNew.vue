@@ -3,9 +3,12 @@
     <Navbar/>
     
         <v-card >
-        <v-card-title>
-          <span class="text-h7" :style="color=red">YOUTH ASSESSMENT SURVEY QUESTIONNAIRE</span>
-        </v-card-title>
+          <div class="text-center mt-5" >
+         
+         <p class="font-weight-bold">YOUTH ASSESSMENT SURVEY QUESTIONNAIRE</p>
+       </div>
+
+    
         <v-stepper v-model="e1" @input="scrollup">
           <v-stepper-header style="font-size: 14px">
             <v-stepper-step :complete="e1 > 1" step="1" style="height=">
@@ -15,11 +18,7 @@
 
             <v-divider></v-divider>
 
-          <!--   <v-stepper-step :complete="e1 > 1.1" step="1.1" style="height=">
-              Personal
-              <v-spacer></v-spacer>
-              Information
-            </v-stepper-step> -->
+        
 
             <v-divider></v-divider>
 
@@ -42,15 +41,6 @@
             <v-divider></v-divider>
 
           
-    
-
-            <v-stepper-step :complete="e1 > 17" step="17">
-            17
-            </v-stepper-step>
-          
-            <v-divider></v-divider>
-
-
           </v-stepper-header>
 
 
@@ -258,7 +248,7 @@
 
                     <v-row>
                       
-                      <v-col cols="12" sm="12" md="3">
+                      <v-col cols="12" sm="12" md="3" class="ml-2 mt-2">
                         <p class="font-weight-bold">Gender</p>
                         <v-radio-group row>
 
@@ -466,7 +456,7 @@
 
                           <v-row>
                       <v-col cols="12" sm="12" md="4" class="ml-4" >
-                     <h3>Where did you Reside 3 Years Ago?</h3>
+                     <p class="font-weight-bold">Where did you Reside 3 Years Ago?</p>
                      <v-checkbox
                             label="Same Address Now"
                             
@@ -478,7 +468,7 @@
                           </v-text-field>
                       </v-col>
 
-                      <v-col  cols="12" sm="12" md="4"  >
+                      <v-col  cols="12" sm="12" md="4" class="ml-3" >
 
                     
                         <H4>EDUCATION AND LITERACY (1)</H4>
@@ -493,7 +483,7 @@
 
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="3"   >
+                      <v-col cols="12" sm="12" md="3" class="ml-3"  >
                       <p class="font-weight-bold">Are You a graduate of Senior high?</p>
                         <v-radio-group row>
                           <v-radio  @change="show_if_yes_graduate_senior_highschool = true"      value="yes"  label="Yes"></v-radio>
@@ -4672,81 +4662,12 @@ required
 
             </v-stepper-content>
 
-
-
-
-
-
-<!-- 	I.	OACTIVE CITIZENSHIP/ RA 9418 or Volunteer Act of 2007 -->
-        <v-stepper-content step="17">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    
-                    <v-row>
-        
-             
-                  
-
-
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 17">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 16" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-            </v-stepper-content>
-
-
-
           </v-stepper-items>
         </v-stepper>
       </v-card>
    
   </v-app>
 </template>
-
-<!-- <script>
-import { reactive } from "vue";
-export default {
-  
-  setup() {
-    const form = reactive([
-      {
-        firstname: "",
-        lastname: "",
-        middlename: "",
-     
-      },
-    ]);
-    const addrow = () => {
-      form.push({
-        firstname: "",
-        lastname: "",
-        middlename: "",
-      
-      });
-    };
-    
-    const removerow = (index) => {
-      if (form.length > 1) {
-        form.splice(index, 1);
-      }
-    };
-   
-    return {
-      reactive,
-      form,
-      addrow,
-      removerow,
-    
-    };
-  },
-}
-</script> -->
 
 
 <script>
@@ -4806,7 +4727,7 @@ export default {
     return {
      
      
-      e1: 4,
+      e1: 1,
     
      /*  Codes FOR 61 What kind of health Related */
       items61:[
