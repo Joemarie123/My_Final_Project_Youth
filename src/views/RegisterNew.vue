@@ -41,11 +41,8 @@
           
             <v-divider></v-divider>
 
-            <v-stepper-step :complete="e1 > 16" step="16">
-            16
-            </v-stepper-step>
           
-            <v-divider></v-divider>
+    
 
             <v-stepper-step :complete="e1 > 17" step="17">
             17
@@ -2536,6 +2533,7 @@ required
         </v-col>
       </v-row>
 
+
       <v-row>
         <v-col   cols="10" sm="12" md="4" class="mt-n14"  >                
         <p class="mt-6 ml-4 ">Tsunami Evacuation Drill</p>
@@ -4230,6 +4228,342 @@ required
                         </v-checkbox-group>
                       </v-col>
 
+                      <v-col cols="12" sm="12" md="3" >
+                        <p class="font-weight-bold">(91)Are you interested to join any voluntary work?</p>
+                      
+                        <v-radio-group row>
+                  
+                      <v-radio  value="yes"   @click="where_would_you_like_volunteer_93=true,state_reason_92=false"   label="Yes"></v-radio>
+                     <v-radio   value="no"    @click="state_reason_92=true"    label="No"></v-radio>
+                    </v-radio-group>
+                    </v-col>
+
+
+                    
+                    <v-dialog v-model="where_would_you_like_volunteer_93" max-width="500">
+                        <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  <v-col cols="12" sm="12" md="12" class="">
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      Where Would You Like to Volunteer<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                                 <div class="text-center " >
+           
+            
+            <p class="font-weight-bold" >Voluntary Key Areas</p>
+          </div>
+
+                            </v-col>
+                            
+     <v-col cols="12" sm="12" md="12" class="mt-n5">
+      <div id="app">
+
+    <div>
+      
+  
+      <v-expansion-panels
+        v-model="panel"
+        :disabled="disabled"
+        multiple
+      >
+        <v-expansion-panel >
+          <v-expansion-panel-header class="font-weight-bold">A. House Build/School Build</v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-checkbox-group>
+                          <v-checkbox
+                            label="Mason"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Painter"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Carpentry"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Electrical"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Plumbing"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                      <v-text-field
+                      style="margin-top: -10px"
+                      label="Others, specify"
+                      ></v-text-field>
+                        </v-checkbox-group>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+  
+        <v-expansion-panel>
+          <v-expansion-panel-header class="font-weight-bold">B. Environment</v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-checkbox-group>
+                          <v-checkbox
+                            label="Tree Planting"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Mangrove Planting"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Clean-up drive - River"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Clean-up drive - Coastal"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Clean-up drive - Street"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                      <v-text-field
+                      style="margin-top: -10px"
+                      label="Others, specify"
+                      ></v-text-field>
+                    </v-checkbox-group>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+  
+        <v-expansion-panel>
+          <v-expansion-panel-header class="font-weight-bold">C. Disaster Response</v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-checkbox-group>
+                          <v-checkbox
+                            label="Relief Goods Repacking"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Relief Goods Distribution"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Relief Goods Organize"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Conduct Survey"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Serves as additional admin.support staff"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                        
+                      <v-text-field
+                      style="margin-top: -10px"
+                      label="Others, specify"
+                      ></v-text-field>
+                        </v-checkbox-group>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+
+        <v-expansion-panel>
+          <v-expansion-panel-header class="font-weight-bold">D. Bayanihan Programs</v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-checkbox-group>
+                          <v-checkbox
+                            label="KusinangKalinga"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="ParaisongPambata"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Gulayan"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-text-field
+                      label="Others, specify"
+                      style="margin-top: -10px"
+                      ></v-text-field>
+                        </v-checkbox-group>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+
+        <v-expansion-panel>
+          <v-expansion-panel-header class="font-weight-bold">E. Sports</v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-checkbox-group>
+                         <v-checkbox
+                         style="margin-top: -10px"
+                           label="Coach of Assist the coach"
+                         ></v-checkbox>
+                         <v-checkbox
+                           label="Maintain/ safekeep sports equipment"
+                           style="margin-top: -10px"
+                         ></v-checkbox>
+                       
+                        
+                 
+                     <v-text-field
+                     style="margin-top: -10px"
+                     label="Others, specify"
+                     ></v-text-field>
+                       </v-checkbox-group>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+
+        <v-expansion-panel>
+          <v-expansion-panel-header class="font-weight-bold" >F. Events</v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-checkbox-group>
+                         <v-checkbox
+                         style="margin-top: -10px"
+                         
+                           label="Hosting"
+                         ></v-checkbox>
+                         <v-checkbox
+                           label="Usher/ Usherettes"
+                           style="margin-top: -10px"
+                         ></v-checkbox>
+                         <v-checkbox
+                           label="Secretary/ Documentation"
+                           style="margin-top: -10px"
+                         ></v-checkbox>
+                         <v-checkbox
+                           label="Social Media Management"
+                           style="margin-top: -10px"
+                         ></v-checkbox>
+                         <v-checkbox
+                           label="Group Prep/Stage Decor"
+                           style="margin-top: -10px"
+                         ></v-checkbox>
+                         <v-checkbox
+                           label="Food Distribution"
+                           style="margin-top: -10px"
+                         ></v-checkbox>
+                         <v-checkbox
+                           label="Crowd Control"
+                           style="margin-top: -10px"
+                         ></v-checkbox>
+                         <v-checkbox
+                           label="Restoration"
+                           style="margin-top: -10px"
+                         ></v-checkbox>
+                         <v-text-field
+                     label="Others, specify"
+                     style="margin-top: -10px"
+                     ></v-text-field>
+                    
+                       </v-checkbox-group>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+
+
+
+      </v-expansion-panels>
+    </div>
+
+</div>
+</v-col>
+
+
+
+                                </v-row>
+
+                                <v-row>
+
+<v-col cols="10" sm="12" md="12"  class="mt-n1">
+ 
+  <v-btn  color="green" class="pa-2" outlined dark @click="where_would_you_like_volunteer_93 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn  color="red" class="pa-2 ml-2" outlined dark @click="where_would_you_like_volunteer_93 = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+
+                              </v-container>
+                                </v-card> 
+                              </v-dialog>
+
+
+                    <v-dialog v-model="state_reason_92" max-width="480">
+                        <v-card> 
+                              <v-container>
+                                <v-row>
+
+                                  
+                                  <v-col cols="12" sm="12" md="12" >
+                                    <div class="text-center ">
+                                    <v-alert dense dark color="blue darken-3">
+                                      State reason<strong> </strong>
+
+                                       </v-alert>
+                                 </div>
+                               
+                            </v-col>
+
+
+                                  <v-col cols="10" sm="12" md="12" class="mt-n8" >
+                       
+                        <v-checkbox-group>
+                          <v-checkbox
+                            label="Not interested"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Shy"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Don’t know where to volunteer"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="No time"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                          <v-checkbox
+                            label="Busy"
+                            style="margin-top: -10px"
+                          ></v-checkbox>
+                      
+                      <v-text-field
+                      label="Others, specify"
+                      ></v-text-field>
+                        
+                        </v-checkbox-group>
+                      </v-col>
+
+                                </v-row>
+
+                                <v-row>
+
+<v-col cols="10" sm="12" md="10" class="mt-n3">
+ 
+  <v-btn  color="green" class="pa-2" outlined dark @click="state_reason_92 = false">
+    Continue
+    </v-btn>
+ 
+<v-btn  color="red" class="pa-2 ml-2" outlined dark @click="state_reason_92 = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
+
+                    </v-container>
+                  </v-card> 
+
+             
+         
+                      </v-dialog> 
 
 
                       <v-dialog v-model="what_is_your_means_intern_connection_89" max-width="480">
@@ -4284,12 +4618,6 @@ required
          
                       </v-dialog> 
 
-
-
-                 
-
-
-
                     </v-row>
                     <v-btn id="v-btn-c" color="green" @click="e1 = 16">
                 Continue
@@ -4302,32 +4630,8 @@ required
             </v-stepper-content>
 
 
-<!-- 	I.	OTHER ISSUES AND CONCERNS & NEEDS -->
-<v-stepper-content step="16">
-              <v-card class="mb-12" color="grey lighten-4">
-                <v-card-text>
-                  <v-container fluid>
-                    <h4>OTHER ISSUES AND CONCERNS & NEEDS </h4>
-                    <v-row>
-        
-                     
 
 
-                    
-                      
-                    
-
-
-                    </v-row>
-                    <v-btn id="v-btn-c" color="green" @click="e1 = 17">
-                Continue
-              </v-btn>
-              <v-btn @click="e1 = 15" class="ma-2"> Back </v-btn>
-                  </v-container>
-                </v-card-text>
-              </v-card>
-
-            </v-stepper-content>
 
 
 <!-- 	I.	OACTIVE CITIZENSHIP/ RA 9418 or Volunteer Act of 2007 -->
@@ -4362,219 +4666,6 @@ required
 
 
                       </v-col>
-
-                      <v-col cols="12" sm="12" md="2"  v-show="state_reason_92">
-                        <p class="font-weight-bold">State reason</p>
-                        <v-checkbox-group>
-                          <v-checkbox
-                            label="Not interested"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Shy"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Don’t know where to volunteer"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="No time"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Busy"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                      
-                      <v-text-field
-                      label="Others, specify"
-                      ></v-text-field>
-                        
-                        </v-checkbox-group>
-                      </v-col>
-                  
-                      
-                      <v-col cols="12" sm="12" md="2" v-show="where_would_you_like_volunteer_93" >
-                        <p class="font-weight-bold">93. Where would you like to volunteer?</p>
-                        <p class="font-weight-bold">Type A Volunteer</p>
-                        <v-checkbox-group>
-                          <v-checkbox
-                            label="Mason"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Painter"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Carpentry"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Electrical"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Plumbing"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                      <v-text-field
-                      label="Others, specify"
-                      ></v-text-field>
-                        </v-checkbox-group>
-                      </v-col>
-
-                      <v-col cols="12" sm="12" md="2" v-show="where_would_you_like_volunteer_93"  >
-                        <p class="font-weight-bold">Environment</p>
-                        <p class="font-weight-bold">Type B Volunteer</p>
-                        <v-checkbox-group>
-                          <v-checkbox
-                            label="Tree Planting"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Mangrove Planting"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Clean-up drive - River"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Clean-up drive - Coastal"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Clean-up drive - Street"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                      <v-text-field
-                      label="Others, specify"
-                      ></v-text-field>
-                        </v-checkbox-group>
-                      </v-col>
-
-                      <v-col cols="12" sm="12" md="3" v-show="where_would_you_like_volunteer_93"  >
-                        <p class="font-weight-bold">Disaster Response</p>
-                        <p class="font-weight-bold">Type C Volunteer</p>
-                        <v-checkbox-group>
-                          <v-checkbox
-                            label="Relief Goods Repacking"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Relief Goods Distribution"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Relief Goods Organize"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Conduct Survey"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Serves as additional admin.support staff"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                        
-                      <v-text-field
-                      label="Others, specify"
-                      ></v-text-field>
-                        </v-checkbox-group>
-                      </v-col>
-
-
-                      <v-col cols="12" sm="12" md="2" v-show="where_would_you_like_volunteer_93"  >
-                        <p class="font-weight-bold">Bayanihan Programs</p>
-                        <p class="font-weight-bold">Type D Volunteer</p>
-                        <v-checkbox-group>
-                          <v-checkbox
-                            label="KusinangKalinga"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="ParaisongPambata"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                          <v-checkbox
-                            label="Gulayan"
-                            style="margin-top: -10px"
-                          ></v-checkbox>
-                         
-                  
-                      <v-text-field
-                      label="Others, specify"
-                      ></v-text-field>
-                        </v-checkbox-group>
-                      </v-col>
-
-
-                      
-                      <v-col cols="12" sm="12" md="2" offset-md="3" v-show="where_would_you_like_volunteer_93" >
-                        <p class="font-weight-bold">Sports</p>
-                       <p class="font-weight-bold">Type E Volunteer</p>
-                       <v-checkbox-group>
-                         <v-checkbox
-                           label="Coach of Assist the coach"
-                         ></v-checkbox>
-                         <v-checkbox
-                           label="Maintain/ safekeep sports equipment"
-                           style="margin-top: -10px"
-                         ></v-checkbox>
-                       
-                        
-                 
-                     <v-text-field
-                     label="Others, specify"
-                     ></v-text-field>
-                       </v-checkbox-group>
-                     </v-col>
-
-
-                     <v-col cols="12" sm="12" md="2" v-show="where_would_you_like_volunteer_93" >
-                        <p class="font-weight-bold">Events</p>
-                       <p class="font-weight-bold">Type F Volunteer</p>
-                       <v-checkbox-group>
-                         <v-checkbox
-                           label="Hosting"
-                         ></v-checkbox>
-                         <v-checkbox
-                           label="Usher/ Usherettes"
-                           style="margin-top: -10px"
-                         ></v-checkbox>
-                         <v-checkbox
-                           label="Secretary/ Documentation"
-                           style="margin-top: -10px"
-                         ></v-checkbox>
-                         <v-checkbox
-                           label="Social Media Management"
-                           style="margin-top: -10px"
-                         ></v-checkbox>
-                 
-                    
-                       </v-checkbox-group>
-                     </v-col>
-
-                     <v-col cols="12" sm="12" md="2" v-show="where_would_you_like_volunteer_93" >
-                        <p class="font-weight-bold">Events</p>
-                       <p class="font-weight-bold">Type F Volunteer</p>
-                       <v-checkbox-group>
-                         <v-checkbox
-                           label="Group Prep/ Stage Décor"
-                         ></v-checkbox>
-                         <v-checkbox
-                           label="Food Distribution"
-                           style="margin-top: -10px"
-                         ></v-checkbox>
-                         <v-checkbox
-                           label="Crowd Control"
-                           style="margin-top: -10px"
-                         ></v-checkbox>
-                         <v-checkbox
-                           label="Restoration"
-                           style="margin-top: -10px"
-                         ></v-checkbox>
-
-                       </v-checkbox-group>
-                     </v-col>
 
 
                      <v-col cols="12" md="3" sm="12" v-show="where_would_you_like_volunteer_93" >
@@ -4674,6 +4765,7 @@ import { reactive } from "vue";
 export default {
   
   
+  
     components: {
       Navbar
     },
@@ -4709,6 +4801,8 @@ export default {
       addrow,
       removerow,
     
+
+    
     };
   },
 
@@ -4719,7 +4813,8 @@ export default {
     
     return {
      
-      e1: 1,
+     
+      e1: 4,
     
      /*  Codes FOR 61 What kind of health Related */
       items61:[
