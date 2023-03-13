@@ -6,8 +6,6 @@
 
       <template v-slot:[`item.name`]="{ item }">
 
-
-
         <v-avatar size="40" class="mr-3">
           <img v-bind:src="`/${item.image}`" alt="">
         </v-avatar>

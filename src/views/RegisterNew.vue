@@ -4303,7 +4303,7 @@ required
       <v-expansion-panels
         v-model="panel"
         :disabled="disabled"
-        multiple
+        accordion
       >
         <v-expansion-panel >
           <v-expansion-panel-header class="font-weight-bold">A. House Build/School Build</v-expansion-panel-header>

@@ -215,28 +215,18 @@ export default {
 <style>
 .v-data-table .v-data-table-header th  {
 
- 
-    
+/*     background: linear-gradient(#186f94, #0e7e48) padding-box,
+    linear-gradient(180deg  ,rgb(131, 139, 7) ,rgb(224, 221, 221) ,  rgba(130, 139, 7, 0),rgba(130, 139, 7, 0)  ) border-box,
+    linear-gradient(38deg  , rgba(180, 100, 7, 0),rgba(130, 139, 7, 0)  ) border-box; */
 
-  /* background: linear-gradient(#186f94, #0e7e48) padding-box, */
-       /*     linear-gradient(45deg, rgb(131, 139, 7), rgb(224, 221, 221)) border-box;  */
+border-block-start: 3px solid ;
+border-radius: 18px;
 
-
-         background: linear-gradient(#186f94, #0e7e48) padding-box,
-         linear-gradient(180deg  ,rgb(131, 139, 7) ,rgb(224, 221, 221) ,  rgba(130, 139, 7, 0),rgba(130, 139, 7, 0)  ) border-box,
-         linear-gradient(38deg  , rgba(180, 100, 7, 0),rgba(130, 139, 7, 0)  ) border-box;
-    
-
-
-  border: 3px solid transparent;
-  border-radius: 50px;
-
-
-
-  font-size: 14px !important;
-  color: white !important;
+font-size: 14px ;
+color: rgb(0, 0, 0);
 
 }
+
 
 .v-data-table > .v-data-table__wrapper > table {
     border-spacing: 0 0.4rem;
