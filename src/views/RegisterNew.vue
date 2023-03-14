@@ -437,13 +437,13 @@
 
                     <v-row>
 
-<v-col cols="10" sm="2" md="12"  class="mt-n6">
+<v-col cols="10" sm="12" md="12"  class="mt-n4 ">
  
-  <v-btn text color="green"  outlined dark @click="country_destination = false">
+  <v-btn  color="green" class="pa-2 ml-4 mt-n4" outlined dark @click="country_destination = false">
     Continue
     </v-btn>
  
-<v-btn text color="red"  outlined dark @click="country_destination = false">
+<v-btn  color="red" class="pa-2 ml-2 mt-n4" outlined dark @click="country_destination = false">
     Close
     </v-btn>
   </v-col>
@@ -561,19 +561,19 @@
 
 
                     <v-row>
-                      <v-col cols="10" sm="4" md="12" >
-                     
-                     <v-btn  color="green"  outlined dark @click="what_grade_year_currently_attending = false">
-                       Continue
-                       </v-btn>
-                    
-                  
-                   <v-btn text color="red"  outlined dark @click="what_grade_year_currently_attending = false">
-                       Close
-                       </v-btn>
-                     </v-col>
 
-                      </v-row>
+<v-col cols="10" sm="12" md="12"  class="mt-n1">
+ 
+  <v-btn  color="green" class="pa-2" outlined dark @click="what_grade_year_currently_attending = false">
+    Continue
+    </v-btn>
+ 
+<v-btn  color="red" class="pa-2 ml-2" outlined dark @click="what_grade_year_currently_attending = false">
+    Close
+    </v-btn>
+  </v-col>
+
+</v-row>
 
 
 
@@ -729,11 +729,11 @@
                   
                    <v-col cols="10" sm="4" md="4" >
                      
-                     <v-btn  color="green"  outlined dark @click="why_your_not_attending_school = false">
+                     <v-btn  color="green" class="pa-2" outlined dark @click="why_your_not_attending_school = false">
                        Continue
                        </v-btn>
                     
-                   <v-btn text color="red"  outlined dark @click="why_your_not_attending_school = false">
+                   <v-btn  color="red"  class="pa-2 ml-2" outlined dark @click="why_your_not_attending_school = false">
                        Close
                        </v-btn>
                      </v-col>
@@ -920,12 +920,12 @@
                   <v-row>
                     <v-col cols="10" sm="3" md="12" class="mt-n5">
                      
-                     <v-btn  color="green"  outlined dark @click="skill_training_program = false">
+                     <v-btn  color="green"  class="ml-3" outlined dark @click="skill_training_program = false">
                        Continue
                        </v-btn>
                     
                  
-                   <v-btn text color="red"  outlined dark @click="skill_training_program = false">
+                   <v-btn  color="red" class="pa-2 ml-2" outlined dark @click="skill_training_program = false">
                        Close
                        </v-btn>
                      </v-col>
@@ -1895,7 +1895,7 @@
                     
                     <v-col cols="10" sm="12" md="12"  style="margin-top: -50px;">
                         
-                        <v-radio-group row>
+                        <v-radio-group row >
                           <v-radio value="yes" label="Yes"></v-radio>
                           <v-radio  value="no"    label="No"></v-radio>
                         </v-radio-group>
@@ -1907,23 +1907,20 @@
                     </v-row>
                 
 
-                      <v-row>
+                    <v-row>
 
-                        <v-col cols="10" sm="3" md="12" >
-                     
-                     <v-btn text color="green"  outlined dark @click="did_you_vote_in_the_last_sk_elections = false">
-                       Continue
-                       </v-btn>
-                    
-                  
-                   <v-btn text color="red"  outlined dark @click="did_you_vote_in_the_last_sk_elections = false">
-                       Close
-                       </v-btn>
-                     </v-col>
+<v-col cols="10" sm="12" md="12"  class="mt-n1">
+ 
+  <v-btn  color="green" class="pa-2" outlined dark @click="did_you_vote_in_the_last_sk_elections = false">
+    Continue
+    </v-btn>
+ 
+<v-btn  color="red" class="pa-2 ml-2" outlined dark @click="did_you_vote_in_the_last_sk_elections = false">
+    Close
+    </v-btn>
+  </v-col>
 
-
-                        </v-row>
-
+</v-row>
 
                
                   </v-container>
@@ -4507,7 +4504,7 @@ required
 
                                 </v-row>
 
-                                <v-row>
+ <v-row>
 
 <v-col cols="10" sm="12" md="12"  class="mt-n1">
  

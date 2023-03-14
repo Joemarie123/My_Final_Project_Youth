@@ -35,9 +35,6 @@
 
 
 
-
-
-
           <v-dialog v-model="dialog" max-width="700px" tile>
             <!--  
               <div class="text-center" >
