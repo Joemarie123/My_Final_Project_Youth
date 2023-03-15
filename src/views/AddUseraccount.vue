@@ -2,13 +2,13 @@
              
 
     <v-app>
-      <v-data-table :headers="headers" :items="desserts" sort-by="calories" class=" btn-hover color-1 elevation-1" dark>
-    <template v-slot:top>
+      <v-data-table :headers="headers" :items="desserts" sort-by="calories" class=" btn-hover color-1 elevation-1 pa-3" dark>
+    <template v-slot:top >
       <v-toolbar flat dark class=" btn-hover color-1 elevation-1">
         
         <v-toolbar-title>
           <v-avatar size="58">
-         <img src="/createuseraccount.png" alt="">
+         <img class="pa-1" src="/createuseraccount.png" alt="">
            </v-avatar>
            
           User Account List</v-toolbar-title>
@@ -833,17 +833,10 @@
    outline: none;
 }
 
-
 .btn-hover.color-1 {
-   background-image: linear-gradient(to right, #186f94, #0e7e48,  #0c8a4d,  #078045);
-   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
+  background-image: linear-gradient(to right, #0b5879, #076437, #0e6d3f, #078045);
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
 }
-
-
-
-
-
-
 
   h1 {
 

@@ -19,13 +19,15 @@ import YouTherecord from '../views/YouTherecord.vue'
  import SignUpMemberYouth from '../views/SignUpMemberYouth.vue'
  import FilterDashBoard from '../views/FilterDashBoard.vue'
 import ColumnChart from  '../components/ColumnChart.vue'
- import CreateEvents2 from '../views/EventsMenu_ADMIN/CreateEvents2.vue'
  import AttenDance from '../views/EventsMenu_ADMIN/AttenDance.vue'
 import FilterDashBoard123 from '../components/FilterDashBoard123.vue'
 import FilterFromDashBoard from '../components/FilterFromDashBoard.vue'
 
 
 
+
+import DatatableAttendance from '../views/EventsMenu_ADMIN/DatatableAttendance.vue'
+import DataTableEvents from '../views/EventsMenu_ADMIN/DataTableEvents.vue'
 
  /* 
  import DatatableSelectYouth from '../views/EventsMenu/DatatableSelectYouth.vue' */
@@ -44,6 +46,8 @@ import FilterFromDashBoard from '../components/FilterFromDashBoard.vue'
 /* YOUTH MEMBER */
 import Youth_Member_Dashboard from '../views/Youth_Member_AR/Youth_Member_Dashboard.vue'
 import Youth_Member_PersonalProfile from '../views/Youth_Member_AR/Youth_Member_PersonalProfile.vue'
+
+
 
 
 
@@ -67,7 +71,30 @@ const routes = [
     component: Youth_Member_PersonalProfile
   }, 
 
+
+  {
+    path: '/DatatableAttendance',
+    name: 'DatatableAttendance',
+    component: DatatableAttendance
+  },
+
   
+
+
+
+  {
+    path: '/DataTableEvents',
+    name: 'DataTableEvents',
+    component: DataTableEvents
+  }, 
+
+  
+
+
+  
+
+
+
   {
     path: '/FilterFromDashBoard',
     name: 'FilterFromDashBoard',
@@ -189,12 +216,7 @@ const routes = [
     component: LoginVersion2
   }, 
 
-  {
-    path: '/CreateEvents2',
-    name: 'CreateEvents2',
-    component: CreateEvents2
-  }, 
-
+  
 
   {
 
@@ -256,7 +278,10 @@ const routes = [
 
 
   {
+
+
     path: '/RegisterNew',
+    /* path: '/RegisterNew/:id/:admin', */
     name: 'RegisterNew',
     component: RegisterNew
     // route level code-splitting

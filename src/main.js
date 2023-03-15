@@ -4,7 +4,7 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 
 import firebase from './plugins/firebase.js' 
-
+import './views/Forms_Balik2'
 
 /* import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth';

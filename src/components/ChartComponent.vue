@@ -65,29 +65,13 @@ import VueApexCharts from 'vue-apexcharts'
              
           },
           
-          grid: {
+    grid: {
   xaxis: {
     lines: {
       show: false
     }
   }
 }
-
-/* responsive: [
-  {
-    breakpoint: 1000,
-    options: {
-      plotOptions: {
-        bar: {
-          horizontal: false
-        }
-      },
-      legend: {
-        position: "bottom"
-      }
-    }
-  }
-] */
 
   },
 
@@ -99,18 +83,16 @@ import VueApexCharts from 'vue-apexcharts'
           data: [53, 32, 33, 52, 45 ,39,33 ]
         }, {
           name: 'High School',
-          data: [12, 17, 11, 9, 18 ,45,38 ]
+          data: [12, 17, 11, 19, 18 ,45,38 ]
         }, {
           name: 'Senior High',
-          data: [9, 7, 5, 8, 6 ,9 ,9]
+          data: [19, 17, 15, 18,16 ,19 ,19]
         },],
 
       }
 
-      
-      
+     
     },
-
 
 
   }

@@ -1,4 +1,6 @@
 <template>
+  <v-app>
+    <Navbar/>
     <v-data-table
       :headers="headers"
       :items="listevent"
@@ -110,9 +112,12 @@
         </v-btn>
       </template>
     </v-data-table>
+  </v-app>
   </template>
   
   <script>
+
+import Navbar from '@/components/Navbar'
     export default {
       data: () => ({
         dialog: false,
@@ -131,9 +136,6 @@
           { text: 'Event Details', value: 'eventdetails' },
           
         
-
-
-
         ],
         listevent: [
         {
@@ -229,6 +231,13 @@
 
         },
       }),
+
+      components: {
+        Navbar,
+        
+      },
+
+
       computed: {
         formTitle () {
           return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
@@ -332,10 +341,8 @@
 
 
 .btn-hover.color-1 {
-   background-image: linear-gradient(to right, #186f94, #0e7e48,  #0c8a4d,  #078045);
-   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
+  background-image: linear-gradient(to right, #0b5879, #076437, #0e6d3f, #078045);
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
 }
-
-
 
 </style>

@@ -4,10 +4,6 @@
     <div >
   <v-app>
     
-
-
-
-
 <v-row>
 
 
@@ -74,7 +70,7 @@
 
     <template slot="item.actions" slot-scope="props" >
 
-      <v-btn color="green" dark @click="()=>sinagmembro(props.item)">
+      <v-btn class="pa-2" color="green" dark @click="()=>sinagmembro(props.item)">
         Attended
       </v-btn>
   
@@ -218,15 +214,10 @@
 
     <template slot="item.remove_sinag"  slot-scope="props_remove_sinag">
 
-
-
-
-      <v-btn outlined color="green" dark @click="()=>editItem(props_remove_sinag.item)">
+      <v-btn class="pa-2" outlined color="green" dark @click="()=>editItem(props_remove_sinag.item)">
         Input Hours
       </v-btn>
     
-      
-     
       <v-btn  text color="red" dark  @click="()=>sinagmembro_remove(props_remove_sinag.item)">
       <v-icon
       >

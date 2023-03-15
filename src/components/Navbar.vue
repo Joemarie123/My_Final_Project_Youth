@@ -1,5 +1,6 @@
 <template>
   <nav>
+  
     <v-app-bar  class="cardVr" dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase ">
@@ -59,9 +60,6 @@
 
 
                </v-flex>
-
-
-
 
                <v-flex class="mt-4 mb-4">
                 <Popup/>
@@ -126,19 +124,22 @@
       </v-list>
 
     </v-navigation-drawer>
-
-
-  </nav>
+ 
+</nav>
 
 
 </template>
 
 <script>
 //import * as auth from '../services/auth_service'
+
   export default {
+    
     props: {
       source: String,
     },
+ 
+
     data: () => ({
     drawer: null,
       mini: false,
@@ -184,8 +185,8 @@
           text: 'Events Menu',
           model: false,
           children: [
-        { icon: 'mdi-calendar-plus', text: 'Create Events', route:'/CreateEvents2'},
-        { icon: 'mdi-account-multiple-plus', text: 'Attendance', route:'/AttenDance'},
+        { icon: 'mdi-calendar-plus', text: 'Create Events', route:'/DataTableEvents'},
+        { icon: 'mdi-account-multiple-plus', text: 'Attendance', route:'/DatatableAttendance'},
         
           ],
           
@@ -194,10 +195,8 @@
         { icon: 'mdi-speaker-wireless', text: 'Announcement' , route:'/AnnounCement'},
       ],
     }),
-    computed: {
+    
 
-
-    },
     methods: {
       onScroll (e) {
         if (typeof window === 'undefined') return
@@ -208,6 +207,9 @@
         this.$vuetify.goTo(0)
       }
     }
+
+   
+   
     
   }
 </script>
