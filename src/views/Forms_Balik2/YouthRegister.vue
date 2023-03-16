@@ -343,10 +343,6 @@
                                                                         <v-text-field label="Other, specify"></v-text-field>
                                                                     </v-col>
 
-
-
-
-
                                                                 </v-row>
 
                                                                 <v-row>
@@ -822,7 +818,7 @@
                                                     <v-row>
                                                         <v-col cols="10" sm="3" md="12" class="mt-n5">
 
-                                                            <v-btn color="green" class="ml-3" outlined dark
+                                                            <v-btn color="green" class="ml-3 pa-2" outlined dark 
                                                                 @click="skill_training_program = false">
                                                                 Continue
                                                             </v-btn>
@@ -842,16 +838,55 @@
 
                                         </v-dialog>
 
-                                        <v-col cols="12" sm="12" md="4" v-show="can_you_read_and_write_yes_no">
-                                            <p class="font-weight-bold">Can you read and write a simple message in any
-                                                language or dialect?</p>
+                                        <v-dialog v-model="can_you_read_and_write_yes_no" max-width="300px">
+
+                                             <v-card>
+                                              <v-container fluid>
+                                                    <v-row>
+
+                                                        <v-col cols="12" sm="12" md="12" class="">
+                                                        <div class="text-center ">
+                                                            <v-alert dense dark color="blue darken-3">
+                                                                Can you read and write a simple message in any
+                                                language or dialect?<strong> </strong>
+
+                                                            </v-alert>
+                                                        </div>
+                                                        <!--  <p class="text-center font-weight-bold" > </p> -->
+                                                    </v-col>
+
+
+                                        <v-col cols="10" sm="12" md="12" class="mt-n8" >
+                                            
                                             <v-radio-group row>
                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
                                             </v-radio-group>
 
-
                                         </v-col>
+
+                                       
+                                          </v-row>
+
+                                          <v-row>
+                                                        <v-col cols="10" sm="3" md="10" class="ml-1  ">
+
+                                                            <v-btn   outlined color="green" dark
+                                                                @click="can_you_read_and_write_yes_no = false">
+                                                                Continue
+                                                            </v-btn>
+
+                                                            <v-btn  class="ml-2" outlined color="red" dark 
+                                                                @click="can_you_read_and_write_yes_no = false">
+                                                                Close
+                                                            </v-btn>
+                                                        </v-col>
+                                                    </v-row>
+                                        </v-container>
+                                          </v-card>
+                                        </v-dialog>
+
+
 
                                         <!--       SKILLS TRAINING POUP END -->
 
@@ -948,7 +983,7 @@
 
                                                         <v-col cols="12" sm="3" md="6">
 
-                                                            <v-btn color="green" outlined dark
+                                                            <v-btn color="green" outlined dark 
                                                                 @click="how_many_works_job_business_you_have = false">
                                                                 Continue
                                                             </v-btn>
@@ -1055,18 +1090,22 @@
 
 
                                                     <v-row>
-                                                        <v-col cols="12" sm="4" md="6">
 
-                                                            <v-btn color="green" outlined dark
-                                                                @click="what_is_the_sector_of_your_business = false">
-                                                                Continue
-                                                            </v-btn>
-                                                            <v-btn text color="red" outlined dark
-                                                                @click="what_is_the_sector_of_your_business = false">
-                                                                Close
-                                                            </v-btn>
-                                                        </v-col>
-                                                    </v-row>
+<v-col cols="10" sm="12" md="12" class=" ">
+
+    <v-btn color="green" class="pa-2  mt-n1"
+        outlined dark
+        @click="what_is_the_sector_of_your_business = false">
+        Continue
+    </v-btn>
+
+    <v-btn color="red" class="pa-2 ml-2 mt-n1" outlined
+        dark @click="what_is_the_sector_of_your_business = false">
+        Close
+    </v-btn>
+</v-col>
+
+</v-row>
 
                                                 </v-container>
 
@@ -1286,21 +1325,23 @@
 
                                                     </v-row>
 
-                                                    <v-row>
-                                                        <v-col cols="10" sm="3" md="5" class="mt-n4">
+<v-row>
 
-                                                            <v-btn text color="green" dark
-                                                                @click="whats_your_class_of_worker = false">
-                                                                Continue
-                                                            </v-btn>
+<v-col cols="10" sm="12" md="12" class=" ">
 
-                                                            <v-btn text color="red" dark
-                                                                @click="whats_your_class_of_worker = false">
-                                                                Close
-                                                            </v-btn>
-                                                        </v-col>
-                                                    </v-row>
+    <v-btn color="green" class="pa-2  mt-n1"
+        outlined dark
+        @click="whats_your_class_of_worker = false">
+        Continue
+    </v-btn>
 
+    <v-btn color="red" class="pa-2 ml-2 mt-n1" outlined
+        dark @click="whats_your_class_of_worker = false">
+        Close
+    </v-btn>
+</v-col>
+
+</v-row>
 
                                                 </v-container>
                                             </v-card>
@@ -1405,25 +1446,23 @@
 
                                                     </v-row>
 
-
                                                     <v-row>
 
-                                                        <v-col cols="10" sm="3" md="6" class="mt-n6">
+<v-col cols="10" sm="12" md="12" class=" ">
 
-                                                            <v-btn text color="green" outlined dark
-                                                                @click="why_did_you_not_look_for_work = false">
-                                                                Continue
-                                                            </v-btn>
+    <v-btn color="green" class="pa-2  mt-n1"
+        outlined dark
+        @click="why_did_you_not_look_for_work = false">
+        Continue
+    </v-btn>
 
+    <v-btn color="red" class="pa-2 ml-2 mt-n1" outlined
+        dark @click="why_did_you_not_look_for_work = false">
+        Close
+    </v-btn>
+</v-col>
 
-                                                            <v-btn text color="red" outlined dark
-                                                                @click="why_did_you_not_look_for_work = false">
-                                                                Close
-                                                            </v-btn>
-                                                        </v-col>
-
-                                                    </v-row>
-
+</v-row>
 
 
 
@@ -1500,23 +1539,22 @@
                                                     </v-row>
 
                                                     <v-row>
-                                                        <v-col cols="12" sm="3" md="5" class="mt-n2">
 
-                                                            <v-btn text color="green" outlined dark
-                                                                @click="was_this_your_first_time_to_look_for_work = false">
-                                                                Continue
-                                                            </v-btn>
+<v-col cols="10" sm="12" md="12" class=" ">
 
-                                                            <v-btn text color="red" outlined dark
-                                                                @click="was_this_your_first_time_to_look_for_work = false">
-                                                                Close
-                                                            </v-btn>
+    <v-btn color="green" class="pa-2  mt-n1"
+        outlined dark
+        @click="was_this_your_first_time_to_look_for_work = false">
+        Continue
+    </v-btn>
 
-                                                        </v-col>
+    <v-btn color="red" class="pa-2 ml-2 mt-n1" outlined
+        dark @click="was_this_your_first_time_to_look_for_work = false">
+        Close
+    </v-btn>
+</v-col>
 
-
-                                                    </v-row>
-
+</v-row>
                                                 </v-container>
                                             </v-card>
                                         </v-dialog>
@@ -1633,21 +1671,24 @@
                                                     </div>
 
 
-                                                    <v-row>
-                                                        <v-col cols="12" sm="3" md="3" class="mt-7"
-                                                            style="margin-left: 15px;">
+                                                    
+ <v-row>
 
-                                                            <v-btn text color="green" class="ml-3" outlined dark
-                                                                @click="leardership_information = false">
-                                                                Continue
-                                                            </v-btn>
+<v-col cols="10" sm="12" md="12" class="mt-n1 ">
 
-                                                            <v-btn text color="red" outlined dark
-                                                                @click="leardership_information = false">
-                                                                Close
-                                                            </v-btn>
-                                                        </v-col>
-                                                    </v-row>
+    <v-btn color="green" class="pa-2 ml-4 mt-n1"
+        outlined dark
+        @click="leardership_information = false">
+        Continue
+    </v-btn>
+
+    <v-btn color="red" class="pa-2 ml-2 mt-n1" outlined
+        dark @click="leardership_information = false">
+        Close
+    </v-btn>
+</v-col>
+
+</v-row>
 
 
 
@@ -1802,22 +1843,21 @@
 
                                                     <v-row>
 
-                                                        <v-col cols="10" sm="2" md="12" class="mt-n4">
+<v-col cols="10" sm="12" md="12" class=" ">
 
-                                                            <v-btn text color="green" outlined dark
-                                                                @click="what_is_your_philhealth_membership = false">
-                                                                Continue
-                                                            </v-btn>
+    <v-btn color="green" class="pa-2  mt-n1"
+        outlined dark
+        @click="what_is_your_philhealth_membership = false">
+        Continue
+    </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
-                                                                @click="what_is_your_philhealth_membership = false">
-                                                                Close
-                                                            </v-btn>
-                                                        </v-col>
+    <v-btn color="red" class="pa-2 ml-2 mt-n1" outlined
+        dark @click="what_is_your_philhealth_membership = false">
+        Close
+    </v-btn>
+</v-col>
 
-                                                    </v-row>
-
-
+</v-row>
                                                 </v-container>
                                             </v-card>
 
@@ -1861,20 +1901,22 @@
 
                                                     <v-row>
 
-                                                        <v-col cols="12" sm="4" md="12">
+<v-col cols="10" sm="12" md="12" class=" ">
 
-                                                            <v-btn text color="green" outlined dark
-                                                                @click="are_your_depende_of_philhealth_member = false">
-                                                                Continue
-                                                            </v-btn>
+    <v-btn color="green" class="pa-2  mt-n1"
+        outlined dark
+        @click="are_your_depende_of_philhealth_member = false">
+        Continue
+    </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
-                                                                @click="are_your_depende_of_philhealth_member = false">
-                                                                Close
-                                                            </v-btn>
-                                                        </v-col>
+    <v-btn color="red" class="pa-2 ml-2 mt-n1" outlined
+        dark @click="are_your_depende_of_philhealth_member = false">
+        Close
+    </v-btn>
+</v-col>
 
-                                                    </v-row>
+</v-row>
+
 
                                                 </v-container>
                                             </v-card>
@@ -1933,12 +1975,12 @@
 
                                                         <v-col cols="10" sm="2" md="12" class="mt-n4">
 
-                                                            <v-btn text color="green" outlined dark
+                                                            <v-btn  color="green" outlined dark class="pa-2"
                                                                 @click="do_you_have_solo_parent_id = false">
                                                                 Continue
                                                             </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
+                                                            <v-btn class="pa-2 ml-2 mt-n1" color="red" outlined dark
                                                                 @click="do_you_have_solo_parent_id = false">
                                                                 Close
                                                             </v-btn>
@@ -2027,12 +2069,12 @@
 
                                                         <v-col cols="10" sm="2" md="12" class="mt-n1">
 
-                                                            <v-btn text color="green" outlined dark
+                                                            <v-btn class="pa-2" color="green" outlined dark
                                                                 @click="what_type_of_disability_do_you_have = false">
                                                                 Continue
                                                             </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
+                                                            <v-btn class="ml-2" color="red" outlined dark
                                                                 @click="what_type_of_disability_do_you_have = false">
                                                                 Close
                                                             </v-btn>
@@ -2153,7 +2195,7 @@
                                         </v-col>
 
 
-                                        <v-col cols="12" sm="12" md="3" v-show="if_pregnant_as_of_this_time_72">
+                                        <v-col cols="12" sm="12" md="2" v-show="if_pregnant_as_of_this_time_72">
 
                                             <p class="font-weight-bold">(72) If pregnant as of this time (of survey),
                                                 specify number of months pregnant.</p>
@@ -3166,12 +3208,12 @@
 
                                                         <v-col cols="10" sm="2" md="12" class="mt-n6">
 
-                                                            <v-btn color="green" outlined dark
+                                                            <v-btn class="pa-2  mt-n1" color="green" outlined dark
                                                                 @click="what_type_of_program_80_81 = false">
                                                                 Continue
                                                             </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
+                                                            <v-btn class="pa-2 ml-2 mt-n1" color="red" outlined dark
                                                                 @click="what_type_of_program_80_81 = false">
                                                                 Close
                                                             </v-btn>
@@ -3275,12 +3317,12 @@
 
                                                         <v-col cols="10" sm="2" md="12" class="mt-n6">
 
-                                                            <v-btn text color="green" outlined dark
+                                                            <v-btn class="pa-2  mt-n1" color="green" outlined dark
                                                                 @click="what_crime_or_violation_75_76_77_78 = false">
                                                                 Continue
                                                             </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
+                                                            <v-btn class="pa-2 ml-2 mt-n1" color="red" outlined dark
                                                                 @click="what_crime_or_violation_75_76_77_78 = false">
                                                                 Close
                                                             </v-btn>
@@ -3343,12 +3385,12 @@
 
                                                         <v-col cols="10" sm="2" md="12" class="mt-n6">
 
-                                                            <v-btn color="green" outlined dark
+                                                            <v-btn class="pa-2  mt-n1" color="green" outlined dark
                                                                 @click="what_methods_have_you_used_73_2 = false">
                                                                 Continue
                                                             </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
+                                                            <v-btn class="pa-2 ml-2 mt-n1" color="red" outlined dark
                                                                 @click="what_methods_have_you_used_73_2 = false">
                                                                 Close
                                                             </v-btn>
@@ -3399,12 +3441,12 @@
 
                                                         <v-col cols="10" sm="2" md="12" class="mt-n6">
 
-                                                            <v-btn color="green" outlined dark
+                                                            <v-btn class="pa-2  mt-n1" color="green" outlined dark
                                                                 @click="why_did_you_not_use_contraceptive_73_3 = false">
                                                                 Continue
                                                             </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
+                                                            <v-btn class="pa-2 ml-2 mt-n1" color="red" outlined dark
                                                                 @click="why_did_you_not_use_contraceptive_73_3 = false">
                                                                 Close
                                                             </v-btn>
@@ -3538,12 +3580,12 @@
 
                                                         <v-col cols="10" sm="2" md="12" class="mt-n3">
 
-                                                            <v-btn color="green" outlined dark
+                                                            <v-btn color="green" class="pa-2  mt-n1" outlined dark
                                                                 @click="which_type_of_health_facility_did_you_visit = false">
                                                                 Continue
                                                             </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
+                                                            <v-btn  color="red" class="pa-2 ml-2 mt-n1" outlined dark
                                                                 @click="which_type_of_health_facility_did_you_visit = false">
                                                                 Close
                                                             </v-btn>
@@ -3577,7 +3619,7 @@
                                                         </v-col>
 
 
-                                                        <v-col cols="10" sm="12" md="12" class="mt-n5">
+                                                        <v-col cols="11" sm="12" md="12" class="mt-n5">
                                                             <v-select
                                                                 :items="['Fever', 'Cold', 'Cough', 'Sore throat/ tonsillitis', 'Diarrhea', 'Headache', 'Tiredness', 'Body aches and pains', 'Skin Rashes', 'Chest pains', 'Loss of taste and smell', 'Loss of speech', 'Loss of movement', 'Disconnection of Fingers or toes', 'None']"
                                                                 label="Select Type of Health Issues "
@@ -3588,12 +3630,12 @@
 
                                                         <v-col cols="10" sm="2" md="12" class="mt-n6">
 
-                                                            <v-btn text color="green" outlined dark
+                                                            <v-btn class="pa-2  mt-n1" color="green" outlined dark
                                                                 @click="what_kind_of_illness_or_health_realted_issues_63 = false">
                                                                 Continue
                                                             </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
+                                                            <v-btn class="pa-2 ml-2 mt-n1" color="red" outlined dark
                                                                 @click="what_kind_of_illness_or_health_realted_issues_63 = false">
                                                                 Close
                                                             </v-btn>
@@ -3641,12 +3683,12 @@
 
                                                         <v-col cols="10" sm="2" md="12" class="mt-n6">
 
-                                                            <v-btn text color="green" outlined dark
+                                                            <v-btn class="pa-2  mt-n1" color="green" outlined dark
                                                                 @click="where_did_you_avail_medical_treatment_62_A = false">
                                                                 Continue
                                                             </v-btn>
 
-                                                            <v-btn text color="red" outlined dark
+                                                            <v-btn class="pa-2 ml-2 mt-n1" color="red" outlined dark
                                                                 @click="where_did_you_avail_medical_treatment_62_A = false">
                                                                 Close
                                                             </v-btn>
@@ -3708,13 +3750,13 @@
                                                     <v-row>
                                                         <v-col cols="10" sm="4" md="12" class="mt-n5">
 
-                                                            <v-btn text color="green" outlined dark
+                                                            <v-btn class="pa-2" color="green" outlined dark
                                                                 @click="what_kind_of_health_related_issues_or_lifestle_61 = false">
                                                                 Continue
                                                             </v-btn>
 
 
-                                                            <v-btn text color="red" outlined dark
+                                                            <v-btn class="pa-2 ml-2" color="red" outlined dark
                                                                 @click="what_kind_of_health_related_issues_or_lifestle_61 = false">
                                                                 Close
                                                             </v-btn>

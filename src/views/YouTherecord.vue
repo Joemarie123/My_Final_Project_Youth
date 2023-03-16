@@ -2,7 +2,7 @@
   <v-app>
     <Navbar />
 
-    <YouthAllRecord />
+    <AllYouthRecord />
 
   </v-app>
 </template>
@@ -15,8 +15,6 @@ import Navbar from "../components/Navbar.vue";
 // import YouthRegister from "../views/Forms_Balik2/YouthRegister.vue"
 
 export default {
-
-
 
   components: {
     Navbar,

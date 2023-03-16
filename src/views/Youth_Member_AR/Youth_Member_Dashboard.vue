@@ -7,33 +7,54 @@
 
 
 <v-row>
-<v-col cols="5" >
+<v-col cols="12" lg="5" md="5" sm="12"  >
 
-  <v-card  class="btn-hover color-1" >
-    <h2 class="blue--text text-center" >Announcement</h2>
+  <v-card  elevation="6" >
+    <v-col cols="12" sm="12" md="12" class="">
+ <div class="text-center ">
+          <v-alert dense dark
+     color="green darken-4">
+     Announcement<strong> </strong>
+
+ </v-alert>
+ </div>
+                                                                                <!--  <p class="text-center font-weight-bold" > </p> -->
+  </v-col>
+
     <v-col cols="12" >
-<v-text-field class="some-style mx-3"  readonly flat dark value="March 7,2023 Araw Nang Tagum"></v-text-field>
+<v-text-field  class="some-style mx-3"  readonly flat  value="March 7,2023 Araw Nang Tagum"></v-text-field>
 </v-col>
 
   </v-card>
 
   <v-col cols="12">
     
-    <v-card class="btn-hover color-1">
-      <h2 class="blue--text text-center" >Upcoming Event</h2>
+    <v-card elevation="7" >
+      <v-col cols="12" sm="12" md="12" class="">
+      <div class="text-center ">
+       <v-alert dense dark
+             color="green darken-4">
+             Upcoming Event<strong> </strong>
+
+           </v-alert>
+       </div>
+                                                                                <!--  <p class="text-center font-weight-bold" > </p> -->
+      </v-col>
+
+      
       <v-col cols="12">
-<v-text-field dark flat class="some-style mx-3" value="Name Event: Tagum Youth Dota 2 Tournament "></v-text-field>
+<v-text-field  flat class="some-style mx-3" value="Name Event: Tagum Youth Dota 2 Tournament "></v-text-field>
 </v-col>
 
 <v-col cols="12">
-<v-text-field class="some-style mx-3" dark style=" margin-top: -28px;" flat  value="Date Event: March 4,2023"></v-text-field>
+<v-text-field class="some-style mx-3"  style=" margin-top: -28px;" flat  value="Date Event: March 4,2023"></v-text-field>
 </v-col>
 
 
 <v-col cols="12">
     <v-textarea
     class="mx-2"
-    dark
+    
     readonly
     style=" margin-top: -5px;" 
           outlined
@@ -49,12 +70,12 @@
 
 </v-col>
 
-<v-col cols="7">
+
 
   
-<v-col cols="12" >
+<v-col cols="12" sm="12" lg="7"  md="7" >
   
- 
+  <v-card elevation="6">
 
 
     <v-data-table
@@ -62,19 +83,20 @@
          :headers="headers"
          :items="desserts"
          :items-per-page="7"
-         dark
-         class="btn-hover color-1"
+         
+         class="pa-2"
           tile    
-         height="460px"
+         height="440px"
          :hide-default-footer="true"
          :search="search_events"
        >
     
        <template v-slot:top>
-       
+        <v-alert dense dark
+        color="green darken-4">
                 <v-row >
-        <v-col md="5" offset="1">
-          <h2 class="blue--text   text-center" >Events History</h2>
+        <v-col sm="12" md="5" offset="1" >
+          <h2 class="white--text   text-center" >Events History</h2>
         </v-col>
         <v-col
           md="6"
@@ -84,12 +106,13 @@
                   outlined rounded dense></v-text-field>
         </v-col>
       </v-row>
+    </v-alert>
 
             
                 </template>
            
       </v-data-table>
-
+    </v-card>
 <!--  <v-data-table  :headers="headers" :items="desserts" :search="search_events" class="">
       <template v-slot:top>
           <v-toolbar flat dark color="blue darken-3">
@@ -114,7 +137,7 @@
 
 
     </v-col>
-</v-col>
+
 
 </v-row>
 
@@ -260,9 +283,10 @@ desserts: [
    outline: none;
 }
 
+
 .btn-hover.color-1 {
-   background-image: linear-gradient(to right, #186f94, #0e7e48,  #0c8a4d,  #078045);
-   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
+  background-image: linear-gradient(to right, #0b5879, #076437, #0e6d3f, #078045);
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
 }
 
 

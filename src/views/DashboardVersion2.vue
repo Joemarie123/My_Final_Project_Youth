@@ -13,8 +13,6 @@
 
   cols="12">
 
-
-
     <v-card height="350" class="pa-0">
       <Chart />
     </v-card>

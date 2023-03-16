@@ -248,7 +248,7 @@
               <v-card class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" 
             tile
              >
-             <h1>Total Youth Members</h1>
+             <h1 >Total Youth Members - 50,000</h1>
             <ChartComponent/>
           </v-card>
          </v-col>

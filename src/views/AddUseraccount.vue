@@ -4,34 +4,45 @@
     <v-app>
       <v-data-table :headers="headers" :items="desserts" sort-by="calories" class=" btn-hover color-1 elevation-1 pa-3" dark>
     <template v-slot:top >
-      <v-toolbar flat dark class=" btn-hover color-1 elevation-1">
+
+      <!-- <v-toolbar flat dark class=" btn-hover color-1 elevation-1"> -->
         
-        <v-toolbar-title>
+        <v-card flat dark color="blue darken-3" class="btn-hover color-1 ma-3">
+        
+        
+          <v-row>
+
+            <v-col cols="12" md="1">
           <v-avatar size="58">
          <img class="pa-1" src="/createuseraccount.png" alt="">
            </v-avatar>
-           
-          User Account List</v-toolbar-title>
+          </v-col>
 
-        <v-divider class="mx-4" inset vertical></v-divider>
-        <v-spacer></v-spacer>
+          <v-col cols="12" sm="11" md="2" class="mt-4">
+          User Account List
+        </v-col>
 
-        <v-row>
-          <v-col cols="12" lg="8" md="12" sm="12">
+       
 
+       
+
+          <v-col cols="12" lg="4" md="4" sm="12">
             <v-text-field v-model="search" class="btn-hover" append-icon="mdi-magnify" label="Search" single-line hide-details
               dark></v-text-field>
           </v-col>
 
-          <v-col cols="12" lg="4" md="12" sm="12">
+          <v-col cols="12" lg="4" md="12" sm="4" class="ml-n3">
             <v-btn color="blue" tile class="btn-hover"  @click="create_user_account = true">
               <v-icon left>mdi-account-check</v-icon>
              Create User Account
-
             </v-btn>
           </v-col>
-        </v-row>
 
+        </v-row>
+    
+
+
+      </v-card>
 
         <v-dialog v-model="dialog" max-width="700px" tile>
 
@@ -299,7 +310,7 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-      </v-toolbar>
+     
     </template>
     <template v-slot:item.actions="{ item }">
       <v-icon small class="mr-2" @click="editItem(item)">

@@ -1,42 +1,38 @@
 <template>
-    <v-app>
-      <v-container>
-   <h1>My Announcement</h1>
-   <v-textarea
-          outlined
-          name="input-8-9"
-          label="Create Announcement"
-        
-        ></v-textarea>
-   <Navbar/> 
+  <v-app>
+    <SK_NavBar />
 
+    <AnnoucementAll />
 
-   <v-btn  color="blue" class="ma-2" >
-  SEND TO ALL MEMBERS
- </v-btn>
- <v-btn  color="blue" class="ma-2" >
-  SEND TO ALL SK OFFICIAL
- </v-btn>
- <v-btn color="green" class="ma-2"> SAVE </v-btn>
-
-</v-container>
-    <SK_NavBar/>
-</v-app>
+  </v-app>
 </template>
-
-
 
 <script>
 
-
-
-import SK_NavBar from '@/views/Brgy_Sk_Official_AR/SK_NavBar';
+// import { reactive } from "vue";
+import SK_NavBar from "@/views/Brgy_Sk_Official_AR/SK_NavBar.vue";
+// import YouthRegister from "../views/Forms_Balik2/YouthRegister.vue"
 
 export default {
-  components: {
 
+  components: {
     SK_NavBar,
+    // YouthRegister
   },
 
+  
 };
 </script>
+
+
+<style>
+h4 {
+  color: green;
+
+}
+
+h3 {
+
+  font-size: small;
+}
+</style>

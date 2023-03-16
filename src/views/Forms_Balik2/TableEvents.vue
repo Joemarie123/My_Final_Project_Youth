@@ -8,100 +8,107 @@
  
    <v-data-table 
    :headers="headers" :items="desserts" 
-   sort-by="calories" class=" btn-hover color-1 elevation-1" 
+   sort-by="calories" class="pa-2 btn-hover color-1 elevation-1" 
    @click:row="onRowClick(args)" 
    dark>
-    
+
      <template v-slot:top>
-       <v-toolbar flat dark class=" btn-hover color-1 elevation-1">
-         <v-toolbar-title>Event List</v-toolbar-title>
-         <v-divider class="mx-4" inset vertical></v-divider>
-         <v-spacer></v-spacer>
+       
+    
+ 
+      <v-row>
+
+<v-col cols="12" md="1" class="mt-4">
+<v-avatar size="58">
+<img class="pa-1" src="/createuseraccount.png" alt="">
+</v-avatar>
+</v-col>
+
+<v-col cols="12" sm="11" md="2" class="mt-6">
+Events List
+</v-col>
+
+<v-divider class="mx-4" inset vertical></v-divider>
+<v-spacer></v-spacer>
+
+
+<v-col cols="12" lg="4" md="4" sm="12">
+<v-text-field v-model="search" class="btn-hover" append-icon="mdi-magnify" label="Search" single-line hide-details
+  dark></v-text-field>
+</v-col>
+
+<v-col cols="12" lg="4" md="12" sm="4" class="ml-n3">
+<v-btn color="blue" tile class="btn-hover"  @click="dialog_Create_Events = true">
+  <v-icon left>mdi-account-check</v-icon>
+ Create Events
+</v-btn>
+</v-col>
+
+
+</v-row>
  
  
-    <!-- 
-     
-     -->
- 
- 
-         <v-row>
-           <v-col cols="9" >
- 
-             
- 
-             <v-text-field v-model="search" class="btn-hover" append-icon="mdi-magnify" label="Search" single-line hide-details
-               dark></v-text-field>
- 
-           </v-col>
- 
-           <v-col cols="3">
-             <v-btn color="blue" class="btn-hover"  @click="dialog_Create_Events = true">
-               <v-icon left>mdi-account-check</v-icon>
-               Create Events
- 
-             </v-btn>
-           </v-col>
-         </v-row>
- 
- 
-         <v-dialog   v-model="dialog_Create_Events"   dark>
-           <v-row justify="center">
-             <v-col  cols="5" sm="12" md="12" lg="5">
-               <v-card class="btn-hover color-1  " tile>
- 
-                 <v-col offset="1" cols="10">
- 
-                   <div class="text-center ">
-                     <h1>Create Events</h1>
-                   </div>
- 
- 
-                   <v-text-field label="Event Name" outlined dark></v-text-field>
- 
-                   
-                   <div>
-                     <v-menu ref="menu" v-model="DOA_JuniorHigh" :close-on-content-click="false"
-                       transition="scale-transition" offset-y min-width="auto">
-                       <template v-slot:activator="{ on, attrs }">
-                         <v-text-field v-model="date_JH" label="Date of Events" outlined dense append-icon="mdi-calendar"
-                           type="date" readonly v-bind="attrs" v-on="on" dark></v-text-field>
-                       </template>
-                       <v-date-picker :value="computedDateFormattedMomentjs" v-model="date_JH"
-                         :active-picker.sync="activePicker123" :max="
-                           new Date(
-                             Date.now() -
-                             new Date().getTimezoneOffset() * 60000
-                           )
-                             .toISOString()
-                             .substr(0, 10)
-                         " min="1950-01-01" @change="saves"></v-date-picker>
-                     </v-menu>
-                   </div>
- 
- 
- 
- 
-                   <v-textarea outlined name="input-10-15" label="Event Details" dark></v-textarea>
- 
-                   <v-btn type="submit" dark class="btn-hover color-5" @click="initialize">
-                     <v-icon left>mdi-account-check</v-icon>
-                     Create
-                   </v-btn>
-                 </v-col>
- 
- 
- 
-                 <!--  <v-card-actions class="justify-center"> -->
-    </v-card> 
- 
- 
- 
-             </v-col>
- 
- 
- 
-           </v-row>
- 
+         <v-dialog   v-model="dialog_Create_Events" max-width="500px"  >
+          <v-card >
+            <v-container>
+          <v-row>
+
+                                            
+          <v-col cols="12"  sm="12" md="12" class="">
+          <div class="text-center ">
+         <v-alert dense dark color="blue darken-3">
+Create Events<strong>
+</strong>
+
+         </v-alert>
+</div>
+
+</v-col>
+
+<v-col  cols="10" sm="10" md="10"
+ style="margin-left: 20px; margin-top: -20px;">
+   <v-text-field height="10" dense outlined label="Event Name"></v-text-field>
+   </v-col>
+
+   <v-col cols="10" sm="10" md="10"
+ style="margin-left: 20px; margin-top: -30px;">
+   <v-text-field height="10" dense type="date" outlined label="Date Event"></v-text-field>
+   </v-col>
+
+
+   <v-col cols="10" sm="10" md="10"
+ style="margin-left: 20px; margin-top: -30px;">
+   <v-textarea   outlined label="Event Details"></v-textarea>
+   </v-col>
+
+
+</v-row>  
+
+<v-row>
+
+<v-col cols="10" sm="12" md="12" class="mt-n4 ">
+
+    <v-btn color="green" class="pa-2 ml-5 mt-n4"
+        outlined dark
+        @click="dialog_Create_Events = false">
+        Continue
+    </v-btn>
+
+    <v-btn color="red" class="pa-2 ml-2 mt-n4" outlined
+        dark @click="dialog_Create_Events = false">
+        Close
+    </v-btn>
+</v-col>
+
+</v-row>
+
+
+
+
+
+
+</v-container>                                                  
+</v-card>                                                     
          </v-dialog>
  
          <v-dialog v-model="dialog" max-width="700px" tile>
@@ -155,7 +162,7 @@
              </v-card-actions>
            </v-card>
          </v-dialog>
-       </v-toolbar>
+      
      </template>
      <template v-slot:item.actions="{ item }">
        <v-icon small class="mr-2" @click="editItem(item)">

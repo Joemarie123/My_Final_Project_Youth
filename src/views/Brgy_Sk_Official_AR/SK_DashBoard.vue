@@ -248,11 +248,12 @@
               <v-card height="390" class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" 
             tile
              >
-             <h1>Apokon Total Youth Members - 50,000</h1>
+             <h1 >Apokon Total Youth Members - 50,000</h1>
             <ChartComponent/>
           </v-card>
          </v-col>
 
+         
   <v-col cols="12" sm="12" md="12" lg="4" >
   
     <v-card  class=" mx-2 mt-n6  rounded-xl draw-border" 
@@ -381,9 +382,9 @@
   }
   
   .btn-hover.color-1 {
-      background-image: linear-gradient(to right, #186f94, #0e7e48,  #0c8a4d,  #078045);
-      box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
-  }
+  background-image: linear-gradient(to right, #0b5879, #076437, #0e6d3f, #078045);
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
+}
   
   /*  For Barrangay table */
   

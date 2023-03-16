@@ -1,12 +1,10 @@
 <template>
     <v-app>
-   
+    
       <v-data-table :headers="headers" :items="desserts" sort-by="calories"  class="btn-hover color-1 elevation-1 pa-2" dark
         :search="search">
   
         <template v-slot:[`item.name`]="{ item }">
-  
-  
   
           <v-avatar size="40" class="mr-3">
             <img v-bind:src="`/${item.image}`" alt="">
@@ -558,9 +556,9 @@
     
   <script>
   
-
+  
   /* import DataTable_EventsAttended from '../components/DataTable_EventsAttended' */
- 
+  
   export default {
     data: () => ({
       dialog: false,
@@ -637,7 +635,7 @@
   
     computed: {
       msg() {
-        return `ALL YOUTH ${this.name}`
+        return `ALL YOUTH RECORD`
       },
   
       formTitle() {
@@ -660,7 +658,7 @@
     },
   
     components: {
-   
+      
       /*    DataTable_EventsAttended, */
     },
   
@@ -1038,7 +1036,7 @@
       }
   
   
-      else if (this.msg == "ALL YOUTH undefined") {
+      else if (this.msg == "ALL YOUTH RECORD") {
         this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
       }
   
@@ -1136,10 +1134,6 @@
     background-image: linear-gradient(to right, #0b5879, #076437, #0e6d3f, #078045);
     box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
   }
-  
-  
-  
-  
   
   
   
