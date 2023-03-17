@@ -1,8 +1,9 @@
 <template>
-    <v-app>
+  <v-app>
+    <SK_NavBar/>
     <v-data-table
       :headers="headers"
-      :items="desserts"
+      :items="listevent"
       sort-by="calories"
       class=" btn-hover color-1 elevation-1"
       dark
@@ -47,11 +48,6 @@
               </v-card-title>
   
             <v-dialog>
-
-              
-
-
-
 
               
             </v-dialog>
@@ -116,25 +112,12 @@
         </v-btn>
       </template>
     </v-data-table>
-   <SK_NavBar/>
-</v-app>
+  </v-app>
   </template>
   
   <script>
-
 import SK_NavBar from '@/views/Brgy_Sk_Official_AR/SK_NavBar' 
     export default {
-        name: 'App',
-        components: {
-   /*  LogInForm, */
-   SK_NavBar,
-   /* YouTherecord, */
-
-   /* Footer */
-  },
-
-
-
       data: () => ({
         dialog: false,
         dialogDelete: false,
@@ -152,11 +135,85 @@ import SK_NavBar from '@/views/Brgy_Sk_Official_AR/SK_NavBar'
           { text: 'Event Details', value: 'eventdetails' },
           
         
+        ],
+        listevent: [
+        {
 
+                id:1,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+            {
+              id:2,
+                eventname: 'Youth Event Basket Ball Men',
+                eventdate: 'January 4,2023',
+                eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+           
+            },
+            {
+              id:3,
+                eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
+                eventdate: 'February 8,2023',
+                eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+           
+            },
+            {
+              id:4,
+                eventname: 'Youth Event Sepak takraw',
+                eventdate: 'March 11,2022',
+                eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
+           
+            },
+            {
+              id:5,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+            {
+              id:6,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+            {
+              id:7,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
 
+            {
+              id:8,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+            {
+
+              id:9,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
+            
+            {
+              id:10,
+                eventname: 'Tagum Lighting of Christmas tree',
+                eventdate: 'December 4,2022',
+                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+           
+            },
 
         ],
-        desserts: [],
+        
         editedIndex: -1,
         editedItem: {
             eventname: '',
@@ -173,6 +230,13 @@ import SK_NavBar from '@/views/Brgy_Sk_Official_AR/SK_NavBar'
 
         },
       }),
+
+      components: {
+        SK_NavBar,
+        
+      },
+
+
       computed: {
         formTitle () {
           return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
@@ -195,92 +259,33 @@ import SK_NavBar from '@/views/Brgy_Sk_Official_AR/SK_NavBar'
       this.$router.push({ 'path': path });
     },
 
-        redirecttoformattendance () {
+        redirecttoformattendance (item) {
           
-          this.navigateTo('/SK_SelectYouth_Attendance'); 
+        /*   this.navigateTo('/SelectYouth');  */
+
+          this.$router.push({ name: 'SK_SelectYouth_Attendance', params: { id: item.id } })
         },
 
 
-        initialize () {
-          this.desserts = [
-            {
-                eventname: 'Tagum Lighting of Christmas tree',
-                eventdate: 'December 4,2022',
-                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           
-            },
-            {
-                eventname: 'Youth Event Basket Ball Men',
-                eventdate: 'January 4,2023',
-                eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-           
-            },
-            {
-                eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
-                eventdate: 'February 8,2023',
-                eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-           
-            },
-            {
-                eventname: 'Youth Event Sepak takraw',
-                eventdate: 'March 11,2022',
-                eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
-           
-            },
-            {
-                eventname: 'Tagum Lighting of Christmas tree',
-                eventdate: 'December 4,2022',
-                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           
-            },
-            {
-                eventname: 'Tagum Lighting of Christmas tree',
-                eventdate: 'December 4,2022',
-                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           
-            },
-            {
-                eventname: 'Tagum Lighting of Christmas tree',
-                eventdate: 'December 4,2022',
-                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           
-            },
-            {
-                eventname: 'Tagum Lighting of Christmas tree',
-                eventdate: 'December 4,2022',
-                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           
-            },
-            {
-                eventname: 'Tagum Lighting of Christmas tree',
-                eventdate: 'December 4,2022',
-                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           
-            },
-            
-            {
-                eventname: 'Tagum Lighting of Christmas tree',
-                eventdate: 'December 4,2022',
-                eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           
-            },
+        // initialize () {
+        //   this.desserts = [
 
+        //   ]
+        // },
 
-
-          ]
-        },
+        
         editItem (item) {
-          this.editedIndex = this.desserts.indexOf(item)
+          this.editedIndex = this.listevent.indexOf(item)
           this.editedItem = Object.assign({}, item)
           this.dialog = true
         },
         deleteItem (item) {
-          this.editedIndex = this.desserts.indexOf(item)
+          this.editedIndex = this.listevent.indexOf(item)
           this.editedItem = Object.assign({}, item)
           this.dialogDelete = true
         },
         deleteItemConfirm () {
-          this.desserts.splice(this.editedIndex, 1)
+          this.listevent.splice(this.editedIndex, 1)
           this.closeDelete()
         },
         close () {
@@ -299,9 +304,9 @@ import SK_NavBar from '@/views/Brgy_Sk_Official_AR/SK_NavBar'
         },
         save () {
           if (this.editedIndex > -1) {
-            Object.assign(this.desserts[this.editedIndex], this.editedItem)
+            Object.assign(this.listevent[this.editedIndex], this.editedItem)
           } else {
-            this.desserts.push(this.editedItem)
+            this.listevent.push(this.editedItem)
           }
           this.close()
         },
@@ -321,7 +326,7 @@ import SK_NavBar from '@/views/Brgy_Sk_Official_AR/SK_NavBar'
    text-align:center;
    border: none;
    background-size: 300% 100%;
-   border-radius: 25px;
+   border-radius: 50px;
    moz-transition: all .4s ease-in-out;
    -o-transition: all .4s ease-in-out;
    -webkit-transition: all .4s ease-in-out;
@@ -334,10 +339,8 @@ import SK_NavBar from '@/views/Brgy_Sk_Official_AR/SK_NavBar'
 
 
 .btn-hover.color-1 {
-   background-image: linear-gradient(to right, #186f94, #0e7e48,  #0c8a4d,  #078045);
-   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
+  background-image: linear-gradient(to right, #0b5879, #076437, #0e6d3f, #078045);
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
 }
-
-
 
 </style>

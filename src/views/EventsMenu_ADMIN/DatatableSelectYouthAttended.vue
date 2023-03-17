@@ -3,7 +3,7 @@
 
     <div >
   <v-app>
-    
+    <Navbar/>
 <v-row>
 
 
@@ -25,11 +25,6 @@
    <p class="ml-5">Event Details:  {{ items.eventdetails }}  </p>
    
   
-
-          
-
-
-
   </v-card>
   <v-card>
   <v-col cols="12" md="11"  class="ml-4 mt-n6">
@@ -297,7 +292,7 @@ label="Name">
 
 <v-col cols="10" md="9" offset="1" class="mt-n6">
         <v-select
-                v-model="editedItem.hours"
+                     v-model="editedItem.hours"
                       :items="['1 Hour', '2 Hours' , '3 Hours' , '4 Hours', '5 Hours', '6 Hours' , '7 Hours' , '8 Hours']"
                       label="Select Hours"
                       prepend-inner-icon="mdi-clock"
@@ -349,7 +344,7 @@ label="Name">
 </template>
 <script>
 
-
+import Navbar from '@/components/Navbar'
 export default {
   name: 'App',
 
@@ -357,7 +352,7 @@ export default {
    /*  LogInForm, */
   /*  Navbar, */
    /* YouTherecord, */
-
+   Navbar,
    /* Footer */
   },
 
@@ -367,6 +362,7 @@ export default {
       dialog_for_input_hours:false,
       dialog:false,
       dialog_sample:false,
+      
      /*  selected1: [ ],
       headers1: [
         {

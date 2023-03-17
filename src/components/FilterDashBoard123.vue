@@ -62,10 +62,10 @@
 
                 <v-row>
 
-                  <v-col cols="10" sm="6" md="4" offset-lg="5" offset-md="3" offset-sm="1">
+                  <v-col cols="10" sm="6" md="4" offset-lg="5" offset-md="3" offset-sm="2">
 
                     <v-avatar size="90" class="mr-3">
-                      <img v-bind:src="`/${editedItem_profile.image}`" alt="">
+                      <img v-bind:src="`/${editedItem.image}`" alt="">
                     </v-avatar>
 
 
@@ -76,9 +76,9 @@
 
                 <v-row>
 
-                  <v-col cols="10" sm="6" md="4" offset-lg="4" offset-md="2" offset-sm="1">
+                  <v-col offset="4" cols="10" sm="12" md="5"  >
 
-                    <v-text-field v-model="editedItem_profile.name" label="Full Name"></v-text-field>
+                    <v-text-field class="ml-md-n6 centered-input"  outlined dense   v-model="editedItem.name" label="Full Name"></v-text-field>
 
                   </v-col>
                 </v-row>
@@ -97,47 +97,67 @@
                   <v-col cols="10" sm="6" md="4">
 
 
-                    <v-text-field v-model="editedItem_profile.educational_level" label="Educational Level"></v-text-field>
+                    <v-text-field class="mt-n6" outlined dense v-model="editedItem.educational_level" label="Educational Level"></v-text-field>
 
                   </v-col>
 
-                  <v-col cols="10" sm="6" md="4">
-                    <v-text-field v-model="editedItem_profile.email" label="Email"></v-text-field>
+                  <v-col cols="10" sm="6" md="4" class="mt-n6">
+                    <v-text-field outlined dense v-model="editedItem.email" label="Email"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" sm="6" md="4">
-                    <v-text-field v-model="editedItem_profile.mobilenum" label="Mobile Number"></v-text-field>
+                  <v-col cols="10" sm="6" md="4" class="mt-n6">
+                    <v-text-field outlined dense v-model="editedItem.mobilenum" label="Mobile Number"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" sm="6" md="4">
-                    <v-text-field v-model="editedItem_profile.birthday" label="Birth Day"></v-text-field>
+                  <v-col cols="10" sm="6" md="3" class="mt-n6">
+                    <v-text-field outlined dense label="Birth Day"  v-model="editedItem.birthday" type="date" required   ></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" sm="6" md="4">
-                    <v-text-field v-model="editedItem_profile.age" label="age"></v-text-field>
-                  </v-col>
-
-
-                  <v-col cols="10" sm="6" md="4">
-                    <v-text-field v-model="editedItem_profile.barangay" label="Barangay"></v-text-field>
-
+                  <v-col cols="10" sm="6" md="1" class="mt-n8">
+                    <v-text-field readonly v-model="editedItem.age" label="Age"></v-text-field>
                   </v-col>
 
 
+                  <v-col cols="10" sm="6" md="4" class="mt-n6">
+                    <v-select
+                    outlined dense
+                     v-model="editedItem.barangay"
+                     :items="['Apokon', 'Bincungan', 'Busaon', 'Canocotan', 'Cuambogan', 'La Filipina', 'Liboganon', 'Madaum', 'Magdum', 'Mankilam', 'New Balamban', 'Nueva Fuerza', 'Pagsabangan', 'Pandapan', 'Magugpo Poblacion', 'San Agustin', 'San Isidro', 'San Miguel (Camp 4)', 'Visayan Village', 'Magugpo East', 'Magugpo North', 'Magugpo South', 'Magugpo West']"
+                    label="Barangay"></v-select>
 
-                  <v-col cols="10" sm="6" md="4">
-                    <v-text-field v-model="editedItem_profile.ethnicity" label="Ethnicity"></v-text-field>
+                  </v-col>
+
+                  <v-col cols="10" sm="6" md="4" class="mt-n6">
+                    <v-select
+                    outlined dense
+                     v-model="editedItem.purok"
+                     :items="['Purok 1-A', 'Purok 1-B' , 'Purok 1-C' , 'Purok 1-D', 'Purok 2-A', 'Purok 2-B' , 'Purok 3-C' , 'Purok 3-D']"
+                    label="Purok"></v-select>
+
                   </v-col>
 
 
-                  <v-col cols="10" sm="6" md="4">
-                    <v-text-field v-model="editedItem_profile.gender" label="Gender"></v-text-field>
+
+                  <v-col cols="10" sm="6" md="4" class="mt-n6">
+                    <v-text-field outlined dense v-model="editedItem.ethnicity" label="Ethnicity"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" sm="6" md="4">
-                    <v-text-field v-model="editedItem_profile.civil_status" label="Civil Status"></v-text-field>
+
+                  <v-col cols="10" sm="6" md="4" class="mt-n6">
+                    <v-select
+                    outlined dense
+                     v-model="editedItem.gender"
+                     :items="['Male', 'Female']"
+                    label="gender"></v-select>
                   </v-col>
 
+                  <v-col cols="10" sm="6" md="4" class="mt-n6">
+                    <v-select
+                    outlined dense
+                     v-model="editedItem.civil_status"
+                     :items="['Single', 'Married', 'Widow/er', 'Divorced', 'Common-law/Live-in', 'Unknown']"
+                    label="Civil Status"></v-select>
+                  </v-col>
 
 
 
@@ -147,7 +167,7 @@
 
                 <v-row>
 
-                  <v-col cols="10" sm="12" md="12" class="mt-n1">
+                  <v-col cols="10" sm="12" md="12" class="mt-n5">
 
                     <v-btn color="green" class="pa-2" outlined dark @click="dialog = false">
                       Continue
@@ -600,6 +620,9 @@ export default {
 
 
     desserts: [],
+    editedItem_profile:[
+
+    ],
     editedIndex: -1,
     editedItem: {
       name: '',
@@ -610,14 +633,14 @@ export default {
 
     },
 
-    editedItem_profile: {
+ /*    editedItem_profile: {
       name: '',
       email: '',
       age: '',
       userlevel: '',
-      barangay: '',
+    
 
-    },
+    }, */
 
 
     defaultItem: {
@@ -676,12 +699,13 @@ export default {
           tribe: 'Mandaya',
           email: 'joemarie27@gmail.com',
           mobilenum: '09518110301',
-          age: '20 yrs old',
-          barangay: 'Apokon - Purok 2',
+          age: '20',
+          barangay: 'Apokon',
+          purok: 'Purok 1-A',
 
           civil_status: 'Married',
           educational_level: 'BSCS Graduated',
-          birthday: 'July 27,1995',
+          birthday: '1995-04-12',
           ethnicity: 'Bisaya',
           datesurvey: 'February 4,2022',
           voters: 'Yes',
@@ -704,8 +728,10 @@ export default {
           tribe: 'Manobo',
           email: 'escobar227@gmail.com',
           mobilenum: '09522321301',
-          age: '20 yrs old',
-          barangay: 'Liboganon - Purok 1',
+          age: '26',
+          barangay: 'Liboganon',
+          purok: 'Purok 3-D',
+
 
           sinag: 'Sinag Member',
 
@@ -734,8 +760,9 @@ export default {
           tribe: 'Davawenyo',
           email: 'jogs123@gmail.com',
           mobilenum: '09518110301',
-          age: '30 yrs old',
-          barangay: 'Magugpo West- Purok 4',
+          age: '30',
+          barangay: 'Magugpo West',
+          purok: 'Purok 3-D',
 
           sinag: 'Sinag Member',
 
@@ -743,7 +770,7 @@ export default {
 
           civil_status: 'Married',
           educational_level: 'Computer Engineering Graduated',
-          birthday: 'December 27,1953',
+          birthday: '1995-02-12',
           ethnicity: 'Mandaya',
           datesurvey: 'December 5,2022',
           voters: 'Yes',
@@ -769,13 +796,14 @@ export default {
           tribe: 'Cebuano',
           email: 'rerey@gmail.com',
           mobilenum: '09518110301',
-          age: '24 yrs old',
-          barangay: 'Magugpo East - Purok 1',
+          age: '24',
+          barangay: 'Bincungan',
+          purok: 'Purok 2-A',
 
 
           civil_status: 'Single',
           educational_level: 'BSIT Graduated',
-          birthday: 'December 27,1997',
+          birthday: '1995-04-30',
           ethnicity: 'Bisaya',
           datesurvey: 'December 5,2022',
           voters: 'Yes',
@@ -796,7 +824,7 @@ export default {
           tribe: 'Mandaya',
           email: 'amrstrong224@gmail.com',
           mobilenum: '09518110301',
-          age: '30 yrs old',
+          age: '30',
           barangay: 'Pagsabangan - Purok 3',
 
           civil_status: 'Single',
@@ -825,12 +853,13 @@ export default {
           tribe: 'Kamayo',
           email: 'joemarie27@gmail.com',
           mobilenum: '09518110301',
-          age: '20 yrs old',
-          barangay: 'San Isidro - Purok 2',
+          age: '20',
+          barangay: 'Busaon',
+          purok: 'Purok 3-A',
 
           civil_status: 'Single',
           educational_level: 'BSIT Graduated',
-          birthday: 'December 27,1997',
+          birthday: '1995-04-13',
           ethnicity: 'Bisaya',
           datesurvey: 'December 5,2022',
           voters: 'Yes',
@@ -853,8 +882,9 @@ export default {
           tribe: 'Kamayo',
           email: 'joemarie27@gmail.com',
           mobilenum: '09518110301',
-          age: '20 yrs old',
-          barangay: 'Apokon - Purok 1',
+          age: '20',
+          barangay: 'Cuambogan',
+          purok: 'Purok 3-A',
 
           civil_status: 'Single',
           educational_level: 'BSIT Graduated',
@@ -884,12 +914,13 @@ export default {
           tribe: 'Kamayo',
           email: 'joemarie27@gmail.com',
           mobilenum: '09518110301',
-          age: '20 yrs old',
-          barangay: 'Apokon - Purok 5',
+          age: '20',
+          barangay: 'Canocotan',
+          purok: 'Purok 3-A',
 
           civil_status: 'Single',
           educational_level: 'BSIT Graduated',
-          birthday: 'December 27,1997',
+          birthday: '1994-04-08',
           ethnicity: 'Bisaya',
           datesurvey: 'December 5,2022',
           voters: 'Yes',
@@ -913,12 +944,13 @@ export default {
           tribe: 'Kamayo',
           email: 'joemarie27@gmail.com',
           mobilenum: '09518110301',
-          age: '20 yrs old',
-          barangay: 'Apokon - Purok 2',
+          age: '20',
+          barangay: 'Madaum',
+          purok: 'Purok 3-A',
 
           civil_status: 'Single',
           educational_level: 'BSIT Graduated',
-          birthday: 'December 27,1997',
+          birthday: '1991-01-10',
           ethnicity: 'Bisaya',
           datesurvey: 'December 5,2022',
           voters: 'Yes',
@@ -942,13 +974,14 @@ export default {
           tribe: 'Kamayo',
           email: 'jess223@gmail.com',
           mobilenum: '09518110301',
-          age: '25 yrs old',
-          barangay: 'Apokon - Purok 6',
+          age: '25',
+          barangay: 'Mankilam',
+          purok: 'Purok 1-A',
           image: 'profilepic/jesica.jpg',
 
           civil_status: 'Single',
           educational_level: 'BSIT Graduated',
-          birthday: 'December 27,1997',
+          birthday: '1991-01-10',
           ethnicity: 'Bisaya',
           datesurvey: 'December 5,2022',
           voters: 'Yes',
@@ -973,7 +1006,7 @@ export default {
     },
     editItem(item) {
       this.editedIndex = this.desserts.indexOf(item)
-      this.editedItem_profile = Object.assign({}, item)
+      this.editedItem = Object.assign({}, item)
       this.dialog = true
     },
 

@@ -23,15 +23,11 @@ import ColumnChart from  '../components/ColumnChart.vue'
 import FilterDashBoard123 from '../components/FilterDashBoard123.vue'
 import FilterFromDashBoard from '../components/FilterFromDashBoard.vue'
 
-
-
-
 import DatatableAttendance from '../views/EventsMenu_ADMIN/DatatableAttendance.vue'
 import DataTableEvents from '../views/EventsMenu_ADMIN/DataTableEvents.vue'
 
- /* 
- import DatatableSelectYouth from '../views/EventsMenu/DatatableSelectYouth.vue' */
- import SelectYouth from '../views/EventsMenu_ADMIN/SelectYouth.vue'
+
+ import DatatableSelectYouthAttended from '../views/EventsMenu_ADMIN/DatatableSelectYouthAttended.vue' 
  import SK_DashBoard from '../views/Brgy_Sk_Official_AR/SK_DashBoard.vue'
  import SK_SearchRecord_Youth from '../views/Brgy_Sk_Official_AR/SK_SearchRecord_Youth.vue'
  import SK_AddRecord_Youth from '../views/Brgy_Sk_Official_AR/SK_AddRecord_Youth.vue'
@@ -176,12 +172,7 @@ const routes = [
     component: SK_AddRecord_Youth
   }, 
 
-  {
-    path: '/SelectYouth',
-    name: 'SelectYouth',
-    component: SelectYouth
-  }, 
-
+ 
   {
     path: '/SK_SearchRecord_Youth',
     name: 'SK_SearchRecord_Youth',
@@ -198,11 +189,11 @@ const routes = [
   }, 
   
   
- /*  {
-    path: '/DatatableSelectYouth',
-    name: 'DatatableSelectYouth',
-    component: DatatableSelectYouth
-  },  */
+  {
+    path: '/DatatableSelectYouthAttended',
+    name: 'DatatableSelectYouthAttended',
+    component: DatatableSelectYouthAttended
+  }, 
   
   {
     path: '/AttenDance',

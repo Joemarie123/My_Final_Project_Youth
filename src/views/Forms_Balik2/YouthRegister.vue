@@ -52,127 +52,76 @@
                                     <H4>YOUTH IDENTIFICATION</H4>
                                     <v-row>
 
-                                        <v-col cols="12" sm="12" md="3">
+                                        <v-col cols="12" sm="12" md="3" class="mt-4">
                                             <v-select
+                                            outlined dense height="10"
                                                 :items="['Apokon', 'Bincungan', 'Busaon', 'Canocotan', 'Cuambogan', 'La Filipina', 'Liboganon', 'Madaum', 'Magdum', 'Mankilam', 'New Balamban', 'Nueva Fuerza', 'Pagsabangan', 'Pandapan', 'Magugpo Poblacion', 'San Agustin', 'San Isidro', 'San Miguel (Camp 4)', 'Visayan Village', 'Magugpo East', 'Magugpo North', 'Magugpo South', 'Magugpo West']"
                                                 label="Select Barangay" prepend-inner-icon="mdi-map-marker"
                                                 v-model="SignupBarangay" required></v-select>
 
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="3">
-                                            <v-text-field label="Purok/Sitio,Street,House/Bldg.No"></v-text-field>
+                                        <v-col cols="12" sm="12" md="3" class="mt-n5 mt-md-4">
+                                            <v-text-field outlined dense height="10" label="Purok/Sitio,Street,House/Bldg.No"></v-text-field>
                                         </v-col>
 
 
-                                        <v-col cols="12" sm="12" md="3">
-                                            <v-text-field label="Date Of Survey " type="date" required color="green">
+                                        <v-col cols="12" sm="12" md="3" class="mt-n5 mt-md-4">
+                                            <v-text-field  outlined dense height="10" label="Date Of Survey " type="date" required color="green">
                                             </v-text-field>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="3">
-                                            <v-text-field label="CP # of Respondent" required
+                                        <v-col cols="12" sm="12" md="3" class="mt-n5 mt-md-4">
+                                            <v-text-field outlined dense height="10" label="CP # of Respondent" required
                                                 prepend-inner-icon="mdi-cellphone-basic">
                                             </v-text-field>
 
                                         </v-col>
-                                        <v-col cols="12" md="12" sm="12">
-                                            <p class="font-weight-bold" style="margin-top: -10px">
-
-                                            </p>
-                                        </v-col>
-                                        <v-col cols="12" md="12" sm="12">
+                                       
+                                        <v-col cols="12" md="12" sm="12" class="mt-n4">
                                             <p class="font-weight-bold">
                                                 NAME OF RESPONDENT
                                             </p>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="3">
-                                            <v-text-field label="Last Name" required prepend-inner-icon="mdi-account">
+                                        <v-col cols="12" sm="12" md="3" class="mt-n5">
+                                            <v-text-field  label="Last Name" outlined dense height="10" required prepend-inner-icon="mdi-account">
                                             </v-text-field>
 
                                         </v-col>
 
-                                        <v-col cols="12" sm="6" md="3">
+                                        <v-col cols="12" sm="6" md="3" class="mt-n5">
 
-                                            <v-text-field label="First Name" required prepend-inner-icon="mdi-account">
+                                            <v-text-field outlined dense height="10" label="First Name" required prepend-inner-icon="mdi-account">
                                             </v-text-field>
 
 
                                         </v-col>
 
-                                        <v-col cols="12" sm="6" md="3">
-                                            <v-text-field label="Middle Name" required prepend-inner-icon="mdi-account">
+                                        <v-col cols="12" sm="6" md="3" class="mt-n5">
+                                            <v-text-field outlined dense height="10" label="Middle Name" required prepend-inner-icon="mdi-account">
                                             </v-text-field>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="3">
-                                            <v-file-input label="Attached ID here" prepend-icon="mdi-camera"></v-file-input>
+                                        <v-col cols="12" sm="12" md="3" class="mt-n5">
+                                            <v-file-input outlined dense height="10" label="Attached ID here"  prepend-icon="mdi-camera"></v-file-input>
                                         </v-col>
 
-
-
-                                        <v-col cols="12" md="12" sm="12">
-                                            <p class="font-weight-bold" style="margin-top: -50px">
-
-                                            </p>
-                                        </v-col>
-
-                                        <!--     <v-col cols="12" md="12" sm="12">
-                          <p class="font-weight-bold"  >
-                            NAME OF ENUMERATOR
-                          </p>
-                        </v-col> -->
-
-                                        <!-- 
-                        <v-col cols="12" md="3" sm="12">
-                          <v-text-field
-                           
-                           label="Last Name"
-                           required
-                           prepend-inner-icon="mdi mdi-account-box"
-                         >
-                         </v-text-field>
-  
-                        </v-col> -->
-
-                                        <!--  <v-col cols="12" md="3" sm="12">
-                          <v-text-field
-                           
-                           label="First Name"
-                           required
-                           prepend-inner-icon="mdi mdi-account-box"
-                         >
-                         </v-text-field>
-  
-  
-                        </v-col> -->
-                                        <!--  <v-col cols="12" md="3" sm="12">
-                          <v-text-field
-                           
-                           label="Middle Name"
-                           required
-                           prepend-inner-icon="mdi mdi-account-box"
-                         >
-                         </v-text-field>
-  
-  
-                        </v-col> -->
-
-                                        <v-col cols="12" md="3" sm="12">
-                                            <v-text-field label="Birth Day" type="date" required color="green">
+                                        <v-col cols="12" md="3" sm="12" class="mt-n5">
+                                            <v-text-field  outlined dense height="10" label="Birth Day" type="date" required color="green">
                                             </v-text-field>
                                         </v-col>
-                                        <v-col cols="12" md="3" sm="12">
-                                            <v-text-field label="Age(As of last Birth Day)" required>
+                                        <v-col cols="12" md="3" sm="12" class="mt-n5">
+                                            <v-text-field outlined dense height="10" label="Age(As of last Birth Day)" required>
                                             </v-text-field>
 
 
                                         </v-col>
 
 
-                                        <v-col cols="12" md="3" sm="12">
+                                        <v-col cols="12" md="3" sm="12" class="mt-n5">
                                             <v-select :items="['YES', 'NO']"
+                                            outlined dense height="10"
                                                 label="Was the birth registered with the civil registry office?"
                                                 prepend-inner-icon="mdi-map-marker" v-model="SignupBarangay"
                                                 required></v-select>
@@ -183,6 +132,8 @@
 
                                         <v-col cols="12" md="3" sm="12">
                                             <v-select @change="functionselect_civil_status"
+                                            class="mt-n5"
+                                            outlined dense height="10"
                                                 :items="['Single', 'Married', 'Widow/er', 'Divorced', 'Common-law/Live-in', 'Unknown']"
                                                 label="Marital/Civil Status" prepend-inner-icon="mdi-ring"
                                                 v-model="civil_status" required></v-select>
@@ -193,14 +144,14 @@
                                             <v-container fluid>
 
 
-                                                <H4>YOUTH CHARACTERISTICS</H4>
+                                                <H4 class="mt-n6 ml-n2">YOUTH CHARACTERISTICS</H4>
 
 
                                                 <v-row>
 
-                                                    <v-col cols="12" sm="12" md="3" class="ml-2 mt-2">
+                                                    <v-col cols="12" sm="12" md="3" class=" mt-3">
                                                         <p class="font-weight-bold">Gender</p>
-                                                        <v-radio-group row>
+                                                        <v-radio-group row class="mt-n4">
 
                                                             <v-radio value="Male" @change="have_you_give_birth_in_the_last_2_years_65 = false,
                                                                 if_pregnant_as_of_this_time_72 = false,
@@ -221,36 +172,42 @@
 
 
 
-                                                    <v-col cols="12" sm="12" md="3">
+                                                    <v-col cols="12" sm="12" md="3" class="mt-n2">
                                                         <p class="font-weight-bold">Gender Preference</p>
                                                         <v-select
+                                                        class="mt-n2"
+                                                        outlined dense height="10"
                                                             :items="['Lesbian', 'Gay', 'Bisexual', 'Transgender', 'Queer', 'Intersex', 'Asexual', 'Pansexual', 'Cisgender', 'Biological Sex', 'Gender Identity', 'Sexual Identity', 'Ally', 'Heterosexual Privilege', 'Heterosexism or Heteronormativity']"
                                                             prepend-inner-icon="mdi-account-switch"
                                                             v-model="gender_preferences" required></v-select>
 
                                                     </v-col>
 
-                                                    <v-col cols="12" sm="12" md="3">
+                                                    <v-col cols="12" sm="12" md="3" class="mt-n7 mt-md-n2">
                                                         <p class="font-weight-bold">Ethnicity/ tribe: See codes below</p>
                                                         <v-select
+                                                        class="mt-n2"
+                                                        outlined dense height="10"
                                                             :items="['Bisaya/ Binisaya', 'Boholano', 'Cagan/ Kagan', 'Cebuano', 'Davawenyo', 'Dibabawon', 'Hiligaynon/ Ilongo', 'Mandaya', 'Manguangan', 'Manobo', 'Mansaka', 'Tagalog', 'Bilaan', 'Kamayo', 'Molbog', 'Kolibugan', 'Yakan', 'Tausug', 'Matigsalug']"
                                                             prepend-inner-icon="mdi-account-convert" v-model="Barangay"
                                                             required></v-select>
 
                                                     </v-col>
 
-                                                    <v-col cols="12" sm="12" md="3">
+                                                    <v-col cols="12" sm="12" md="3" class="mt-n7 mt-md-n2">
                                                         <p class="font-weight-bold">Religious Affiliation</p>
                                                         <v-select
+                                                        class="mt-n2"
+                                                        outlined dense height="10"
                                                             :items="['Roman Catholic', 'Iglesia Ni Cristo', 'Evangelical', 'Islam', 'Seventh Day Adventist', 'Church of Christ', 'United Church of Christ in the Philippines', 'Dating Daan']"
                                                             prepend-inner-icon="mdi-church" v-model="Barangay"
                                                             required></v-select>
 
                                                     </v-col>
 
-                                                    <v-col cols="12" sm="12" md="3">
+                                                    <v-col cols="12" sm="12" md="3" class="mt-n7">
                                                         <p class="font-weight-bold">Are you an overseas worker?</p>
-                                                        <v-radio-group row>
+                                                        <v-radio-group row   class="mt-n3">
                                                             <v-radio @click="country_destination = true" value="yes"
                                                                 label="Yes"></v-radio>
 
@@ -261,31 +218,12 @@
 
                                                     </v-col>
 
-
-                                                    <!--  <v-col
-                          offset-md="1"
-                          
-                          > -->
-
-                                                    <!--    </v-col> -->
-
-
-
                                                     <!--     COUNTRY OF DESTINATION START -->
 
                                                     <v-dialog v-model="country_destination" max-width="380px">
                                                         <v-card>
                                                             <v-container>
                                                                 <v-row>
-
-                                                                    <!-- <v-col cols="12" sm="12" md="12" >
-  
-                                      <v-btn text color="red" dark @click="country_destination = false">
-                            <v-icon >
-                              mdi-comment-remove-outline
-                            </v-icon>
-                          </v-btn>
-                                    </v-col> -->
 
 
                                                                     <v-col cols="12" sm="12" md="12" class="">
@@ -368,37 +306,36 @@
                                                     <!--     COUNTRY OF DESTINATION END -->
 
                                                     <v-row>
-                                                        <v-col cols="12" sm="12" md="4" class="ml-4">
+                                                        <v-col cols="12" sm="12" md="4" class="ml-3 ">
                                                             <p class="font-weight-bold">Where did you Reside 3 Years Ago?
                                                             </p>
-                                                            <v-checkbox label="Same Address Now"></v-checkbox>
-                                                            <v-text-field label="Other Address, Specify">
-
-                                                            </v-text-field>
+                                                            <v-checkbox label="Same Address Now"   class="mt-n3"></v-checkbox>
+                                                            <v-text-field  class="pr-6" outlined dense height="10" label="Other Address, Specify">
+                                                                </v-text-field>
                                                         </v-col>
 
-                                                        <v-col cols="12" sm="12" md="4" class="ml-3">
+                                                     
+                                                     
+                                                        <v-col cols="12" sm="12" md="4" class="mt-n5 ml-3 mt-md-1">
 
 
                                                             <H4>EDUCATION AND LITERACY (1)</H4>
 
-                                                            <p class="font-weight-bold">Are You Currently Attending School?
+                                                            <p class="font-weight-bold mt-1" >Are You Currently Attending School?
                                                             </p>
-                                                            <v-radio-group row class="">
+                                                            <v-radio-group row class="mt-n4">
                                                                 <v-radio @click="what_grade_year_currently_attending = true"
                                                                     value="yes" label="Yes"></v-radio>
                                                                 <v-radio @click="why_your_not_attending_school = true"
                                                                     value="no" label="No"></v-radio>
                                                             </v-radio-group>
 
-
-
                                                         </v-col>
 
-                                                        <v-col cols="12" sm="12" md="3" class="ml-3">
+                                                        <v-col cols="12" sm="12" md="3" class="mt-n3 ml-3 mt-md-1 ml-md-n6">
                                                             <p class="font-weight-bold">Are You a graduate of Senior high?
                                                             </p>
-                                                            <v-radio-group row>
+                                                            <v-radio-group row class="mt-n3">
                                                                 <v-radio
                                                                     @change="show_if_yes_graduate_senior_highschool = true"
                                                                     value="yes" label="Yes"></v-radio>
@@ -407,7 +344,8 @@
                                                                     value="no" label="No"></v-radio>
                                                             </v-radio-group>
 
-                                                            <v-select v-show="show_if_yes_graduate_senior_highschool"
+                                                            <v-select class="pr-6 mt-2" v-show="show_if_yes_graduate_senior_highschool"
+                                                            outlined dense height="10"
                                                                 :items="['Accounting, Business Mgt', 'Science, tech. Eng’g& Mathematics ', 'Humanities and Social Sutdies', 'General Academic', 'Home Economics', 'Agri-Forestry and Fishery', 'Industrial Arts', 'Info & Comm. Tech (ICT)', 'Sports', 'Arts and Design', 'TVL Automotive', 'TVL CSS', 'TVL Programming']"
                                                                 label="What Is Your Strand"
                                                                 prepend-inner-icon="mdi-clipboard-account" v-model="strand"
@@ -473,7 +411,6 @@
                                                                                 </v-radio-group>
 
                                                                             </v-col>
-
 
 
 
@@ -723,25 +660,25 @@
                                 <v-container fluid>
                                     <v-row>
                                         <v-col cols="12" sm="12" md="12" class="ma-2">
-                                            <h4>
+                                            <h4 class="ml-n2">
                                                 EDUCATION LITERACY (2)
                                             </h4>
                                         </v-col>
 
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n3">
                                             <p class="font-weight-bold">Are you currently attending any Skills training?</p>
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
                                             </v-radio-group>
 
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n3">
                                             <p class="font-weight-bold">Have you attended any skills Training in the past?
                                             </p>
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
                                                     @click="skill_training_program = true, can_you_read_and_write_yes_no = false"
                                                     label="Yes"></v-radio>
@@ -894,8 +831,8 @@
 
                                         <v-col cols="12" sm="12" md="2">
                                             <h4>GOVERNANCE</h4>
-                                            <p class="font-weight-bold">Are you a Registered voter?</p>
-                                            <v-radio-group row>
+                                            <p class="font-weight-bold mt-1">Are you a Registered voter?</p>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio @click="did_you_vote_in_the_last_sk_elections = true" value="yes"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
@@ -903,14 +840,12 @@
 
 
                                         </v-col>
-                                        <v-col cols="12" sm="12" md="3">
+                                        <v-col cols="12" sm="12" md="3" class="mt-n2">
                                             <p class="font-weight-bold">What organization are you affiliated/ member with
                                                 for the last three Years?</p>
-                                            <v-checkbox-group>
+                                            <v-checkbox-group class="mt-n7">
                                                 <v-checkbox label="4Ks"></v-checkbox>
-                                                <v-checkbox
-                                                    label="Davao de Oro Scholarship Program (Former CVSP)-SamahanngmgaIskolarsngComValy"
-                                                    style="margin-top: -10px"></v-checkbox>
+                                               
                                                 <v-checkbox label="Muslim Youth" style="margin-top: -10px"></v-checkbox>
                                                 <v-checkbox label="PTDO (IP Youth)" style="margin-top: -10px"></v-checkbox>
                                                 <v-checkbox label="Pag-asa Youth Association of the Philippines (PYAP)"
@@ -921,14 +856,12 @@
                                                 <v-checkbox label="YES-O" style="margin-top: -10px"></v-checkbox>
 
                                                 <v-checkbox label="ListongKabataan" style="margin-top: -10px"></v-checkbox>
-
-
-
                                             </v-checkbox-group>
-                                        </v-col>
-                                        <v-col cols="12" sm="12" md="3" style="margin-top: 36px">
 
-                                            <v-checkbox-group>
+                                        </v-col>
+                                        <v-col cols="12" sm="12" md="3" class="mt-n9">
+
+                                            <v-checkbox-group >
                                                 <v-checkbox
                                                     label="Society of Peer Educators of the Philippines (SPEDdO)"></v-checkbox>
                                                 <v-checkbox label="Special Program for the Employment of Students (SPES)"
@@ -948,20 +881,20 @@
 
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n1">
                                             <p class="font-weight-bold">Have you elected in any organization you are
                                                 affiliated with?</p>
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio @click="leardership_information = true" value="yes"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
                                             </v-radio-group>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-1">
                                             <h4>ECONOMIC ACTIVITY (1)</h4>
-                                            <p class="font-weight-bold">(28)Did you do any work during the past week?</p>
-                                            <v-radio-group row>
+                                            <p class="font-weight-bold mt-1" >(28)Did you do any work during the past week?</p>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
                                                     @click="whats_your_class_of_worker = true, do_you_have_job_or_business_during_past_week = false"
                                                     label="Yes"></v-radio>
@@ -1005,9 +938,9 @@
 
 
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n3">
                                             <p class="font-weight-bold">(29)Do you have business during the past Week?</p>
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" @click="what_is_the_sector_of_your_business = true"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
@@ -1015,10 +948,10 @@
 
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n3">
                                             <p class="font-weight-bold">(36) Did you want more hours of work during the past
                                                 week?</p>
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
                                                     @change="did_you_look_additional_word = true, whats_your_class_of_worker = false, did_you_look_work_to_eastablish_business = false"
                                                     label="Yes"></v-radio>
@@ -1364,10 +1297,10 @@
                                         </v-col>
 
 
-                                        <v-col cols="12" md="2" sm="12">
+                                        <v-col cols="12" md="2" sm="12" class="mt-n3">
                                             <p class="font-weight-bold">(46) Were you willing to take up work during the
                                                 past week or within 2 weeks?</p>
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n3">
 
                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
@@ -1376,7 +1309,7 @@
                                         </v-col>
 
 
-                                        <v-col cols="12" md="2" sm="12">
+                                        <v-col cols="12" md="2" sm="12" class="mt-n3">
                                             <p class="font-weight-bold">(47) In the past 12 months, how much total salary/
                                                 wages did you receive?</p>
                                             <v-text-field label="Give estimate value Php " required>

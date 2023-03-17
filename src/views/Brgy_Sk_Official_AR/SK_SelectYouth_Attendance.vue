@@ -3,40 +3,58 @@
 
   <div >
 <v-app>
-  
- <!--  <h2>Selected: {{displayItems}}</h2> -->
-
-<!--    <h5  v-for="person in selected" :key="person.name">{{person.name}}</h5> -->
-
-<!-- <v-row> -->
-<!-- <v-col lg="12" md="12" sm="12" >
-
-<v-text-field  height="30px"  dense  outlined>
-</v-text-field>
-<v-text-field style="margin-top: -10px;" height="30px"  dense  outlined>
-</v-text-field>
-<v-text-field style="margin-top: -10px;" height="30px"  dense  outlined>
-</v-text-field>
-</v-col> -->
-<!-- </v-row> -->
-
-
+  <SK_NavBar/>
 <v-row>
-  <v-col lg="4">
+
+
+  <v-col lg="4" sm="12">
+    <v-card v-for="items in selected_event" :key="items.id" height="200px">
+ <div class="text-center ">
+<v-alert dense dark color="blue darken-3">
+  Youth Member Details<strong> </strong>
+
+ </v-alert> 
+ </div>
+
+
+
+<p  class="font-weight-bold ml-5">Event Name: {{ items.eventname }} </p>                     
+
+ <p class="font-weight-bold ml-5 mt-n2">Event Date:  {{ items.eventdate }} </p>
+
+ <p class="ml-5">Event Details:  {{ items.eventdetails }}  </p>
+ 
+
+
+        
+
+
+
+</v-card>
+<v-card>
+<v-col cols="12" md="11"  class="ml-4 mt-n6">
+
+  <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
+                outlined rounded dense></v-text-field>
+          </v-col>
+
+
+         
   <v-data-table @click='sinag(item-key)' 
     id="mytable"
    
     v-model="selected"
     :headers="headers"
     :items="desserts"
-    :items-per-page="10"
+    :items-per-page="7"
     class="wrapper elevation-1"
     item-key="name"
-    height="590"
+    height="420"
     :hide-default-footer="true"
     :hide-default-header="true"
       tile
       :search="search"
+    
   >
 
   
@@ -52,7 +70,7 @@
 
   <template slot="item.actions" slot-scope="props" >
 
-    <v-btn color="green" dark @click="()=>sinagmembro(props.item)">
+    <v-btn class="pa-2" color="green" dark @click="()=>sinagmembro(props.item)">
       Attended
     </v-btn>
 
@@ -61,48 +79,33 @@
 
   <template v-slot:top>
 
-      <v-toolbar
-        flat
-        dark
-        class=" btn-hover color-1 elevation-1"
+  <!--   <v-alert dense dark color="blue darken-3">
+  Attendance<strong> </strong>
 
-      >
-        <v-toolbar-title >Attendance</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
           vertical
         ></v-divider>
         <v-spacer></v-spacer>
-        <v-row>
-        <v-col cols="8">
+       
+     
 
-          <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
+          <v-text-field class="mt-n2" v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
             dark></v-text-field>
 
-        </v-col>
-
-        <v-col cols="4">
-          <v-btn color="blue" class="rounded-xl">
-           
-           Submit
-
-          </v-btn>
-        </v-col>
-      </v-row>
-
-
-      </v-toolbar>
+     
+ </v-alert> -->
 
     </template>
 
   </v-data-table>
-  
+</v-card>
 
 
 </v-col>
 
-  <v-col lg="3" md="12" sm="12">
+  <v-col lg="3" md="12" sm="12" >
 
     
     <v-card height="650" class="wrapper" >
@@ -136,6 +139,7 @@
   :items="non_sinagmembers"
   :hide-default-footer="true"
   :hide-default-header="true"
+ 
   >
 
 
@@ -169,7 +173,7 @@
 </v-col>
 
 
-<v-col lg="5" md="12" sm="12">
+<v-col lg="5" md="12" sm="12" >
 
 <v-card height="650"  class="wrapper">
 
@@ -179,7 +183,7 @@
     <v-alert
           dense
    dark
-   color="blue darken-3"
+   color="green darken-2"
   >
    SINAG MEMBERS <strong> </strong>
   </v-alert>
@@ -210,15 +214,10 @@
 
   <template slot="item.remove_sinag"  slot-scope="props_remove_sinag">
 
-
-
-
-    <v-btn color="green" dark @click="()=>editItem(props_remove_sinag.item)">
+    <v-btn class="pa-2" outlined color="green" dark @click="()=>editItem(props_remove_sinag.item)">
       Input Hours
     </v-btn>
   
-    
-   
     <v-btn  text color="red" dark  @click="()=>sinagmembro_remove(props_remove_sinag.item)">
     <v-icon
     >
@@ -230,83 +229,31 @@
 
   </template>
 
- 
-
-
-
-  
-  <v-dialog>
-  <template >
-
-
-        
-        <v-card>
-        
-            <v-container>
-              <v-row>
-
-              
-
-                <v-col
-                  cols="12"
-                  sm="6"
-                  md="4"
-                >
-                  <v-text-field
-                    v-model="editedItem.name"
-                    label="name"
-                  ></v-text-field>
-                </v-col>
-
-
-
-                <v-col
-                  cols="12"
-                  sm="6"
-                  md="4"
-                >
-            
-                </v-col>
-            
-                <v-col
-                  cols="12"
-                  sm="6"
-                  md="4"
-                >
-                  <v-text-field
-                    v-model="editedItem.hours"
-                    label="hours"
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-            </v-container>
-        
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-           
-            <v-btn
-              color="blue darken-1"
-              text
-              @click="save"
-            >
-              Save
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-  
-    </template>
-  </v-dialog> 
-
-
-
-
   </v-data-table>
+
 
 
 </v-card>
 
+
+<v-col cols="12" offset="1">
+          <v-btn  dark width="300" color="blue darken-4" class="rounded-xl" >
+           
+           Submit
+
+          </v-btn>
+     
+        
+          <v-btn  dark width="300"  color="red darken-4" class="rounded-xl">
+           
+           cancel
+
+          </v-btn>
+
+          </v-col>
+  
 </v-col>
+
 
 
 
@@ -320,33 +267,52 @@
   <v-card>
   <v-container>
 
+    <v-col cols="12" sm="12" md="12" class="">
+                                  <div class="text-center ">
+                                  <v-alert dense dark color="blue darken-3">
+                                    Input Hours<strong> </strong>
 
-    <v-row>
-     
+                                     </v-alert>
+                               </div>
+                             
+                          </v-col>
+                          <v-row>
 
-      <v-col cols="8" md="11"  >
-      <v-text-field
-      v-model="editedItem.name"
-      flat solo 
-      readonly
-      label="Name">
-      </v-text-field>
+<v-col cols="10" md="3"  class="ml-4">
+<v-avatar size="50">
+<img v-bind:src="`/${editedItem.image}`" alt="">
+
+</v-avatar>
+
+</v-col>  
+
+
+<v-text-field
+class="ml-n4 mt-2"
+v-model="editedItem.name"
+flat solo 
+readonly
+label="Name">
+</v-text-field>
+
+<v-col cols="10" md="9" offset="1" class="mt-n6">
       <v-select
               v-model="editedItem.hours"
                     :items="['1 Hour', '2 Hours' , '3 Hours' , '4 Hours', '5 Hours', '6 Hours' , '7 Hours' , '8 Hours']"
-                   
+                    label="Select Hours"
                     prepend-inner-icon="mdi-clock"
                   
-                    required
-                  ></v-select>
+       ></v-select>
+      </v-col> 
 
-      </v-col>
+</v-row>
 
 
+    <v-row>
+     
+     
     
-
-    
-            <v-col offset="1" cols="5"   >
+            <v-col offset="1" cols="5" class="mt-n6"   >
            
             <v-btn @click="save"  color="blue" class="rounded-xl" >
               <v-icon left>mdi-account-check</v-icon>
@@ -356,7 +322,7 @@
           </v-col>
         
 
-            <v-col offset="" cols="4"   >
+            <v-col offset="" cols="4" class="mt-n6"  >
              
             <v-btn @click="close" color="green" class="rounded-xl">
               <v-icon left>mdi-account-check</v-icon>
@@ -372,7 +338,7 @@
 </v-card>
   </v-dialog>
 
-<SK_NavBar/>
+
 </div>
 
 
@@ -383,8 +349,7 @@
 </template>
 <script>
 
-
-import SK_NavBar from "@/views/Brgy_Sk_Official_AR/SK_NavBar.vue";
+import SK_NavBar from '@/views/Brgy_Sk_Official_AR/SK_NavBar'
 export default {
 name: 'App',
 
@@ -402,6 +367,7 @@ data () {
     dialog_for_input_hours:false,
     dialog:false,
     dialog_sample:false,
+    
    /*  selected1: [ ],
     headers1: [
       {
@@ -431,6 +397,7 @@ data () {
 
 
     selected:[], 
+   
     search: '',
     headers: [
     { text: 'Image', value: 'image',  align: 'center' },
@@ -480,7 +447,85 @@ data () {
     ],
 
       
-      
+    listevent: [
+      {
+
+              id:1,
+              eventname: 'Tagum Lighting of Christmas tree',
+              eventdate: 'December 4,2022',
+              eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+         
+          },
+          {
+            id:2,
+              eventname: 'Youth Event Basket Ball Men',
+              eventdate: 'January 4,2023',
+              eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+         
+          },
+          {
+            id:3,
+              eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
+              eventdate: 'February 8,2023',
+              eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+         
+          },
+          {
+            id:4,
+              eventname: 'Youth Event Sepak takraw',
+              eventdate: 'March 11,2022',
+              eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
+         
+          },
+          {
+            id:5,
+              eventname: 'Tagum Lighting of Christmas tree',
+              eventdate: 'December 4,2022',
+              eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+         
+          },
+          {
+            id:6,
+              eventname: 'Tagum Lighting of Christmas tree',
+              eventdate: 'December 4,2022',
+              eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+         
+          },
+          {
+            id:7,
+              eventname: 'Tagum Lighting of Christmas tree',
+              eventdate: 'December 4,2022',
+              eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+         
+          },
+
+          {
+            id:8,
+              eventname: 'Tagum Lighting of Christmas tree',
+              eventdate: 'December 4,2022',
+              eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+         
+          },
+          {
+
+            id:9,
+              eventname: 'Tagum Lighting of Christmas tree',
+              eventdate: 'December 4,2022',
+              eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+         
+          },
+          
+          {
+            id:10,
+              eventname: 'Tagum Lighting of Christmas tree',
+              eventdate: 'December 4,2022',
+              eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+         
+          },
+
+      ],
+
+      selected_event:[],
 
 
     desserts: [
@@ -532,7 +577,7 @@ data () {
        
       },
       {
-        name: 'Binjamin Roble',
+        name: 'Benjamin Roble',
         sinagmember:true,
         image: 'profilepic/Neil.jpg'
       
@@ -581,6 +626,14 @@ data () {
     ],
   }
 },
+
+created() {
+    this.selected_event.push(this.listevent.find(e => e.id == this.$route.params.id));
+
+    // console.log("selected=>", this.selected);
+    // console.log("selected=>", this.$route.params.id);
+},
+
 /* 
 methods: {
 
