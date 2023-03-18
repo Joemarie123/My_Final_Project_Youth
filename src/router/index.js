@@ -9,6 +9,8 @@ import DashboardVersion4 from '../views/DashboardVersion4.vue'
 import YouTherecord from '../views/YouTherecord.vue'
 
 /* import DisplayAllusers from '../views/DisplayAllusers'; */
+import YouthRegisterEnumerator from '../views/Youth_Enumerator/YouthRegisterEnumerator.vue'
+
 
  import LogInForm from '../views/LogInForm.vue'
  import experiment from '../views/experiment.vue'
@@ -66,6 +68,15 @@ const routes = [
     name: 'Youth_Member_PersonalProfile',
     component: Youth_Member_PersonalProfile
   }, 
+
+  {
+    path: '/YouthRegisterEnumerator',
+    name: 'YouthRegisterEnumerator',
+    component: YouthRegisterEnumerator
+  }, 
+
+  
+
 
 
   {

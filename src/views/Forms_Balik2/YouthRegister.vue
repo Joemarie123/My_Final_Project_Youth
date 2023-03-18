@@ -104,7 +104,7 @@
                                         </v-col>
 
                                         <v-col cols="12" sm="12" md="3" class="mt-n5">
-                                            <v-file-input outlined dense height="10" label="Attached ID here"  prepend-icon="mdi-camera"></v-file-input>
+                                            <v-file-input outlined dense height="10" label="Attached ID here"  append-icon="mdi-camera"></v-file-input>
                                         </v-col>
 
                                         <v-col cols="12" md="3" sm="12" class="mt-n5">
@@ -319,7 +319,7 @@
                                                         <v-col cols="12" sm="12" md="4" class="mt-n5 ml-3 mt-md-1">
 
 
-                                                            <H4>EDUCATION AND LITERACY (1)</H4>
+                                                            <H4>EDUCATION AND LITERACY</H4>
 
                                                             <p class="font-weight-bold mt-1" >Are You Currently Attending School?
                                                             </p>
@@ -616,16 +616,6 @@
                                                     <!--      EDUCATION AND LITERACY (1)  END-->
 
 
-
-
-
-
-
-
-
-
-
-
                                                 </v-row>
 
                                             </v-container>
@@ -660,9 +650,7 @@
                                 <v-container fluid>
                                     <v-row>
                                         <v-col cols="12" sm="12" md="12" class="ma-2">
-                                            <h4 class="ml-n2">
-                                                EDUCATION LITERACY (2)
-                                            </h4>
+                                           
                                         </v-col>
 
 
@@ -829,9 +817,9 @@
 
                                         <!--       GOVERNANCE POUP START -->
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-md-n4">
                                             <h4>GOVERNANCE</h4>
-                                            <p class="font-weight-bold mt-1">Are you a Registered voter?</p>
+                                            <p class="font-weight-bold mt-1 ">Are you a Registered voter?</p>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio @click="did_you_vote_in_the_last_sk_elections = true" value="yes"
                                                     label="Yes"></v-radio>
@@ -881,7 +869,7 @@
 
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="2" class="mt-n1">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n1 mt-md-1">
                                             <p class="font-weight-bold">Have you elected in any organization you are
                                                 affiliated with?</p>
                                             <v-radio-group row class="mt-n3">
@@ -893,7 +881,7 @@
 
                                         <v-col cols="12" sm="12" md="2" class="mt-1">
                                             <h4>ECONOMIC ACTIVITY (1)</h4>
-                                            <p class="font-weight-bold mt-1" >(28)Did you do any work during the past week?</p>
+                                            <p class="font-weight-bold mt-1" >Did you do any work during the past week?</p>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
                                                     @click="whats_your_class_of_worker = true, do_you_have_job_or_business_during_past_week = false"
@@ -938,8 +926,8 @@
 
 
 
-                                        <v-col cols="12" sm="12" md="2" class="mt-n3">
-                                            <p class="font-weight-bold">(29)Do you have business during the past Week?</p>
+                                        <v-col cols="12" sm="12" md="2" class="mt-n3 mt-md-1">
+                                            <p class="font-weight-bold">Do you have business during the past Week?</p>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" @click="what_is_the_sector_of_your_business = true"
                                                     label="Yes"></v-radio>
@@ -948,8 +936,8 @@
 
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="2" class="mt-n3">
-                                            <p class="font-weight-bold">(36) Did you want more hours of work during the past
+                                        <v-col cols="12" sm="12" md="2" class="mt-n3 mt-md-1">
+                                            <p class="font-weight-bold">Did you want more hours of work during the past
                                                 week?</p>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
@@ -1297,8 +1285,8 @@
                                         </v-col>
 
 
-                                        <v-col cols="12" md="2" sm="12" class="mt-n3">
-                                            <p class="font-weight-bold">(46) Were you willing to take up work during the
+                                        <v-col cols="12" md="2" sm="12" class="mt-n3 mt-md-1">
+                                            <p class="font-weight-bold">Were you willing to take up work during the
                                                 past week or within 2 weeks?</p>
                                             <v-radio-group row class="mt-n3">
 
@@ -1309,25 +1297,25 @@
                                         </v-col>
 
 
-                                        <v-col cols="12" md="2" sm="12" class="mt-n3">
-                                            <p class="font-weight-bold">(47) In the past 12 months, how much total salary/
+                                        <v-col cols="12" md="2" sm="12" class="mt-n3 mt-md-1">
+                                            <p class="font-weight-bold">In the past 12 months, how much total salary/
                                                 wages did you receive?</p>
-                                            <v-text-field label="Give estimate value Php " required>
+                                            <v-text-field outlined dense label="Give estimate value Php " required>
                                             </v-text-field>
 
                                         </v-col>
 
-                                        <v-col cols="12" md="2" sm="12">
-                                            <p class="font-weight-bold">(48) Are You A Member of GSIS?</p>
-                                            <v-radio-group row>
+                                        <v-col cols="12" md="2" sm="12" class="mt-n4 mt-md-n3">
+                                            <p class="font-weight-bold">Are You A Member of GSIS?</p>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
                                             </v-radio-group>
                                         </v-col>
 
-                                        <v-col cols="12" md="3" sm="12">
-                                            <p class="font-weight-bold">(49) Are You A Member of SSS?</p>
-                                            <v-radio-group row>
+                                        <v-col cols="12" md="3" sm="12" class="mt-n3">
+                                            <p class="font-weight-bold">Are You A Member of SSS?</p>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
                                             </v-radio-group>
@@ -1381,7 +1369,7 @@
 
                                                     <v-row>
 
-<v-col cols="10" sm="12" md="12" class=" ">
+<v-col cols="10" sm="12" md="12" >
 
     <v-btn color="green" class="pa-2  mt-n1"
         outlined dark
@@ -1434,7 +1422,7 @@
                                                         </v-col>
 
                                                         <v-col cols="10" sm="12" md="10" class="mt-n4">
-                                                            <p class="font-weight-bold">(41) What you have been doing to
+                                                            <p class="font-weight-bold">What you have been doing to
                                                                 find a work?</p>
 
                                                             <v-select
@@ -1448,7 +1436,7 @@
 
 
                                                         <v-col cols="10" sm="12" md="10" class="mt-n5">
-                                                            <p class="font-weight-bold">(42) How many weeks have you been
+                                                            <p class="font-weight-bold">How many weeks have you been
                                                                 looking for work?</p>
                                                             <v-text-field label="Write # of weeks" required
                                                                 prepend-inner-icon="mdi-calendar">
@@ -1457,7 +1445,7 @@
                                                         </v-col>
 
                                                         <v-col cols="10" md="10" sm="12" class="mt-n5">
-                                                            <p class="font-weight-bold">(45) Had opportunity for work
+                                                            <p class="font-weight-bold">Had opportunity for work
                                                                 existed last week or within two weeks, would you have been
                                                                 available? </p>
                                                             <v-radio-group row>
@@ -1708,10 +1696,10 @@
                                         <!--       GOVERNANCE POUP END -->
 
                                     </v-row>
-                                    <v-btn id="v-btn-c" color="green" @click="e1 = 3">
+                                    <v-btn class="ml-n2 mt-6" id="v-btn-c" color="green" @click="e1 = 3">
                                         Continue
                                     </v-btn>
-                                    <v-btn @click="e1 = 1" class="ma-2"> Back </v-btn>
+                                    <v-btn @click="e1 = 1" class="ml-2 mt-6"> Back </v-btn>
                                 </v-container>
                             </v-card-text>
                         </v-card>
@@ -1728,13 +1716,13 @@
                         <v-card class="mb-12" color="grey lighten-4">
                             <v-card-text>
                                 <v-container fluid>
-                                    <h4>HEALTH AND NUTRITION (1)</h4>
+                                    <h4 class="ml-n2">HEALTH AND NUTRITION</h4>
                                     <v-row>
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-1">
 
-                                            <p class="font-weight-bold">(50) Are you a member of PhilHealth?</p>
-                                            <v-radio-group row>
+                                            <p class="mt-2  font-weight-bold">Are you a member of PhilHealth?</p>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
                                                     @click="what_is_your_philhealth_membership = true, are_your_depende_of_philhealth_member = false"
                                                     label="Yes"></v-radio>
@@ -1861,11 +1849,10 @@
 
 
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n1 mt-md-n3">
 
-                                            <p class="font-weight-bold">(53) Are you a solo parent taking care of a child/
-                                                children? </p>
-                                            <v-radio-group row>
+                                            <p class="font-weight-bold">Are you a solo parent taking care of a child/children? </p>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" @click="do_you_have_solo_parent_id = true"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no" @click="do_you_have_solo_parent_id = false"
@@ -1929,11 +1916,11 @@
 
 
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n1 mt-md-n3">
 
-                                            <p class="font-weight-bold">(55) Do you have any physical or mental disability?
+                                            <p class="font-weight-bold">Do you have any physical or mental disability?
                                             </p>
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n2">
                                                 <v-radio value="yes" @click="what_type_of_disability_do_you_have = true"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
@@ -1987,7 +1974,7 @@
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n4">
 
-                                                            <p class="font-weight-bold">(57) Do you have a PWD ID?</p>
+                                                            <p class="font-weight-bold">Do you have a PWD ID?</p>
                                                             <v-radio-group row>
                                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                                 <v-radio value="no" label="No"></v-radio>
@@ -2024,9 +2011,10 @@
 
                                         <v-col cols="12" sm="12" md="2">
 
-                                            <p class="font-weight-bold">(58) What is your blood type?</p>
+                                            <p class="font-weight-bold">What is your blood type?</p>
 
                                             <v-select
+                                            outlined dense class="mt-n2 ml-n1"
                                                 :items="['O positive', 'A positive', 'B positive', 'AB positive', 'O negative', 'A negative', 'B negative', 'AB negative', 'Don’t know']"
                                                 label="Select Blood Type" prepend-inner-icon="mdi-clipboard-account"
                                                 v-model="selectbloodtype" required></v-select>
@@ -2034,16 +2022,15 @@
                                         </v-col>
 
 
-                                        <v-col cols="12" sm="12" md="3">
-                                            <p class="font-weight-bold">(59) How is your health condition?</p>
-                                            <v-text-field label="Multiple Disability, Specify"></v-text-field>
+                                        <v-col cols="12" sm="12" md="3" class="mt-n4 mt-md-n1">
+                                            <p class="font-weight-bold ">How is your health condition?</p>
+                                            <v-text-field outlined dense class="mt-n2 ml-n1 mt-md-n1" label="Multiple Disability, Specify"></v-text-field>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n5 mt-md-2">
 
-                                            <p class="font-weight-bold">(60) Are you being diagnosed with health related
-                                                issues or lifestyle diseases? </p>
-                                            <v-radio-group row>
+                                            <p class="font-weight-bold">Are you being diagnosed with health relatedissues or lifestyle diseases? </p>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
                                                     @click="what_kind_of_health_related_issues_or_lifestle_61 = true"
                                                     label="Yes"></v-radio>
@@ -2052,11 +2039,11 @@
                                             </v-radio-group>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n2 mt-md-1">
 
-                                            <p class="font-weight-bold">(62) During the past 12 months, did you avail any
+                                            <p class="font-weight-bold">During the past 12 months, did you avail any
                                                 medical treatment or medication for any treatment? </p>
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n2">
                                                 <v-radio value="yes"
                                                     @click="where_did_you_avail_medical_treatment_62_A = true, do_you_have_illness_or_any_health_related_62_B = false"
                                                     label="Yes"></v-radio>
@@ -2068,19 +2055,10 @@
                                         </v-col>
 
 
-
-
-
-
-
-
-
-
-
                                         <v-col cols="12" sm="12" md="2"
                                             v-show="do_you_have_illness_or_any_health_related_62_B">
 
-                                            <p class="font-weight-bold">(62 - B) Do you have illness or any health-related
+                                            <p class="font-weight-bold">Do you have illness or any health-related
                                                 issues of this time (upon survey time) </p>
                                             <v-radio-group row>
                                                 <v-radio value="yes" @click="what_kind_of_illness_or_health_realted_issues_63 = true
@@ -2099,7 +2077,7 @@
 
 
                                         <v-col cols="12" sm="12" md="2" v-show="do_you_smoke_or_use_tobacco">
-                                            <p class="font-weight-bold">(64) Do you smoke or use tobacco/ cigarette </p>
+                                            <p class="font-weight-bold">Do you smoke or use tobacco/ cigarette </p>
 
                                             <v-radio-group row>
                                                 <v-radio value="yes" label="Yes"></v-radio>
@@ -2111,7 +2089,7 @@
 
 
                                         <v-col cols="12" sm="12" md="2" v-show="have_you_give_birth_in_the_last_2_years_65">
-                                            <p class="font-weight-bold">(65) Have you given birth in the last two years?
+                                            <p class="font-weight-bold">Have you given birth in the last two years?
                                             </p>
                                             <v-radio-group row>
                                                 <v-radio @click="which_type_of_health_facility_did_you_visit = true,
@@ -2130,7 +2108,7 @@
 
                                         <v-col cols="12" sm="12" md="2" v-show="if_pregnant_as_of_this_time_72">
 
-                                            <p class="font-weight-bold">(72) If pregnant as of this time (of survey),
+                                            <p class="font-weight-bold">If pregnant as of this time (of survey),
                                                 specify number of months pregnant.</p>
                                             <v-select @change="functionselect_pregnant"
                                                 :items="['No Pregnant', '1 Month', '2 Months', '3 Months', '4 Months', '5 Months', '6 Months', '7 Months', '8 Months', '9 Months']"
@@ -2141,7 +2119,7 @@
 
                                         <v-col cols="12" sm="12" md="2" v-show="if_pregnant_are_you_member_philhealth_73">
 
-                                            <p class="font-weight-bold">(73)Are you a member of Philhealth or any
+                                            <p class="font-weight-bold">Are you a member of Philhealth or any
                                                 insurances, or a dependent of a primary member?</p>
                                             <v-radio-group row>
                                                 <v-radio value="yes" label="Yes"></v-radio>
@@ -2152,7 +2130,7 @@
 
                                         <v-col cols="12" sm="12" md="2" v-show="if_married_or_sexually_active_woman_73_1">
 
-                                            <p class="font-weight-bold">(73 - 1) If married or sexually active woman, have
+                                            <p class="font-weight-bold">If married or sexually active woman, have
                                                 you ever used contraceptive methods? </p>
                                             <v-radio-group row>
                                                 <v-radio value="yes" @click="what_methods_have_you_used_73_2 = true"
@@ -2166,10 +2144,10 @@
 
 
                                         <v-col cols="12" sm="12" md="2">
-                                            <h4>PEACE AND SECURITY</h4>
-                                            <p class="font-weight-bold">(74) Have you’ve been a victim of crime or violation
+                                            <h4 class="ml-n1 mt-1 ">PEACE AND SECURITY</h4>
+                                            <p class="ml-n1 mt-1 font-weight-bold">Have you’ve been a victim of crime or violation
                                                 of RA 9262 (VAWC Act) before?</p>
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" @click="what_crime_or_violation_75_76_77_78 = true"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
@@ -2179,10 +2157,10 @@
 
 
                                         <v-col cols="12" sm="12" md="2">
-                                            <h4>ACCESS TO PROGRAMS AND SERVICES</h4>
-                                            <p class="font-weight-bold">(79) During the past 12 months, did you receive or a
+                                            <h4 class="ml-n1">ACCESS TO PROGRAMS AND SERVICES</h4>
+                                            <p class="mt-1 font-weight-bold" >During the past 12 months, did you receive or a
                                                 recipient of any programs and services? </p>
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" @click="what_type_of_program_80_81 = true"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no" @click="what_type_of_program_80_81 = false"
@@ -2194,9 +2172,9 @@
 
 
                                         <v-col cols="12" sm="12" md="2">
-                                            <h4>DISASTER PREPAREDNESS (1)</h4>
-                                            <p class="font-weight-bold">(82)Do you have a disaster preparedness kit?</p>
-                                            <v-radio-group row>
+                                            <h4 >DISASTER PREPAREDNESS</h4>
+                                            <p class="mt-1 font-weight-bold">Do you have a disaster preparedness kit?</p>
+                                            <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
                                                     @click="do_you_have_following_preparedness_kit_83 = true, did_you_attend_disaster_preparedness_84 = false"
                                                     label="Yes"></v-radio>
@@ -3110,7 +3088,7 @@
 
                                                         <v-col cols="10" sm="12" md="7" class="mt-n6">
 
-                                                            <p class="font-weight-bold">(81) Who was/were the implementer/s
+                                                            <p class="font-weight-bold">Who was/were the implementer/s
                                                                 of the program/s, project/s or service/s?</p>
 
                                                             <v-checkbox-group>
@@ -3212,7 +3190,7 @@
 
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n6">
-                                                            <p class="font-weight-bold">(76) Where did the crime or violence
+                                                            <p class="font-weight-bold">Where did the crime or violence
                                                                 happen? </p>
                                                             <v-select
                                                                 :items="['Within the house/household', 'Within the relative’s/ neighbor’s household', 'Within the barangay', 'Outside the barangay but within the municipality/city', 'Outside the municipality', 'Outside the province']"
@@ -3223,7 +3201,7 @@
 
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n6">
-                                                            <p class="font-weight-bold">(77) Who was/ were the perpetrator/s
+                                                            <p class="font-weight-bold">Who was/ were the perpetrator/s
                                                                 of the crime/ violence?</p>
                                                             <v-select
                                                                 :items="['Member of the household ', 'Not member of the household but know to the household', 'Do not know']"
@@ -3233,7 +3211,7 @@
                                                         </v-col>
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n6">
-                                                            <p class="font-weight-bold">(78) what kind of assistance did you
+                                                            <p class="font-weight-bold">what kind of assistance did you
                                                                 receive? See codes below Case Assistance</p>
                                                             <v-select
                                                                 :items="['Financial Assistance', 'Case filing Assistance & provision of lawyer', 'Case Referral Assistance ', 'Psycho-social Assistance', 'Temporary Shelter Assistance']"
@@ -3704,21 +3682,16 @@
 
 
                                     </v-row>
-                                    <v-btn id="v-btn-c" color="green" @click="e1 = 4">
+                                    <v-btn class="ml-n1 mt-6"  id="v-btn-c" color="green" @click="e1 = 4">
                                         Continue
                                     </v-btn>
-                                    <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
+                                    <v-btn class="ml-2 mt-6" @click="e1 = 2"> Back </v-btn>
                                 </v-container>
                             </v-card-text>
                         </v-card>
 
 
                     </v-stepper-content>
-
-
-
-
-
 
 
 
@@ -3731,7 +3704,7 @@
                                     <v-row>
 
                                         <v-col cols="12" sm="12" md="3" class="mt-n1">
-                                            <p class="font-weight-bold">(85)During disaster and emergencies, where did you
+                                            <p class="font-weight-bold">During disaster and emergencies, where did you
                                                 get information and warning?</p>
                                             <v-checkbox-group>
                                                 <v-checkbox label="Provincial/Municipal DRRMO"></v-checkbox>
@@ -3739,13 +3712,13 @@
                                                 <v-checkbox label="Television" style="margin-top: -10px"></v-checkbox>
                                                 <v-checkbox label="Radio" style="margin-top: -10px"></v-checkbox>
                                                 <v-checkbox label="Social Media" style="margin-top: -10px"></v-checkbox>
-                                                <v-text-field label="Other, specify"></v-text-field>
+                                                <v-text-field outlined dense label="Other, specify"></v-text-field>
                                             </v-checkbox-group>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="5">
-                                            <h4>INFORMATION AND COMMUNICATION</h4>
-                                            <p class="font-weight-bold">(86)Where did you learn about the local and national
+                                        <v-col cols="12" sm="12" md="4" class="mt-n1 mt-md-1">
+                                            <h4 class="mt-n3">INFORMATION AND COMMUNICATION</h4>
+                                            <p class="mt-1 font-weight-bold">Where did you learn about the local and national
                                                 news and information?</p>
                                             <v-checkbox-group>
                                                 <v-checkbox label="Local and National Television Channel"></v-checkbox>
@@ -3758,15 +3731,15 @@
                                                     style="margin-top: -10px"></v-checkbox>
                                                 <v-checkbox label="Barangay Assembly"
                                                     style="margin-top: -10px"></v-checkbox>
-                                                <v-text-field label="Other, specify"></v-text-field>
+                                                <v-text-field outlined dense label="Other, specify"></v-text-field>
 
                                             </v-checkbox-group>
                                         </v-col>
 
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n4 mt-md-4">
                                             <p class="font-weight-bold">Do you have cellular/mobile phones?</p>
-                                            <v-radio-group row>
+                                            <v-radio-group row  class="mt-n2">
 
                                                 <v-radio value="yes" @click="what_mobile_phone_services_87 = true"
                                                     label="Yes"></v-radio>
@@ -3776,10 +3749,10 @@
                                         </v-col>
 
 
-                                        <v-col cols="12" sm="12" md="2">
+                                        <v-col cols="12" sm="12" md="2" class="mt-n2 mt-md-4">
                                             <p class="font-weight-bold">Do you have access to internet?</p>
 
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n2">
 
                                                 <v-radio value="yes" @click="what_is_your_means_intern_connection_89 = true"
                                                     label="Yes"></v-radio>
@@ -3788,9 +3761,9 @@
                                             </v-radio-group>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="3">
+                                        <v-col cols="12" sm="12" md="3" >
                                             <h4>OTHER ISSUES AND CONCERNS & NEEDS </h4>
-                                            <p class="font-weight-bold">(90)What are your personal issues, concerns, and
+                                            <p class="mt-1 font-weight-bold">What are your personal issues, concerns, and
                                                 needs?</p>
                                             <v-checkbox-group>
                                                 <v-checkbox label="Electricity"></v-checkbox>
@@ -3807,12 +3780,11 @@
 
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="3">
+                                        <v-col cols="12" sm="12" md="3" >
 
-                                            <v-checkbox-group>
-                                                <v-checkbox label="Electricity"></v-checkbox>
-                                                <v-checkbox label="Water System facility"
-                                                    style="margin-top: -10px"></v-checkbox>
+                                            <v-checkbox-group >
+                                                
+                                               
                                                 <v-checkbox label="Housing Facility/ Project"
                                                     style="margin-top: -10px"></v-checkbox>
                                                 <v-checkbox label="Livelihood Project"
@@ -3823,14 +3795,15 @@
                                                     label="Farm inputs (farm seeds, fertilizer, pesticides)"></v-checkbox>
                                                 <v-checkbox label="Access to micro credit facility"
                                                     style="margin-top: -10px"></v-checkbox>
-
+                                                    <v-checkbox label="Poor road maintenance"
+                                                    style="margin-top: -10px"></v-checkbox>
 
                                             </v-checkbox-group>
                                         </v-col>
 
                                         <v-col cols="12" sm="12" md="3">
                                             <v-checkbox-group>
-                                                <v-checkbox label="Improved access to education"></v-checkbox>
+                                                <v-checkbox  style="margin-top: -10px" label="Improved access to education"></v-checkbox>
                                                 <v-checkbox label="Improved access to health and nutrition services"
                                                     style="margin-top: -10px"></v-checkbox>
                                                 <v-checkbox
@@ -3840,27 +3813,26 @@
                                                     style="margin-top: -10px"></v-checkbox>
                                                 <v-checkbox label="Flooding/ Community drainage/ Canal"
                                                     style="margin-top: -10px"></v-checkbox>
-                                                <v-checkbox label="Poor road maintenance"
-                                                    style="margin-top: -10px"></v-checkbox>
+                                              
                                             </v-checkbox-group>
                                         </v-col>
 
                                         <v-col cols="12" sm="12" md="3">
                                             <v-checkbox-group>
 
-                                                <v-checkbox label="Access to teenage/ adolescent"></v-checkbox>
+                                                <v-checkbox  style="margin-top: -10px" label="Access to teenage/ adolescent"></v-checkbox>
                                                 <v-checkbox label="Access to educational & skills training scholarship"
                                                     style="margin-top: -10px"></v-checkbox>
-                                                <v-text-field label="Others, specify"></v-text-field>
+                                                <v-text-field  class="mt-3" outlined dense label="Others, specify"></v-text-field>
                                             </v-checkbox-group>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="3">
-                                            <h4>ACTIVE CITIZENSHIP/ RA 9418 or Volunteer Act of 2007 </h4>
-                                            <p class="font-weight-bold">(91)Are you interested to join any voluntary work?
+                                        <v-col cols="12" sm="12" md="3" class="mt-n7 mt-md-1" >
+                                            <h4 class="mt-3">ACTIVE CITIZENSHIP/ RA 9418 or Volunteer Act of 2007 </h4>
+                                            <p  class="mt-2 font-weight-bold">Are you interested to join any voluntary work?
                                             </p>
 
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n3">
 
                                                 <v-radio value="yes"
                                                     @click="where_would_you_like_volunteer_93 = true, during_what_hours_are_you_available_volunteer = true"
@@ -3871,10 +3843,10 @@
                                             </v-radio-group>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="3">
+                                        <v-col cols="12" sm="12" md="3" class="mt-n1 mt-md-4">
                                             <p class="font-weight-bold">Are you a Sinag Member</p>
 
-                                            <v-radio-group row>
+                                            <v-radio-group row class="mt-n2">
 
                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
@@ -4231,10 +4203,10 @@
                                         </v-dialog>
 
                                     </v-row>
-                                    <v-btn id="v-btn-c" color="green" @click="e1 = 16">
-                                        Continue
+                                    <v-btn class="ml-n2 mt-7" id="v-btn-c" color="green" @click="e1 = 16">
+                                        Save
                                     </v-btn>
-                                    <v-btn @click="e1 = 3" class="ma-2"> Back </v-btn>
+                                    <v-btn class="mt-7 ml-2" @click="e1 = 3"> Back </v-btn>
                                 </v-container>
                             </v-card-text>
                         </v-card>

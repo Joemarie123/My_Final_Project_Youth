@@ -62,9 +62,9 @@
 
                 <v-row>
 
-                  <v-col cols="10" sm="6" md="4" offset-lg="5" offset-md="3" offset-sm="2">
+                  <v-col cols="10" sm="6" md="4"   offset-lg="5"  offset-sm="2">
 
-                    <v-avatar size="90" class="mr-3">
+                    <v-avatar size="90" style="margin-left: 100px;" class="ml-md-n2">
                       <img v-bind:src="`/${editedItem.image}`" alt="">
                     </v-avatar>
 
@@ -73,10 +73,9 @@
                 </v-row>
 
 
-
                 <v-row>
 
-                  <v-col offset="4" cols="10" sm="12" md="5"  >
+                  <v-col offset-sm="0" offset-md="4" cols="10" sm="20" md="5"  >
 
                     <v-text-field class="ml-md-n6 centered-input"  outlined dense   v-model="editedItem.name" label="Full Name"></v-text-field>
 
@@ -84,15 +83,7 @@
                 </v-row>
 
 
-
-
-
-
                 <v-row>
-
-
-
-
 
                   <v-col cols="10" sm="6" md="4">
 
@@ -114,7 +105,7 @@
                   </v-col>
 
                   <v-col cols="10" sm="6" md="1" class="mt-n8">
-                    <v-text-field readonly v-model="editedItem.age" label="Age"></v-text-field>
+                    <v-text-field readonly class="centered-input" v-model="editedItem.age" label="Age"></v-text-field>
                   </v-col>
 
 
@@ -188,13 +179,21 @@
             </v-card>
           </v-dialog>
 
+          
+
           <v-dialog v-model="dialogDelete" max-width="500px">
             <v-card>
-              <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+              <div class="text-center ">
+              <v-alert dense dark color="blue darken-3">
+                Are you sure you want to delete this item? <strong> </strong>
+
+                </v-alert>
+              </div>
+           
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-                <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
+                <v-btn  outlined color="red "  @click="closeDelete">Cancel</v-btn>
+                <v-btn outlined color="blue "  @click="deleteItemConfirm">OK</v-btn>
                 <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>
@@ -275,14 +274,14 @@
 
 
 
-                      <v-dialog v-model="dialogDelete" max-width="500px">
+                      <v-dialog v-model="dialogDelete" max-width="450px">
                         <v-card>
-                          <v-card-title class="text-h6">Are you sure to delete this Announcement?</v-card-title>
+                          <h3 class="text-center">Are you sure to delete this?</h3>
                           <v-divider color="success"></v-divider>
                           <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn color="orange darken-1" text @click="closeDelete">Cancel</v-btn>
-                            <v-btn color="green darken-1" text @click="deleteItemConfirm">OK</v-btn>
+                            <v-btn outlined color="orange darken-1" text @click="closeDelete">Cancel</v-btn>
+                            <v-btn outlined color="green darken-1" text @click="deleteItemConfirm">OK</v-btn>
                             <v-spacer></v-spacer>
                           </v-card-actions>
                         </v-card>

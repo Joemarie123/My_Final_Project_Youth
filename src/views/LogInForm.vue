@@ -170,6 +170,14 @@ methods:{
 
       }
 
+
+      else if (this.usernamenako=="Youth-Enumerator-rodel",this.password=="112233"){
+
+this.$router.push('/YouthRegisterEnumerator'); 
+
+}
+
+
      else{
 
       this.$router.push('/DashboardVersion4'); 
