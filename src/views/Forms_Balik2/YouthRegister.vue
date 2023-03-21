@@ -104,16 +104,19 @@
                                         </v-col>
 
                                         <v-col cols="12" sm="12" md="3" class="mt-n5">
-                                            <v-file-input outlined dense height="10" label="Attached ID here"  append-icon="mdi-camera"></v-file-input>
+                                            <v-file-input outlined dense height="10" label="Attached ID here"  accept="image/x-png,image/gif,image/jpeg"></v-file-input>
                                         </v-col>
 
                                         <v-col cols="12" md="3" sm="12" class="mt-n5">
-                                            <v-text-field  outlined dense height="10" label="Birth Day" type="date" required color="green">
+                                            <v-text-field  outlined dense height="10" label="Birth Day" type="date" required color="green" v-model="birthDate" @input="calculateAge(birthDate)">
                                             </v-text-field>
                                         </v-col>
                                         <v-col cols="12" md="3" sm="12" class="mt-n5">
-                                            <v-text-field outlined dense height="10" label="Age(As of last Birth Day)" required>
+                                            <v-text-field  :value="years" readonly outlined dense height="10" label="Age(As of last Birth Day)" required >
+                                                
                                             </v-text-field>
+
+                                            <!-- <p v-if="birthDate">Your age is {{ years }} years, {{ months }} months, and {{ days }} days</p> -->
 
 
                                         </v-col>
@@ -1530,72 +1533,73 @@
                                         <v-dialog v-model="leardership_information" max-width="900px">
 
                                             <v-card>
-                                                <v-container fluid>
-
-                                                    <v-col cols="12" sm="12" md="12" class="">
-                                                        <div class="text-center ">
+                                                <div class="text-center ">
                                                             <v-alert dense dark color="blue darken-3">
                                                                 Leadership Information<strong> </strong>
 
                                                             </v-alert>
                                                         </div>
+                                                <v-container fluid>
+
+                                                    
+                             
                                                         <!--  <p class="text-center font-weight-bold" > </p> -->
-                                                    </v-col>
+                                                    
 
                                                     <div v-for="(item, index) in form" :key="item">
                                                         <v-row justify="center">
 
 
-
-
-
-                                                            <v-col cols="10" md="2">
-                                                                <v-text-field label="Organization" color="success"
-                                                                    v-model="item.organization" autofocus>
+                                                            <v-col cols="12" md="3">
+                                                                <v-text-field outlined dense label="Organization" color="success"
+                                                                     autofocus>
                                                                 </v-text-field>
                                                             </v-col>
 
-                                                            <v-col cols="10" md="2">
-                                                                <v-text-field label="Position" v-model="item.position"
+                                                            <v-col cols="12" md="2">
+                                                                <v-text-field outlined dense label="Position"
                                                                     color="success">
                                                                 </v-text-field>
                                                             </v-col>
-                                                            <v-col cols="10" md="2">
-                                                                <v-text-field v-model="item.startofterm"
-                                                                    style="margin-left: -5px;" label="Start of Term"
+                                                            <v-col cols="12" md="3">
+                                                                <v-text-field outlined dense  
+                                                                    label="Start of Term"
                                                                     type="date" required color="green">
                                                                 </v-text-field>
 
                                                             </v-col>
 
-                                                            <v-col cols="10" md="2">
-                                                                <v-text-field v-model="item.endofterm" label="End of Term"
+                                                            <v-col cols="12" md="3" >
+                                                                <v-text-field  outlined dense  label="End of Term"
                                                                     type="date" required color="green">
                                                                 </v-text-field>
                                                             </v-col>
 
 
-                                                            <v-col cols="10" md="3">
-                                                                <v-btn style="margin-left: 16px;" color="error" outlined
+                                                            <v-col cols="12" md="1" class="ml-n1">
+                                                                <v-btn  color="error" text
                                                                     @click="removerow(index)">
-                                                                    Remove
+                                                                    <v-icon
+                                                                         >
+                                                                mdi-comment-remove-outline
+                                                                 </v-icon>
                                                                 </v-btn>
-                                                                <v-btn style="margin-left: 10px;" color="warning"
-                                                                    @click="addrow(index)">
-                                                                    Add
-                                                                </v-btn>
+                                                               
                                                             </v-col>
 
 
 
                                                         </v-row>
                                                     </div>
-
+                                                     <v-btn class="ml-8 mt-3" color="warning"
+                                                     @click="addrow(index)">
+                                                      Add Item
+                                                  </v-btn>
 
                                                     
  <v-row>
 
-<v-col cols="10" sm="12" md="12" class="mt-n1 ">
+<v-col cols="10" sm="12" md="12" class="mt-8 ">
 
     <v-btn color="green" class="pa-2 ml-4 mt-n1"
         outlined dark
@@ -3860,6 +3864,7 @@
                                             <p class="font-weight-bold">During what hours are you available for volunteer
                                                 assignment?</p>
                                             <v-select
+                                            outlined dense
                                                 :items="['Weekday morning', 'Weekday afternoon', 'Weekday evening', 'Weekend morning', 'Weekend afternoon', 'Weekend evening', 'Any day will do', 'Any time will do']"
                                                 label="Select Type" prepend-inner-icon="mdi-calendar-multiple-check"
                                                 required></v-select>
@@ -3871,6 +3876,7 @@
                                             v-show="during_what_hours_are_you_available_volunteer">
                                             <p class="font-weight-bold">Reason/s for Volunteering. See codes below</p>
                                             <v-select class="mt-9"
+                                            outlined dense
                                                 :items="['To gain or improve Skills', 'To gain experience', 'To gain Friends', 'To gain employment skills', 'To share skills and talents', 'For academic credit']"
                                                 label="Select Reason" prepend-inner-icon="mdi-account-plus"
                                                 required></v-select>
@@ -4262,8 +4268,7 @@ export default {
             form,
             addrow,
             removerow,
-
-
+          
 
         };
     },
@@ -4275,6 +4280,12 @@ export default {
 
         return {
 
+            birthDate: '',
+            years: null,
+            months: null,
+            days: null,
+
+           
 
             e1: 1,
 
@@ -4476,6 +4487,27 @@ export default {
         },
     },
     methods: {
+
+        calculateAge(birthDate) {
+
+if (!birthDate) return;
+
+const currentDate = new Date();
+if (new Date(birthDate) > currentDate) {
+    this.birthDate = null
+    this.years = null;
+    this.months = null;
+    this.days = null;
+    alert('Invalid Date of Birth')
+}
+
+const diffTime = currentDate - new Date(birthDate);
+const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+this.years = Math.floor(totalDays / 365.25);
+this.months = Math.floor((totalDays % 365.25) / 30.4375);
+this.days = Math.floor((totalDays % 365.25) % 30.4375);
+
+},
 
         scrollup() {
             window.scrollTo(0, 0);
