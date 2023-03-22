@@ -2,6 +2,46 @@
     <v-app>
         
         <v-card>
+
+            <v-dialog
+      v-model="agreementdialog"
+      width="500"
+      persistent
+    >
+   
+
+      <v-card>
+        <div class="text-center ">
+<v-alert dense dark color="blue darken-3">
+Privacy Policy<strong>
+     </strong>
+
+ </v-alert>
+</div>
+
+<v-col cols="10" sm="12" md="12" class="">
+        <p>
+            I hereby declare that the details provided in this profiling and assessment are true, accurate, and valid to the best of my knowledge and belief. 
+            In submitting TCYIS, I agree that my details will be used for Tagum City Youth Information System and can be accessed by Tagum City Youth Development Officer and Sangguniang Kabataan Chairperson. 
+            I understand that my data will be held securely and will not be distributed to third parties and I have a right to change or access my information. I understand that when this information is no longer required for this purpose, my data will be properly disposed.
+        </p>
+  </v-col>
+       
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="agreementdialog = false"
+          >
+            I accept
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>    
+
             <div class="text-center mt-5">
 
                 <p class="font-weight-bold">YOUTH ASSESSMENT SURVEY QUESTIONNAIRE</p>
@@ -45,6 +85,10 @@
 
                 <v-stepper-items>
                     <!-- YOUTH IDENTIFICATION Stepper -->
+
+                    <v-form ref="formes" v-model="valid" lazy-validation>
+
+
                     <v-stepper-content step="1">
                         <v-card class="mb-12" color="grey lighten-4" id="step1">
                             <v-card-text>
@@ -54,6 +98,7 @@
 
                                         <v-col cols="12" sm="12" md="3" class="mt-4">
                                             <v-select
+                                            :rules="rules"
                                             outlined dense height="10"
                                                 :items="['Apokon', 'Bincungan', 'Busaon', 'Canocotan', 'Cuambogan', 'La Filipina', 'Liboganon', 'Madaum', 'Magdum', 'Mankilam', 'New Balamban', 'Nueva Fuerza', 'Pagsabangan', 'Pandapan', 'Magugpo Poblacion', 'San Agustin', 'San Isidro', 'San Miguel (Camp 4)', 'Visayan Village', 'Magugpo East', 'Magugpo North', 'Magugpo South', 'Magugpo West']"
                                                 label="Select Barangay" prepend-inner-icon="mdi-map-marker"
@@ -62,57 +107,57 @@
                                         </v-col>
 
                                         <v-col cols="12" sm="12" md="3" class="mt-n5 mt-md-4">
-                                            <v-text-field outlined dense height="10" label="Purok/Sitio,Street,House/Bldg.No"></v-text-field>
+                                            <v-text-field :rules="rules" outlined dense height="10" label="Purok/Sitio,Street,House/Bldg.No"></v-text-field>
                                         </v-col>
 
 
                                         <v-col cols="12" sm="12" md="3" class="mt-n5 mt-md-4">
-                                            <v-text-field  outlined dense height="10" label="Date Of Survey " type="date" required color="green">
+                                            <v-text-field  :rules="rules" outlined dense height="10" label="Date Of Survey " type="date" required color="green">
                                             </v-text-field>
                                         </v-col>
 
                                         <v-col cols="12" sm="12" md="3" class="mt-n5 mt-md-4">
-                                            <v-text-field outlined dense height="10" label="CP # of Respondent" required
+                                            <v-text-field :rules="rules" outlined dense height="10" label="CP # of Respondent" required
                                                 prepend-inner-icon="mdi-cellphone-basic">
                                             </v-text-field>
 
                                         </v-col>
                                        
-                                        <v-col cols="12" md="12" sm="12" class="mt-n4">
+                                        <v-col  cols="12" md="12" sm="12" class="mt-n4">
                                             <p class="font-weight-bold">
                                                 NAME OF RESPONDENT
                                             </p>
                                         </v-col>
 
                                         <v-col cols="12" sm="12" md="3" class="mt-n5">
-                                            <v-text-field  label="Last Name" outlined dense height="10" required prepend-inner-icon="mdi-account">
+                                            <v-text-field :rules="rules"  label="Last Name" outlined dense height="10" required prepend-inner-icon="mdi-account">
                                             </v-text-field>
 
                                         </v-col>
 
                                         <v-col cols="12" sm="6" md="3" class="mt-n5">
 
-                                            <v-text-field outlined dense height="10" label="First Name" required prepend-inner-icon="mdi-account">
+                                            <v-text-field :rules="rules" outlined dense height="10" label="First Name" required prepend-inner-icon="mdi-account">
                                             </v-text-field>
 
 
                                         </v-col>
 
                                         <v-col cols="12" sm="6" md="3" class="mt-n5">
-                                            <v-text-field outlined dense height="10" label="Middle Name" required prepend-inner-icon="mdi-account">
+                                            <v-text-field :rules="rules" outlined dense height="10" label="Middle Name" required prepend-inner-icon="mdi-account">
                                             </v-text-field>
                                         </v-col>
 
                                         <v-col cols="12" sm="12" md="3" class="mt-n5">
-                                            <v-file-input outlined dense height="10" label="Attached ID here"  accept="image/x-png,image/gif,image/jpeg"></v-file-input>
+                                            <v-file-input :rules="rules" outlined dense height="10" label="Attached ID here"  accept="image/x-png,image/gif,image/jpeg"></v-file-input>
                                         </v-col>
 
                                         <v-col cols="12" md="3" sm="12" class="mt-n5">
-                                            <v-text-field  outlined dense height="10" label="Birth Day" type="date" required color="green" v-model="birthDate" @input="calculateAge(birthDate)">
+                                            <v-text-field :rules="rules" outlined dense height="10" label="Birth Day" type="date" required color="green" v-model="birthDate" @input="calculateAge(birthDate)">
                                             </v-text-field>
                                         </v-col>
                                         <v-col cols="12" md="3" sm="12" class="mt-n5">
-                                            <v-text-field  :value="years" readonly outlined dense height="10" label="Age(As of last Birth Day)" required >
+                                            <v-text-field :rules="rules"  :value="years" readonly outlined dense height="10" label="Age(As of last Birth Day)" required >
                                                 
                                             </v-text-field>
 
@@ -123,7 +168,9 @@
 
 
                                         <v-col cols="12" md="3" sm="12" class="mt-n5">
-                                            <v-select :items="['YES', 'NO']"
+                                            <v-select
+                                            :rules="rules"
+                                            :items="['YES', 'NO']"
                                             outlined dense height="10"
                                                 label="Was the birth registered with the civil registry office?"
                                                 prepend-inner-icon="mdi-map-marker" v-model="SignupBarangay"
@@ -137,6 +184,7 @@
                                             <v-select @change="functionselect_civil_status"
                                             class="mt-n5"
                                             outlined dense height="10"
+                                            :rules="rules"
                                                 :items="['Single', 'Married', 'Widow/er', 'Divorced', 'Common-law/Live-in', 'Unknown']"
                                                 label="Marital/Civil Status" prepend-inner-icon="mdi-ring"
                                                 v-model="civil_status" required></v-select>
@@ -176,11 +224,12 @@
 
 
                                                     <v-col cols="12" sm="12" md="3" class="mt-n2">
-                                                        <p class="font-weight-bold">Gender Preference</p>
+                                                        <p class="font-weight-bold">Gender Preference (If LGBT Member)</p>
                                                         <v-select
                                                         class="mt-n2"
+                                                       
                                                         outlined dense height="10"
-                                                            :items="['Lesbian', 'Gay', 'Bisexual', 'Transgender', 'Queer', 'Intersex', 'Asexual', 'Pansexual', 'Cisgender', 'Biological Sex', 'Gender Identity', 'Sexual Identity', 'Ally', 'Heterosexual Privilege', 'Heterosexism or Heteronormativity']"
+                                                        :items="genderpreference"
                                                             prepend-inner-icon="mdi-account-switch"
                                                             v-model="gender_preferences" required></v-select>
 
@@ -188,21 +237,26 @@
 
                                                     <v-col cols="12" sm="12" md="3" class="mt-n7 mt-md-n2">
                                                         <p class="font-weight-bold">Ethnicity/ tribe: See codes below</p>
-                                                        <v-select
+                                                      <!--   <v-select
                                                         class="mt-n2"
                                                         outlined dense height="10"
                                                             :items="['Bisaya/ Binisaya', 'Boholano', 'Cagan/ Kagan', 'Cebuano', 'Davawenyo', 'Dibabawon', 'Hiligaynon/ Ilongo', 'Mandaya', 'Manguangan', 'Manobo', 'Mansaka', 'Tagalog', 'Bilaan', 'Kamayo', 'Molbog', 'Kolibugan', 'Yakan', 'Tausug', 'Matigsalug']"
                                                             prepend-inner-icon="mdi-account-convert" v-model="Barangay"
-                                                            required></v-select>
+                                                            required></v-select> -->
+
+                                                            <v-select class="mt-n2" :rules="rules" :items="ethnicity" label="Ethnic Group" required outlined dense color="success"
+                                                            >
+                                                                   </v-select>
 
                                                     </v-col>
 
                                                     <v-col cols="12" sm="12" md="3" class="mt-n7 mt-md-n2">
                                                         <p class="font-weight-bold">Religious Affiliation</p>
                                                         <v-select
+                                                        :rules="rules"
                                                         class="mt-n2"
                                                         outlined dense height="10"
-                                                            :items="['Roman Catholic', 'Iglesia Ni Cristo', 'Evangelical', 'Islam', 'Seventh Day Adventist', 'Church of Christ', 'United Church of Christ in the Philippines', 'Dating Daan']"
+                                                            :items="religious_affiliation"
                                                             prepend-inner-icon="mdi-church" v-model="Barangay"
                                                             required></v-select>
 
@@ -631,7 +685,7 @@
                                 </v-container>
 
                             </v-card-text>
-                            <v-btn id="v-btn-c" color="green" @click="e1 = 2">
+                            <v-btn id="v-btn-c" color="green" @click="validate">
                                 Continue
                             </v-btn>
 
@@ -883,7 +937,7 @@
                                         </v-col>
 
                                         <v-col cols="12" sm="12" md="2" class="mt-1">
-                                            <h4>ECONOMIC ACTIVITY (1)</h4>
+                                            <h4>ECONOMIC ACTIVITY</h4>
                                             <p class="font-weight-bold mt-1" >Did you do any work during the past week?</p>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
@@ -951,9 +1005,6 @@
                                                     label="No"></v-radio>
                                             </v-radio-group>
                                         </v-col>
-
-
-
 
 
                                         <v-dialog v-model="what_is_the_sector_of_your_business" max-width="470px">
@@ -4218,6 +4269,7 @@
                         </v-card>
 
                     </v-stepper-content>
+  </v-form>
 
                 </v-stepper-items>
             </v-stepper>
@@ -4275,8 +4327,7 @@ export default {
 
     data() {
 
-
-
+      
 
         return {
 
@@ -4285,11 +4336,175 @@ export default {
             months: null,
             days: null,
 
+            rules: [
+        v => !!v || 'Required',
+      ],
+
            
 
             e1: 1,
 
             /*  Codes FOR 61 What kind of health Related */
+            ethnicity: [
+"Abelling",
+"Abiyan",    
+"Aburlin",    
+"Aeta/Ayta",    
+"Aggay",    
+"Agta-Agutaynon/Agutayanon",
+"Akeanon/Aklanon",    
+"Alangan",    
+"Apayao/Yapayao-Applai",    
+"Atta/Ata/Ati",    
+"Ayangan",    
+"Bagobo/Guinga",    
+"Balangao/Baliwon-Bantoanon",    
+"Banwaon",    
+"Batak/Binatak-Batangan",
+"Bikol/Bicol",    
+"Bilaan/B'laan",
+"Binukid/Bukidnon",
+"Bisaya/Binisaya",    
+"Boholano",    
+"Bolinao",    
+"Bugkalot",    
+"Bontok/Binontok",    
+"Buhid",    
+"Butuanon",    
+"Caviteño",    
+"Caviteño-Chavacano",    
+"Cebuano",    
+"Cimaron–Cotabateño", 
+"Cotabateño-Chavacano",    
+"Cuyunon/Cuyunan",    
+"Davao-Chavacano",    
+"Davaweño",    
+"Dibabawon",    
+"Dumagat/Dumagat",    
+"Gaddang-Gubatnon",    
+"Hamtikanon-Higaonon",    
+"Hiligaynon Ilonggo",    
+"Ibaloi/Inibaloi",   
+"Ibanag",    
+"Ibontoc",    
+"Ifugao",    
+"Ikalahan/Kalanguya",    
+"Ilanun/Ilanuan",    
+"Ilocano",    
+"Ilongot",    
+"Iranon",    
+"Isamal Kanlaw",    
+"Isarog",    
+"Isnag",    
+"Itawis-Itneg-Iyiwaks",    
+"Jawa Mapun",    
+"Kaagan",    
+"Kabihug",    
+"Kagayanen",    
+"Kalagan",    
+"Kalamianen",    
+"Kalinga-Kamayo",    
+"Kamigin/Kinamiging",    
+"Kankanai/Kankaney/Kankanaey",    
+"Kapampangan",    
+"Kapul",    
+"Karaga",    
+"Karao",    
+"Karay-a",    
+"Kiniray-a",    
+"Maguindanao",    
+"Malaueg",    
+"Mamanwa",    
+"Mandaya",    
+"Mangyan",    
+"Manobo/Ata-Manobo",    
+"Mansaka",    
+"Maranao",    
+"Masbateño/Masbatenon",
+"Palawan/Pinalawan/Palawanon",
+"Pangasinan/Panggalato",  
+"Romblon/Rombloanon",    
+"Sama/Abaknon",    
+"Sama Dilaya",    
+"Sambal Zambal",    
+"Sangil Sangir-Subanen",
+"Surigaonon",    
+"Tabangnon",    
+"Tagabawa",    
+"Tagalog",    
+"Tagbanwa",    
+"Tagbuaonon",    
+"Tausug T'boli-Ternateño-Chavacano",
+"Tigwahon/Tigwahanon-Tiruray",    
+"Waray",    
+"Zamboangeño-Chavacano",
+           ],
+
+
+genderpreference:[
+"Agender", 
+"Androgynous", 
+"Aromantic", 
+"Asexual", 
+"Bigender", 
+"Biromantic", 
+"Bisexual", 
+"Cisgender", 
+"Demisexual",
+"Femme", 
+"Gay",
+"Gender Nonconforming",
+"Genderfluid", 
+"Genderflux", 
+"Genderqueer", 
+"Heterosexual", 
+"Homosexual",
+"Intersex",
+"Lesbian", 
+"Masc", 
+"Non-binary", 
+"Omnigender", 
+"Pangender", 
+"Pansexual", 
+"Queer",
+"Same-Gender Loving",
+"Third Gender",
+"Transgender",
+"Transsexual",
+"Two-Spirit",
+
+
+            ],
+
+
+           religious_affiliation:[
+
+  "Aglipayan",    
+"Association of Baptist Churches in Luzon, Visayas and Mindanao",    
+"Association of Fundamental Baptist Church in the Philippines",    
+"Bible Baptist",    
+"Buddhist",    
+"Church of Jesus Christ of the Latter Day Saints",
+"Convention of the Philippine Baptist Church",
+"Evangelicals",    
+"Iglesia Evangelista Methodista en Las Filipinas",
+"Iglesia ni Cristo",    
+"International Baptist Missionary Fellowship",
+"Islam",    
+"Jehovah's Witnesses",    
+"Lutheran Church in the Philippines",    
+"Missionary Baptist Churches of the Philippines",
+"Philippine Benevolent Missionaries Association",
+"Philippine Episcopal Church",    
+"Roman Catholic",    
+"Salvation Army Philippines",    
+"Seventh Day Adventist",    
+"Southern Baptist",    
+"United Church of Christ in the Philippines",
+"United Methodist Church",
+           ],
+
+
             items61: [
                 'Cardiovascular Diseases',
                 'Obesity & Type 2 Diseases ',
@@ -4337,6 +4552,8 @@ export default {
 
             ],
             /*  END */
+
+            agreementdialog:true,
 
             what_is_the_sector_of_your_business: false,
             leardership_information: false,
@@ -4488,6 +4705,27 @@ export default {
     },
     methods: {
 
+        validate() {
+        
+        this.$refs.formes.validate()
+        let v = this.$refs.formes.validate()
+        /* eslint-disable no-console */
+        console.log(v)
+
+        if (v) {
+          this.e1 = this.e1 + 1
+        }
+  
+        // if(validate = false){
+        //   this.e1 = this.e1
+        // }
+        // else {
+        //   this.e1 = this.e1 + 1
+        // }
+  
+      },
+
+
         calculateAge(birthDate) {
 
 if (!birthDate) return;
@@ -4564,6 +4802,7 @@ this.days = Math.floor((totalDays % 365.25) % 30.4375);
 
         },
 
+        
 
 
         funtionselection_code_66() {
