@@ -8,7 +8,8 @@
           <v-row>
           
             <v-col cols="12" sm="4" md="4" >
-               <v-card class="btn-hover color-1 mx-2 rounded-xl  draw-border" 
+               <v-card  class="btn-hover color-1 mx-2 rounded-xl  draw-border " 
+               :height="height123"
                tile
                elevation="16"> 
                 <v-row>
@@ -277,11 +278,11 @@
     import Navbar from '../components/Navbar'
     import ChartComponent from '../components/ChartComponent'
   
-
-    
-  
     export default {
       name: 'Home',
+            
+ 
+    
    data () {
         return {
           width: 2,
@@ -315,29 +316,32 @@
             },
           ],
 
-        
-
-
-
         }
+        
+     
+
       },
+
+
+
       components: {
         Navbar,
         ChartComponent,
         DataTable1,
       },
 
+      
       methods:{
 
         ClickTransferData_Female(){
 
     /*   this.$router.push({name: "FilterDashBoard", params: {mganame: id}});  */
 
-
         }
 
+      },
 
-      }
+      
 
 
 
@@ -433,6 +437,7 @@ color:white;
   /*  background-image: linear-gradient(to right, #186f94, #0e7e48,  #0c8a4d,  #078045);
    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644); */
 }
+
 
   </style>
   
