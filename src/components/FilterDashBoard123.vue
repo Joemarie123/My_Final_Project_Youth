@@ -15,6 +15,14 @@
       </template>
       
 
+      <template v-slot:[`item.barangay`]="{ item }">
+
+        {{item.barangay}} , {{ item.purok }}
+
+      </template>
+
+
+
 
       <template v-slot:top>
         <v-toolbar flat dark class=" btn-hover color-1 elevation-1">
@@ -25,7 +33,7 @@
           <v-spacer></v-spacer>
 
 
-          <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
+          <v-text-field v-model="search" outlined dense  rounded append-icon="mdi-magnify" label="Search" single-line hide-details
             dark></v-text-field>
 
 
@@ -104,6 +112,11 @@
                   <v-col cols="10" sm="6" md="3" class="mt-n6">
                     <v-text-field outlined dense label="Birth Day"  v-model="editedItem.birthday" type="date" required   ></v-text-field>
                   </v-col>
+
+              
+
+
+
 
                   <v-col cols="10" sm="6" md="1" class="mt-n8">
                     <v-text-field readonly class="centered-input" v-model="editedItem.age" label="Age"></v-text-field>
@@ -825,7 +838,8 @@ export default {
           email: 'amrstrong224@gmail.com',
           mobilenum: '09518110301',
           age: '30',
-          barangay: 'Pagsabangan - Purok 3',
+          barangay: 'Pagsabangan',
+          purok: 'Purok 2-A',
 
           civil_status: 'Single',
           educational_level: 'BSIT Graduated',

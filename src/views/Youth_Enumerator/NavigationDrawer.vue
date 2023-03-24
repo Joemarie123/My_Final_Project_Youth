@@ -20,14 +20,7 @@
     </v-col>
 
 
- <v-col cols="10" md="2" sm="12" class="ml-5"  >
-   
-      <v-btn block outlined color="blue" @click="$router.push({ name: 'Youth_Enum_Attendance' })">
-        <span>Attendance</span>
-       
-      </v-btn>
-      
-    </v-col>
+
 
     <v-col cols="10" md="2" sm="12" class="ml-5" dense width="300"  >
    

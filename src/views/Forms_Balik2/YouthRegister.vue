@@ -223,19 +223,122 @@ Privacy Policy<strong>
 
 
 
-                                                    <v-col cols="12" sm="12" md="3" class="mt-n2">
-                                                        <p class="font-weight-bold">Gender Preference (If LGBT Member)</p>
-                                                        <v-select
-                                                        class="mt-n2"
-                                                       
-                                                        outlined dense height="10"
-                                                        :items="genderpreference"
-                                                            prepend-inner-icon="mdi-account-switch"
-                                                            v-model="gender_preferences" required></v-select>
+<v-col cols="12" sm="12" md="3" class="mt-n2 mt-md-2">
+<p class="font-weight-bold">Are You A Member of LGBTQ+</p>
 
-                                                    </v-col>
+ <v-radio-group row class="mt-n4">
 
-                                                    <v-col cols="12" sm="12" md="3" class="mt-n7 mt-md-n2">
+<v-radio value="Yes" @click="genderpreferencelgbt = true" label="Yes"></v-radio>
+<v-radio value="No"  @change="cleargenderpreference" label="No"></v-radio>
+</v-radio-group>
+
+
+</v-col>
+
+<v-dialog v-model="genderpreferencelgbt" max-width="550px">
+<v-card>
+    
+ <v-container>
+    
+    <div class="text-center ">
+<v-alert dense dark color="blue darken-3">
+Gender Preference<strong>
+     </strong>
+
+ </v-alert>
+</div>
+
+<v-row>
+
+    <v-col cols="12" sm="12" md="12"   >
+
+        <div id="app">
+
+ <v-radio-group row v-model="genderpreferencedawkuno">
+
+
+    <v-col cols="12" sm="12" md="3"  class="ml-3" >
+
+<v-radio value="Agender"  label="Agender"></v-radio>
+<v-radio value="Androgynous"  label="Androgynous"></v-radio>
+<v-radio value="Aromantic"  label="Aromantic"></v-radio>
+<v-radio value="Asexual"  label="Asexual"></v-radio>
+<v-radio value="Bigender"  label="Bigender"></v-radio>
+<v-radio value="Biromantic"  label="Biromantic"></v-radio>
+<v-radio value="Bisexual"  label="Bisexual"></v-radio>
+<v-radio value="Cisgender"  label="Cisgender"></v-radio>
+<v-radio value="Demisexual"  label="Demisexual"></v-radio>
+<v-radio value="Femme"  label="Femme"></v-radio>
+
+</v-col>
+
+
+<v-col cols="12" sm="12" md="4"  class="ml-3" >
+
+<v-radio value="Gay"  label="Gay"></v-radio>
+<v-radio value="Gender Nonconforming"  label="Gender Nonconforming"></v-radio>
+<v-radio value="Genderfluid"  label="Genderfluid"></v-radio>
+<v-radio value="Genderflux"  label="Genderflux"></v-radio>
+<v-radio value="Genderqueer"  label="Genderqueer"></v-radio>
+<v-radio value="Heterosexual"  label="Heterosexual"></v-radio>
+<v-radio value="Homosexual"  label="Homosexual"></v-radio>
+<v-radio value="Intersex"  label="Intersex"></v-radio>
+<v-radio value="Lesbian"  label="Lesbian"></v-radio>
+<v-radio value="Masc"  label="Masc"></v-radio>
+
+</v-col>
+
+<v-col cols="12" sm="12" md="4"  class="ml-3" >
+
+<v-radio value="Non-binary"  label="Non-binary"></v-radio>
+<v-radio value="Omnigender"  label="Omnigender"></v-radio>
+<v-radio value="Pangender"  label="Pangender"></v-radio>
+<v-radio value="Pansexual"  label="Pansexual"></v-radio>
+<v-radio value="Queer"  label="Queer"></v-radio>
+<v-radio value="Same-Gender Loving"  label="Same-Gender Loving"></v-radio>
+<v-radio value="Third Gender"  label="Third Gender"></v-radio>
+<v-radio value="Transgender"  label="Transgender"></v-radio>
+<v-radio value="Transsexual"  label="Transsexual"></v-radio>
+<v-radio value="Two-Spirit"  label="Two-Spirit"></v-radio>
+
+</v-col>
+
+
+</v-radio-group>
+
+</div>
+
+</v-col>
+
+
+</v-row>
+
+
+<v-row>
+
+<v-col cols="12" sm="12" md="12" class="mt-7 ">
+
+    <v-btn color="green" class="pa-2 ml-4 mt-n4"
+        outlined dark
+        @click="genderpreferencelgbt = false">
+        Continue
+    </v-btn>
+
+    <v-btn color="red" class="pa-2 ml-2 mt-n4" outlined
+        dark @click="genderpreferencelgbt = false">
+        Close
+    </v-btn>
+</v-col>
+
+</v-row>
+
+
+</v-container>
+ </v-card>
+ </v-dialog>
+
+
+                                                    <v-col cols="12" sm="12" md="3" class="mt-n3 mt-md-n2">
                                                         <p class="font-weight-bold">Ethnicity/ tribe: See codes below</p>
                                                       <!--   <v-select
                                                         class="mt-n2"
@@ -268,7 +371,7 @@ Privacy Policy<strong>
                                                             <v-radio @click="country_destination = true" value="yes"
                                                                 label="Yes"></v-radio>
 
-                                                            <v-radio @click="country_destination = false" value="no"
+                                                            <v-radio @click="country_destination = false, cleargenderpreference" value="no"
                                                                 label="No"></v-radio>
 
                                                         </v-radio-group>
@@ -294,11 +397,14 @@ Privacy Policy<strong>
 
                                                                     </v-col>
 
+                                                                    <div id="apscreate">
 
                                                                     <v-col cols="12" sm="12" md="4" class="mx-5"
                                                                         style="margin-top: -30px">
 
-                                                                        <v-checkbox-group>
+                                                                            
+
+                                                                        <v-checkbox-group v-model="countrydestination_clear">
 
                                                                             <v-checkbox label="Australia"></v-checkbox>
                                                                             <v-checkbox label="Canada"
@@ -332,6 +438,7 @@ Privacy Policy<strong>
                                                                         </v-checkbox-group>
                                                                     </v-col>
 
+                                                                         </div>
 
                                                                     <v-col cols="10" sm="10" md="10"
                                                                         style="margin-left: 20px; margin-top: -25px;">
@@ -4286,6 +4393,8 @@ import { reactive } from "vue";
 
 export default {
 
+
+
     components: {
 
     },
@@ -4554,6 +4663,7 @@ genderpreference:[
             /*  END */
 
             agreementdialog:true,
+            genderpreferencelgbt:false,
 
             what_is_the_sector_of_your_business: false,
             leardership_information: false,
@@ -4703,7 +4813,17 @@ genderpreference:[
             val && setTimeout(() => (this.activePicker = "YEAR"));
         },
     },
-    methods: {
+               methods: {
+
+            cleargenderpreference() {
+            this.genderpreferencedawkuno = null
+            this.countrydestination_clear = null   
+            },
+
+
+                    
+
+
 
         validate() {
         

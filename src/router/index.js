@@ -11,8 +11,7 @@ import YouTherecord from '../views/YouTherecord.vue'
 /* import DisplayAllusers from '../views/DisplayAllusers'; */
 import YouthRegisterEnumerator from '../views/Youth_Enumerator/YouthRegisterEnumerator.vue'
 
-import Youth_Enum_Attendance from '../views/Youth_Enumerator/Youth_Enum_Attendance.vue'
-import Youth_Enum_Eventlist from '../views/Youth_Enumerator/Youth_Enum_Eventlist.vue'
+
 
  import LogInForm from '../views/LogInForm.vue'
  import experiment from '../views/experiment.vue'
@@ -78,21 +77,6 @@ const routes = [
   }, 
 
   
-  {
-    path: '/Youth_Enum_Attendance',
-    name: 'Youth_Enum_Attendance',
-    component: Youth_Enum_Attendance
-  }, 
-
-  
-  {
-    path: '/Youth_Enum_Eventlist',
-    name: 'Youth_Enum_Eventlist',
-    component: Youth_Enum_Eventlist
-  }, 
-
-  
-
 
   {
     path: '/DatatableAttendance',

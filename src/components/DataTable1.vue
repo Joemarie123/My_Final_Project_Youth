@@ -14,9 +14,16 @@
     
   <template v-slot:item.image="{ item }">
 
+    
+
+
 <v-avatar size="50">
          <img v-bind:src="`/${item.image}`" alt="">
  </v-avatar>
+
+
+
+
 
 </template>
 
