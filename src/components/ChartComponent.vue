@@ -2,7 +2,7 @@
   <div >
    
     <apexcharts 
-    height="310" :options="chartOptions" 
+    height="340" :options="chartOptions" 
     :series="series"></apexcharts>
   </div>
 </template>
@@ -62,7 +62,7 @@ import VueApexCharts from 'vue-apexcharts'
           
         
           xaxis: {
-              categories: [2023, 2020, 2018, 2015, 2012, 2009,2006],
+              categories: [2023, 2020, 2018, 2015, 2012, 2009],
              
           },
           
@@ -78,16 +78,16 @@ import VueApexCharts from 'vue-apexcharts'
 
         series: [{
           name: 'Out Of School Youth',
-          data: [44, 55, 41, 37, 35 ,38,45]
+          data: [44, 55, 41, 37, 35 ,38]
         }, {
           name: 'College',
-          data: [53, 32, 33, 52, 45 ,39,33 ]
+          data: [53, 32, 33, 52, 45 ,39 ]
         }, {
           name: 'High School',
-          data: [12, 17, 11, 19, 18 ,45,38 ]
+          data: [12, 17, 11, 19, 18 ,45 ]
         }, {
           name: 'Senior High',
-          data: [19, 17, 15, 18,16 ,19 ,19]
+          data: [19, 17, 15, 18,16 ,19 ]
         },],
 
       }

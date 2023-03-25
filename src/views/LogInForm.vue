@@ -37,14 +37,14 @@
 
           <v-text-field
           
-            class="custom-label-color"
+           
             label="User Name"
-            color="white"
+           
             type="sample"
               v-model="usernamenako"
 
 
-            prepend-icon="mdi mdi-account mdi-light"
+            prepend-icon="mdi mdi-account"
                
 
           ></v-text-field>
@@ -57,14 +57,14 @@
           v-model="password"
         
           
-             class="custom-label-color"
+         
             label="Password"
-            color="white"
+           
             type="password"
             
           
 
-            prepend-icon="mdi-key mdi-light"
+            prepend-icon="mdi-key"
                      counter
 
                      :rules="passwordRules"
@@ -197,7 +197,7 @@ this.$router.push('/YouthRegisterEnumerator');
 
 
 <style>
-input[type="sample"]
+/* input[type="sample"]
 {
   border: none;
   border-bottom: 1px solid rgb(255, 255, 255);
@@ -219,22 +219,24 @@ input[type="password"]
   width: 100%;
   color: rgb(255, 255, 255);
 
-}
+} */
 
-.custom-placeholer-color input::placeholder {
+/* .custom-placeholer-color input::placeholder {
 color: rgb(255, 255, 255)!important;
 opacity: 1;
-}
-.custom-label-color .v-label {
+} */
+
+/* .custom-label-color .v-label {
 color: rgb(255, 255, 255);
 opacity: 1;
-}
+} */
 
-.custom-placeholer-color input,
+/* .custom-placeholer-color input,
 .custom-label-color input{
 color: rgb(255, 255, 255)!important;
-}
+} */
 </style>
+
 
 <style scoped>
 
@@ -248,10 +250,10 @@ color: rgb(255, 255, 255)!important;
 
 
 h1 {
-  color: rgb(63, 248, 7);
--webkit-text-fill-color: rgb(4, 245, 85); /* Will override color (regardless of order) */
+  color: rgb(55, 185, 16);
+-webkit-text-fill-color: rgb(42, 201, 95); /* Will override color (regardless of order) */
 -webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: rgb(255, 255, 255);
+-webkit-text-stroke-color: rgb(0, 0, 0)
 }
 
 .wrapper{
@@ -261,7 +263,7 @@ h1 {
   top: 50%;
   width: 400px;
   transform: translate(-50%,-50%);
-  background: rgba(0, 0, 0, 0.623);
+  background: rgba(247, 246, 246, 0.822);
 
   
   border-radius: 20px;

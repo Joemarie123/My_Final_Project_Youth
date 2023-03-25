@@ -6,7 +6,10 @@
 
       <template v-slot:[`item.name`]="{ item }">
 
-        <v-avatar size="40" class="mr-3">
+        
+          <img  width="13" v-bind:src="`/${item.sinagmark}`" >
+       
+        <v-avatar size="40" class="ml-1">
           <img v-bind:src="`/${item.image}`" alt="">
         </v-avatar>
 
@@ -35,8 +38,6 @@
 
           <v-text-field v-model="search" outlined dense  rounded append-icon="mdi-magnify" label="Search" single-line hide-details
             dark></v-text-field>
-
-
 
 
           <v-dialog v-model="dialog" max-width="700px" tile>
@@ -114,10 +115,6 @@
                   </v-col>
 
               
-
-
-
-
                   <v-col cols="10" sm="6" md="1" class="mt-n8">
                     <v-text-field readonly class="centered-input" v-model="editedItem.age" label="Age"></v-text-field>
                   </v-col>
@@ -164,10 +161,6 @@
                     label="Civil Status"></v-select>
                   </v-col>
 
-
-
-
-
                 </v-row>
 
                 <v-row>
@@ -175,7 +168,7 @@
                   <v-col cols="10" sm="12" md="12" class="mt-n5">
 
                     <v-btn color="green" class="pa-2" outlined dark @click="dialog = false">
-                      Continue
+                      Update
                     </v-btn>
 
                     <v-btn color="red" class="pa-2 ml-2" outlined dark @click="dialog = false">
@@ -342,13 +335,13 @@
                   PERSONAL INFORMATION <strong> </strong>
 
                 </v-alert>
-                <v-col cols="10" lg="1" style="margin-top: -63px; margin-left: 570px;">
+               <!--  <v-col cols="10" lg="1" style="margin-top: -63px; margin-left: 570px;">
                   <v-btn text color="red" dark @click="dialog_viewProfile = false">
                     <v-icon>
                       mdi-comment-remove-outline
                     </v-icon>
                   </v-btn>
-                </v-col>
+                </v-col> -->
 
               </div>
 
@@ -535,6 +528,24 @@
                 </v-col>
               </v-row>
 
+              <v-row>
+
+<v-col cols="12" sm="12" md="12" class="mt-n12" >
+
+    <v-btn color="green" class="pa-2 ml-4 mt-n8"
+        outlined dark
+        @click="dialog = true, dialog_viewProfile=false">
+        EDIT PROFILE
+    </v-btn>
+
+    <v-btn color="red" class="pa-2 ml-2 mt-n8" outlined
+        dark @click="dialog_viewProfile = false">
+        Close
+    </v-btn>
+</v-col>
+
+</v-row>
+
             </v-container>
 
 
@@ -553,9 +564,9 @@
       <template v-slot:item.actions="{ item }">
 
 
-        <v-icon small class="ml-n5 " @click="editItem(item)">
+        <!-- <v-icon small class="ml-n5 " @click="editItem(item)">
           mdi-pencil
-        </v-icon>
+        </v-icon> -->
 
         <v-icon small class="ml-1 ma-2" @click="deleteItem(item)">
           mdi-delete
@@ -722,13 +733,13 @@ export default {
           ethnicity: 'Bisaya',
           datesurvey: 'February 4,2022',
           voters: 'Yes',
-
+          sinagmark:  'torch.png',
 
 
           eventname: 'Tagum Lighting of Christmas tree',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          sinag: 'Non-Sinag Member',
+          sinag: 'Sinag Member',
 
           disability: "Mental/Intellectual"
 
@@ -745,7 +756,7 @@ export default {
           barangay: 'Liboganon',
           purok: 'Purok 3-D',
 
-
+          sinagmark:  'torch.png',
           sinag: 'Sinag Member',
 
           civil_status: 'Married',
@@ -778,7 +789,7 @@ export default {
           purok: 'Purok 3-D',
 
           sinag: 'Sinag Member',
-
+          sinagmark:  'torch.png',
 
 
           civil_status: 'Married',
@@ -800,7 +811,7 @@ export default {
         {
 
           sinag: 'Sinag Member',
-
+          sinagmark:  'torch.png',
 
           image: 'profilepic/reyalcala.png',
           name: 'Rey Alcala Reynaldo',
@@ -849,7 +860,7 @@ export default {
           voters: 'Yes',
 
           sinag: 'Non-Sinag Member',
-
+          sinagmark:  'torchblank.png',
 
           eventname: 'Tagum Youth Dota 2 Tournament',
           eventdate: 'December 4,2022',
@@ -879,7 +890,7 @@ export default {
           voters: 'Yes',
 
           sinag: 'Sinag Member',
-
+          sinagmark:  'torch.png',
 
           eventname: 'Tagum Youth Mobile Legends Tournament',
           eventdate: 'December 4,2022',
@@ -908,7 +919,7 @@ export default {
           voters: 'Yes',
 
           sinag: 'Sinag Member',
-
+          sinagmark:  'torch.png',
 
           eventname: 'Tagum Youth Soccer Tournament',
           eventdate: 'December 4,2022',
@@ -940,7 +951,7 @@ export default {
           voters: 'Yes',
 
           sinag: 'Non-Sinag Member',
-
+          sinagmark:  'torchblank.png',
 
           eventname: 'Tagum Sayawan nang Kabatan-onan',
           eventdate: 'December 4,2022',
@@ -970,7 +981,7 @@ export default {
           voters: 'Yes',
 
           sinag: 'Non-Sinag Member',
-
+          sinagmark:  'torchblank.png',
 
           eventname: 'Tagum Youth Golf Event ',
           eventdate: 'December 4,2022',
@@ -1001,7 +1012,7 @@ export default {
           voters: 'Yes',
 
           sinag: 'Non-Sinag Member',
-
+          sinagmark:  'torchblank.png',
 
           eventname: 'Tagum Lighting of Christmas tree',
           eventdate: 'December 4,2022',
@@ -1078,10 +1089,19 @@ export default {
 
 
   mounted() {
+
+
     if (this.msg == "ALL YOUTH MALE") {
       this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
+    else if (this.msg == "ALL YOUTH SINAG") {
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+    }
+
+    else if (this.msg == "ALL YOUTH NON-SINAG") {
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+    }
 
     else if (this.msg == "ALL YOUTH undefined") {
       this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });

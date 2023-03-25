@@ -23,30 +23,18 @@
 
   <v-radio-group>
       <h3>Gender</h3>
-     <v-radio  value="clear" label="Clear Checkbox" @click="clearbai"></v-radio>
+     <v-radio  value="clear" label="Clear Checkbox" @change="clearbai"></v-radio>
      <v-radio  value="ss" label="Clear "></v-radio>
   </v-radio-group>
 
 
-<div>
-  <v-checkbox-group v-model="selectedItem">
-
-<v-checkbox label="Australia"></v-checkbox>
-<v-checkbox label="Canada"
-    style="margin-top: -10px"></v-checkbox>
-<v-checkbox label="Hongkong"
-    style="margin-top: -10px"></v-checkbox>
-<v-checkbox label="Indonesia"
-    style="margin-top: -10px"></v-checkbox>
-<v-checkbox label="Japan"
-    style="margin-top: -10px"></v-checkbox>
-<v-checkbox label="Korea"
-    style="margin-top: -10px"></v-checkbox>
-<v-checkbox label="Malaysia"
-    style="margin-top: -10px"></v-checkbox>
-</v-checkbox-group>
+<div  >
+  <v-radio-group v-model="selectedItem"  >
+      <h3>Clear Data</h3>
+     <v-radio value="Data1"  label="Data1"></v-radio>
+    <v-radio value="Data2" label="Data2"></v-radio>
+    </v-radio-group>
 </div>
-
 
 
 
@@ -93,7 +81,7 @@ export default {
                     this.selectedItem = null
                 },
  */
- clearbai(){
+               clearbai(){
 
                   this.selectedItem = null
 

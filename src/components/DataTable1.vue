@@ -4,14 +4,19 @@
          
     :headers="headers"
     :items="desserts"
-    :items-per-page="5"
+    :items-per-page="6"
     dark
+    height="360"
     class="btn-hover color-1"
      tile    
      :hide-default-header="true"
+     :footer-props="{
+        'items-per-page-options':[6],
+        'disable-items-per-page': true,
+      }"   
+
   >
 
-    
   <template v-slot:item.image="{ item }">
 
     
@@ -220,6 +225,12 @@ export default {
 
 
 <style>
+
+.v-application--is-ltr .v-data-footer__pagination {
+  margin-left: auto;
+}
+
+
 .v-data-table .v-data-table-header th  {
 
 /*     background: linear-gradient(#186f94, #0e7e48) padding-box,

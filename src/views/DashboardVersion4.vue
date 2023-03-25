@@ -31,7 +31,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total Male</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">Male</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -54,7 +54,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total LGBTQIA+</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">LGBTQ+</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -77,7 +77,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total Female</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">Female</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -111,7 +111,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total Single</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">Single</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>  
                     
@@ -134,7 +134,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total Liv-in</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">Live-in</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>  
                     
@@ -159,7 +159,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total Married</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">Married</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -189,7 +189,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total IP</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">IP</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -210,7 +210,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total Muslim</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">Muslim</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -234,7 +234,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Total PWD</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">PWD</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -245,19 +245,77 @@
            
             </v-col>
 
-            <v-col cols="12" sm="12" md="12" lg="8">
+            <v-col cols="12" sm="12" md="12" lg="7">
               <v-card class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" 
             tile
              >
-             <p class="mt font-weight-bold" style="color:white;" >Total Youth Members - 50,000</p>
+             <p class="mt font-weight-bold" style="color:white;" >Total Youth Members  - 50,000 As of March 2,2023</p>
             <ChartComponent/>
           </v-card>
          </v-col>
 
-  <v-col cols="12" sm="12" md="12" lg="4" >
+         <v-col cols="12" sm="12" md="12"  lg="2" >
+              <v-card height="395" class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" tile>
+
+                <v-col cols="12" 
+                   sm="12" md="12"    >
+
+                    <v-list-item three-line class="mt-5" >
+                      <v-list-item-content>
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'SINAG' } }">
+                          <v-avatar size="60">
+                                <img src="/sinag.jpg" alt="">
+                        </v-avatar>
+                      </v-btn>
+
+                      
+                        </div>
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Sinag</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                  </v-col>
+
+                  
+                  <v-col cols="12" 
+                   sm="12" md="12"  class="mt-9"  >
+                    <v-list-item three-line>
+                      <v-list-item-content>
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'NON-SINAG' } }">
+                          <v-avatar size="60">
+                                <img src="/nonsinag.jpg" alt="">
+                        </v-avatar>
+                      </v-btn>
+
+                      
+                        </div>
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Non-Sinag</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                  </v-col>
+
+
+              </v-card> 
+          </v-col>
+
+
+
+
+  <v-col cols="12" sm="12" md="12" lg="3" >
   
     <v-card  class="  mt-n6  rounded-xl draw-border" 
-            tile height="0"
+            tile height=" "
              >
                 <DataTable1/>    
       </v-card>          
@@ -268,6 +326,7 @@
       </v-row>
     </v-container>
   </v-app>
+
   </template>
   
   

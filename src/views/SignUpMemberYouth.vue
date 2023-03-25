@@ -39,12 +39,12 @@
             
               class="custom-label-color"
               label="User Name"
-              color="white"
+            
               type="sample"
   
   
   
-              prepend-icon="mdi mdi-account mdi-light"
+              prepend-icon="mdi mdi-account"
                  
   
             ></v-text-field>
@@ -54,12 +54,12 @@
             
             class="custom-label-color"
             label="Last Name"
-            color="white"
+          
             type="sample"
 
 
 
-            prepend-icon="mdi mdi-account mdi-light"
+            prepend-icon="mdi mdi-account"
                
 
           ></v-text-field>
@@ -69,12 +69,12 @@
             
             class="custom-label-color"
             label="First Name"
-            color="white"
+           
             type="sample"
 
 
 
-            prepend-icon="mdi mdi-account mdi-light"
+            prepend-icon="mdi mdi-account "
                
 
           ></v-text-field>
@@ -85,7 +85,7 @@
                       prepend-icon="mdi-map-marker"
                       v-model="Barangay"
                       required
-                      dark
+                      
                     ></v-select>
 
 
@@ -96,12 +96,12 @@
             
                class="custom-label-color"
               label="Password"
-              color="white"
+            
               type="password"
               
             
   
-              prepend-icon="mdi-key mdi-light"
+              prepend-icon="mdi-key"
                        counter
   
                        :rules="passwordRules"
@@ -118,12 +118,12 @@
             
                class="custom-label-color"
               label="Confirm Password"
-              color="white"
+           
               type="password"
               
             
   
-              prepend-icon="mdi-key mdi-light"
+              prepend-icon="mdi-key"
                        counter
   
                        :rules="passwordConfirm"
@@ -185,21 +185,21 @@
     passwordShow:false,
     userName: '',
     
-  /*   emailRules: [
+ /*     emailRules: [
      v => !!v || 'E-mail is required',
      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
-  */
+ */
   
     password: '',
     
-  /*   passwordRules: [
+    passwordRules: [
       
       v => !!v || 'Password is required',
       
       v => (v && v.length >= 6) || 'Password must be 6  characters or more!',
       
-    ], */
+    ],
     
   }),
   
@@ -222,7 +222,7 @@
   
   <style>
 
-  input[type="sample"]
+/*   input[type="sample"]
   {
     border: none;
     border-bottom: 1px solid rgb(255, 255, 255);
@@ -260,7 +260,7 @@
   .custom-label-color input{
   color: rgb(255, 255, 255)!important;
   }
-
+ */
 
 
 
@@ -292,17 +292,17 @@
   .wrapper{
     
     position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 400px;
-    transform: translate(-50%,-50%);
-    background: rgba(0, 0, 0, 0.623);
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  transform: translate(-50%,-50%);
+  background: rgba(247, 246, 246, 0.822);
+
   
-    
-    border-radius: 20px;
-    box-shadow: 10px 10px 15px rgba(49, 47, 47, 0.15);
-    box-shadow: 0 0 8px rgb(201, 181, 1);
-  
+  border-radius: 20px;
+  box-shadow: 10px 10px 15px rgba(49, 47, 47, 0.15);
+  box-shadow: 0 0 8px rgb(201, 181, 1);
+
   
   }
   

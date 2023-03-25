@@ -397,7 +397,7 @@ Gender Preference<strong>
 
                                                                     </v-col>
 
-                                                                    <div id="apscreate">
+                                                              
 
                                                                     <v-col cols="12" sm="12" md="4" class="mx-5"
                                                                         style="margin-top: -30px">
@@ -438,7 +438,7 @@ Gender Preference<strong>
                                                                         </v-checkbox-group>
                                                                     </v-col>
 
-                                                                         </div>
+                                                                      
 
                                                                     <v-col cols="10" sm="10" md="10"
                                                                         style="margin-left: 20px; margin-top: -25px;">
