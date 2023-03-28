@@ -410,9 +410,19 @@
                       class="font-weight-bold"></v-text-field>
                   </v-col>
 
+                  <v-col cols="10" lg="6">
+                    <v-text-field style="margin-left: -12px; margin-top: -105px;" flat solo readonly value="Active Status:"
+                      class="font-weight-bold"></v-text-field>
+                  </v-col>
 
                   <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -135px; margin-left: 93px;" v-model="editedItem.gender" flat solo
+                    <v-text-field style="margin-top: -160px; margin-left: 93px;" v-model="editedItem.gender" flat solo
+                      readonly></v-text-field>
+
+                  </v-col>
+
+                  <v-col cols="10" lg="12">
+                    <v-text-field style="margin-top: -153px; margin-left: 100px;" v-model="editedItem.activestatus" flat solo
                       readonly></v-text-field>
 
                   </v-col>
@@ -624,6 +634,8 @@ export default {
       },
       { text: 'Date', value: 'eventdate' },
       { text: 'Event Details', value: 'eventdetails' },
+      { text: 'Hours Earned', value: 'hoursearned' },
+
 
     ],
 
@@ -735,13 +747,16 @@ export default {
           voters: 'Yes',
           sinagmark:  'torch.png',
 
+          activestatus:'Active Member',
 
           eventname: 'Tagum Lighting of Christmas tree',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+          hoursearned: '5 Hours',
           sinag: 'Sinag Member',
 
           disability: "Mental/Intellectual"
+
 
         },
         {
@@ -759,6 +774,10 @@ export default {
           sinagmark:  'torch.png',
           sinag: 'Sinag Member',
 
+
+          activestatus:'Blocked Member',
+
+          
           civil_status: 'Married',
           educational_level: 'Civil Engineering Graduated',
           birthday: 'August 27,1952',
@@ -771,7 +790,7 @@ export default {
           eventname: 'Youth Event Basket Ball Men',
           eventdate: 'January 4,2023',
           eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-
+          hoursearned: '3 Hours',
           disability: "Hearing Disability"
 
 
@@ -790,6 +809,7 @@ export default {
 
           sinag: 'Sinag Member',
           sinagmark:  'torch.png',
+          activestatus:'Active Member',
 
 
           civil_status: 'Married',
@@ -804,7 +824,7 @@ export default {
           eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
           eventdate: 'February 8,2023',
           eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-
+          hoursearned: '2 Hours',
           disability: "Psychological Disability"
 
         },
@@ -835,7 +855,8 @@ export default {
           eventname: 'Youth Event Sepak takraw',
           eventdate: 'March 11,2022',
           eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
-
+          hoursearned: '7 Hours',
+          activestatus:'Active Member',
 
           disability: "Visual Diability"
 
@@ -865,8 +886,9 @@ export default {
           eventname: 'Tagum Youth Dota 2 Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-
-          disability: "Speech Impairement"
+          hoursearned: '3 Hours',
+          disability: "Speech Impairement",
+          activestatus:'Active Member',
 
 
         },
@@ -895,9 +917,11 @@ export default {
           eventname: 'Tagum Youth Mobile Legends Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+          hoursearned: '4 Hours',
 
+          disability: "Mental/Intellectual",
+          activestatus:'Active Member',
 
-          disability: "Mental/Intellectual"
         },
         {
           image: 'profilepic/lebron.png',
@@ -924,9 +948,10 @@ export default {
           eventname: 'Tagum Youth Soccer Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+          hoursearned: '6 Hours',
+          disability: "Disability due to chronic illness",
 
-          disability: "Disability due to chronic illness"
-
+          activestatus:'Active Member',
 
 
         },
@@ -956,8 +981,9 @@ export default {
           eventname: 'Tagum Sayawan nang Kabatan-onan',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-
-          disability: "Orthopaedic (Musculoskeletal) Disability"
+          hoursearned: '2 Hours',
+          disability: "Orthopaedic (Musculoskeletal) Disability",
+          activestatus:'Active Member',
 
 
         },
@@ -986,8 +1012,9 @@ export default {
           eventname: 'Tagum Youth Golf Event ',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-
-          disability: "Learning Disability"
+          hoursearned: '4 Hours',
+          disability: "Learning Disability",
+          activestatus:'Active Member',
 
 
         },
@@ -1017,8 +1044,9 @@ export default {
           eventname: 'Tagum Lighting of Christmas tree',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-
-          disability: "Mental/Intellectual"
+          hoursearned: '6 Hours',
+          disability: "Mental/Intellectual",
+          activestatus:'Active Member',
 
 
         },

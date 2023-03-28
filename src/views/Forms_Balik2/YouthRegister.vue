@@ -117,7 +117,11 @@ Privacy Policy<strong>
                                         </v-col>
 
                                         <v-col cols="12" sm="12" md="3" class="mt-n5 mt-md-4">
-                                            <v-text-field :rules="rules" outlined dense height="10" label="CP # of Respondent" required
+                                            <v-text-field :rules="rules" 
+                                            hide-spin-buttons
+                                            type="number" maxlength="11"
+                                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+                                             outlined dense height="10" label="CP # of Respondent" required
                                                 prepend-inner-icon="mdi-cellphone-basic">
                                             </v-text-field>
 
@@ -276,7 +280,6 @@ Gender Preference<strong>
 <v-col cols="12" sm="12" md="4"  class="ml-3" >
 
 <v-radio value="Gay"  label="Gay"></v-radio>
-<v-radio value="Gender Nonconforming"  label="Gender Nonconforming"></v-radio>
 <v-radio value="Genderfluid"  label="Genderfluid"></v-radio>
 <v-radio value="Genderflux"  label="Genderflux"></v-radio>
 <v-radio value="Genderqueer"  label="Genderqueer"></v-radio>
@@ -285,22 +288,19 @@ Gender Preference<strong>
 <v-radio value="Intersex"  label="Intersex"></v-radio>
 <v-radio value="Lesbian"  label="Lesbian"></v-radio>
 <v-radio value="Masc"  label="Masc"></v-radio>
-
+<v-radio value="Non-binary"  label="Non-binary"></v-radio>
 </v-col>
 
 <v-col cols="12" sm="12" md="4"  class="ml-3" >
 
-<v-radio value="Non-binary"  label="Non-binary"></v-radio>
 <v-radio value="Omnigender"  label="Omnigender"></v-radio>
 <v-radio value="Pangender"  label="Pangender"></v-radio>
 <v-radio value="Pansexual"  label="Pansexual"></v-radio>
 <v-radio value="Queer"  label="Queer"></v-radio>
-<v-radio value="Same-Gender Loving"  label="Same-Gender Loving"></v-radio>
 <v-radio value="Third Gender"  label="Third Gender"></v-radio>
 <v-radio value="Transgender"  label="Transgender"></v-radio>
 <v-radio value="Transsexual"  label="Transsexual"></v-radio>
 <v-radio value="Two-Spirit"  label="Two-Spirit"></v-radio>
-
 </v-col>
 
 
@@ -820,7 +820,7 @@ Gender Preference<strong>
 
                                         <v-col cols="12" sm="12" md="2" class="mt-n3">
                                             <p class="font-weight-bold">Are you currently attending any Skills training?</p>
-                                            <v-radio-group row class="mt-n3">
+                                            <v-radio-group autofocus row class="mt-n3">
                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
                                             </v-radio-group>

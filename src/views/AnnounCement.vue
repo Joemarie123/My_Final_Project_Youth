@@ -2,7 +2,7 @@
   <v-app>
     <Navbar />
 
-    <AnnoucementAll />
+    <TableAnnoucement />
 
   </v-app>
 </template>

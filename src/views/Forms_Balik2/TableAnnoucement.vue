@@ -7,6 +7,7 @@
                  <v-col cols="12">
  
    <v-data-table 
+   :search="search"
    :headers="headers" :items="desserts" 
    sort-by="calories" class="pa-2 btn-hover color-1 elevation-1" 
    @click:row="onRowClick(args)" 
@@ -25,7 +26,7 @@
 </v-col>
 
 <v-col cols="12" sm="11" md="2" class="mt-6">
-Events List
+Announcement List
 </v-col>
 
 <v-divider class="mx-4" inset vertical></v-divider>
@@ -33,14 +34,14 @@ Events List
 
 
 <v-col cols="12" lg="4" md="4" sm="12">
-<v-text-field v-model="search"  dense rounded outlined  class="btn-hover" append-icon="mdi-magnify" label="Search" single-line hide-details
+<v-text-field v-model="search" class="btn-hover" append-icon="mdi-magnify" label="Search" single-line hide-details
   dark></v-text-field>
 </v-col>
 
 <v-col cols="12" lg="4" md="12" sm="4" class="ml-n3">
-<v-btn color="blue" tile class="btn-hover"  @click="dialog_Create_Events = true">
+<v-btn color="blue" tile class="btn-hover"  @click="dialog_Create_Announcement = true">
   <v-icon left>mdi-account-check</v-icon>
- Create Events
+ Create Announcement
 </v-btn>
 </v-col>
 
@@ -48,7 +49,7 @@ Events List
 </v-row>
  
  
-         <v-dialog   v-model="dialog_Create_Events" max-width="500px"  >
+         <v-dialog   v-model="dialog_Create_Announcement" max-width="500px"  >
           <v-card >
             <v-container>
           <v-row>
@@ -57,7 +58,7 @@ Events List
           <v-col cols="12"  sm="12" md="12" class="">
           <div class="text-center ">
          <v-alert dense dark color="blue darken-3">
-Create Events<strong>
+            Create Announcement<strong>
 </strong>
 
          </v-alert>
@@ -67,28 +68,19 @@ Create Events<strong>
 
 <v-col  cols="10" sm="10" md="10"
  style="margin-left: 20px; margin-top: -20px;">
-   <v-text-field height="10" dense outlined label="Event Name"></v-text-field>
+   <v-text-field height="10" dense outlined label="Announcement Name"></v-text-field>
    </v-col>
 
-   <v-col cols="10" sm="10" md="5 "
+   <v-col cols="10" sm="10" md="10 "
  style="margin-left: 20px; margin-top: -30px;">
-   <v-text-field height="10" dense type="date" outlined label="Date Event"></v-text-field>
+   <v-text-field height="10" dense type="date" outlined label="Date Announcement"></v-text-field>
    </v-col>
 
-   <v-col cols="10" sm="10" md="5"
- style=" margin-top: -30px;">
-   <v-text-field height="10" dense 
-   hide-spin-buttons
-  type="number" maxlength="5"
-  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-   
-   
-   outlined label="Num# Participants"></v-text-field>
-   </v-col>
+
 
    <v-col cols="10" sm="10" md="10"
  style="margin-left: 20px; margin-top: -30px;">
-   <v-textarea   outlined label="Event Details"></v-textarea>
+   <v-textarea   outlined label="Announcement Details"></v-textarea>
    </v-col>
 
 
@@ -100,12 +92,12 @@ Create Events<strong>
 
     <v-btn color="green" class="pa-2 ml-5 mt-n4"
         outlined dark
-        @click="dialog_Create_Events = false">
+        @click="dialog_Create_Announcement = false">
         Continue
     </v-btn>
 
     <v-btn color="red" class="pa-2 ml-2 mt-n4" outlined
-        dark @click="dialog_Create_Events = false">
+        dark @click="dialog_Create_Announcement = false">
         Close
     </v-btn>
 </v-col>
@@ -207,9 +199,9 @@ Create Events<strong>
  
  
    data: () => ({
- 
+    search: '',
     
-     dialog_Create_Events: false,
+     dialog_Create_Announcement: false,
  
  
  
@@ -220,30 +212,28 @@ Create Events<strong>
  
      headers: [
        {
-         text: 'Event Name',
+         text: 'Announcement Name',
          align: 'start',
          sortable: false,
-         value: 'eventname',
+         value: 'Announcementname',
        },
-       { text: 'Date', value: 'eventdate' },
-       { text: 'Event Details', value: 'eventdetails' },
-       { text: 'Participants', value: 'participants' ,align: 'center' },
-      
+       { text: 'Date', value: 'Announcementdate' },
+       { text: 'Event Details', value: 'Announcementdetails' },
        { text: 'Actions', value: 'actions', sortable: false },
      ],
      desserts: [],
      editedIndex: -1,
      editedItem: {
-       eventname: '',
-       eventdate: '',
-       eventdetails: '',
+        Announcementname: '',
+        Announcementdate: '',
+        Announcementdetails: '',
  
  
      },
      defaultItem: {
-       eventname: '',
-       eventdate: '',
-       eventdetails: '',
+        Announcementname: '',
+        Announcementdate: '',
+        Announcementdetails: '',
  
  
      },
@@ -288,65 +278,65 @@ Create Events<strong>
      initialize() {
        this.desserts = [
          {
-           eventname: 'Tagum Lighting of Christmas tree',
-           eventdate: 'December 4,2022',
-           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           participants:'200' 
+            Announcementname: 'Tagum Lighting of Christmas tree',
+            Announcementdate: 'December 4,2022',
+            Announcementdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+ 
          },
          {
-           eventname: 'Youth Event Basket Ball Men',
-           eventdate: 'January 4,2023',
-           eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-           participants:'300'
+            Announcementname: 'Youth Event Basket Ball Men',
+            Announcementdate: 'January 4,2023',
+            Announcementdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+ 
          },
          {
-           eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
-           eventdate: 'February 8,2023',
-           eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-           participants:'200'
+            Announcementname: 'Youth Volley Ball Apokon Vs. Bincungan',
+            Announcementdate: 'February 8,2023',
+            Announcementdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+ 
          },
          {
-           eventname: 'Youth Event Sepak takraw',
-           eventdate: 'March 11,2022',
-           eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
-           participants:'250'
+            Announcementname: 'Youth Event Sepak takraw',
+            Announcementdate: 'March 11,2022',
+            Announcementdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
+ 
          },
          {
-           eventname: 'Tagum Lighting of Christmas tree',
-           eventdate: 'December 4,2022',
-           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           participants:'400'
+            Announcementname: 'Tagum Lighting of Christmas tree',
+            Announcementdate: 'December 4,2022',
+            Announcementdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+ 
          },
          {
-           eventname: 'Tagum Lighting of Christmas tree',
-           eventdate: 'December 4,2022',
-           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           participants:'1000'
+            Announcementname: 'Tagum Lighting of Christmas tree',
+            Announcementdate: 'December 4,2022',
+            Announcementdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+ 
          },
          {
-           eventname: 'Tagum Lighting of Christmas tree',
-           eventdate: 'December 4,2022',
-           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           participants:'800'
+            Announcementname: 'Tagum Lighting of Christmas tree',
+            Announcementdate: 'December 4,2022',
+            Announcementdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+ 
          },
          {
-           eventname: 'Tagum Lighting of Christmas tree',
-           eventdate: 'December 4,2022',
-           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           participants:'500'
+            Announcementname: 'Tagum Lighting of Christmas tree',
+            Announcementdate: 'December 4,2022',
+            Announcementdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+ 
          },
          {
-           eventname: 'Tagum Lighting of Christmas tree',
-           eventdate: 'December 4,2022',
-           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           participants:'100'
+            Announcementname: 'Tagum Lighting of Christmas tree',
+            Announcementdate: 'December 4,2022',
+            Announcementdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+ 
          },
  
          {
-           eventname: 'Tagum Lighting of Christmas tree',
-           eventdate: 'December 4,2022',
-           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-           participants:'500'
+            Announcementname: 'Tagum Lighting of Christmas tree',
+            Announcementdate: 'December 4,2022',
+            Announcementdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+ 
          },
  
  

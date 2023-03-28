@@ -10,6 +10,8 @@ import YouTherecord from '../views/YouTherecord.vue'
 
 /* import DisplayAllusers from '../views/DisplayAllusers'; */
 import YouthRegisterEnumerator from '../views/Youth_Enumerator/YouthRegisterEnumerator.vue'
+import Youth_Enumerator_List_Member from '../views/Youth_Enumerator/Youth_Enumerator_List_Member.vue'
+
 
 
 
@@ -63,6 +65,14 @@ const routes = [
   },
 
   
+  
+  {
+    path: '/Youth_Enumerator_List_Member',
+    name: 'Youth_Enumerator_List_Member',
+    component: Youth_Enumerator_List_Member
+  },
+
+
 
   {
     path: '/Youth_Member_PersonalProfile',

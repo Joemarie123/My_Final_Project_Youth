@@ -1,7 +1,6 @@
 <template>
     
     <v-data-table
-         
     :headers="headers"
     :items="desserts"
     :items-per-page="6"
@@ -14,7 +13,6 @@
         'items-per-page-options':[6],
         'disable-items-per-page': true,
       }"   
-
   >
 
   <template v-slot:item.image="{ item }">

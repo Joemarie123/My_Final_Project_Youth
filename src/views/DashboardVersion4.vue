@@ -249,7 +249,7 @@
               <v-card class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" 
             tile
              >
-             <p class="mt font-weight-bold" style="color:white;" >Total Youth Members  - 50,000 As of March 2,2023</p>
+             <p class="mt font-weight-bold" style="color:white;" >Total Youth Members  - 50,000 As of {{ currMonth }} {{ currDay }}, {{ currYear }}</p>
             <ChartComponent/>
           </v-card>
          </v-col>
@@ -343,6 +343,12 @@
     
    data () {
         return {
+          currDay: new Date().getDate(),
+      currMonth: new Date().toLocaleString([], {
+        month: 'long',
+      }),
+      currYear: new Date().getFullYear(),
+
           width: 2,
         radius: 10,
         padding: 8,
