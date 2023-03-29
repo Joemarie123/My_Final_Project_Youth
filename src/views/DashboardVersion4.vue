@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire" :style="{background: $vuetify.theme.themes.dark.background}">
-    <Navbar />
+    <Navbar/>
     <v-container>
       <v-row>
         <v-col cols="12" sm="12">
@@ -253,6 +253,7 @@
             <ChartComponent/>
           </v-card>
          </v-col>
+
 
          <v-col cols="12" sm="12" md="12"  lg="2" >
               <v-card height="395" class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" tile>

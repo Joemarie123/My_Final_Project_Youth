@@ -363,7 +363,7 @@
 
 
 
-                  <v-col cols="10" lg="12" style="margin-top: -50px; margin-left: 18px;">
+                  <v-col cols="10" lg="12" style="margin-top:-50px; margin-left: 18px;">
                     <v-avatar size="100" class="ml-11 mr-7">
                       <img v-bind:src="`/${editedItem.image}`" alt="">
                     </v-avatar>
