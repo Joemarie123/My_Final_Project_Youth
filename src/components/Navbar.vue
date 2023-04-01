@@ -70,7 +70,6 @@
           </v-layout>
           
 
-
       <v-list shaped  class="clickable">
         <template v-for="item in items">
           <v-list-group
@@ -120,8 +119,9 @@
             </v-list-item-content>
           </v-list-item>
         </template>  
-    
+
       </v-list>
+
 
     </v-navigation-drawer>
  

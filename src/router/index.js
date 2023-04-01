@@ -30,6 +30,8 @@ import FilterFromDashBoard from '../components/FilterFromDashBoard.vue'
 
 import DatatableAttendance from '../views/EventsMenu_ADMIN/DatatableAttendance.vue'
 import DataTableEvents from '../views/EventsMenu_ADMIN/DataTableEvents.vue'
+import PrintAllSinag from '../views/PrintLayout/PrintAllSinag.vue'
+
 
 
  import DatatableSelectYouthAttended from '../views/EventsMenu_ADMIN/DatatableSelectYouthAttended.vue' 
@@ -65,7 +67,14 @@ const routes = [
   },
 
   
-  
+  {
+    path: '/PrintAllSinag',
+    name: 'PrintAllSinag',
+    component: PrintAllSinag
+  },
+
+
+
   {
     path: '/Youth_Enumerator_List_Member',
     name: 'Youth_Enumerator_List_Member',

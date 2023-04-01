@@ -1,10 +1,14 @@
 <template>
-  <div >
-   
+  <div class="d-flex ">
+  <!--   style="min-width:100%" -->
     <apexcharts 
+    style="min-width:90%"
+  
     height="340" :options="chartOptions" 
     :series="series"></apexcharts>
   </div>
+
+
 </template>
 
 <script>
@@ -25,7 +29,7 @@ import VueApexCharts from 'vue-apexcharts'
             id: 'basic-bar',
             type: 'bar',
             height: 350,
-           
+            width: 400,
             foreColor:"white",
 
           },

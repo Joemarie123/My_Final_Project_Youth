@@ -25,7 +25,7 @@
                                 <img src="/img1.png" alt="">
                         </v-avatar>
                       </v-btn>
-
+                      
                       
                         </div>
                         <v-list-item-title class="headline mb-1 white--text">
@@ -254,7 +254,7 @@
           </v-card>
          </v-col>
 
-
+         
          <v-col cols="12" sm="12" md="12"  lg="2" >
               <v-card height="395" class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" tile>
 
@@ -405,10 +405,6 @@
         }
 
       },
-
-      
-
-
 
     }
   </script>

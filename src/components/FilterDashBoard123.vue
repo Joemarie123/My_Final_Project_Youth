@@ -24,9 +24,6 @@
 
       </template>
 
-
-
-
       <template v-slot:top>
         <v-toolbar flat dark class=" btn-hover color-1 elevation-1">
 
@@ -39,7 +36,9 @@
           <v-text-field v-model="search" outlined dense  rounded append-icon="mdi-magnify" label="Search" single-line hide-details
             dark></v-text-field>
 
-
+            <v-btn color="green" class="mx-2"  dark @click="$router.push({ name: 'PrintAllSinag' })">
+              Print
+             </v-btn>
           <v-dialog v-model="dialog" max-width="700px" tile>
             <!--  
               <div class="text-center" >
@@ -542,8 +541,14 @@
 
 <v-col cols="12" sm="12" md="12" class="mt-n12" >
 
-    <v-btn color="green" class="pa-2 ml-4 mt-n8"
-        outlined dark
+  <v-btn color="red" class="pa-2 ml-2 mt-n8"
+         dark
+       >
+        BLOCK
+    </v-btn>
+
+    <v-btn color="green" class="pa-2 ml-2 mt-n8"
+         dark
         @click="dialog = true, dialog_viewProfile=false">
         EDIT PROFILE
     </v-btn>
