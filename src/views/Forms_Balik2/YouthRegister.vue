@@ -210,14 +210,14 @@ Privacy Policy<strong>
 
                                                             <v-radio value="Male" @change="have_you_give_birth_in_the_last_2_years_65 = false,
                                                                 if_pregnant_as_of_this_time_72 = false,
-                                                                do_you_smoke_or_use_tobacco = false,
-                                                                if_married_or_sexually_active_woman_73_1 = false
+                                                                do_you_smoke_or_use_tobacco = true,
+                                                                if_married_or_sexually_active_woman_73_1 = true
                                                             " label="Male"></v-radio>
 
 
 
                                                             <v-radio @change="have_you_give_birth_in_the_last_2_years_65 = true,
-                                                                if_pregnant_as_of_this_time_72 = true,
+                                                                if_pregnant_as_of_this_time_72 = false,
                                                                 do_you_smoke_or_use_tobacco = true,
                                                                 if_married_or_sexually_active_woman_73_1 = true
                                                             " value="Female" label="Female"></v-radio>
@@ -817,28 +817,9 @@ Gender Preference<strong>
                                            
                                         </v-col>
 
-
-                                        <v-col cols="12" sm="12" md="2" class="mt-n3">
-                                            <p class="font-weight-bold">Are you currently attending any Skills training?</p>
-                                            <v-radio-group autofocus row class="mt-n3">
-                                                <v-radio value="yes" label="Yes"></v-radio>
-                                                <v-radio value="no" label="No"></v-radio>
-                                            </v-radio-group>
-
-                                        </v-col>
-
-                                        <v-col cols="12" sm="12" md="2" class="mt-n3">
-                                            <p class="font-weight-bold">Have you attended any skills Training in the past?
-                                            </p>
-                                            <v-radio-group row class="mt-n3">
-                                                <v-radio value="yes"
-                                                    @click="skill_training_program = true, can_you_read_and_write_yes_no = false"
-                                                    label="Yes"></v-radio>
-                                                <v-radio value="no" @click="can_you_read_and_write_yes_no = true"
-                                                    label="No"></v-radio>
-                                            </v-radio-group>
-
-                                        </v-col>
+                   
+                                     
+                                      
 
                                         <!--       SKILLS TRAINING POUP START -->
                                         <v-dialog v-model="skill_training_program" max-width="380px">
@@ -1029,13 +1010,35 @@ Gender Preference<strong>
                                                 <v-checkbox label="DYA" style="margin-top: -10px"></v-checkbox>
                                             </v-checkbox-group>
 
+                                        </v-col>
 
+        
+
+                                        <v-col cols="12" sm="12" md="2" class="mt-n3">
+                                            <p class="font-weight-bold">Are you currently attending any Skills training?</p>
+                                            <v-radio-group autofocus row class="mt-n3">
+                                                <v-radio value="yes" label="Yes"></v-radio>
+                                                <v-radio value="no" label="No"></v-radio>
+                                            </v-radio-group>
 
                                         </v-col>
 
+                                        <v-col cols="12" sm="12" md="2" class="mt-n3">
+                                            <p class="font-weight-bold">Have you attended any skills Training in the past?
+                                            </p>
+                                            <v-radio-group row class="mt-n3">
+                                                <v-radio value="yes"
+                                                    @click="skill_training_program = true, can_you_read_and_write_yes_no = false"
+                                                    label="Yes"></v-radio>
+                                                <v-radio value="no" @click="can_you_read_and_write_yes_no = true"
+                                                    label="No"></v-radio>
+                                            </v-radio-group>
+
+                                        </v-col>
+
+
                                         <v-col cols="12" sm="12" md="2" class="mt-n1 mt-md-1">
-                                            <p class="font-weight-bold">Have you elected in any organization you are
-                                                affiliated with?</p>
+                                            <p class="font-weight-bold">Have You Been Elected in Any Organization</p>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio @click="leardership_information = true" value="yes"
                                                     label="Yes"></v-radio>
@@ -1397,11 +1400,8 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="10" md="10" class="mt-n5">
                                                             <p class="font-weight-bold">What was the total number of hours
                                                                 worked during the past week?</p>
-                                                            <v-select
-                                                                :items="['1 Hour', '2 Hours', '3 Hours', '4 Hours', '5 Hours', '6 Hours', '7 Hours', '8 Hours', '9 Hours', '10 Hours', '11 Hours', '12 Hours']"
-                                                                label="Select No. Of Hours"
-                                                                prepend-inner-icon="mdi-clipboard-account"
-                                                                required></v-select>
+                                                                <v-text-field label="Input Number" required>
+                                                            </v-text-field>
 
                                                         </v-col>
 
@@ -1461,7 +1461,7 @@ Gender Preference<strong>
                                         <v-col cols="12" md="2" sm="12" class="mt-n3 mt-md-1">
                                             <p class="font-weight-bold">In the past 12 months, how much total salary/
                                                 wages did you receive?</p>
-                                            <v-text-field outlined dense label="Give estimate value Php " required>
+                                            <v-text-field outlined type="number" dense label="Give estimate value Php " required>
                                             </v-text-field>
 
                                         </v-col>
@@ -1517,7 +1517,7 @@ Gender Preference<strong>
                                                             <p class="font-weight-bold">(44)When was the last time you
                                                                 looked for work?</p>
                                                             <v-select
-                                                                :items="['Within this week ', 'Within last week', 'Temporary illness/disability', 'Bad weather', 'Waiting for hire/ job recall', 'Too young/ old or retired/ permanent disability', 'Household/ family duties', 'Schooling',]"
+                                                                :items="['Within this week ', 'Within last week', 'Last month', 'One to six month', 'More than six months', 'Never']"
                                                                 label="Select Option" prepend-inner-icon="mdi-account-off"
                                                                 v-model="dddd" required></v-select>
 
@@ -2116,7 +2116,7 @@ Gender Preference<strong>
                                                                     style="margin-top: -10px"></v-checkbox>
                                                                 <v-checkbox label="Psychological Disability"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Visual Diability"
+                                                                <v-checkbox label="Visual Disability"
                                                                     style="margin-top: -10px"></v-checkbox>
                                                                 <v-checkbox label="Speech Impairement"
                                                                     style="margin-top: -10px"></v-checkbox>
@@ -2207,10 +2207,10 @@ Gender Preference<strong>
                                                 medical treatment or medication for any treatment? </p>
                                             <v-radio-group row class="mt-n2">
                                                 <v-radio value="yes"
-                                                    @click="where_did_you_avail_medical_treatment_62_A = true, do_you_have_illness_or_any_health_related_62_B = false"
+                                                    @click="where_did_you_avail_medical_treatment_62_A = true, do_you_have_illness_or_any_health_related_62_B = true"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no"
-                                                    @click="do_you_have_illness_or_any_health_related_62_B = true"
+                                                    @click="do_you_have_illness_or_any_health_related_62_B = false, where_did_you_avail_medical_treatment_62_A = false"
                                                     label="No"></v-radio>
 
                                             </v-radio-group>
@@ -2292,7 +2292,7 @@ Gender Preference<strong>
 
                                         <v-col cols="12" sm="12" md="2" v-show="if_married_or_sexually_active_woman_73_1">
 
-                                            <p class="font-weight-bold">If married or sexually active woman, have
+                                            <p class="font-weight-bold">If married or sexually active, have
                                                 you ever used contraceptive methods? </p>
                                             <v-radio-group row>
                                                 <v-radio value="yes" @click="what_methods_have_you_used_73_2 = true"
@@ -3258,7 +3258,7 @@ Gender Preference<strong>
                                                                     label="SNational Government (DSWD, DA, DOST, DTI, TESDA, DepEd, CHED, DAR, DILG, DOLE, etc)"></v-checkbox>
                                                                 <v-checkbox label="Provincial Government"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Municipal Government"
+                                                                <v-checkbox label="City Government"
                                                                     style="margin-top: -10px"></v-checkbox>
 
                                                                 <v-checkbox label="Barangay LGU"
@@ -3267,7 +3267,8 @@ Gender Preference<strong>
                                                                     style="margin-top: -10px"></v-checkbox>
                                                                 <v-checkbox label="Private Organizations/NGOs"
                                                                     style="margin-top: -10px"></v-checkbox>
-
+                                                                    <v-checkbox label="Barangay SK"
+                                                                    style="margin-top: -10px"></v-checkbox>
 
                                                                 <v-text-field label="Others/Specify"></v-text-field>
                                                                 <!--   <v-text-field label="Others/Specify"></v-text-field> -->
@@ -3869,7 +3870,7 @@ Gender Preference<strong>
                                             <p class="font-weight-bold">During disaster and emergencies, where did you
                                                 get information and warning?</p>
                                             <v-checkbox-group>
-                                                <v-checkbox label="Provincial/Municipal DRRMO"></v-checkbox>
+                                                <v-checkbox label="Provincial/City DRRMO"></v-checkbox>
                                                 <v-checkbox label="Barangay" style="margin-top: -10px"></v-checkbox>
                                                 <v-checkbox label="Television" style="margin-top: -10px"></v-checkbox>
                                                 <v-checkbox label="Radio" style="margin-top: -10px"></v-checkbox>
@@ -4451,7 +4452,7 @@ export default {
 
            
 
-            e1: 1,
+            e1: 2,
 
             /*  Codes FOR 61 What kind of health Related */
             ethnicity: [

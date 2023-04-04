@@ -37,28 +37,7 @@
                     
                   </v-col>
 
-                  <v-col cols="12" 
-                   sm="12" md="4"   >
-                    <v-list-item three-line>
-                      <v-list-item-content>
-                        <div class="mb-4">
-
-                          <v-btn fab icon   :to="{ path: '/FilterDashBoard123', query: { name: 'LGBTQIA+' } }">
-                          <v-avatar size="60">
-                                <img src="/lgbt.png" alt="">
-                        </v-avatar>
-                      </v-btn>
-
-                      
-                        </div>
-                        <v-list-item-title class="headline mb-1 white--text">
-                        5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">LGBTQ+</v-list-item-subtitle>
-                      </v-list-item-content>
-                    </v-list-item>
-                    
-                  </v-col>
+          
 
                   <v-col cols="12" sm="12" md="4" >
                     <v-list-item three-line>
@@ -78,6 +57,30 @@
                         5,426
                         </v-list-item-title>
                         <v-list-item-subtitle class="white--text">Female</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                    
+                  </v-col>
+
+                  <v-col cols="12" 
+                   sm="12" md="4"   >
+                    <v-list-item three-line>
+                      <v-list-item-content>
+                        <div class="mb-4">
+
+                          <v-btn fab icon   :to="{ path: '/FilterDashBoard123', query: { name: 'LGBTQIA+' } }">
+                          <v-avatar size="60">
+                                <img src="/lgbt.png" alt="">
+                        </v-avatar>
+                      </v-btn>
+
+                      
+                        </div>
+                        
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">LGBTQ+</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -200,9 +203,9 @@
                       <v-list-item-content>
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'MUSLIM' } }">
+                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'Non-IP' } }">
                           <v-avatar size="60">
-                                <img src="/muslim.jpg" alt="">
+                                <img src="/img6.png" alt="">
                         </v-avatar>
                         </v-btn>
 
@@ -210,7 +213,7 @@
                         <v-list-item-title class="headline mb-1 white--text">
                         5,426
                         </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Muslim</v-list-item-subtitle>
+                        <v-list-item-subtitle class="white--text">Non-IP</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     

@@ -157,11 +157,12 @@
           model: false,
           children: [
         { icon: 'mdi-account-check', text: 'Add User Account' , route:'/AddUseraccount'},
+        { icon: 'mdi-account-check', text: 'Enumerators Record  ' , route:'/EnumeratorRecord'},
+
+
         ],
           
         },
-
-
 
 
         {

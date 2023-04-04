@@ -1167,7 +1167,7 @@ export default {
       this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
-    else if (this.msg == "ALL YOUTH IP") {
+    else if (this.msg == "ALL YOUTH Non-IP") {
 
       this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Ethnicity/ tribe", value: "tribe" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }

@@ -1,18 +1,11 @@
 <template>
-  <p>{{ currMonth }} {{ currDay }}, {{ currYear }}</p>
+  <v-text-field
+    :value="currentValue" 
+    return-masked-value
+    mask="###.###.###-##"
+    @input="handleInput"
+></v-text-field>
 </template>
-
-
 <script>
-export default {
-  data() {
-    return {
-      currDay: new Date().getDate(),
-      currMonth: new Date().toLocaleString([], {
-        month: 'long',
-      }),
-      currYear: new Date().getFullYear(),
-    };
-  },
-};
+
 </script>

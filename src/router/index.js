@@ -12,7 +12,7 @@ import YouTherecord from '../views/YouTherecord.vue'
 import YouthRegisterEnumerator from '../views/Youth_Enumerator/YouthRegisterEnumerator.vue'
 import Youth_Enumerator_List_Member from '../views/Youth_Enumerator/Youth_Enumerator_List_Member.vue'
 
-
+import EnumeratorRecord from '../views/AdminMenu_ADMIN/EnumeratorRecord.vue'
 
 
  import LogInForm from '../views/LogInForm.vue'
@@ -74,6 +74,14 @@ const routes = [
   },
 
 
+    
+  {
+    path: '/EnumeratorRecord',
+    name: 'EnumeratorRecord',
+    component: EnumeratorRecord
+  },
+
+  
 
   {
     path: '/Youth_Enumerator_List_Member',

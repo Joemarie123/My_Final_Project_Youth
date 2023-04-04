@@ -66,8 +66,8 @@ import VueApexCharts from 'vue-apexcharts'
           
         
           xaxis: {
-              categories: [2023, 2020, 2018, 2015, 2012, 2009],
-             
+
+               categories: [2009, 2012, 2015, 2018, 2020, 2023],
           },
           
     grid: {
