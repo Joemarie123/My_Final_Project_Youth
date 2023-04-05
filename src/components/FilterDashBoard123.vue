@@ -325,9 +325,9 @@
 
 
 
-        <v-dialog v-model="dialog_viewProfile" max-width="660px" persistent>
-          <v-card>
-            <v-container>
+        <v-dialog   v-model="dialog_viewProfile" max-width="660px" persistent   >
+          <v-card class="hidescrollbar">
+            <v-container >
               <div class="text-center ">
 
                 <v-alert dense dark color="blue darken-3">
@@ -351,19 +351,18 @@
 
                 <v-col cols="12" lg="6">
 
-                  <v-col cols="10" lg="12" class="sinagkabai">
+                  <v-col cols="10" lg="12" class="sinagkabai_dakoscreen ">
                     <v-text-field class=" font-weight-bold centered-input" style="margin-top: -18px; margin-left: -38px;"
                       v-model="editedItem.sinag" flat solo readonly>
 
                     </v-text-field>
-
-
+                      
                   </v-col>
 
 
 
-                  <v-col cols="10" lg="12"  style="margin-top:-50px; margin-left: 18px;">
-                    <v-avatar size="100"  class="ml-11 mr-7">
+                  <v-col cols="10" lg="12" class=" imagemobile"  >
+                    <v-avatar style="margin-top:-50px; margin-left: 18px;" size="100"  class="ml-11 mr-7">
                       <img v-bind:src="`/${editedItem.image}`" alt="">
                     </v-avatar>
                   </v-col>
@@ -441,7 +440,7 @@
 
                   <v-col cols="10" lg="4">
                     <v-text-field style="margin-bottom: -20px; margin-left: -70px;" class="font-weight-bold" color="white"
-                      flat solo readonly value="esbog Ni bai  :"></v-text-field>
+                      flat solo readonly value=":"></v-text-field>
                   </v-col>
 
                   <v-col cols="10" lg="12">
@@ -560,7 +559,7 @@
 
               <v-row>
 
-<v-col cols="12" sm="12" md="12" style="margin-top:-70px;" >
+<v-col cols="12" sm="12" md="12" class="buttonnako" >
 
   <v-btn color="red" class="pa-2 ml-2 mt-n8"
          dark
@@ -579,6 +578,8 @@
         Close
     </v-btn>
 </v-col>
+
+
 
 </v-row>
 
@@ -1215,9 +1216,15 @@ export default {
   }
  */
 
-    .sinagkabai{
-     
-      margin-left: 40px;
+ .imagemobile{
+
+margin-left: 30px;
+}
+
+
+
+    .sinagkabai{     
+      margin-left: 50px;
 }
 
 .birthdayname{
@@ -1246,10 +1253,74 @@ export default {
 }
 
 
+}
+
+
+@media screen and (max-width:  1263px) {
+
+  .hidescrollbar {
+
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 
 
 }
 
+
+/*   h1 {
+    font-size: 7px;
+  }
+  div #search {
+    size: 5px;
+  }
+
+ */
+
+ .imagedagway{
+
+  margin-left: 210px;
+ }
+
+    .sinagkabai_dakoscreen{
+     
+      margin-left: -5px;
+}
+
+
+.birthdayname{
+
+  margin-left: 60px;
+  margin-top: -140px;
+
+}
+ 
+.birthdayvalue{
+
+  margin-left: 60px;
+}
+
+
+.agevalue{
+
+  margin-left: 60px;
+
+}
+
+
+.email_padong_education{
+  margin-left: 60px;
+
+}
+
+
+.buttonnako{
+
+  margin-top: -150px;
+
+}
+
+
+}
 
 
 
