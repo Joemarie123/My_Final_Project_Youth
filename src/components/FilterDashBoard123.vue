@@ -351,8 +351,8 @@
 
                 <v-col cols="12" lg="6">
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field class="font-weight-bold centered-input" style="margin-top: -18px; margin-left: -38px;"
+                  <v-col cols="10" lg="12" class="sinagkabai">
+                    <v-text-field class=" font-weight-bold centered-input" style="margin-top: -18px; margin-left: -38px;"
                       v-model="editedItem.sinag" flat solo readonly>
 
                     </v-text-field>
@@ -362,16 +362,16 @@
 
 
 
-                  <v-col cols="10" lg="12" style="margin-top:-50px; margin-left: 18px;">
-                    <v-avatar size="100" class="ml-11 mr-7">
+                  <v-col cols="10" lg="12"  style="margin-top:-50px; margin-left: 18px;">
+                    <v-avatar size="100"  class="ml-11 mr-7">
                       <img v-bind:src="`/${editedItem.image}`" alt="">
                     </v-avatar>
                   </v-col>
 
 
 
-                  <v-col cols="4" lg="10" sm="12" md="12" align-self="center">
-                    <v-text-field class="font-weight-medium centered-input" dense height="30" background-color="#00695C"
+                  <v-col cols="12" lg="10" sm="12" md="12" align-self="center">
+                    <v-text-field class="font-weight-medium centered-input" dense  background-color="#00695C"
                       dark v-model="editedItem.name" flat solo readonly></v-text-field>
                   </v-col>
 
@@ -388,7 +388,7 @@
                       class="font-weight-bold"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="10">
+                  <v-col cols="10" sm="12" lg="10">
                     <v-text-field style="margin-top: -103px; margin-left: 95px;" v-model="editedItem.datesurvey" flat solo
                       readonly></v-text-field>
                   </v-col>
@@ -448,88 +448,109 @@
                     <v-text-field style="margin-top: -75px; margin-left:   30px;" color="white" flat solo
                       readonly></v-text-field>
                   </v-col>
-                  <v-col cols="10" lg="5">
+
+
+                  <v-col cols="10" lg="5" class="birthdayname" >
                     <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -120px;" flat solo
                       readonly value="Birth Day:"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
+               <!--    <v-col cols="10" lg="5">
+                    <v-text-field class="font-weight-bold" :style="`margin-left: ${ margin-left < 600 ? 125 : -700}px`" flat solo
+                      readonly value="Birth Day:"></v-text-field>
+                  </v-col>
+ -->
+
+                  <v-col cols="10" lg="12" class="birthdayvalue">
                     <v-text-field style="margin-top: -144px; margin-left: 30px;" v-model="editedItem.birthday" flat solo
                       readonly></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="5">
+                  <v-col cols="10" lg="5" class="agevalue">
                     <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -135px;" flat solo
                       readonly value="Age:"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
+                  <v-col cols="10" lg="12" class="agevalue">
                     <v-text-field style="margin-top: -158px; margin-left: 30px;" v-model="editedItem.age" flat solo
                       readonly></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="5">
+                  <v-col cols="10" lg="5" class="agevalue">
                     <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -150px;" flat solo
-                      readonly value="Address:"></v-text-field>
+                      readonly value="Barangay:"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
+                  <v-col cols="10" lg="12" class="agevalue">
                     <v-text-field style="margin-top: -175px; margin-left: 30px;" v-model="editedItem.barangay" flat solo
                       readonly></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="5">
-                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -120px;" flat solo
+                  <v-col cols="10" lg="5" class="agevalue">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -160px;" flat solo
+                      readonly value="Purok:"></v-text-field>
+                  </v-col>
+
+                  <v-col cols="10" lg="12" class="agevalue">
+                    <v-text-field style="margin-top: -185px; margin-left: 30px;" v-model="editedItem.purok" flat solo
+                      readonly></v-text-field>
+                  </v-col>
+
+
+
+
+                  <v-col cols="10" lg="5" class="email_padong_education">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -170px;" flat solo
                       readonly value="Email:"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -145px; margin-left: 30px;" v-model="editedItem.email" flat solo
+                  <v-col cols="10" lg="12" class="email_padong_education">
+                    <v-text-field style="margin-top: -195px; margin-left: 30px;" v-model="editedItem.email" flat solo
                       readonly></v-text-field>
                   </v-col>
 
 
 
-                  <v-col cols="10" lg="5">
-                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -135px;" flat solo
+                  <v-col cols="10" lg="5" class="email_padong_education">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -185px;" flat solo
                       readonly value="Cell Phone :"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -158px; margin-left: 30px;" v-model="editedItem.mobilenum" flat solo
+                  <v-col cols="10" lg="12" class="email_padong_education">
+                    <v-text-field style="margin-top: -208px; margin-left: 30px;" v-model="editedItem.mobilenum" flat solo
                       readonly></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="5">
-                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -140px;" flat solo
+                  <v-col cols="10" lg="5" class="email_padong_education">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -200px;" flat solo
                       readonly value="Voters :"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -163px; margin-left: 30px;" v-model="editedItem.voters" flat solo
+                  <v-col cols="10" lg="12" class="email_padong_education">
+                    <v-text-field style="margin-top: -223px; margin-left: 30px;" v-model="editedItem.voters" flat solo
                       readonly></v-text-field>
                   </v-col>
 
 
-                  <v-col cols="10" lg="5">
-                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -155px;" flat solo
+                  <v-col cols="10" lg="5" class="email_padong_education">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -210px;" flat solo
                       readonly value="Ethnicity :"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -179px; margin-left: 30px;" v-model="editedItem.ethnicity" flat solo
+                  <v-col cols="10" lg="12" class="email_padong_education">
+                    <v-text-field style="margin-top: -235px; margin-left: 30px;" v-model="editedItem.ethnicity" flat solo
                       readonly></v-text-field>
                   </v-col>
 
 
-                  <v-col cols="10" lg="5">
-                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -173px;" flat solo
+                  <v-col cols="10" lg="5" class="email_padong_education">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -210px;" flat solo
                       readonly value="Education:"></v-text-field>
                   </v-col>
 
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -197px; margin-left: 30px; " v-model="editedItem.educational_level"
+                  <v-col cols="10" lg="12" class="email_padong_education">
+                    <v-text-field style="margin-top: -234px; margin-left: 30px; " v-model="editedItem.educational_level"
                       flat solo readonly></v-text-field>
                   </v-col>
 
@@ -539,7 +560,7 @@
 
               <v-row>
 
-<v-col cols="12" sm="12" md="12" class="mt-n12" >
+<v-col cols="12" sm="12" md="12" style="margin-top:-70px;" >
 
   <v-btn color="red" class="pa-2 ml-2 mt-n8"
          dark
@@ -1053,11 +1074,7 @@ export default {
           disability: "Mental/Intellectual",
           activestatus:'Active Member',
 
-
         },
-
-
-
 
       ]
 
@@ -1080,9 +1097,6 @@ export default {
       this.editedItem = Object.assign({}, item)
       this.dialog_viewProfile = true
     },
-
-
-
 
     deleteItem(item) {
       this.editedIndex = this.desserts.indexOf(item)
@@ -1119,7 +1133,6 @@ export default {
 
 
   },
-
 
   mounted() {
 
@@ -1187,14 +1200,59 @@ export default {
   },
 
 
-
-
-
 }
 </script>
 
 
 <style scoped>
+
+@media screen and (max-width: 450px) {
+/*   h1 {
+    font-size: 7px;
+  }
+  div #search {
+    size: 5px;
+  }
+ */
+
+    .sinagkabai{
+     
+      margin-left: 40px;
+}
+
+.birthdayname{
+
+  margin-left: 60px;
+  margin-top: -140px;
+
+}
+ 
+.birthdayvalue{
+
+  margin-left: 60px;
+}
+
+
+.agevalue{
+
+  margin-left: 60px;
+
+}
+
+
+.email_padong_education{
+  margin-left: 60px;
+
+}
+
+
+
+
+}
+
+
+
+
 .some-style>>>.v-input__slot::before {
   border-style: none !important;
 }

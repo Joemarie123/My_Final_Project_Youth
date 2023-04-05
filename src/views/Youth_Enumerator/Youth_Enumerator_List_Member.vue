@@ -3,9 +3,9 @@
         <NavigationDrawer/>
 
         
-      <v-data-table :headers="headers" :items="desserts" sort-by="calories"  class="btn-hover color-1 elevation-1 pa-2" dark
+      <v-data-table :headers="headers" :items="desserts" sort-by="calories"  class=" elevation-1 pa-2" 
         :search="search"
-        
+        :hide-default-footer="true"
         @click:row="redirecttoformregistration"
         
         >
@@ -22,7 +22,7 @@
   
   
         <template v-slot:top>
-          <v-toolbar flat dark class=" btn-hover color-1 elevation-1">
+          <v-toolbar flat    class=" elevation-1">
   
   
             <v-toolbar-title>{{ msg }}</v-toolbar-title>
@@ -31,7 +31,7 @@
   
   
             <v-text-field v-model="search" outlined dense rounded append-icon="mdi-magnify" label="Search" single-line hide-details
-              dark></v-text-field>
+              ></v-text-field>
   
   
   
@@ -1051,13 +1051,21 @@
   
   
       if (this.msg == "ALL YOUTH RECORD") {
-        this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender", sortable: false, }, { text: "Civil Status", value: "civil_status", sortable: false, },  { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" });
+
+        this.headers.push({ text: "Full Name", value: "name",
+         align: 'start', sortable: false, }, { text: "Gender", 
+         value: "gender", sortable: false, }, { text: "Civil Status",
+          value: "civil_status", sortable: false, },  { text: "Email",
+           value: "email" }, { text: "Mobile Number", value: "mobilenum", 
+           align: "center" }, { text: "Age", value: "age" }, 
+           { text: "Barangay & Purok", value: "barangay" });
       }
   
   
     },
   
   
+    
   
   
   

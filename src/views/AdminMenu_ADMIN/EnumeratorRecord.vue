@@ -30,15 +30,15 @@
       v-model="selected"
       :headers="headers"
       :items="desserts"
-      :items-per-page="12"
+      :items-per-page="10"
       class="wrapper elevation-1"
       item-key="name"
-      height="670"
+      height="570"
       :hide-default-footer="true"
       :hide-default-header="true"
         tile
         :search="search"
-      
+     
     >
 
     
@@ -64,13 +64,14 @@
 
 
   </v-col>
-</v-row>
 
+
+<v-col cols="12" md="8" sm="12"  >
     <!-- Another data Table -->
 
     <v-data-table :headers="headers_recordlist" :items="recordlist" sort-by="calories"  class="btn-hover color-1 elevation-1 pa-2" 
-        :search="search"
-        
+        :search="searchyouthrecord"
+        :hide-default-footer="true"
         @click:row="redirecttoformregistration"
         
         >
@@ -87,15 +88,18 @@
   
   
         <template v-slot:top>
-          <v-toolbar flat dark class=" btn-hover color-1 elevation-1">
+          <v-toolbar rounded flat color="blue darken-3" class=" btn-hover color-1 elevation-1">
   
-  
-            <v-toolbar-title>{{ msg }}</v-toolbar-title>
+            <div class="d-flex-column">
+            <p style="color:white;" class="mt-7">Total Youth Enumerate</p>
+            <p style="color:white;" class="mt-n4">1,000</p>
+              </div>
+
             <v-divider class="mx-4" inset vertical></v-divider>
             <v-spacer></v-spacer>
   
   
-            <v-text-field v-model="search" outlined dense rounded append-icon="mdi-magnify" label="Search" single-line hide-details
+            <v-text-field v-model="searchyouthrecord" dark outlined dense rounded append-icon="mdi-magnify" label="Search" single-line hide-details
               ></v-text-field>
   
   
@@ -117,16 +121,14 @@
         </template>
   
   
-  
-  
       </v-data-table>
 
 
 
 
+    </v-col>
 
-
-
+    </v-row>
 
   </v-app>
 
@@ -153,37 +155,18 @@ export default {
       dialog:false,
       dialog_sample:false,
       
-     /*  selected1: [ ],
-      headers1: [
-        {
-          text: 'Dessert (100g serving)',
-          align: 'left',
-          sortable: false,
-          value: 'name',
-        },
-      
-      ],
- */
 
-      /* selected: [{name:'first',address:'',gender:'',contact:''}], */
       editedItem:[
 
 
       ],
 
-      sinagmembers:[
- 
-      ],
-
-        non_sinagmembers:[
-
-
-        ],
-
 
       selected:[], 
      
       search: '',
+      searchyouthrecord: '',
+
       headers: [
       { text: 'Image', value: 'image',  align: 'center' },
 
@@ -197,45 +180,23 @@ export default {
        
       ],
 
-      sinagheaders: [
-      { text: 'Image', value: 'image',  align: 'center' },
 
-        {
-          text: 'Full Name',
-          align: 'left',
-          sortable: false,
-          value: 'name',
-        },{
-          text:'Hours comitted',
-          value:'hours',
-        },
+      headers_recordlist: [
 
-        { text: 'Actions', value: 'edithours',  align: 'center', sortable: false },
-        { text: 'Actions', value: 'remove_sinag',  align: 'center', },
-
-
-      ],
-
-      non_sinagheaders: [
-      { text: 'Image', value: 'image',  align: 'center' },
-
-      {
-          text: 'Full Name',
-          align: 'left',
-          sortable: false,
-          value: 'name',
-        },
     
-        { text: 'Actions', value: 'remove_non_sinag',  align: 'center', },
-
+        { text: "Full Name", value: "name",
+         align: 'start', sortable: false, }, { text: "Gender", 
+         value: "gender", sortable: false, }, { text: "Civil Status",
+          value: "civil_status", sortable: false, },  { text: "Email",
+           value: "email" }, { text: "Mobile Number", value: "mobilenum", 
+           align: "center" }, { text: "Age", value: "age" }, 
+           { text: "Barangay & Purok", value: "barangay" }
 
       ],
+   
+ 
 
         
-    
-     
-
-
       desserts: [
         {
             
@@ -336,18 +297,318 @@ export default {
           image: 'profilepic/luna.png'
         },
 
-
-
-
-  
-     
       ],
+
+
+      recordlist:[
+  
+  {
+    image: 'profilepic/jom.jpg',
+    name: 'Joemarie Rendon Dela Cruz',
+    genpref: 'Lesbian',
+    gender: 'Male',
+    tribe: 'Mandaya',
+    email: 'joemarie27@gmail.com',
+    mobilenum: '09518110301',
+    age: '20 yrs old',
+    barangay: 'Apokon - Purok 2',
+
+    civil_status: 'Married',
+    educational_level: 'BSCS Graduated',
+    birthday: 'July 27,1995',
+    ethnicity: 'Bisaya',
+    datesurvey: 'February 4,2022',
+    voters: 'Yes',
+
+
+
+    eventname: 'Tagum Lighting of Christmas tree',
+    eventdate: 'December 4,2022',
+    eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+    sinag: 'Non-Sinag Member',
+
+    disability: "Mental/Intellectual"
+
+  },
+  {
+    image: 'profilepic/escobar.png',
+    name: 'Pablo Emilio Escobar Gaviria',
+    genpref: 'Gay',
+    gender: 'Male',
+    tribe: 'Manobo',
+    email: 'escobar227@gmail.com',
+    mobilenum: '09522321301',
+    age: '20 yrs old',
+    barangay: 'Liboganon - Purok 1',
+
+    sinag: 'Sinag Member',
+
+    civil_status: 'Married',
+    educational_level: 'Civil Engineering Graduated',
+    birthday: 'August 27,1952',
+    ethnicity: 'Mandaya',
+    datesurvey: 'january 4,2022',
+    voters: 'Yes',
+
+
+
+    eventname: 'Youth Event Basket Ball Men',
+    eventdate: 'January 4,2023',
+    eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+
+    disability: "Hearing Disability"
+
+
+  },
+  {
+    image: 'profilepic/jogz.jpg',
+    name: 'Jograd Mahusay Smith',
+    gender: 'Male',
+    genpref: 'Lesbian',
+    tribe: 'Davawenyo',
+    email: 'jogs123@gmail.com',
+    mobilenum: '09518110301',
+    age: '30 yrs old',
+    barangay: 'Magugpo West- Purok 4',
+
+    sinag: 'Sinag Member',
+
+
+
+    civil_status: 'Married',
+    educational_level: 'Computer Engineering Graduated',
+    birthday: 'December 27,1953',
+    ethnicity: 'Mandaya',
+    datesurvey: 'December 5,2022',
+    voters: 'Yes',
+
+
+
+    eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
+    eventdate: 'February 8,2023',
+    eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
+
+    disability: "Psychological Disability"
+
+  },
+  {
+
+    sinag: 'Sinag Member',
+
+
+    image: 'profilepic/reyalcala.png',
+    name: 'Rey Alcala Reynaldo',
+    gender: 'Male',
+    genpref: 'Transgender',
+    tribe: 'Cebuano',
+    email: 'rerey@gmail.com',
+    mobilenum: '09518110301',
+    age: '24 yrs old',
+    barangay: 'Magugpo East - Purok 1',
+
+
+    civil_status: 'Single',
+    educational_level: 'BSIT Graduated',
+    birthday: 'December 27,1997',
+    ethnicity: 'Bisaya',
+    datesurvey: 'December 5,2022',
+    voters: 'Yes',
+
+    eventname: 'Youth Event Sepak takraw',
+    eventdate: 'March 11,2022',
+    eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
+
+
+    disability: "Visual Diability"
+
+  },
+  {
+    image: 'profilepic/armstrong.png',
+    name: 'Neil Alden Armstrong',
+    gender: 'Female',
+    genpref: 'Gay',
+    tribe: 'Mandaya',
+    email: 'amrstrong224@gmail.com',
+    mobilenum: '09518110301',
+    age: '30 yrs old',
+    barangay: 'Pagsabangan - Purok 3',
+
+    civil_status: 'Single',
+    educational_level: 'BSIT Graduated',
+    birthday: 'December 27,1997',
+    ethnicity: 'Bisaya',
+    datesurvey: 'December 5,2022',
+    voters: 'Yes',
+
+    sinag: 'Non-Sinag Member',
+
+
+    eventname: 'Tagum Youth Dota 2 Tournament',
+    eventdate: 'December 4,2022',
+    eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+
+    disability: "Speech Impairement"
+
+
+  },
+  {
+    image: 'profilepic/Screenshot_1.png',
+    name: 'Jelly bean Del Cruz',
+    gender: 'Female',
+    genpref: 'gay',
+    tribe: 'Kamayo',
+    email: 'joemarie27@gmail.com',
+    mobilenum: '09518110301',
+    age: '20 yrs old',
+    barangay: 'San Isidro - Purok 2',
+
+    civil_status: 'Single',
+    educational_level: 'BSIT Graduated',
+    birthday: 'December 27,1997',
+    ethnicity: 'Bisaya',
+    datesurvey: 'December 5,2022',
+    voters: 'Yes',
+
+    sinag: 'Sinag Member',
+
+
+    eventname: 'Tagum Youth Mobile Legends Tournament',
+    eventdate: 'December 4,2022',
+    eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+
+
+    disability: "Mental/Intellectual"
+  },
+  {
+    image: 'profilepic/lebron.png',
+    name: 'LeBron Raymone James',
+    gender: 'Male',
+    genpref: 'Bisexual',
+    tribe: 'Kamayo',
+    email: 'joemarie27@gmail.com',
+    mobilenum: '09518110301',
+    age: '20 yrs old',
+    barangay: 'Apokon - Purok 1',
+
+    civil_status: 'Single',
+    educational_level: 'BSIT Graduated',
+    birthday: 'December 27,1997',
+    ethnicity: 'Bisaya',
+    datesurvey: 'December 5,2022',
+    voters: 'Yes',
+
+    sinag: 'Sinag Member',
+
+
+    eventname: 'Tagum Youth Soccer Tournament',
+    eventdate: 'December 4,2022',
+    eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+
+    disability: "Disability due to chronic illness"
+
+
+
+  },
+  {
+
+    image: 'profilepic/curry.png',
+    name: 'Wardell Stephen Curry II',
+    gender: 'Male',
+    genpref: 'gay',
+    tribe: 'Kamayo',
+    email: 'joemarie27@gmail.com',
+    mobilenum: '09518110301',
+    age: '20 yrs old',
+    barangay: 'Apokon - Purok 5',
+
+    civil_status: 'Single',
+    educational_level: 'BSIT Graduated',
+    birthday: 'December 27,1997',
+    ethnicity: 'Bisaya',
+    datesurvey: 'December 5,2022',
+    voters: 'Yes',
+
+    sinag: 'Non-Sinag Member',
+
+
+    eventname: 'Tagum Sayawan nang Kabatan-onan',
+    eventdate: 'December 4,2022',
+    eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+
+    disability: "Orthopaedic (Musculoskeletal) Disability"
+
+
+  },
+  {
+    image: 'profilepic/curay.png',
+    name: 'Curay Honey Marjie',
+    gender: 'Female',
+    genpref: 'Bisexual',
+    tribe: 'Kamayo',
+    email: 'joemarie27@gmail.com',
+    mobilenum: '09518110301',
+    age: '20 yrs old',
+    barangay: 'Apokon - Purok 2',
+
+    civil_status: 'Single',
+    educational_level: 'BSIT Graduated',
+    birthday: 'December 27,1997',
+    ethnicity: 'Bisaya',
+    datesurvey: 'December 5,2022',
+    voters: 'Yes',
+
+    sinag: 'Non-Sinag Member',
+
+
+    eventname: 'Tagum Youth Golf Event ',
+    eventdate: 'December 4,2022',
+    eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+
+    disability: "Learning Disability"
+
+
+  },
+
+  {
+    name: 'Jesica Rendon Caballes',
+    gender: 'Female',
+    genpref: 'lesbian',
+    tribe: 'Kamayo',
+    email: 'jess223@gmail.com',
+    mobilenum: '09518110301',
+    age: '25 yrs old',
+    barangay: 'Apokon - Purok 6',
+    image: 'profilepic/jesica.jpg',
+
+    civil_status: 'Single',
+    educational_level: 'BSIT Graduated',
+    birthday: 'December 27,1997',
+    ethnicity: 'Bisaya',
+    datesurvey: 'December 5,2022',
+    voters: 'Yes',
+
+    sinag: 'Non-Sinag Member',
+
+
+    eventname: 'Tagum Lighting of Christmas tree',
+    eventdate: 'December 4,2022',
+    eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
+
+    disability: "Mental/Intellectual"
+
+
+  },
+
+
+],
+
+
     }
   },
 
   created() {
       this.selected_event.push(this.listevent.find(e => e.id == this.$route.params.id));
-      this.initialize()
+     /*  this.initialize() */
       // console.log("selected=>", this.selected);
       // console.log("selected=>", this.$route.params.id);
   },
@@ -361,313 +622,17 @@ export default {
 
 
  methods:{
+  redirecttoformregistration (item) {
+            
+            /*   this.navigateTo('/SelectYouth');  */
+    
+              this.$router.push({ name: 'RegisterNew', params: { id: item.id } })
+            },
 
-    initialize() {
-        this.recordlist = [
-  
-          {
-            image: 'profilepic/jom.jpg',
-            name: 'Joemarie Rendon Dela Cruz',
-            genpref: 'Lesbian',
-            gender: 'Male',
-            tribe: 'Mandaya',
-            email: 'joemarie27@gmail.com',
-            mobilenum: '09518110301',
-            age: '20 yrs old',
-            barangay: 'Apokon - Purok 2',
-  
-            civil_status: 'Married',
-            educational_level: 'BSCS Graduated',
-            birthday: 'July 27,1995',
-            ethnicity: 'Bisaya',
-            datesurvey: 'February 4,2022',
-            voters: 'Yes',
-  
-  
-  
-            eventname: 'Tagum Lighting of Christmas tree',
-            eventdate: 'December 4,2022',
-            eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-            sinag: 'Non-Sinag Member',
-  
-            disability: "Mental/Intellectual"
-  
-          },
-          {
-            image: 'profilepic/escobar.png',
-            name: 'Pablo Emilio Escobar Gaviria',
-            genpref: 'Gay',
-            gender: 'Male',
-            tribe: 'Manobo',
-            email: 'escobar227@gmail.com',
-            mobilenum: '09522321301',
-            age: '20 yrs old',
-            barangay: 'Liboganon - Purok 1',
-  
-            sinag: 'Sinag Member',
-  
-            civil_status: 'Married',
-            educational_level: 'Civil Engineering Graduated',
-            birthday: 'August 27,1952',
-            ethnicity: 'Mandaya',
-            datesurvey: 'january 4,2022',
-            voters: 'Yes',
-  
-  
-  
-            eventname: 'Youth Event Basket Ball Men',
-            eventdate: 'January 4,2023',
-            eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-  
-            disability: "Hearing Disability"
-  
-  
-          },
-          {
-            image: 'profilepic/jogz.jpg',
-            name: 'Jograd Mahusay Smith',
-            gender: 'Male',
-            genpref: 'Lesbian',
-            tribe: 'Davawenyo',
-            email: 'jogs123@gmail.com',
-            mobilenum: '09518110301',
-            age: '30 yrs old',
-            barangay: 'Magugpo West- Purok 4',
-  
-            sinag: 'Sinag Member',
-  
-  
-  
-            civil_status: 'Married',
-            educational_level: 'Computer Engineering Graduated',
-            birthday: 'December 27,1953',
-            ethnicity: 'Mandaya',
-            datesurvey: 'December 5,2022',
-            voters: 'Yes',
-  
-  
-  
-            eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
-            eventdate: 'February 8,2023',
-            eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-  
-            disability: "Psychological Disability"
-  
-          },
-          {
-  
-            sinag: 'Sinag Member',
-  
-  
-            image: 'profilepic/reyalcala.png',
-            name: 'Rey Alcala Reynaldo',
-            gender: 'Male',
-            genpref: 'Transgender',
-            tribe: 'Cebuano',
-            email: 'rerey@gmail.com',
-            mobilenum: '09518110301',
-            age: '24 yrs old',
-            barangay: 'Magugpo East - Purok 1',
-  
-  
-            civil_status: 'Single',
-            educational_level: 'BSIT Graduated',
-            birthday: 'December 27,1997',
-            ethnicity: 'Bisaya',
-            datesurvey: 'December 5,2022',
-            voters: 'Yes',
-  
-            eventname: 'Youth Event Sepak takraw',
-            eventdate: 'March 11,2022',
-            eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
-  
-  
-            disability: "Visual Diability"
-  
-          },
-          {
-            image: 'profilepic/armstrong.png',
-            name: 'Neil Alden Armstrong',
-            gender: 'Female',
-            genpref: 'Gay',
-            tribe: 'Mandaya',
-            email: 'amrstrong224@gmail.com',
-            mobilenum: '09518110301',
-            age: '30 yrs old',
-            barangay: 'Pagsabangan - Purok 3',
-  
-            civil_status: 'Single',
-            educational_level: 'BSIT Graduated',
-            birthday: 'December 27,1997',
-            ethnicity: 'Bisaya',
-            datesurvey: 'December 5,2022',
-            voters: 'Yes',
-  
-            sinag: 'Non-Sinag Member',
-  
-  
-            eventname: 'Tagum Youth Dota 2 Tournament',
-            eventdate: 'December 4,2022',
-            eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-  
-            disability: "Speech Impairement"
-  
-  
-          },
-          {
-            image: 'profilepic/Screenshot_1.png',
-            name: 'Jelly bean Del Cruz',
-            gender: 'Female',
-            genpref: 'gay',
-            tribe: 'Kamayo',
-            email: 'joemarie27@gmail.com',
-            mobilenum: '09518110301',
-            age: '20 yrs old',
-            barangay: 'San Isidro - Purok 2',
-  
-            civil_status: 'Single',
-            educational_level: 'BSIT Graduated',
-            birthday: 'December 27,1997',
-            ethnicity: 'Bisaya',
-            datesurvey: 'December 5,2022',
-            voters: 'Yes',
-  
-            sinag: 'Sinag Member',
-  
-  
-            eventname: 'Tagum Youth Mobile Legends Tournament',
-            eventdate: 'December 4,2022',
-            eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-  
-  
-            disability: "Mental/Intellectual"
-          },
-          {
-            image: 'profilepic/lebron.png',
-            name: 'LeBron Raymone James',
-            gender: 'Male',
-            genpref: 'Bisexual',
-            tribe: 'Kamayo',
-            email: 'joemarie27@gmail.com',
-            mobilenum: '09518110301',
-            age: '20 yrs old',
-            barangay: 'Apokon - Purok 1',
-  
-            civil_status: 'Single',
-            educational_level: 'BSIT Graduated',
-            birthday: 'December 27,1997',
-            ethnicity: 'Bisaya',
-            datesurvey: 'December 5,2022',
-            voters: 'Yes',
-  
-            sinag: 'Sinag Member',
-  
-  
-            eventname: 'Tagum Youth Soccer Tournament',
-            eventdate: 'December 4,2022',
-            eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-  
-            disability: "Disability due to chronic illness"
-  
-  
-  
-          },
-          {
-  
-            image: 'profilepic/curry.png',
-            name: 'Wardell Stephen Curry II',
-            gender: 'Male',
-            genpref: 'gay',
-            tribe: 'Kamayo',
-            email: 'joemarie27@gmail.com',
-            mobilenum: '09518110301',
-            age: '20 yrs old',
-            barangay: 'Apokon - Purok 5',
-  
-            civil_status: 'Single',
-            educational_level: 'BSIT Graduated',
-            birthday: 'December 27,1997',
-            ethnicity: 'Bisaya',
-            datesurvey: 'December 5,2022',
-            voters: 'Yes',
-  
-            sinag: 'Non-Sinag Member',
-  
-  
-            eventname: 'Tagum Sayawan nang Kabatan-onan',
-            eventdate: 'December 4,2022',
-            eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-  
-            disability: "Orthopaedic (Musculoskeletal) Disability"
-  
-  
-          },
-          {
-            image: 'profilepic/curay.png',
-            name: 'Curay Honey Marjie',
-            gender: 'Female',
-            genpref: 'Bisexual',
-            tribe: 'Kamayo',
-            email: 'joemarie27@gmail.com',
-            mobilenum: '09518110301',
-            age: '20 yrs old',
-            barangay: 'Apokon - Purok 2',
-  
-            civil_status: 'Single',
-            educational_level: 'BSIT Graduated',
-            birthday: 'December 27,1997',
-            ethnicity: 'Bisaya',
-            datesurvey: 'December 5,2022',
-            voters: 'Yes',
-  
-            sinag: 'Non-Sinag Member',
-  
-  
-            eventname: 'Tagum Youth Golf Event ',
-            eventdate: 'December 4,2022',
-            eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-  
-            disability: "Learning Disability"
-  
-  
-          },
-  
-          {
-            name: 'Jesica Rendon Caballes',
-            gender: 'Female',
-            genpref: 'lesbian',
-            tribe: 'Kamayo',
-            email: 'jess223@gmail.com',
-            mobilenum: '09518110301',
-            age: '25 yrs old',
-            barangay: 'Apokon - Purok 6',
-            image: 'profilepic/jesica.jpg',
-  
-            civil_status: 'Single',
-            educational_level: 'BSIT Graduated',
-            birthday: 'December 27,1997',
-            ethnicity: 'Bisaya',
-            datesurvey: 'December 5,2022',
-            voters: 'Yes',
-  
-            sinag: 'Non-Sinag Member',
-  
-  
-            eventname: 'Tagum Lighting of Christmas tree',
-            eventdate: 'December 4,2022',
-            eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-  
-            disability: "Mental/Intellectual"
-  
-  
-          },
-  
-  
-  
-  
-        ]
+ /*    initialize() {
+        this.
         }
-
+ */
  },
 
  
