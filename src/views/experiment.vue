@@ -1,116 +1,56 @@
-
 <template>
-  <v-app>
-
-
-<!--     <v-radio-group  >
-      <h3>Clear Data</h3>
-     <v-radio value="yes"  label="Yes"></v-radio>
-    <v-radio value="no"  @change="unCheck"  label="No"></v-radio>
-    </v-radio-group>
-
-    <v-btn color="green">Uncheck</v-btn>
-
-    <div>
-    <v-radio-group v-model="selectedItem" >
-      <h3>Gender</h3>
-     <v-radio  value="Male" label="Male"></v-radio>
-    <v-radio value="Female" label="Female"></v-radio>
-    </v-radio-group>
-  </div>
     
- -->
 
-  <v-radio-group>
-      <h3>Gender</h3>
-     <v-radio  value="clear" label="Clear Checkbox" @change="clearbai"></v-radio>
-     <v-radio  value="ss" label="Clear "></v-radio>
-  </v-radio-group>
+<v-app id="inspire" class="background ">
+ 
+  <div class="color-overlay">
 
-
-<div  >
-  <v-radio-group v-model="selectedItem"  >
-      <h3>Clear Data</h3>
-     <v-radio value="Data1"  label="Data1"></v-radio>
-    <v-radio value="Data2" label="Data2"></v-radio>
-    </v-radio-group>
-</div>
+  </div>
 
 
+</v-app>
 
-
-    <h3>Vue Js Calculate age from given date</h3>
-    <div id="AgeCalculate">
-
-
-      <label>Enter your birthdate:</label>
-        
-        <v-text-field outlined dense type="date" v-model="birthDate" @input="calculateAge(birthDate)"> </v-text-field>
-
-    </div>
-
-    <v-text-field  color="success" :value="years" > </v-text-field>
-
-
-    <!-- <p v-if="birthDate">Your age is {{ years }} years, {{ months }} months, and {{ days }} days</p> -->
-  </v-app>
 
 </template>
 
 
-<script >
-
-export default {
-   
-    data() {
-        return {
-            birthDate: '',
-            years: null,
-            months: null,
-                days: null,
-                
-                    selectedItem: '',
-
-        };
-    },
 
 
-    methods: {
-
-             /*  unCheck() {
-                    this.selectedItem = null
-                },
- */
-               clearbai(){
-
-                  this.selectedItem = null
-
-                },
+<style scoped>
 
 
 
-          calculateAge(birthDate) {
 
-            if (!birthDate) return;
 
-            const currentDate = new Date();
-            if (new Date(birthDate) > currentDate) {
-                this.birthDate = null
-                this.years = null;
-                this.months = null;
-                this.days = null;
-                alert('Invalid Date of Birth')
-            }
+.background{
 
-            const diffTime = currentDate - new Date(birthDate);
-            const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-            this.years = Math.floor(totalDays / 365.25);
-            this.months = Math.floor((totalDays % 365.25) / 30.4375);
-            this.days = Math.floor((totalDays % 365.25) % 30.4375);
+margin: 0;
+padding: 0;
+background-image: url(/tagum.jpg) !important;
+color:beige;
+position:relative;
+height: 100vh;
+align-items: center;
+justify-content: center;
+display: flex;
 
-        }
-    }
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
 
-  }
+} 
 
-</script>
+.color-overlay {
+  background: linear-gradient(114.3deg, rgb(11, 134, 54) 0.2%, rgb(3, 52, 75) 68.5%);
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+  position: absolute
+}
+
+
+</style>
+
+
+

@@ -22,11 +22,14 @@
 
 <v-avatar size="50">
          <img v-bind:src="`/${item.image}`" alt="">
+         
  </v-avatar>
 
 
 
-
+<!-- 
+ {{ item.name }}
+ {{ item.category }} -->
 
 </template>
 
@@ -51,14 +54,15 @@ export default {
 
       { text: 'LOGO', value: 'image',  align: 'center' },
 
-        {
+    {
        
           text: 'Barangay',
           align: 'start',
           value: 'name',
           
 
-        },
+        }, 
+
         { text: 'Total Youth',  align: 'left', value: 'category' },
 
       ],

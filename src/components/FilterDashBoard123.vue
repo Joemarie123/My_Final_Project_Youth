@@ -209,6 +209,7 @@
         <v-dialog v-model="dialog_events_attended" max-width="1000px" tile>
           <v-card>
 
+          <!--   <v-btn color="green" @click="sumField" >CLICK ME</v-btn> -->
             <!--  <div class="text-center ">
 
               <v-alert dense dark color="blue darken-3">
@@ -232,8 +233,10 @@
                       </v-col>
                  -->
                 <v-col cols="12 " sm="12" md="12">
-                  <v-data-table  class="pa-md-6" :headers="headers_event" :hide-default-footer="true" :items="desserts"
-                    :search="search_events">
+                  <v-data-table  class="pa-md-6" :headers="headers_event" :hide-default-footer="true" :items="filteredItems"
+                    :search="search_events"
+                    
+                    >
                     <template v-slot:top>
 
 
@@ -247,12 +250,28 @@
                             </v-avatar>
                           </v-col>
 
-                          <v-col cols="12" sm="11" md="5">
-                            <v-text-field class="some-style ml-4" v-model="editedItem.name" flat readonly></v-text-field>
+                          <v-row>
+
+                          <v-col cols="12" sm="11" md="12">
+                           <!--  <v-text-field class="some-style ml-6" v-model="editedItem.name" flat readonly></v-text-field> -->
+                            <p class="ml-6 mt-5">{{ editedItem.name }} </p>
+                      
                           </v-col>
 
+
+                          <v-col cols="12" sm="11" md="5" class="ml-6 mt-n7">
+                       <p > <!-- Total Hours: {{ sumField('hoursearned') }} -->
+                        Total Hours: {{total}}
+
+                      </p>
+                      
+                          </v-col>
+
+                        </v-row>
+
+
                           <v-col cols="11" md="5">
-                            <v-text-field v-model="search_events" class="mt-md-3 ml-2" append-icon="mdi-magnify"
+                            <v-text-field  v-model="search_events" class="mt-md-3 ml-2" append-icon="mdi-magnify"
                               label="Search" single-line hide-details outlined rounded dense></v-text-field>
                           </v-col>
 
@@ -716,10 +735,73 @@ export default {
     },
   }),
 
-  props: ['name'],
+  props: ['name'], 
 
 
   computed: {
+
+    filteredItems() {
+     /*  return this.desserts.filter((desserts) =>
+      desserts.eventdate.toLowerCase().includes(this.search_events.toLowerCase())
+      );
+ */
+
+      let res=this.desserts.filter((item) =>
+        item.eventdate.toLowerCase().includes(this.search_events.toLowerCase()),
+       
+      );
+      /* eslint-disable */
+      console.log("res=>",res)
+
+      if(res.length == 0){
+        return this.desserts.filter((item) =>
+        item.eventname.toLowerCase().includes(this.search_events.toLowerCase()),
+       
+      );
+
+      
+      }
+
+     else if(res.length == 1){
+        return this.desserts.filter((item) =>
+        item.datesurvey.toLowerCase().includes(this.search_events.toLowerCase()),
+       
+      );
+
+      
+      }
+
+
+      else{
+        return this.desserts.filter((item) =>
+        item.eventdate.toLowerCase().includes(this.search_events.toLowerCase()),
+       
+      );
+      }
+
+    
+    },
+
+
+
+
+
+
+
+    total() {
+      return this.filteredItems.reduce(
+        (accumulator, desserts) => accumulator + desserts.hoursearned,
+        0
+      );
+    },
+
+
+    tableLength: function() {
+      return this.desserts.length;
+    },
+  
+
+
     msg() {
       return `ALL YOUTH ${this.name}`
     },
@@ -740,6 +822,7 @@ export default {
   },
   created() {
     this.initialize()
+   
 
   },
 
@@ -751,6 +834,14 @@ export default {
 
 
   methods: {
+
+/*  
+    sumField(key) {
+        // sum data in give key (property)
+        return this.desserts.reduce((a, b) => a + (b[key] || 0), 0)
+    }, */
+
+
     initialize() {
       this.desserts = [
 
@@ -779,7 +870,7 @@ export default {
           eventname: 'Tagum Lighting of Christmas tree',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '5 Hours',
+          hoursearned: 5,
           sinag: 'Sinag Member',
 
           disability: "Mental/Intellectual"
@@ -817,7 +908,7 @@ export default {
           eventname: 'Youth Event Basket Ball Men',
           eventdate: 'January 4,2023',
           eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-          hoursearned: '3 Hours',
+          hoursearned: 3,
           disability: "Hearing Disability"
 
 
@@ -851,7 +942,7 @@ export default {
           eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
           eventdate: 'February 8,2023',
           eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-          hoursearned: '2 Hours',
+          hoursearned: 2,
           disability: "Psychological Disability"
 
         },
@@ -882,7 +973,7 @@ export default {
           eventname: 'Youth Event Sepak takraw',
           eventdate: 'March 11,2022',
           eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
-          hoursearned: '7 Hours',
+          hoursearned: 7,
           activestatus:'Active Member',
 
           disability: "Visual Diability"
@@ -913,7 +1004,7 @@ export default {
           eventname: 'Tagum Youth Dota 2 Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '3 Hours',
+          hoursearned: 3,
           disability: "Speech Impairement",
           activestatus:'Active Member',
 
@@ -944,7 +1035,7 @@ export default {
           eventname: 'Tagum Youth Mobile Legends Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '4 Hours',
+          hoursearned: 4,
 
           disability: "Mental/Intellectual",
           activestatus:'Active Member',
@@ -975,7 +1066,7 @@ export default {
           eventname: 'Tagum Youth Soccer Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '6 Hours',
+          hoursearned: 6,
           disability: "Disability due to chronic illness",
 
           activestatus:'Active Member',
@@ -1008,7 +1099,7 @@ export default {
           eventname: 'Tagum Sayawan nang Kabatan-onan',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '2 Hours',
+          hoursearned: 2,
           disability: "Orthopaedic (Musculoskeletal) Disability",
           activestatus:'Active Member',
 
@@ -1039,7 +1130,7 @@ export default {
           eventname: 'Tagum Youth Golf Event ',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '4 Hours',
+          hoursearned: 4,
           disability: "Learning Disability",
           activestatus:'Active Member',
 
@@ -1071,11 +1162,12 @@ export default {
           eventname: 'Tagum Lighting of Christmas tree',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '6 Hours',
+          hoursearned: 6,
           disability: "Mental/Intellectual",
           activestatus:'Active Member',
 
         },
+
 
       ]
 
@@ -1139,61 +1231,63 @@ export default {
 
 
     if (this.msg == "ALL YOUTH MALE") {
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email"  , align: ' d-none d-md-table-cell' }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH SINAG") {
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH NON-SINAG") {
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH undefined") {
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
 
     else if (this.msg == "ALL YOUTH FEMALE") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH LGBTQIA+") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender Preference", value: "genpref" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender Preference", value: "genpref" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
 
     else if (this.msg == "ALL YOUTH SINGLE") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" , align: ' d-none d-xl-table-cell' }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH LIV-IN") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" , align: ' d-none d-xl-table-cell' }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
     else if (this.msg == "ALL YOUTH MARRIED") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" , align: ' d-none d-xl-table-cell' }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
+
+    else if (this.msg == "ALL YOUTH IP") {
+
+    this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" , align: ' d-none d-xl-table-cell' }, { text: "Ethnicity/ tribe", value: "tribe" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      }
 
     else if (this.msg == "ALL YOUTH Non-IP") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Ethnicity/ tribe", value: "tribe" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" , align: ' d-none d-xl-table-cell' }, { text: "Ethnicity/ tribe", value: "tribe" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
-    else if (this.msg == "ALL YOUTH MUSLIM") {
-
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
-    }
+  
 
     else if (this.msg == "ALL YOUTH PWD") {
 
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" }, { text: "Types of Disability", value: "disability" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" , align: ' d-none d-xl-table-cell' }, { text: "Types of Disability", value: "disability" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
 

@@ -2,6 +2,7 @@
     
   <div >
 <v-app id="inspire" class="background">
+  <div class="color-overlay"></div>
   <v-main class="d-flex justify-center align-center" >
 
     <v-col cols="10" 
@@ -79,7 +80,7 @@
             <v-row >
               <v-col offset="1" cols="6"  size="9" >
              
-              <v-btn   type="submit" color="blue" class="rounded-xl" @click="Login_Events">
+              <v-btn  outlined type="submit" color="blue" class="rounded-xl" @click="Login_Events">
                 <v-icon left>mdi-account-check</v-icon>
               LOG IN
             
@@ -88,9 +89,9 @@
             </v-col>
           
 
-              <v-col offset="" cols="5" size="9" @click="$router.push({ name: 'SignUpMemberYouth' })" >
+              <v-col  offset="" cols="5" size="9" @click="$router.push({ name: 'SignUpMemberYouth' })" >
                
-              <v-btn  color="green" class="rounded-xl">
+              <v-btn outlined color="green" class="rounded-xl">
                 <v-icon left>mdi-account-check</v-icon>
              SIGN UP
               </v-btn>
@@ -276,15 +277,32 @@ h1 {
 
 margin: 0;
 padding: 0;
-  background-image: url(/cover4.jpg) !important;
+background-image: url(/Editedtagum.jpg) !important;
+color:beige;
+position:relative;
+height: 100vh;
+align-items: center;
+justify-content: center;
+display: flex;
+
 background-size:cover;
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
 
-
 } 
+
+.color-overlay {
+  background: radial-gradient(circle at -1% 57.5%, rgba(19, 170, 82, 0.137) 0%, rgb(0, 102, 43) 90%);
+
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+  position: absolute
+}
+
+
+
+
 </style>
-
-
 

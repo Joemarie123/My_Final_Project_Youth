@@ -5,7 +5,7 @@
 <v-row>
 
 
-    <v-col lg="4" sm="12">
+    <v-col lg="4" md="12" sm="12">
       
    <div class="text-center ">
   <v-alert dense dark color="blue darken-3">
@@ -17,7 +17,11 @@
 
   
   <v-card>
-  <v-col cols="12" md="11"  class="ml-4 ">
+
+  
+
+
+  <v-col cols="12" md="11" sm="12" class="ml-4 ">
   
     <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
                   autofocus outlined rounded dense></v-text-field>
@@ -92,7 +96,7 @@
   
             <div class="d-flex-column">
             <p style="color:white;" class="mt-7">Total Youth Enumerate</p>
-            <p style="color:white;" class="mt-n4">1,000</p>
+            <p style="color:white;" class="mt-n4" v-if='desserts' > {{tableLength}}</p>
               </div>
 
             <v-divider class="mx-4" inset vertical></v-divider>
@@ -185,12 +189,11 @@ export default {
 
     
         { text: "Full Name", value: "name",
-         align: 'start', sortable: false, }, { text: "Gender", 
-         value: "gender", sortable: false, }, { text: "Civil Status",
-          value: "civil_status", sortable: false, },  { text: "Email",
+         align: 'start', sortable: false, }, { text: "Email",
            value: "email" }, { text: "Mobile Number", value: "mobilenum", 
            align: "center" }, { text: "Age", value: "age" }, 
-           { text: "Barangay & Purok", value: "barangay" }
+           { text: "Barangay & Purok", value: "barangay" },
+           { text: "Date Survey", value: "datesurvey" }
 
       ],
    
@@ -411,7 +414,7 @@ export default {
     educational_level: 'BSIT Graduated',
     birthday: 'December 27,1997',
     ethnicity: 'Bisaya',
-    datesurvey: 'December 5,2022',
+    datesurvey: 'December 5,2021',
     voters: 'Yes',
 
     eventname: 'Youth Event Sepak takraw',
@@ -437,7 +440,7 @@ export default {
     educational_level: 'BSIT Graduated',
     birthday: 'December 27,1997',
     ethnicity: 'Bisaya',
-    datesurvey: 'December 5,2022',
+    datesurvey: 'December 5,2023',
     voters: 'Yes',
 
     sinag: 'Non-Sinag Member',
@@ -466,7 +469,7 @@ export default {
     educational_level: 'BSIT Graduated',
     birthday: 'December 27,1997',
     ethnicity: 'Bisaya',
-    datesurvey: 'December 5,2022',
+    datesurvey: 'December 5,2021',
     voters: 'Yes',
 
     sinag: 'Sinag Member',
@@ -494,7 +497,7 @@ export default {
     educational_level: 'BSIT Graduated',
     birthday: 'December 27,1997',
     ethnicity: 'Bisaya',
-    datesurvey: 'December 5,2022',
+    datesurvey: 'December 5,2021',
     voters: 'Yes',
 
     sinag: 'Sinag Member',
@@ -615,6 +618,10 @@ export default {
 
 
  computed: {
+  tableLength: function() {
+      return this.desserts.length;
+    },
+
       formTitle () {
         return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
       },
