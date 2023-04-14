@@ -80,7 +80,7 @@
             <v-row >
               <v-col offset="1" cols="6"  size="9" >
              
-              <v-btn  outlined type="submit" color="blue" class="rounded-xl" @click="Login_Events">
+              <v-btn  outlined type="submit" color="blue darken-4" class="rounded-xl" @click="Login_Events">
                 <v-icon left>mdi-account-check</v-icon>
               LOG IN
             
@@ -91,7 +91,7 @@
 
               <v-col  offset="" cols="5" size="9" @click="$router.push({ name: 'SignUpMemberYouth' })" >
                
-              <v-btn outlined color="green" class="rounded-xl">
+              <v-btn outlined color="green darken-3" class="rounded-xl">
                 <v-icon left>mdi-account-check</v-icon>
              SIGN UP
               </v-btn>

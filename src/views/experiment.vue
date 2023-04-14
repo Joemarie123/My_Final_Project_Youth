@@ -1,56 +1,63 @@
 <template>
-    
+  <div>
+    <v-checkbox-group class="mt-n7">
+     <v-checkbox v-model="checked"
+     label="Physical Exam (weight, blood, pressure, heart rate)"></v-checkbox>
+     <v-checkbox v-model="checked1" label="Gynecological Exam"
+      style="margin-top: -10px"></v-checkbox>
+     <v-checkbox label="Ultrasound"
+    style="margin-top: -10px"></v-checkbox>
+   <v-checkbox label="HIV/STI/STD Testing"
+   style="margin-top: -10px"></v-checkbox>
+    <v-checkbox label="Nutritious Supplement"
+     style="margin-top: -10px"></v-checkbox>
 
-<v-app id="inspire" class="background ">
- 
-  <div class="color-overlay">
+   <v-checkbox label="Tetanus Vaccinet"
+  style="margin-top: -10px"></v-checkbox>
 
+   </v-checkbox-group>
+  
+   <v-text-field v-model="inputValue" label="Input"></v-text-field>
+
+
+   <v-select class="mt-n3"
+   v-model="select_me"
+  :items="['Public Health Facility', 'Private Clinic/Hospital', 'At home']"
+      label="Select Type of Health Issues "
+    prepend-inner-icon="mdi-hospital"
+           required></v-select>
+
+           <v-radio-group v-model="selected_Item" row class="mt-n3">
+        <v-radio value="yes" label="Yes"></v-radio>
+     <v-radio value="no" label="No"></v-radio>
+
+    </v-radio-group>
+
+    <v-btn @click="clearCheckbox">Clear Checkbox</v-btn>
   </div>
-
-
-</v-app>
-
-
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      checked: false,
+      checked1: false,
+      inputValue: '',
+      select_me: '',
+      selected_Item: '',
 
-
-
-<style scoped>
-
-
-
-
-
-.background{
-
-margin: 0;
-padding: 0;
-background-image: url(/tagum.jpg) !important;
-color:beige;
-position:relative;
-height: 100vh;
-align-items: center;
-justify-content: center;
-display: flex;
-
-background-size:cover;
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-position: center;
-
-} 
-
-.color-overlay {
-  background: linear-gradient(114.3deg, rgb(11, 134, 54) 0.2%, rgb(3, 52, 75) 68.5%);
-  width: 100%;
-  height: 100%;
-  opacity: .5;
-  position: absolute
+    }
+  },
+  methods: {
+    clearCheckbox() {
+      this.checked = false
+      this.checked1 = false
+      this.inputValue = ''
+      this.select_me = ''
+      this.selected_Item = ''
+      
+    }
+  }
 }
-
-
-</style>
-
-
-
+</script>

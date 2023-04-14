@@ -18,9 +18,6 @@
   
   <v-card>
 
-  
-
-
   <v-col cols="12" md="11" sm="12" class="ml-4 ">
   
     <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details

@@ -102,7 +102,7 @@ Privacy Policy<strong>
                                             outlined dense height="10"
                                                 :items="['Apokon', 'Bincungan', 'Busaon', 'Canocotan', 'Cuambogan', 'La Filipina', 'Liboganon', 'Madaum', 'Magdum', 'Mankilam', 'New Balamban', 'Nueva Fuerza', 'Pagsabangan', 'Pandapan', 'Magugpo Poblacion', 'San Agustin', 'San Isidro', 'San Miguel (Camp 4)', 'Visayan Village', 'Magugpo East', 'Magugpo North', 'Magugpo South', 'Magugpo West']"
                                                 label="Select Barangay" prepend-inner-icon="mdi-map-marker"
-                                                v-model="SignupBarangay" required></v-select>
+                                                required></v-select>
 
                                         </v-col>
 
@@ -177,7 +177,7 @@ Privacy Policy<strong>
                                             :items="['YES', 'NO']"
                                             outlined dense height="10"
                                                 label="Was the birth registered with the civil registry office?"
-                                                prepend-inner-icon="mdi-map-marker" v-model="SignupBarangay"
+                                                prepend-inner-icon="mdi-map-marker" 
                                                 required></v-select>
 
                                         </v-col>
@@ -371,8 +371,10 @@ Gender Preference<strong>
                                                             <v-radio @click="country_destination = true" value="yes"
                                                                 label="Yes"></v-radio>
 
-                                                            <v-radio @click="country_destination = false, cleargenderpreference" value="no"
+                                                            <v-radio @click="clear_country_destination" value="no"
                                                                 label="No"></v-radio>
+
+                                                              
 
                                                         </v-radio-group>
 
@@ -380,7 +382,7 @@ Gender Preference<strong>
 
                                                     <!--     COUNTRY OF DESTINATION START -->
 
-                                                    <v-dialog v-model="country_destination" max-width="380px">
+                                                    <v-dialog v-model="country_destination" persistent max-width="380px">
                                                         <v-card>
                                                             <v-container>
                                                                 <v-row>
@@ -397,27 +399,25 @@ Gender Preference<strong>
 
                                                                     </v-col>
 
-                                                              
-
-                                                                    <v-col cols="12" sm="12" md="4" class="mx-5"
+                                  
+                                                                 <v-col cols="12" sm="12" md="4" class="mx-5"
                                                                         style="margin-top: -30px">
 
-                                                                            
-
+                        
                                                                         <v-checkbox-group v-model="countrydestination_clear">
 
-                                                                            <v-checkbox label="Australia"></v-checkbox>
-                                                                            <v-checkbox label="Canada"
+                                                                            <v-checkbox v-model="Australia_clear" label="Australia"></v-checkbox>
+                                                                            <v-checkbox v-model="Canada_clear" label="Canada"
                                                                                 style="margin-top: -10px"></v-checkbox>
-                                                                            <v-checkbox label="Hongkong"
+                                                                            <v-checkbox label="Hongkong" v-model="Hongkong_clear"
                                                                                 style="margin-top: -10px"></v-checkbox>
-                                                                            <v-checkbox label="Indonesia"
+                                                                            <v-checkbox label="Indonesia" v-model="Indonesia_clear"
                                                                                 style="margin-top: -10px"></v-checkbox>
-                                                                            <v-checkbox label="Japan"
+                                                                            <v-checkbox label="Japan" v-model="Japan_clear"
                                                                                 style="margin-top: -10px"></v-checkbox>
-                                                                            <v-checkbox label="Korea"
+                                                                            <v-checkbox label="Korea" v-model="Korea_clear"
                                                                                 style="margin-top: -10px"></v-checkbox>
-                                                                            <v-checkbox label="Malaysia"
+                                                                            <v-checkbox label="Malaysia" v-model="Malaysia_clear"
                                                                                 style="margin-top: -10px"></v-checkbox>
                                                                         </v-checkbox-group>
                                                                     </v-col>
@@ -425,14 +425,14 @@ Gender Preference<strong>
                                                                         style="margin-top: -30px">
                                                                         <v-checkbox-group>
 
-                                                                            <v-checkbox label="Saudi Arabia"></v-checkbox>
-                                                                            <v-checkbox label="Singapore"
+                                                                            <v-checkbox label="Saudi Arabia" v-model="Saudi_clear" ></v-checkbox>
+                                                                            <v-checkbox label="Singapore" v-model="Singapore_clear"
                                                                                 style="margin-top: -10px"></v-checkbox>
-                                                                            <v-checkbox label="Taiwan"
+                                                                            <v-checkbox label="Taiwan" v-model="Taiwan_clear"
                                                                                 style="margin-top: -10px"></v-checkbox>
-                                                                            <v-checkbox label="United Arab Emirates"
+                                                                            <v-checkbox label="United Arab Emirates" v-model="UAE_clear"
                                                                                 style="margin-top: -10px"></v-checkbox>
-                                                                            <v-checkbox label="USA"
+                                                                            <v-checkbox label="USA" v-model="USAE_clear"
                                                                                 style="margin-top: -10px"></v-checkbox>
 
                                                                         </v-checkbox-group>
@@ -442,7 +442,7 @@ Gender Preference<strong>
 
                                                                     <v-col cols="10" sm="10" md="10"
                                                                         style="margin-left: 20px; margin-top: -25px;">
-                                                                        <v-text-field label="Other, specify"></v-text-field>
+                                                                        <v-text-field v-model="others_country" label="Other, specify"></v-text-field>
                                                                     </v-col>
 
                                                                 </v-row>
@@ -458,7 +458,7 @@ Gender Preference<strong>
                                                                         </v-btn>
 
                                                                         <v-btn color="red" class="pa-2 ml-2 mt-n4" outlined
-                                                                            dark @click="country_destination = false">
+                                                                            dark @click="country_destination = false ">
                                                                             Close
                                                                         </v-btn>
                                                                     </v-col>
@@ -488,9 +488,9 @@ Gender Preference<strong>
                                                             <p class="font-weight-bold mt-1" >Are You Currently Attending School?
                                                             </p>
                                                             <v-radio-group row class="mt-n4">
-                                                                <v-radio @click="what_grade_year_currently_attending = true"
+                                                                <v-radio @click="clear_Why_you_are_not_attending_school"
                                                                     value="yes" label="Yes"></v-radio>
-                                                                <v-radio @click="why_your_not_attending_school = true"
+                                                                <v-radio @click="clear_what_grade_or_year_you_are_currently_attending"
                                                                     value="no" label="No"></v-radio>
                                                             </v-radio-group>
 
@@ -499,26 +499,23 @@ Gender Preference<strong>
                                                         <v-col cols="12" sm="12" md="3" class="mt-n3 ml-3 mt-md-1 ml-md-n6">
                                                             <p class="font-weight-bold">Are You a graduate of Senior high?
                                                             </p>
-                                                            <v-radio-group row class="mt-n3">
+                                                            <v-radio-group row class="mt-n3" >
                                                                 <v-radio
                                                                     @change="show_if_yes_graduate_senior_highschool = true"
                                                                     value="yes" label="Yes"></v-radio>
                                                                 <v-radio
-                                                                    @change="show_if_yes_graduate_senior_highschool = false"
+                                                                    @change="clear_Are_You_a_graduate_of_Senior_high"
                                                                     value="no" label="No"></v-radio>
                                                             </v-radio-group>
 
-                                                            <v-select class="pr-6 mt-2" v-show="show_if_yes_graduate_senior_highschool"
+                                                            <v-select class="pr-6 mt-2"  v-show="show_if_yes_graduate_senior_highschool"
                                                             outlined dense height="10"
                                                                 :items="['Accounting, Business Mgt', 'Science, tech. Eng’g& Mathematics ', 'Humanities and Social Sutdies', 'General Academic', 'Home Economics', 'Agri-Forestry and Fishery', 'Industrial Arts', 'Info & Comm. Tech (ICT)', 'Sports', 'Arts and Design', 'TVL Automotive', 'TVL CSS', 'TVL Programming']"
                                                                 label="What Is Your Strand"
                                                                 prepend-inner-icon="mdi-clipboard-account" v-model="strand"
                                                                 required></v-select>
 
-
                                                         </v-col>
-
-
 
                                                     </v-row>
 
@@ -567,7 +564,7 @@ Gender Preference<strong>
                                                                                 style="margin-top: -10px">
                                                                                 <p class="font-weight-bold">Where Did You
                                                                                     Attend School</p>
-                                                                                <v-radio-group row>
+                                                                                <v-radio-group row v-model="clear_public_private">
                                                                                     <v-radio value="public"
                                                                                         label="Public"></v-radio>
                                                                                     <v-radio value="private"
@@ -641,15 +638,19 @@ Gender Preference<strong>
 
                                                                                 <v-checkbox-group>
                                                                                     <v-checkbox
+                                                                                          v-model="Schools_are_far_clear"                          
+                                                                                            
                                                                                         label="Schools are far/ Inaccessible"></v-checkbox>
-                                                                                    <v-checkbox label="Illness/ Disability"
+                                                                                    <v-checkbox  v-model="Illness_Disability_clear"
+                                                                                        label="Illness/ Disability"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Financial Constraint"
+                                                                                    <v-checkbox  v-model="Financial_Constraint_clear"
+                                                                                        label="Financial Constraint"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Housekeeping_Taking_care_siblings_clear"
                                                                                         label="Housekeeping/ Taking care siblings"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Employment_Looking_for_work_clear"
                                                                                         label="Employment/ Looking for work"
                                                                                         style="margin-top: -10px"></v-checkbox>
 
@@ -659,22 +660,23 @@ Gender Preference<strong>
                                                                             <v-col cols="10" sm="8" md="5" class="ml-2">
 
                                                                                 <v-checkbox-group>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Affected_by_armed_conflict_clear"
                                                                                         label="Affected by armed conflict"></v-checkbox>
-                                                                                    <v-checkbox label="No birth certificate"
+
+                                                                                    <v-checkbox label="No birth certificate" v-model="No_birth_certificate_clear"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Got_pregnant_Early_marriage_clear"
                                                                                         label="Got pregnant/ Early marriage"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="No_regular_transportation_clear"
                                                                                         label="No regular transportation"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Lack of Interest"
+                                                                                    <v-checkbox label="Lack of Interest" v-model="Lack_of_Interest_clear"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Already_finished_schooling_clear"
                                                                                         label="Already finished schooling"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-text-field
+                                                                                    <v-text-field v-model="why_you_not_attending_skul_others_clear"
                                                                                         label="Others"></v-text-field>
 
                                                                                 </v-checkbox-group>
@@ -688,7 +690,7 @@ Gender Preference<strong>
                                                                             <p class="font-weight-bold">What is your highest
                                                                                 educational attainment/ completed?</p>
 
-                                                                            <v-select @change="funcionselect"
+                                                                            <v-select @change="funcionselect" 
                                                                                 :items="['Elementary Level', 'Junior Level', 'Junior High School Level ', 'Junior High School Finisher', 'Senior High School Level', 'Senior High School Finisher', 'College Level', 'College Graduate', 'Post Graduate']"
                                                                                 label="Select Grade"
                                                                                 prepend-inner-icon="mdi-clipboard-account"
@@ -696,9 +698,10 @@ Gender Preference<strong>
 
 
                                                                             <p class="font-weight-bold"
+
                                                                                 v-show="whats_your_college_course">What is
                                                                                 your college course?</p>
-                                                                            <v-text-field v-show="whats_your_college_course"
+                                                                            <v-text-field v-model="write_the_course_clear" v-show="whats_your_college_course"
                                                                                 label="write the course" required>
                                                                             </v-text-field>
 
@@ -708,7 +711,7 @@ Gender Preference<strong>
                                                                                 v-show="are_you_passer_eligibility">Are you
                                                                                 passer of any Eligibility??</p>
                                                                             <v-radio-group
-                                                                                v-show="are_you_passer_eligibility" row>
+                                                                                v-model="are_you_eligibility_passer_clear" v-show="are_you_passer_eligibility" row>
                                                                                 <v-radio
                                                                                     @change="what_eligibility_did_you_make_it = true"
                                                                                     value="yes" label="Yes"></v-radio>
@@ -725,7 +728,7 @@ Gender Preference<strong>
                                                                                 class="font-weight-bold">What Eligibility
                                                                                 did you Make it</p>
                                                                             <v-select
-                                                                                v-show="what_eligibility_did_you_make_it"
+                                                                                  v-show="what_eligibility_did_you_make_it"
                                                                                 :items="['Prof-Civil Service', 'SubProf-Civil Service ', 'RA 108', 'PD 907', 'PRC License']"
                                                                                 label="Select Eligibility"
                                                                                 prepend-inner-icon="mdi-clipboard-account"
@@ -968,7 +971,7 @@ Gender Preference<strong>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio @click="did_you_vote_in_the_last_sk_elections = true" value="yes"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" label="No"></v-radio>
+                                                <v-radio @click="clear_Did_you_Vote_in_the_last_SK_Election" value="no" label="No"></v-radio>
                                             </v-radio-group>
 
 
@@ -1802,7 +1805,7 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="12" md="12" style="margin-top: -40px;">
 
-                                                            <v-radio-group row>
+                                                            <v-radio-group row v-model="clear_Did_you_Vote_in_the_last_SK_Election_yes_no" >
                                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                                 <v-radio value="no" label="No"></v-radio>
                                                             </v-radio-group>
@@ -1818,9 +1821,9 @@ Gender Preference<strong>
 
 
 
-                                                        <v-col cols="10" sm="12" md="12" style="margin-top: -50px;">
+                                                        <v-col cols="10" sm="12" md="12"  style="margin-top: -50px;">
 
-                                                            <v-radio-group row>
+                                                            <v-radio-group v-model="clear_Did_you_Vote_in_the_regular_yes_no" row>
                                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                                 <v-radio value="no" label="No"></v-radio>
                                                             </v-radio-group>
@@ -4446,13 +4449,29 @@ export default {
             months: null,
             days: null,
 
+            Australia_clear:false,
+            Canada_clear:false,
+            Hongkong_clea:false,
+            Indonesia_clear:false,
+            Japan_clear:false,
+            Korea_clear:false,
+            Malaysia_clear:false,
+            Saudi_clear:false,
+            Singapore_clear:false,
+            Taiwan_clear:false,
+            UAE_clear:false,
+            USAE_clear:false,
+            others_country: '',
+
+
+
             rules: [
         v => !!v || 'Required',
       ],
 
            
 
-            e1: 1,
+            e1: 2,
 
             /*  Codes FOR 61 What kind of health Related */
             ethnicity: [
@@ -4804,6 +4823,29 @@ genderpreference:[
             includeFiles: true,
             enabled: false,
 
+            clear_public_private:'',
+            usrelevel:false,
+
+
+                Schools_are_far_clear:false,
+                Illness_Disability_clear:false,
+                Financial_Constraint_clear:false,
+                Housekeeping_Taking_care_siblings_clear:false,
+                Employment_Looking_for_work_clear:false,
+                Affected_by_armed_conflict_clear:false,
+                No_birth_certificate_clear:false,
+                Got_pregnant_Early_marriage_clear:false,
+                No_regular_transportation_clear:false,
+                Lack_of_Interest_clear:false,
+                Already_finished_schooling_clear:false,
+                why_you_not_attending_skul_others_clear: '',
+                selectgrade: '',
+                write_the_course_clear: '',
+                are_you_eligibility_passer_clear:'',
+                strand: '',
+
+        clear_Did_you_Vote_in_the_last_SK_Election_yes_no:'',
+        clear_Did_you_Vote_in_the_regular_yes_no:'',
 
         };
     },
@@ -4814,17 +4856,88 @@ genderpreference:[
             val && setTimeout(() => (this.activePicker = "YEAR"));
         },
     },
-               methods: {
 
-            cleargenderpreference() {
-            this.genderpreferencedawkuno = null
-            this.countrydestination_clear = null   
+
+    methods: {
+
+        clear_country_destination()
+        {
+            this.Australia_clear = false
+            this.Canada_clear = false
+            this.Hongkong_clear = false
+            this.Indonesia_clear = false
+            this.Japan_clear = false
+            this.Korea_clear = false
+            this.Malaysia_clear = false
+            this.Saudi_clear = false
+            this.Singapore_clear = false
+            this.Taiwan_clear = false
+            this.UAE_clear = false
+            this.USAE_clear = false
+            this.others_country = ''
+
+        },
+
+
+        clear_what_grade_or_year_you_are_currently_attending()
+
+        {
+
+                this.usrelevel = false
+                this.clear_public_private = ''
+                this.why_your_not_attending_school = true
+
+        },
+
+            clear_Why_you_are_not_attending_school()
+
+            {
+                this.Schools_are_far_clear = false
+                this.Illness_Disability_clear = false
+                this.Financial_Constraint_clear = false
+                this.Housekeeping_Taking_care_siblings_clear = false
+                this.Employment_Looking_for_work_clear = false
+                this.Affected_by_armed_conflict_clear = false
+                this.No_birth_certificate_clear = false
+                this.Got_pregnant_Early_marriage_clear = false
+                this.No_regular_transportation_clear = false
+                this.Lack_of_Interest_clear = false
+                this.Already_finished_schooling_clear = false
+                this.why_you_not_attending_skul_others_clear = ''
+                this.selectgrade = ''
+                this.write_the_course_clear = ''
+                this.are_you_eligibility_passer_clear = ''
+                this.usrelevel = ''
+                this.what_grade_year_currently_attending = true
             },
 
 
-                    
+            clear_Are_You_a_graduate_of_Senior_high()
+            
+            {
+
+              
+                this.strand = ''
+                this.show_if_yes_graduate_senior_highschool = false
+
+            },
 
 
+
+
+     cleargenderpreference() {
+     this.genderpreferencedawkuno = null
+    this.countrydestination_clear = null   
+
+            },
+
+     clear_Did_you_Vote_in_the_last_SK_Election()
+    {
+        this.clear_Did_you_Vote_in_the_last_SK_Election_yes_no = ''
+        this.clear_Did_you_Vote_in_the_regular_yes_no = ''
+
+
+    },
 
         validate() {
         

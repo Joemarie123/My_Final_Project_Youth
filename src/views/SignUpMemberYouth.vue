@@ -151,7 +151,7 @@
   
                 <v-col   offset="" cols="5" size="9" @click="$router.push({ name: 'LogInForm' })" >
                  
-                <v-btn outlined  type="submit" color="green" class="rounded-xl">
+                <v-btn outlined  type="submit" color="red" class="rounded-xl">
                   <v-icon left>mdi-account-check</v-icon>
                CLOSE
                 </v-btn>
