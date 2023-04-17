@@ -277,6 +277,7 @@ Gender Preference<strong>
 </v-col>
 
 
+
 <v-col cols="12" sm="12" md="4"  class="ml-3" >
 
 <v-radio value="Gay"  label="Gay"></v-radio>

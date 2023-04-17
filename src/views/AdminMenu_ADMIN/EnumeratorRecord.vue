@@ -1,9 +1,7 @@
-<template>
-    
+<template>    
   <v-app>
     <Navbar/>
 <v-row>
-
 
     <v-col lg="4" md="12" sm="12">
       
@@ -14,12 +12,8 @@
    </v-alert> 
    </div>
 
-
-  
-  <v-card>
-
+ <v-card>
   <v-col cols="12" md="11" sm="12" class="ml-4 ">
-  
     <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
                   autofocus outlined rounded dense></v-text-field>
             </v-col>
@@ -37,18 +31,14 @@
       height="570"
       :hide-default-footer="true"
       :hide-default-header="true"
-        tile
-        :search="search"
-     
+      tile
+      :search="search"   
     >
 
-    
     <template v-slot:item.image="{ item }">
-
                <v-avatar size="40">
                               <img v-bind:src="`/${item.image}`" alt="">
                       </v-avatar>
-
 </template>
 
     <template slot="item.actions" slot-scope="props" >
@@ -152,6 +142,8 @@ export default {
   data () {
     return {
      
+      model: 'no',
+      
       dialog_for_input_hours:false,
       dialog:false,
       dialog_sample:false,
@@ -188,7 +180,7 @@ export default {
         { text: "Full Name", value: "name",
          align: 'start', sortable: false, }, { text: "Email",
            value: "email" }, { text: "Mobile Number", value: "mobilenum", 
-           align: "center" }, { text: "Age", value: "age" }, 
+           align: ' d-none d-xl-table-cell' }, { text: "Age", value: "age", align: ' d-none d-xl-table-cell' }, 
            { text: "Barangay & Purok", value: "barangay" },
            { text: "Date Survey", value: "datesurvey" }
 

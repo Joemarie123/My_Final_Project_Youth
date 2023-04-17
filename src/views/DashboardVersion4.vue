@@ -92,14 +92,15 @@
             </v-col>
             
             <v-col cols="12" sm="4"   >
-              <v-card class="btn-hover color-1 mx-2 rounded-xl  draw-border" 
+              <v-card class="btn-hover color-1 mx-2 rounded-xl  draw-border"  style="width: 500px;"
                tile
                elevation="16"> 
+              <!--  <v-card class="btn-hover color-1 mt-1" style="width: 34%; height:16%; vertical-align: top;  margin-left: -10px; margin-right: -10px;position: absolute; ">  -->
                 <v-row>
 
 
                   <v-col cols="12" 
-                   sm="12" md="4">
+                   sm="12" md="3">
                     <v-list-item three-line>
                       <v-list-item-content>
                         <div class="mb-4">
@@ -122,7 +123,7 @@
                   </v-col>
   
                       <v-col cols="12" 
-                   sm="12" md="4">
+                   sm="12" md="3">
                     <v-list-item three-line>
                       <v-list-item-content>
                         <div class="mb-4">
@@ -144,7 +145,31 @@
                     
                   </v-col>
   
-                  <v-col cols="12" sm="12" md="4" >
+                  <v-col cols="12" sm="12" md="3" >
+                    <v-list-item three-line>
+                      <v-list-item-content>
+  
+  
+                        <div class="mb-4">
+
+                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'soloparent' } }">
+                          <v-avatar size="60">
+                                <img src="/married.png" alt="">
+                        </v-avatar>
+                      </v-btn>
+
+                        </div>
+  
+                        <v-list-item-title class="headline mb-1 white--text">
+                        5,426
+                        </v-list-item-title>
+                        <v-list-item-subtitle class="white--text">Solo Parent</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item> 
+                    
+                  </v-col>
+
+                  <v-col cols="12" sm="12" md="3" >
                     <v-list-item three-line>
                       <v-list-item-content>
   

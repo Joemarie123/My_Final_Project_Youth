@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Navbar />
+    <Navbar/>
     <v-data-table :headers="headers" :items="desserts" sort-by="calories"  class="btn-hover color-1 elevation-1 pa-2" dark
       :search="search">
 
@@ -187,7 +187,7 @@
 
           
 
-          <v-dialog v-model="dialogDelete" max-width="500px">
+          <!-- <v-dialog v-model="dialogDelete" max-width="500px">
             <v-card>
               <div class="text-center ">
               <v-alert dense dark color="blue darken-3">
@@ -203,7 +203,7 @@
                 <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>
-          </v-dialog>
+          </v-dialog> -->
         </v-toolbar>
 
         <v-dialog v-model="dialog_events_attended" max-width="1000px" tile>
@@ -298,7 +298,7 @@
                       </v-card>
 
 
-
+<!-- 
                       <v-dialog v-model="dialogDelete" max-width="450px">
                         <v-card>
                           <h3 class="text-center">Are you sure to delete this?</h3>
@@ -310,13 +310,16 @@
                             <v-spacer></v-spacer>
                           </v-card-actions>
                         </v-card>
-                      </v-dialog>
+                      </v-dialog> -->
 
 
 
 
                     </template>
                     <template v-slot:item.actions="{ item }">
+
+            
+
                       <v-icon small class="mr-2" @click="viewItem(item)">
                         mdi-eye
                       </v-icon>
@@ -324,7 +327,9 @@
                         mdi-pencil
                       </v-icon>
 
-                      <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+                      
+
+                  <!--     <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon> -->
                     </template>
                     <template slot="item.switch1" slot-scope="{ item }">
                       <v-switch v-model="item.switch1" color="success" dense></v-switch>
@@ -353,6 +358,7 @@
                   PERSONAL INFORMATION <strong> </strong>
 
                 </v-alert>
+
                <!--  <v-col cols="10" lg="1" style="margin-top: -63px; margin-left: 570px;">
                   <v-btn text color="red" dark @click="dialog_viewProfile = false">
                     <v-icon>
@@ -623,10 +629,10 @@
         <!-- <v-icon small class="ml-n5 " @click="editItem(item)">
           mdi-pencil
         </v-icon> -->
-
+<!-- 
         <v-icon small class="ml-1 ma-2" @click="deleteItem(item)">
           mdi-delete
-        </v-icon>
+        </v-icon> -->
 
         <v-btn outlined @click="Events_History(item)" class="white--text mr-2" small color="blue">
           <v-icon left class="white--text">mdi-account-check</v-icon>
@@ -741,30 +747,26 @@ export default {
   computed: {
 
     filteredItems() {
-     /*  return this.desserts.filter((desserts) =>
-      desserts.eventdate.toLowerCase().includes(this.search_events.toLowerCase())
+      
+   return this.desserts.filter((desserts) =>
+      desserts.eventdate.toLowerCase().includes(this.search_events.toLowerCase()) ||
+      desserts.eventname.toLowerCase().includes(this.search_events.toLowerCase()) ||
+      desserts.eventdetails.toLowerCase().includes(this.search_events.toLowerCase())
       );
- */
 
-      let res=this.desserts.filter((item) =>
+
+
+
+    /*   let res=this.desserts.filter((item) =>
         item.eventdate.toLowerCase().includes(this.search_events.toLowerCase()),
        
-      );
+      ); */
       /* eslint-disable */
-      console.log("res=>",res)
+     /*  console.log("res=>",res)
 
       if(res.length == 0){
         return this.desserts.filter((item) =>
         item.eventname.toLowerCase().includes(this.search_events.toLowerCase()),
-       
-      );
-
-      
-      }
-
-     else if(res.length == 1){
-        return this.desserts.filter((item) =>
-        item.datesurvey.toLowerCase().includes(this.search_events.toLowerCase()),
        
       );
 
@@ -777,7 +779,7 @@ export default {
         item.eventdate.toLowerCase().includes(this.search_events.toLowerCase()),
        
       );
-      }
+      } */
 
     
     },
@@ -936,7 +938,6 @@ export default {
           ethnicity: 'Mandaya',
           datesurvey: 'December 5,2022',
           voters: 'Yes',
-
 
 
           eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
@@ -1416,8 +1417,6 @@ margin-left: 30px;
 
 }
 
-
-
 .some-style>>>.v-input__slot::before {
   border-style: none !important;
 }
@@ -1457,7 +1456,6 @@ margin-left: 30px;
   background-image: linear-gradient(to right, #0b5879, #076437, #0e6d3f, #078045);
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
 }
-
 
 
 </style>

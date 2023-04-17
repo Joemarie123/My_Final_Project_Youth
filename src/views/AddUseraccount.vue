@@ -3,6 +3,9 @@
 
     <v-app>
       <v-data-table :headers="headers" :items="desserts" sort-by="calories" class=" btn-hover color-1 elevation-1 pa-3" dark>
+
+
+        
     <template v-slot:top >
 
       <!-- <v-toolbar flat dark class=" btn-hover color-1 elevation-1"> -->
@@ -313,12 +316,24 @@
      
     </template>
     <template v-slot:item.actions="{ item }">
-      <v-icon small class="mr-2" @click="editItem(item)">
+
+ <!--  :label="`Switch: ${model}`" -->
+ <div class="d-flex-column">
+
+  <v-icon small class="mr-2" @click="editItem(item)">
         mdi-pencil
       </v-icon>
-      <v-icon small @click="deleteItem(item)">
+    <!--   <v-icon small @click="deleteItem(item)">
         mdi-delete
-      </v-icon>
+      </v-icon>  -->
+
+      <v-switch
+      class="mt-n2"
+       v-model="item.active" true-value="yes" 
+      false-value="no" color="blue"></v-switch>
+
+    </div>
+
     </template>
 
     
@@ -471,11 +486,17 @@
   
 
   },
+  
 
     data: function() {
       
+      
+
     return {
 
+    
+
+      model: 'yes',
       dialog_save_successfully:false,
       create_user_account:false,
       dialogDelete: false,
@@ -576,6 +597,9 @@
           username: 'joemarie27',
           userlevel: 'Admin',
           barangay: 'Apokon',
+          active: 'yes',
+
+
         },
         {
           name: 'Rey',
@@ -584,6 +608,8 @@
           username: 'rey332',
           userlevel: 'Brgy. SK Chairman',
           barangay: 'Pagsabangan',
+          active: 'yes',
+
         },
         {
           name: 'Pablo',
@@ -592,6 +618,8 @@
           username: 'Pabs223',
           userlevel: 'Brgy. SK Chairman',
           barangay: 'Canocotan',
+          active: 'yes',
+
         },
         {
           name: 'Alberto',
@@ -600,6 +628,8 @@
           username: 'Alber3356',
           userlevel: 'Brgy. SK Chairman',
           barangay: 'Liboganon',
+          active: 'no',
+
         },
         {
           name: 'Mahusay',
@@ -608,7 +638,9 @@
           username: 'Jogs123',
           userlevel: 'Brgy. SK Chairman',
           barangay: 'Magdum',
+          active: 'yes',
         },
+
         {
           name: 'Steve',
           middlename: 'Dela Rosa',
@@ -616,6 +648,7 @@
           username: 'jobs2224',
           userlevel: 'Brgy. SK Official',
           barangay: 'Mankilam',
+          active: 'yes',
         },
         {
           name: 'Bill',
@@ -624,6 +657,7 @@
           username: 'Gates22455',
           userlevel: 'Brgy. SK Official',
           barangay: 'San Isidro',
+          active: 'yes',
         },
         {
           name: 'James',
@@ -632,6 +666,7 @@
           username: 'james33552',
           userlevel: 'Brgy. SK Official',
           barangay: 'La Filipina',
+          active: 'yes',
         },
         {
           name: 'Lebron',
@@ -640,6 +675,7 @@
           username: 'Lebron2577',
           userlevel: 'Brgy. SK Official',
           barangay: 'Nueva Fuerza',
+          active: 'yes',
         },
 
         {
@@ -649,6 +685,7 @@
           username: 'Lebron2577',
           userlevel: 'Brgy. SK Official',
           barangay: 'Nueva Fuerza',
+          active: 'yes',
         },
 
       ]

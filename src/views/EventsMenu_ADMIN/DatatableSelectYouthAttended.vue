@@ -53,17 +53,18 @@
     >
 
     
-    <template v-slot:item.image="{ item }">
 
-               <v-avatar size="40">
+       <template v-slot:item.image="{ item }">
+       <v-avatar size="40">
                               <img v-bind:src="`/${item.image}`" alt="">
                       </v-avatar>
-
-</template>
+      </template>
 
 
 
     <template slot="item.actions" slot-scope="props" >
+
+      
 
       <v-btn class="pa-2" color="green" dark @click="()=>sinagmembro(props.item)">
         Attended
@@ -100,16 +101,14 @@
  
   </v-col>
 
-    <v-col lg="3" md="12" sm="12" >
+ <!--    <v-col lg="3" md="12" sm="12" >
 
       
       <v-card height="650" class="wrapper" >
 
 
         <div class="text-center " >
-           <!--  <v-avatar size="100" color="indigo lighten-4">
-              <v-icon size="40" color="indigo">mdi-account</v-icon>
-            </v-avatar> -->
+       
             
             <v-alert
             dense
@@ -122,13 +121,6 @@
 
           </div>
       
-      <!--     <v-btn  text > -->
-
-<!-- v-for="person in selected" :key="person.name">{{person.name}} -->
-
-    <!--       </v-btn> -->
-
-
     <v-data-table 
     :headers="non_sinagheaders"
     :items="non_sinagmembers"
@@ -165,7 +157,10 @@
 
   </v-card>
 
-</v-col>
+</v-col> -->
+
+
+
 
 
 <v-col lg="5" md="12" sm="12" >
@@ -180,12 +175,13 @@
      dark
      color="green darken-2"
     >
-     SINAG MEMBERS <strong> </strong>
+    Attendees <strong> </strong>
     </v-alert>
     </div>
 
 
     <v-data-table 
+
     :headers="sinagheaders"
     :items="sinagmembers"
     :hide-default-footer="true"
@@ -194,11 +190,13 @@
      scrollable
     >
 
+    <template v-slot:item.sinagmark ="{ item }">
+
+      <img width="13" v-bind:src="`/${item.sinagmark}`" alt="">
+ </template>
 
     
     <template v-slot:item.image="{ item }">
-
-
 
 <v-avatar size="40">
          <img v-bind:src="`/${item.image}`" alt="">
@@ -385,10 +383,10 @@ export default {
  
       ],
 
-        non_sinagmembers:[
+      non_sinagmembers:[
 
 
-        ],
+      ],
 
 
       selected:[], 
@@ -408,6 +406,8 @@ export default {
       ],
 
       sinagheaders: [
+
+      { text: 'Sinag Image', value: 'sinagmark',  align: 'center', width: '10'  },
       { text: 'Image', value: 'image',  align: 'center' },
 
         {
@@ -522,38 +522,42 @@ export default {
 
         selected_event:[],
 
-
       desserts: [
         {
             
           name: 'Rendon Joemarie Odtojan',
-          sinagmember:true,
+        /*   sinagmember:true, */
+        sinagmark:  'torch.png',
           image: 'profilepic/jom.jpg'
        
         },
         {
 
-          name: 'Alcala Rey Naldo',
-          sinagmember:true,
+        name: 'Alcala Rey Naldo',
+        /*   sinagmember:true, */
+        sinagmark:  'torch.png',
           image: 'profilepic/reyalcala.png'
          
         },
         {
           name: 'Curay Honey Marjie',
-          sinagmember:false,
+          /* sinagmember:false, */
+          sinagmark:  'torchblank.png',
           image: 'profilepic/curay.png'
         
         },
         {
           name: 'Pablo Escobar Roland',
-          sinagmember:false,
+       /*    sinagmember:false, */
+       sinagmark:  'torchblank.png',
           image: 'profilepic/escobar.png'
           
          
         },
         {
           name: 'NEil Arms Trong',
-          sinagmember:false,
+        /*   sinagmember:false, */
+        sinagmark:  'torchblank.png',
           image: 'profilepic/armstrong.png'
 
           
@@ -561,59 +565,68 @@ export default {
         },
         {
           name: 'Jelly bean Del Cruz',
-          sinagmember:true,
+       /*    sinagmember:true, */
+       sinagmark:  'torch.png',
           image: 'profilepic/Screenshot_1.png'
          
         },
         {
           name: 'Mahusay Jograd JOGZ',
-          sinagmember:true,
+        /*   sinagmember:true, */
+        sinagmark:  'torch.png',
           image: 'profilepic/jogz.jpg'
          
         },
         {
           name: 'Benjamin Roble',
-          sinagmember:true,
+      /*     sinagmember:true, */
+      sinagmark:  'torch.png',
           image: 'profilepic/Neil.jpg'
         
         },
         {
           name: 'LeBron Raymone James',
-          sinagmember:true,
+        /*   sinagmember:true, */
+        sinagmark:  'torch.png',
           image: 'profilepic/lebron.png'
 
 
         },
         {
           name: 'Wardell Stephen Curry II',
-          sinagmember:false,
+        /*   sinagmember:false, */
+        sinagmark:  'torchblank.png',
           image: 'profilepic/curry.png'
 
         },
 
         {
           name: 'Kevin Wayne Durant',
-          sinagmember:true,
+        /*   sinagmember:true, */
+        sinagmark:  'torch.png',
           image: 'profilepic/durant.png'
 
         },
 
         {
           name: 'James Edward Harden Jr.',
-          sinagmember:true,
+      /*     sinagmember:true, */
+          sinagmark:  'torch.png',
           image: 'profilepic/harden.png'
 
           
         },
         {
           name: 'Albert Einstein',
-          sinagmember:true,
+       /*    sinagmember:true, */
+             sinagmark:  'torch.png',
           image: 'profilepic/albert.png'
 
         },
         {
           name: 'Antonio Narciso Luna de San Pedro',
-          sinagmember:true,
+      /*     sinagmember:true, */
+         sinagmark:  'torch.png',
           image: 'profilepic/luna.png'
         },
 
@@ -655,7 +668,7 @@ export default {
 
 
  methods:{
-
+/* 
   sinagmembro(item){
     if(item.sinagmember == true)
 
@@ -663,8 +676,7 @@ export default {
 
     else
 
-    
-   /*  this.selected.push({name:item.name}); */
+
 
    this.non_sinagmembers.push({image: item.image, name: item.name,sinagmember: item.sinagmember})
 
@@ -677,26 +689,38 @@ export default {
     console.log(this.selected);// eslint-disable-line no-console
     console.log("sinagmember");// eslint-disable-line no-console
   },
+ */
 
- 
+  sinagmembro(item){
+    
+
+    this.sinagmembers.push({ sinagmark: item.sinagmark, image: item.image, name: item.name ,hours: 0,sinagmember: item.sinagmember})
+    this.desserts=this.desserts.filter((nem)=>nem.name !== item.name);
+  
+    console.log(item.name);// eslint-disable-line no-console
+    console.log(this.selected);// eslint-disable-line no-console
+    console.log("sinagmember");// eslint-disable-line no-console
+  },
 
 
-    nonsinagmembro_remove(items){
+ /*    nonsinagmembro_remove(items){
 
       this.desserts.push({image: items.image, name: items.name,sinagmember: items.sinagmember})
 
        this.non_sinagmembers=this.non_sinagmembers.filter((nem)=>nem.name !== items.name); 
       
     },
-
+ */
 
     sinagmembro_remove(items){
 
-this.desserts.push({image: items.image, name: items.name,sinagmember: items.sinagmember})
+this.desserts.push({  sinagmark: items.sinagmark,   image: items.image, name: items.name,sinagmember: items.sinagmember})
 
  this.sinagmembers=this.sinagmembers.filter((nem)=>nem.name !== items.name); 
 
 },
+
+
 
 editItem (item) {
         this.editedIndex = this.sinagmembers.indexOf(item)
@@ -761,7 +785,6 @@ editItem (item) {
 <style scoped>
 
 
-
 /* .v-text-field .v-input__control .v-input__slot {
     min-height: auto !important;
     display: flex !important;
@@ -771,21 +794,12 @@ editItem (item) {
  .v-text-field .v-input__control .v-input__slot .v-input__append-inner {
   margin-top: 5px !important;
 }
-
-
-
-
-
-
-
-
 .theme--light.v-icon {
   color: blue !important;
 }
 .v-input--selection-controls__ripple.green--text {
    color: blue !important;
 }
-
 
 
 .wrapper{
