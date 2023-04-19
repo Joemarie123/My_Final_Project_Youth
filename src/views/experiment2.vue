@@ -1,26 +1,30 @@
 <template>
-  <v-data-table :headers="headers" :items="items"
-  :hide-default-footer="true"
-    :hide-default-header="true"
-  ></v-data-table>
+  
+  <div class="grid">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+</div>
+
+
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      headers: [
-        { text: 'Name', value: 'name', width: '150' },
-        { text: 'Age', value: 'age', width: '75' },
-        { text: 'Gender', value: 'gender', width: '100' },
-        { text: 'Email', value: 'email' },
-      ],
-      items: [
-        { name: 'John Doe', age: 30, gender: 'Male', email: 'john.doe@example.com' },
-        { name: 'Jane Doe', age: 25, gender: 'Female', email: 'jane.doe@example.com' },
-        { name: 'Bob Smith', age: 40, gender: 'Male', email: 'bob.smith@example.com' },
-      ],
-    }
-  },
+<style >
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 3 columns */
+  grid-template-rows: repeat(4, 100px); /* 2 rows */
+  gap: 10px; /* gap between grid items */
 }
-</script>
+
+
+.item {
+  background-color: #ddd;
+  padding: 20px;
+}
+
+
+</style>

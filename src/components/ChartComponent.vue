@@ -1,8 +1,10 @@
 <template>
-  <div class="d-flex ">
+
+  <div >
   <!--   style="min-width:100%" -->
+ <!--  style="min-width:90%" -->
     <apexcharts 
-    style="min-width:90%"
+    
   
     height="340" :options="chartOptions" 
     :series="series"></apexcharts>

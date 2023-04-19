@@ -6,13 +6,14 @@
     :items-per-page="6"
     dark
     height="360"
-    class="btn-hover color-1"
+    class="my_class td btn-hover color-1"
      tile    
      :hide-default-header="true"
      :footer-props="{
         'items-per-page-options':[6],
         'disable-items-per-page': true,
       }"   
+
   >
 
   <template v-slot:item.image="{ item }">
@@ -20,8 +21,8 @@
     
 
 
-<v-avatar size="50">
-         <img v-bind:src="`/${item.image}`" alt="">
+<v-avatar size="45">
+         <img  v-bind:src="`/${item.image}`" alt="">
          
  </v-avatar>
 
@@ -228,9 +229,11 @@ export default {
 
 <style>
 
+
 .v-application--is-ltr .v-data-footer__pagination {
   margin-left: auto;
 }
+
 
 
 .v-data-table .v-data-table-header th  {
@@ -247,15 +250,32 @@ color: rgb(0, 0, 0);
 
 }
 
-
 .v-data-table > .v-data-table__wrapper > table {
     border-spacing: 0 0.4rem;
 }
+
+.my_class td{
+   font-size: small!important;
+            height: 0!important;
+            padding: 1px!important;
+   }
+
+
 
 </style>
 
 
 <style scoped> 
+
+
+
+
+@media screen and (max-width: 1545px) {
+  .v-datatable td {
+    font-size: 14px;
+  }
+}
+
 .btn-hover {
    
    font-size: 16px;

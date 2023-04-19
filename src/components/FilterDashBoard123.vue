@@ -1269,6 +1269,11 @@ export default {
       this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" , align: ' d-none d-xl-table-cell' }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
+    else if (this.msg == "ALL YOUTH SOLO PARENT") {
+
+    this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" , align: ' d-none d-xl-table-cell' }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+    }
+
     else if (this.msg == "ALL YOUTH MARRIED") {
 
       this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Gender", value: "gender" , align: ' d-none d-xl-table-cell' }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age", align: "center" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });

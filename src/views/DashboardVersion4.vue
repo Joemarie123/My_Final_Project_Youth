@@ -2,36 +2,38 @@
   <v-app id="inspire" :style="{background: $vuetify.theme.themes.dark.background}">
     <Navbar/>
     <v-container>
+
       <v-row>
+        
         <v-col cols="12" sm="12">
         
           <v-row>
-          
-            <v-col cols="12" sm="4" md="4" >
-               <v-card  class="btn-hover color-1 mx-2 rounded-xl  draw-border " 
+
+            <v-col cols="12"  sm="4" md="4" >
+               <v-card  class="class_sa_card_1 btn-hover color-1 mx-1 rounded-xl  draw-border " 
                :height="height123"
                tile
                elevation="16"> 
                 <v-row>
 
-                  <v-col cols="12" 
-                   sm="12" md="4"   >
+                  <v-col cols="12"  xs="4"
+                   sm="6" md="4">
                     <v-list-item three-line>
                       <v-list-item-content>
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'MALE' } }">
-                          <v-avatar size="60">
-                                <img src="/img1.png" alt="">
+                          <v-btn  class="mx-n8" fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'MALE' } }">
+                          <v-avatar  class="mx-n8" size="60" >
+                                <img class="class_sa_avatar" src="/img1.png" alt="">
                         </v-avatar>
                       </v-btn>
-                      
+
                       
                         </div>
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class="class_sa_text  mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Male</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class="class_sa_text_2 white--text">Male</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -39,28 +41,30 @@
 
           
 
-                  <v-col cols="12" sm="12" md="4" >
+                  <v-col cols="12"  sm="6" md="4" >
                     <v-list-item three-line>
                       <v-list-item-content>
 
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'FEMALE' } }">
-                          <v-avatar size="60">
-                                <img src="/img3.png" alt="">
+                          <v-btn class="mx-n8" fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'FEMALE' } }">
+                          <v-avatar class="mx-n8" size="60">
+                                <img class="class_sa_avatar" src="/img3.png" alt="">
                         </v-avatar>
                         </v-btn>
 
                         </div>
   
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class="class_sa_text  mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Female</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class="class_sa_text_2 white--text">Female</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
                   </v-col>
+
+                  
 
                   <v-col cols="12" 
                    sm="12" md="4"   >
@@ -68,19 +72,19 @@
                       <v-list-item-content>
                         <div class="mb-4">
 
-                          <v-btn fab icon   :to="{ path: '/FilterDashBoard123', query: { name: 'LGBTQIA+' } }">
-                          <v-avatar size="60">
-                                <img src="/lgbt.png" alt="">
+                          <v-btn class="mx-n8" fab icon   :to="{ path: '/FilterDashBoard123', query: { name: 'LGBTQIA+' } }">
+                          <v-avatar class="mx-n8" size="60">
+                                <img class="class_sa_avatar" src="/lgbt.png" alt="">
                         </v-avatar>
                       </v-btn>
 
                       
                         </div>
                         
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class="class_sa_text  mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">LGBTQ+</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class="class_sa_text_2 white--text">LGBTQ+</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -91,105 +95,105 @@
            
             </v-col>
             
-            <v-col cols="12" sm="4"   >
-              <v-card class="btn-hover color-1 mx-2 rounded-xl  draw-border"  style="width: 500px;"
+            <v-col cols="12" sm="4"  md="4" lg="4" >
+              <v-card class="class_sa_card_1 btn-hover color-1 mx-1 rounded-xl"  style="width: 500px;"
                tile
                elevation="16"> 
               <!--  <v-card class="btn-hover color-1 mt-1" style="width: 34%; height:16%; vertical-align: top;  margin-left: -10px; margin-right: -10px;position: absolute; ">  -->
                 <v-row>
 
-
                   <v-col cols="12" 
-                   sm="12" md="3">
+                   sm="6" md="3">
                     <v-list-item three-line>
                       <v-list-item-content>
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'SINGLE' } }">
-                          <v-avatar size="60">
-                                <img src="/img2.png" alt="">
+                           <v-btn class="mx-n8"  fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'SINGLE' } }">
+                          <v-avatar class=" mx-n8"  size="60">
+                                <img class="class_sa_avatar" src="/img2.png" alt="">
                         </v-avatar>
                         </v-btn>
 
                         </div>
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class="class_sa_text  mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Single</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class="class_sa_text_2 white--text">Single</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>  
-                    
-                    
+ 
                   </v-col>
   
                       <v-col cols="12" 
-                   sm="12" md="3">
+                       sm="6" md="3">
                     <v-list-item three-line>
                       <v-list-item-content>
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'LIV-IN' } }">
-                          <v-avatar size="60">
-                                <img src="/livin.png" alt="">
+                          <v-btn class="mx-n8" fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'LIV-IN' } }">
+                          <v-avatar class="mx-n8"  size="60">
+                                <img class="class_sa_avatar" src="/livin.png" alt="">
                         </v-avatar>
                         </v-btn>
 
                         </div>
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class="class_sa_text  mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Live-in</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class="class_sa_text_2 white--text">Live-in</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>  
                     
                     
                   </v-col>
   
-                  <v-col cols="12" sm="12" md="3" >
+        
+
+                  <v-col cols="12" sm="6" md="3" >
                     <v-list-item three-line>
                       <v-list-item-content>
   
   
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'soloparent' } }">
-                          <v-avatar size="60">
-                                <img src="/married.png" alt="">
+                          <v-btn  class="mx-n8" fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'MARRIED' } }">
+                          <v-avatar class="mx-n8" size="60">
+                                <img class="class_sa_avatar" src="/married.png" alt="">
                         </v-avatar>
                       </v-btn>
 
                         </div>
   
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class="class_sa_text  mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Solo Parent</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class="class_sa_married white--text">Married</v-list-item-subtitle>
                       </v-list-item-content>
-                    </v-list-item> 
+                    </v-list-item>
                     
                   </v-col>
 
-                  <v-col cols="12" sm="12" md="3" >
+                  <v-col cols="12" sm="6" md="3" >
                     <v-list-item three-line>
                       <v-list-item-content>
   
   
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'MARRIED' } }">
-                          <v-avatar size="60">
-                                <img src="/married.png" alt="">
+                          <v-btn  class="mx-n8" fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'SOLO PARENT' } }">
+                          <v-avatar  class="mx-n8" size="60">
+                                <img class="class_sa_avatar" src="/soloparent.jpg" alt="">
                         </v-avatar>
                       </v-btn>
 
                         </div>
   
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class="class_sa_text mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Married</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class="class_sa_text_2 white--text">Solo Parent</v-list-item-subtitle>
                       </v-list-item-content>
-                    </v-list-item>
+                    </v-list-item> 
                     
                   </v-col>
   
@@ -198,47 +202,47 @@
            
             </v-col>
             <v-col cols="12" sm="4" md="4" >
-              <v-card class="btn-hover color-1 mx-2 rounded-xl  draw-border" 
+              <v-card  class="class_sa_card_1 btn-hover color-1 mx-1 rounded-xl  draw-border" 
                tile
                elevation="16"> 
                 <v-row>
-                  <v-col cols="12"  sm="12" md="4" >
+                  <v-col cols="12"  sm="6" md="4" >
                     <v-list-item three-line>
                       <v-list-item-content>
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'IP' } }">
-                          <v-avatar size="60">
-                                <img src="/pamulaan.png" alt="">
+                          <v-btn class="mx-n8" fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'IP' } }">
+                          <v-avatar class="mx-n8" size="60">
+                                <img class="class_sa_avatar" src="/pamulaan.png" alt="">
                         </v-avatar>
                         </v-btn>
 
                         </div>
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class="class_sa_text  mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">IP</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class="class_sa_text_2 white--text">IP</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
                   </v-col>
   
-                  <v-col cols="12"  sm="12" md="4">
+                  <v-col cols="12"  sm="6" md="4">
                     <v-list-item three-line>
                       <v-list-item-content>
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'Non-IP' } }">
-                          <v-avatar size="60">
-                                <img src="/img6.png" alt="">
+                          <v-btn class="mx-n8" fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'Non-IP' } }">
+                          <v-avatar class="mx-n8" size="60">
+                                <img class="class_sa_avatar" src="/img6.png" alt="">
                         </v-avatar>
                         </v-btn>
 
                         </div>
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class="class_sa_text  mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Non-IP</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class="class_sa_text_2 white--text">Non-IP</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -251,18 +255,18 @@
   
                         <div class="mb-4">
 
-                          <v-btn fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'PWD' } }">
-                          <v-avatar size="60">
-                                <img src="/pwd.jpg" alt="">
+                          <v-btn class="mx-n8" fab icon  :to="{ path: '/FilterDashBoard123', query: { name: 'PWD' } }">
+                          <v-avatar class="mx-n8" size="60">
+                                <img class="class_sa_avatar" src="/pwd.jpg" alt="">
                         </v-avatar>
                         </v-btn>
 
                         </div>
   
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class="class_sa_text  mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">PWD</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class="class_sa_text_2 white--text">PWD</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -273,7 +277,10 @@
            
             </v-col>
 
-            <v-col cols="12" sm="12" md="12" lg="7">
+           
+            
+
+            <v-col cols="12" sm="6" md="6" lg="7">
               <v-card class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" 
             tile
              >
@@ -281,13 +288,14 @@
             <ChartComponent/>
           </v-card>
          </v-col>
-
+       
+       
          
-         <v-col cols="12" sm="12" md="12"  lg="2" >
+         <v-col cols="12" sm="2" md="2"  lg="2" >
               <v-card height="395" class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" tile>
 
                 <v-col cols="12" 
-                   sm="12" md="12"    >
+                   sm="11" md="12"    >
 
                     <v-list-item three-line class="mt-5" >
                       <v-list-item-content>
@@ -301,10 +309,10 @@
 
                       
                         </div>
-                        <v-list-item-title class="headline mb-1 white--text">
+                        <h2 class=" mb-1 white--text">
                         5,426
-                        </v-list-item-title>
-                        <v-list-item-subtitle class="white--text">Sinag</v-list-item-subtitle>
+                        </h2>
+                        <v-list-item-subtitle class=" white--text">Sinag</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -312,7 +320,7 @@
 
                   
                   <v-col cols="12" 
-                   sm="12" md="12"  class="mt-9"  >
+                   sm="11" md="12"  class="mt-9"  >
                     <v-list-item three-line>
                       <v-list-item-content>
                         <div class="mb-4">
@@ -334,6 +342,7 @@
                     
                   </v-col>
 
+                
 
               </v-card> 
           </v-col>
@@ -341,7 +350,7 @@
 
 
 
-  <v-col cols="12" sm="12" md="12" lg="3" >
+  <v-col cols="12" sm="4" md="4" lg="3" >
   
     <v-card  class="  mt-n6  rounded-xl draw-border" 
             tile height=" "
@@ -443,7 +452,121 @@
   
   
   <style scoped>
-  
+
+
+
+/* @media screen (min-width: 793px)  {
+
+.class_text_total_sinag_nonsinag{
+ font-size:18px;
+
+
+}
+
+} */
+
+
+
+
+@media screen and (max-width: 1699px) and (min-width: 960px) {
+
+  .class_sa_card_1{
+
+    height: 171px;
+  }
+
+
+}
+
+
+/* and (min-width: 500px) */
+@media screen and (max-width: 1454px) and (min-width: 1342px)   {
+
+  .class_sa_text{
+    font-size:20px;
+
+  }
+
+  .class_sa_married{
+    font-size:13px;
+
+  }
+
+  .class_sa_avatar{
+    width: 55px;
+    height: 55px;
+
+  }
+
+}
+
+@media screen and (max-width: 1342px) and (min-width: 1283px)   {
+
+.class_sa_text{
+  font-size:18px;
+
+}
+.class_sa_married{
+    font-size:13px;
+  }
+  .class_sa_avatar{
+    width: 48px;
+    height: 48px;
+
+  }
+
+
+}
+
+@media screen and (max-width: 1300px)  {
+  .class_sa_married{
+    font-size:12px;
+
+  }
+
+}
+
+@media screen and (max-width: 1282px) and (min-width: 959px) {
+
+.class_sa_text{
+font-size:15px;
+
+}
+
+.class_sa_married{
+    font-size:12px;
+
+  }
+
+  .class_sa_avatar{
+    width: 39px;
+    height: 40px;
+
+  }
+
+
+}
+
+@media screen and (max-width: 1259px)   {
+  .class_sa_married{
+    font-size:10px;
+
+  }
+
+}
+
+
+@media screen and (max-width: 1263px) and (min-width: 959px){
+
+.class_sa_text_2{
+font-size:12px;
+
+}
+
+
+}
+
+
   h1{
 text-align: center;
 font-size:large;

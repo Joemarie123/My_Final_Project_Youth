@@ -69,7 +69,7 @@
 
           </v-layout>
           
-
+          
       <v-list shaped  class="clickable">
         <template v-for="item in items">
           <v-list-group
@@ -81,25 +81,26 @@
             active-class="orange--text"
           >
             <template v-slot:activator>
-              <v-list-item-content>
-                <v-list-item-title >
+              <v-list-item-content >
+               
                   {{ item.text }}
-                </v-list-item-title>
+              
               </v-list-item-content>
             </template>
             <v-list-item
+            class="ml-n9"
               v-for="(child, i) in item.children"
               :key="i"
               route :to="child.route"
                 active-class="orange--text"
             >
-              <v-list-item-action v-if="child.icon">
+              <v-list-item-content v-if="child.icon">
                 <v-icon>{{ child.icon }}</v-icon>
-              </v-list-item-action>
-              <v-list-item-content>
-                <v-list-item-title>
+              </v-list-item-content>
+              <v-list-item-content class="ml-n11">
+                
                   {{ child.text }}
-                </v-list-item-title>
+             
               </v-list-item-content>
             </v-list-item>
           </v-list-group>
@@ -113,14 +114,18 @@
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
+            
               <v-list-item-title>
                 {{ item.text }}
               </v-list-item-title>
+           
             </v-list-item-content>
           </v-list-item>
         </template>  
 
       </v-list>
+
+
 
 
     </v-navigation-drawer>
