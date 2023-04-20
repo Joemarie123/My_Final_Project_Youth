@@ -33,38 +33,52 @@ import VueApexCharts from 'vue-apexcharts'
             height: 350,
             width: 400,
             foreColor:"white",
-
+             
+           
           },
           
       
           plotOptions: {
-            
+
+            dataLabels: {
+              
+              enabled: true,
+              style: {
+                fontSize: "5px",
+                fontFamily: "Helvetica, Arial, sans-serif",
+                fontWeight: "bold"
+              }
+            },
+
             bar: {
               
               horizontal: false,
               dataLabels: {
-              
+               
               },
 
               
               stroke: {
-                
+          
             width: 1,
             colors: ['#fff']
             
           },
+
+
          
           legend: {
             position: 'top',
             horizontalAlign: 'left',
-            offsetX: 40
-
+            offsetX: 40,
+          
           }
           
             },
           
             
           },
+
           
         
           xaxis: {
@@ -78,7 +92,23 @@ import VueApexCharts from 'vue-apexcharts'
       show: false
     }
   }
-}
+},
+
+responsive: [
+    {
+      breakpoint: 1000,
+      options: {
+        plotOptions: {
+          bar: {
+            horizontal: false
+          }
+        },
+        legend: {
+          position: "bottom"
+        }
+      }
+    }
+  ]
 
   },
 
@@ -98,7 +128,6 @@ import VueApexCharts from 'vue-apexcharts'
 
       }
 
-     
     },
 
 

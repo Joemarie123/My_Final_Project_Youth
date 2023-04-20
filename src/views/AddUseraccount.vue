@@ -25,16 +25,13 @@
           User Account List
         </v-col>
 
-       
-
-       
-
+      
           <v-col cols="12" lg="4" md="4" sm="12">
             <v-text-field v-model="search" class="btn-hover" append-icon="mdi-magnify" label="Search" single-line hide-details
               dark></v-text-field>
           </v-col>
 
-          <v-col cols="12" lg="4" md="12" sm="4" class="ml-n3">
+          <v-col cols="12" lg="4" md="4" sm="4" class="ml-n3">
             <v-btn color="blue" tile class="btn-hover"  @click="create_user_account = true">
               <v-icon left>mdi-account-check</v-icon>
              Create User Account
@@ -50,101 +47,98 @@
         <v-dialog v-model="dialog" max-width="700px" tile>
 
           <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ formTitle }}</span>
-        
-            </v-card-title>
-
-            <v-card-text>
               <v-container>
+
+
+
                 <v-row>
-                  <v-col cols="12" sm="6" md="4">
+                  <v-col cols="12" sm="12" md="12" class="">
+                <div class="text-center ">
+              <v-alert dense dark
+               color="blue darken-3">
+                        EDIT PROFILE
+               <strong> </strong>
+
+               </v-alert>
+                    </div>
+                                                                                <!--  <p class="text-center font-weight-bold" > </p> -->
+                  </v-col>
+
+                  <v-col cols="10" sm="6" md="4">
 
                     <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field>
                   </v-col>
 
-                  <v-col cols="12" sm="6" md="4">
+                  <v-col cols="10" sm="6" md="4">
                     <v-text-field v-model="editedItem.middlename" label="Middle Name"></v-text-field>
                   </v-col>
 
-                  <v-col cols="12" sm="6" md="4">
+                  <v-col cols="10" sm="6" md="4">
                     <v-text-field v-model="editedItem.lastname" label="Last Name"></v-text-field>
                   </v-col>
 
-                  <v-col cols="12" sm="6" md="4">
+                  <v-col cols="10" sm="6" md="4">
                     <v-text-field v-model="editedItem.username" label="User Name"></v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="4">
+                  <v-col cols="10" sm="6" md="4">
                     <v-text-field v-model="editedItem.userlevel" label="User level"></v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="4">
+                  <v-col cols="10" sm="6" md="4">
                     <v-text-field v-model="editedItem.barangay" label="Barangay"></v-text-field>
 
                   </v-col>
                 </v-row>
-              </v-container>
-            </v-card-text>
+            
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="close">
-                Cancel
-              </v-btn>
-              <v-btn color="blue darken-1" text @click="save">
-                Save
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+          
+            
+                <v-row>
+
+<v-col cols="10" sm="12" md="12" class="mt-n1">
+
+    <v-btn color="green" class="pa-2" outlined
+        dark
+      >
+        Save
+    </v-btn>
+
+    <v-btn color="red" class="pa-2 ml-2"
+        outlined dark
+        @click="dialog = false">
+        Close
+    </v-btn>
+</v-col>
+
+</v-row>
+       
+        </v-container>
+      </v-card>
         </v-dialog>
 
         
  <!--    DIALOG FOR CREATE ACCOUNT -->
 
-        <v-dialog  v-model="create_user_account" dark  origin='center' max-width="500" >
-        
-          <v-container >
+        <v-dialog  v-model="create_user_account" persistent  origin='center' max-width="500" >
+
+          <v-card>
+          <v-container>
         <v-row >   
-        
+
         <v-col cols="12"   lg="12"  md="12" sm="12" class="mx-auto">
-
-        
-          <v-card class="btn-hover color-1 rounded-lg"   tile>
           
+        <div class="text-center ">
+    <v-alert dense dark color="blue darken-3">
+     Create User Account<strong>
+     </strong>
 
+     </v-alert>
+      </div>
 
-
-            
-
-            <v-row
-    
-    >
-      <v-col  md="10">
-        <div class="text-center" >
-              <h1  >Create User Account</h1>
-            </div>
       </v-col>
-      <v-col
-        md="2"
-       
-      >
-      <v-btn text color="red" dark @click="create_user_account = false">
-                          <v-icon >
-                            mdi-comment-remove-outline
-                          </v-icon>
-                        </v-btn>
-      </v-col>
-    </v-row>
 
-            <v-row>
-  
-  <v-col
-  offset="1"
-  cols="10"
-  >
+      <v-col cols="12" md="10" offset="1">
 
-              <v-card-text>
-                    
-                <v-text-field
+        <v-text-field
                
                class="textbox"
              
@@ -153,15 +147,19 @@
                  type="email"
                 
                  label="User Name"
-                dark
+                
                 
                  prepend-icon="mdi-account"
                  required
 
                />
 
+      </v-col>
 
-                <v-text-field
+      
+      <v-col cols="12" md="10" offset="1">
+        
+        <v-text-field
                
                class="textbox"
              
@@ -170,7 +168,7 @@
                  type="email"
                 
                  label="Last Name"
-                dark
+              
                 
                  prepend-icon="mdi-account"
                  required
@@ -178,8 +176,11 @@
                />
          
 
-               
-               <v-text-field
+      </v-col>
+
+      <v-col cols="12" md="10" offset="1">
+
+        <v-text-field
                
                class="textbox"
              
@@ -188,40 +189,38 @@
                  type="email"
                 
                  label="First Name"
-                dark
+               
                 
                  prepend-icon="mdi-account"
                  required
 
                />
+      </v-col>
 
-               
-
-<!--                <p class="font-weight-bold"> -->
-
-
-
-               <v-select
+      <v-col cols="12" md="10" offset="1">
+        <v-select
                       :items="['Admin',  'Brgy. SK Official',  'Youth Enumerator']"
                       label="Select User level"
                       prepend-icon="mdi-clipboard-account"
                       v-model="usrelevel"
                       required
-                      dark
+                   
                     ></v-select>
+      </v-col>
 
-
-                 <v-select
+      <v-col cols="12" md="10" offset="1">
+        <v-select
                       :items="['Apokon', 'Bincungan' , 'Busaon' , 'Canocotan', 'Cuambogan', 'La Filipina', 'Liboganon', 'Madaum', 'Magdum', 'Mankilam'  , 'New Balamban'  , 'Nueva Fuerza' , 'Pagsabangan' , 'Pandapan' , 'Magugpo Poblacion' , 'San Agustin' , 'San Isidro' , 'San Miguel (Camp 4)' , 'Visayan Village' , 'Magugpo East' , 'Magugpo North' , 'Magugpo South' , 'Magugpo West' ]"
                       label="Barangay"
                       prepend-icon="mdi-account"
                       v-model="barangay"
                       required
-                      dark
+                     
                     ></v-select>
-
-
-               <v-text-field
+      </v-col>
+        
+      <v-col cols="12" md="10" offset="1">
+        <v-text-field
               
               class="textbox"
                       v-model="pw1"
@@ -230,14 +229,13 @@
                       :type="passwordShow?'text':'password'"
                       label="Password"
                       placeholder="Password"
-                      prepend-icon="mdi-key"
-                 
-                dark
-                  
+                      prepend-icon="mdi-key"   
               />
          
+      </v-col>
 
-              <v-text-field
+      <v-col cols="12" md="10" offset="1">
+        <v-text-field
               
               class="textbox"
                       v-model="pw2"
@@ -247,80 +245,43 @@
                       label="Confirm Password"
                       placeholder="Password"
                       prepend-icon="mdi-key"
-                    dark
+                  
                    
               />
-              </v-card-text>
-
-
-            </v-col>
-          </v-row>
-  
-
-
-
-              <v-container>
-             <!--  <v-card-actions class="justify-center"> -->
-              <v-row  >
-        
-            
-                <v-col 
-                cols="12" 
-                >
-          
-                <v-btn type="submit" dark  class="btn-hover color-5" @click="initialize">
-                  <v-icon left>mdi-account-check</v-icon>
-              Create Account
-                </v-btn>
-              
-
-              </v-col>
-                </v-row>
-            
-
-              </v-container>
-          <!--     </v-card-actions> -->
-
-
-      
-          </v-card>
- 
-        </v-col>
-
-
-
-
-          <v-col>
-     
-            
       </v-col>
 
-  
       </v-row>
+      <v-row>
+
+<v-col cols="12"  md="10" offset="1" class="mt-4 ">
+
+    <v-btn color="green" class="pa-2 ml-4 mt-n4"
+        outlined dark
+      >
+       Save
+    </v-btn>
+
+    <v-btn color="red" class="pa-2 ml-2 mt-n4" outlined
+        dark @click="create_user_account = false ">
+        Close
+    </v-btn>
+</v-col>
+
+</v-row>
     </v-container>
+  </v-card>
     </v-dialog>
 
  <!--    DIALOG FOR CREATE ACCOUNT -->
 
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-     
+       
     </template>
     <template v-slot:item.actions="{ item }">
 
  <!--  :label="`Switch: ${model}`" -->
  <div class="d-flex-column">
 
-  <v-icon small class="mr-2" @click="editItem(item)">
+      <v-icon small class="mr-2" @click="editItem(item)">
         mdi-pencil
       </v-icon>
     <!--   <v-icon small @click="deleteItem(item)">

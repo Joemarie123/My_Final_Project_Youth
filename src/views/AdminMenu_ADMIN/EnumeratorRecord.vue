@@ -3,7 +3,7 @@
     <Navbar/>
 <v-row>
 
-    <v-col lg="4" md="12" sm="12">
+    <v-col cols=12 lg="4" md="12" sm="12" class="mt-3">
       
    <div class="text-center ">
   <v-alert dense dark color="blue darken-3">
@@ -12,23 +12,24 @@
    </v-alert> 
    </div>
 
- <v-card>
-  <v-col cols="12" md="11" sm="12" class="ml-4 ">
+
+  <v-col cols="12" md="12" lg="12" sm="12" >
+    
     <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
                   autofocus outlined rounded dense></v-text-field>
-            </v-col>
+           
 
            
     <v-data-table @click='sinag(item-key)' 
       id="mytable"
-     
+   
       v-model="selected"
       :headers="headers"
       :items="desserts"
       :items-per-page="10"
-      class="wrapper elevation-1"
+      class="  elevation-1"
       item-key="name"
-      height="570"
+    
       :hide-default-footer="true"
       :hide-default-header="true"
       tile
@@ -49,15 +50,15 @@
   
     
     </template>
-
+ 
     </v-data-table>
-  </v-card>
+  </v-col>
 
 
   </v-col>
 
 
-<v-col cols="12" md="8" sm="12"  >
+<v-col cols="12" lg="8" md="12" sm="12"  >
     <!-- Another data Table -->
 
     <v-data-table :headers="headers_recordlist" :items="recordlist" sort-by="calories"  class="btn-hover color-1 elevation-1 pa-2" 
@@ -82,7 +83,7 @@
           <v-toolbar rounded flat color="blue darken-3" class=" btn-hover color-1 elevation-1">
   
             <div class="d-flex-column">
-            <p style="color:white;" class="mt-7">Total Youth Enumerate</p>
+            <p style="color:white;" class="mt-7">Total Youth</p>
             <p style="color:white;" class="mt-n4" v-if='desserts' > {{tableLength}}</p>
               </div>
 
@@ -617,6 +618,9 @@ export default {
     },
 
 
+    
+
+
  methods:{
   redirecttoformregistration (item) {
             
@@ -637,3 +641,33 @@ export default {
 </script>
 
 
+<style>
+
+@media screen and (max-width: 1420px) and (min-width: 1283px) 
+
+{
+
+  .data_table_1{
+
+    height:640px;
+    
+  }
+
+
+}
+
+@media screen and (max-width: 1283px) 
+
+{
+
+  .data_table_1{
+
+    height:710px;
+    
+  }
+
+
+}
+
+
+</style>

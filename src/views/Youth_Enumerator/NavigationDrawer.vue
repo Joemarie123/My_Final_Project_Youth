@@ -24,7 +24,7 @@
     <v-col cols="10" md="2" sm="12" class="ml-5" dense width="300"  >
 
    <v-btn color="blue" block  outlined @click="$router.push({ name: 'Youth_Enumerator_List_Member' })">
-     <span>EDIT Youth</span>
+     <span>Your Youth List</span>
     
    </v-btn>
    
