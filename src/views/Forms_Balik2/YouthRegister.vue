@@ -847,15 +847,14 @@ Gender Preference<strong>
                                                             style="margin-top: -30px">
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox label="Carpentry"></v-checkbox>
-                                                                <v-checkbox label="Masonry"
+                                                                <v-checkbox v-model="Carpentry_clear" label="Carpentry"></v-checkbox>
+                                                                <v-checkbox v-model="Masonry_clear" label="Masonry"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Driving"
+                                                                <v-checkbox label="Driving" v-model="Driving_clear"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Dressmaking"
+                                                                <v-checkbox label="Dressmaking" v-model="Dressmaking_clear"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Practical Electricity"
-                                                                    style="margin-top: -10px"></v-checkbox>
+                                                                
                                                             </v-checkbox-group>
                                                         </v-col>
 
@@ -863,14 +862,15 @@ Gender Preference<strong>
                                                             style="margin-top: -30px">
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox label="Plumbing"></v-checkbox>
-                                                                <v-checkbox label="Handcraft making"
+                                                                <v-checkbox label="Plumbing"  v-model="Plumbing_clear"
+                                                                ></v-checkbox>
+                                                                <v-checkbox label="Handcraft making" v-model="Handcraft_making_clear"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Beauty Care"
+                                                                <v-checkbox label="Beauty Care"  v-model="Beauty_Care_clear"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Agri-Fishery Production"
+                                                                <v-checkbox label="Agri-Fishery Production" v-model="Agri_Fishery_Production_clear"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Practical Electricity"
+                                                                <v-checkbox label="Practical Electricity" v-model="Practical_Electricity_clear"
                                                                     style="margin-top: -10px"></v-checkbox>
 
 
@@ -879,7 +879,7 @@ Gender Preference<strong>
 
 
                                                         <v-col cols="10" class="mx-4" style="margin-top: -20px">
-                                                            <v-text-field label="Others" required>
+                                                            <v-text-field label="Others" v-model="Skills_training_others_clear" required>
                                                             </v-text-field>
 
                                                         </v-col>
@@ -932,8 +932,8 @@ Gender Preference<strong>
 
                                         <v-col cols="10" sm="12" md="12" class="mt-n8" >
                                             
-                                            <v-radio-group row>
-                                                <v-radio value="yes" label="Yes"></v-radio>
+                                            <v-radio-group row v-model="YesNo_Can_you_Read_and_write_clear">
+                                                <v-radio   value="yes" label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
                                             </v-radio-group>
 
@@ -1032,9 +1032,9 @@ Gender Preference<strong>
                                             </p>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
-                                                    @click="skill_training_program = true, can_you_read_and_write_yes_no = false"
+                                                    @click="clear_Can_you_read_and_write_a_simple_message_in_any_language_or_dialect"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" @click="can_you_read_and_write_yes_no = true"
+                                                <v-radio value="no" @click="clear_How_many_skills_training_have_you_attended"
                                                     label="No"></v-radio>
                                             </v-radio-group>
 
@@ -1058,7 +1058,7 @@ Gender Preference<strong>
                                                     @click="whats_your_class_of_worker = true, do_you_have_job_or_business_during_past_week = false"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no"
-                                                    @click="do_you_have_job_or_business_during_past_week = true, how_many_works_job_business_you_have = false, whats_your_primary_occupation = false, what_kind_of_industry_did_the_household_member = false"
+                                                    @click="clear_What_is_your_class_of_worker"
                                                     label="No"></v-radio>
                                             </v-radio-group>
                                         </v-col>
@@ -1102,7 +1102,7 @@ Gender Preference<strong>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" @click="what_is_the_sector_of_your_business = true"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" label="No"></v-radio>
+                                                <v-radio @click="Clear_What_is_the_Sector_of_Your_Business" value="no" label="No"></v-radio>
                                             </v-radio-group>
 
                                         </v-col>
@@ -1140,36 +1140,49 @@ Gender Preference<strong>
                                                             style="margin-top: -31px">
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_Agriculture_plantations_other_rural_sectors"
                                                                     label="Agriculture; plantations;other rural sectors"></v-checkbox>
-                                                                <v-checkbox label="Basic Metal Production "
+                                                                <v-checkbox v-model="Clear_Basic_Metal_Production"
+                                                                label="Basic Metal Production "
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Chemical industries"
+                                                                <v-checkbox v-model="Clear_Chemical_industries"
+                                                                 label="Chemical industries"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Commerce"
+                                                                <v-checkbox 
+                                                                label="Commerce"  v-model="Clear_Commerce"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Construction"
+                                                                <v-checkbox
+                                                                 label="Construction"  v-model="Clear_Construction"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Education"
+                                                                <v-checkbox 
+                                                                label="Education"   v-model="Clear_Education_Business"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Financial services; professional service"
+                                                                <v-checkbox  v-model="Clear_Financial_services_professional_service"
+                                                                 label="Financial services; professional service"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Financial services; professional service"
+                                                               
+                                                                <v-checkbox  v-model="Clear_Forestry_wood_pulp_and_pape"
+                                                                 label="Forestry; wood; pulp and paper"
                                                                     style="margin-top: -10px"></v-checkbox>
 
-                                                                <v-checkbox label="Forestry; wood; pulp and paper"
+                                                                <v-checkbox v-model="Clear_Health_services"
+                                                                 label="Health services"
                                                                     style="margin-top: -10px"></v-checkbox>
 
-                                                                <v-checkbox label="Health services"
+                                                                <v-checkbox v-model="Clear_Hotels_tourism_catering"
+                                                                 label="Hotels; tourism; catering"
                                                                     style="margin-top: -10px"></v-checkbox>
-
-                                                                <v-checkbox label="Hotels; tourism; catering"
+                                                                <v-checkbox  v-model="Clear_Mining_coal_other_mining"
+                                                                label="Mining (coal; other mining)"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Mining (coal; other mining)"
-                                                                    style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Transport"
+                                                                <v-checkbox  v-model="Clear_Transport"
+                                                                label="Transport"
                                                                     style="margin-top: -10px"></v-checkbox>
                                                             </v-checkbox-group>
+                                                            <v-text-field v-model="Clear_Business_others" label="Others, Specify">
+
+                                                            </v-text-field>
+
 
                                                         </v-col>
 
@@ -1220,15 +1233,17 @@ Gender Preference<strong>
                                                         <v-col cols="12" sm="12" md="12" class="mt-n7">
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="clear_Working_for_private_household"
                                                                     label="Working for private household"></v-checkbox>
-                                                                <v-checkbox
+                                                                <v-checkbox  v-model="clear_Working_private_business_establishment_farm"
                                                                     label="Working private business/ establishment/ farm"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="clear_Working_for_government_government_corporation"
                                                                     label="Working for government/ government corporation"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Self-employed with no paid employee"
+                                                                <v-checkbox 
+                                                                v-model="clear_Self_employed_with_no_paid_employee"
+                                                                label="Self-employed with no paid employee"
                                                                     style="margin-top: -10px"></v-checkbox>
 
                                                             </v-checkbox-group>
@@ -1240,14 +1255,14 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="5" md="7" class="mt-n8">
 
-                                                            <v-text-field label="No of Works"></v-text-field>
+                                                            <v-text-field v-model="Clear_no_of_works" label="No of Works"></v-text-field>
                                                         </v-col>
 
                                                         <v-col cols="12" sm="10" md="10" class="mt-n6">
                                                             <p class="font-weight-bold">Did you look for additional work
                                                                 during the past week?</p>
-                                                            <v-radio-group row>
-                                                                <v-radio value="yes" label="Yes"></v-radio>
+                                                            <v-radio-group v-model="Clear_YES_NO_Did_you_look_for_additional_work" row>
+                                                                <v-radio  value="yes" label="Yes"></v-radio>
                                                                 <v-radio value="no" label="No"></v-radio>
                                                             </v-radio-group>
                                                         </v-col>
@@ -1264,21 +1279,29 @@ Gender Preference<strong>
                                                         <v-col cols="12" sm="12" md="6" class="mt-n9">
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox label="Managers"></v-checkbox>
-                                                                <v-checkbox label="Professionals"
+                                                                <v-checkbox label="Managers" v-model="Clear_Managers"
+                                                                ></v-checkbox>
+                                                                <v-checkbox label="Professionals" v-model="Clear_Professionals"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Technicians & Associate Professionals"
+                                                                <v-checkbox
+                                                                v-model="Clear_Technicians_Associate_Professionals"
+                                                                 label="Technicians & Associate Professionals"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Clerical Support Workers"
+                                                                <v-checkbox
+                                                                v-model="Clear_Clerical_Support_Workers"
+                                                                 label="Clerical Support Workers"
                                                                     style="margin-top: -10px"></v-checkbox>
-
-                                                                <v-checkbox label="Service and Sales Workers"
+                                                                <v-checkbox 
+                                                                v-model="Clear_Service_and_Sales_Workers"
+                                                                label="Service and Sales Workers"
                                                                     style="margin-top: -10px"></v-checkbox>
-
-                                                                <v-checkbox label="Skilled Agri- Fishery & Forest Workers"
+                                                                <v-checkbox 
+                                                                v-model="Clear_Skilled_Agri_Fishery_Forest_Workers"
+                                                                label="Skilled Agri- Fishery & Forest Workers"
                                                                     style="margin-top: -10px"></v-checkbox>
-
-                                                                <v-checkbox label="Craft & Related Trades Works"
+                                                                <v-checkbox 
+                                                                      v-model="Clear_Craft_Related_Trades_Works"
+                                                                label="Craft & Related Trades Works"
                                                                     style="margin-top: -10px"></v-checkbox>
 
                                                             </v-checkbox-group>
@@ -1290,23 +1313,30 @@ Gender Preference<strong>
 
                                                             <v-checkbox-group>
 
-                                                                <v-checkbox label="Plant & Machine Operations & Assemblers"
+                                                                <v-checkbox
+                                                                v-model="Clear_Plant_Machine_Operations_Assembler"
+                                                                 label="Plant & Machine Operations & Assemblers"
                                                                     style="margin-top: -10px"></v-checkbox>
                                                             </v-checkbox-group>
 
-                                                            <v-checkbox label="Elementary Occupations (labourer jobs)"
+                                                            <v-checkbox  v-model="Clear_Elementary_Occupations_labourer_jobs"
+                                                            label="Elementary Occupations (labourer jobs)"
                                                                 style="margin-top: -10px"></v-checkbox>
 
-                                                            <v-checkbox label="Armed Forces Occupations"
-                                                                style="margin-top: -10px"></v-checkbox>
-
-                                                            <v-checkbox label="Virtual Assistant/ worker (online jobs)"
-                                                                style="margin-top: -10px"></v-checkbox>
-
-                                                            <v-checkbox label="Real Estate Activities"
+                                                            <v-checkbox v-model="Clear_Armed_Forces_Occupations"
+                                                             label="Armed Forces Occupations"
                                                                 style="margin-top: -10px"></v-checkbox>
 
                                                             <v-checkbox
+                                                             v-model="Clear_Virtual_Assistant_worker_onlinejobs"
+                                                             label="Virtual Assistant/ worker (online jobs)"
+                                                                style="margin-top: -10px"></v-checkbox>
+
+                                                            <v-checkbox v-model="Clear_Real_Estate_Activities"
+                                                             label="Real Estate Activities"
+                                                                style="margin-top: -10px"></v-checkbox>
+
+                                                            <v-checkbox v-model="Clear_Professional_Scientific_and_Technical_Activities"
                                                                 label="Professional, Scientific and Technical Activities"
                                                                 style="margin-top: -10px"></v-checkbox>
 
@@ -1320,30 +1350,33 @@ Gender Preference<strong>
 
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_Administrative_Support_Service_Activities"
                                                                     label="Administrative & Support Service Activities"
                                                                     style="margin-top: -10px"></v-checkbox>
 
 
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_Public_Administration_Defense_Compulsory_Social_Security"
                                                                     label="Public Administration & Defense; Compulsory Social Security"
                                                                     style="margin-top: -10px"></v-checkbox>
                                                             </v-checkbox-group>
 
-                                                            <v-checkbox label="Education"
+                                                            <v-checkbox v-model="Clear_Education"
+                                                             label="Education"
                                                                 style="margin-top: -10px"></v-checkbox>
 
-                                                            <v-checkbox label="Human Health and Social Work Activities"
+                                                            <v-checkbox  v-model="Clear_Human_Health_and_Social_Work_Activities"
+                                                            label="Human Health and Social Work Activities"
                                                                 style="margin-top: -10px"></v-checkbox>
 
-                                                            <v-checkbox label="Arts, Entertainment and Recreation"
+                                                            <v-checkbox  v-model="Clear_Arts_Entertainment_and_Recreation"
+                                                             label="Arts, Entertainment and Recreation"
                                                                 style="margin-top: -10px"></v-checkbox>
 
-                                                            <v-checkbox
+                                                            <v-checkbox v-model="Clear_Activities_of_Households_as_Employers"
                                                                 label="Activities of Households as Employers; Undifferentiated Goods & Services-producing activities of Households for own use"
                                                                 style="margin-top: -10px"></v-checkbox>
 
-                                                            <v-checkbox
+                                                            <v-checkbox v-model="Clear_Activities_of_Extra_territorial"
                                                                 label="Activities of Extra-territorial Organizations and Bodies"
                                                                 style="margin-top: -10px"></v-checkbox>
 
@@ -1353,7 +1386,9 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="12" md="8" class="mt-n3">
 
-                                                            <v-text-field label="Other Service Activities"
+                                                            <v-text-field
+                                                            v-model="Clear_Other_Service_Activities"
+                                                             label="Other Service Activities"
                                                                 style="margin-top: -10px"></v-text-field>
                                                         </v-col>
 
@@ -1363,10 +1398,11 @@ Gender Preference<strong>
                                                                 household member work during the past Weeks?</p>
 
                                                             <v-select class="mt-n4"
+                                                                
                                                                 :items="['Mining Quarrying ', 'Manufacturing  ', 'Electricity, Gas, Steam, and Air conditioning Supply', 'Schooling', 'Water Supply: Sewerage, Waste Management & Remediation activities', 'Remediation']"
                                                                 label="" prepend-inner-icon="mdi-clipboard-account"
-                                                                v-model="usrelevel" required></v-select>
-                                                            <v-text-field label="Other, specify"
+                                                                v-model="Clear_household_member_work_during_the_past_weeks" required></v-select>
+                                                            <v-text-field v-model="Clear_others_specfyHouseholdmember" label="Other, specify"
                                                                 style="margin-top: -10px"></v-text-field>
 
                                                         </v-col>
@@ -1376,7 +1412,7 @@ Gender Preference<strong>
 
                                                             <p class="font-weight-bold">What is the status/nature of
                                                                 employment? </p>
-                                                            <v-radio-group class="mt-n4" row>
+                                                            <v-radio-group v-model="Clear_Permanent_Job_business_unpaid_family_work" class="mt-n4" row>
                                                                 <v-radio value="Permanent_Job_business_unpaid_family_work"
                                                                     label="Permanent Job/ business/ unpaid family work"></v-radio>
                                                                 <v-radio
@@ -1392,11 +1428,11 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="10" md="10" class="mt-n4">
                                                             <p class="font-weight-bold">What was your normal working hours
                                                                 per day during the past week?</p>
-                                                            <v-select
+                                                            <v-select 
                                                                 :items="['1 Hour', '2 Hours', '3 Hours', '4 Hours', '5 Hours', '6 Hours', '7 Hours', '8 Hours', '9 Hours', '10 Hours', '11 Hours', '12 Hours']"
                                                                 label="Select No. Of Hours"
                                                                 prepend-inner-icon="mdi-clipboard-account"
-                                                                v-model="usrelevel" required></v-select>
+                                                                v-model="Clear_what_was_your_Normal_working_hours" required></v-select>
 
                                                         </v-col>
 
@@ -1404,7 +1440,7 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="10" md="10" class="mt-n5">
                                                             <p class="font-weight-bold">What was the total number of hours
                                                                 worked during the past week?</p>
-                                                                <v-text-field label="Input Number" required>
+                                                                <v-text-field v-model="Clear_what_was_the_total_number_of_hours" label="Input Number" required>
                                                             </v-text-field>
 
                                                         </v-col>
@@ -1442,9 +1478,9 @@ Gender Preference<strong>
                                             <p class="font-weight-bold"> Did you look for work or try to establish business
                                                 during the past week?</p>
                                             <v-radio-group row>
-                                                <v-radio value="yes" @click="was_this_your_first_time_to_look_for_work = true"
+                                                <v-radio value="yes" @click="Clear_Why_did_you_not_look_for_work"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" @click="why_did_you_not_look_for_work = true"
+                                                <v-radio value="no" @click="Clear_Was_this_your_first_time_to_look_for_work_or_try_to_establish_a_business"
                                                     label="No"></v-radio>
                                             </v-radio-group>
                                         </v-col>
@@ -1506,11 +1542,11 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="12" md="10" class="mt-n6">
 
-                                                            <v-select
+                                                            <v-select v-model="Clear_Tired_believe_no_work_available"
                                                                 :items="['Tired/believe no work available ', 'Awaiting results of previous job application', 'Temporary illness/disability', 'Bad weather', 'Waiting for hire/ job recall', 'Too young/ old or retired/ permanent disability', 'Household/ family duties', 'Schooling',]"
                                                                 label="Select Option" prepend-inner-icon="mdi-account-star"
-                                                                v-model="dfdfdf" required></v-select>
-                                                            <v-text-field label="Other, specify" required
+                                                                 required></v-select>
+                                                            <v-text-field v-model="Clear_Tired_believe_no_work_available_Others" label="Other, specify" required
                                                                 prepend-inner-icon="mdi-account-plus">
                                                             </v-text-field>
 
@@ -1520,10 +1556,10 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="12" md="10" class="mt-n6">
                                                             <p class="font-weight-bold">(44)When was the last time you
                                                                 looked for work?</p>
-                                                            <v-select
+                                                            <v-select v-model="Clear_When_was_the_last_time_you_looked_for_work"
                                                                 :items="['Within this week ', 'Within last week', 'Last month', 'One to six month', 'More than six months', 'Never']"
                                                                 label="Select Option" prepend-inner-icon="mdi-account-off"
-                                                                v-model="dddd" required></v-select>
+                                                               required></v-select>
 
                                                         </v-col>
 
@@ -1579,7 +1615,7 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="12" md="10" class="mt-n8">
 
-                                                            <v-radio-group row>
+                                                            <v-radio-group row v-model="Clear_Was_this_your_first_time_to_look_for_work" >
                                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                                 <v-radio value="no" label="No"></v-radio>
 
@@ -1591,9 +1627,10 @@ Gender Preference<strong>
                                                                 find a work?</p>
 
                                                             <v-select
+                                                             v-model="Clear_What_you_have_been_doing_to_find_a_work"
                                                                 :items="['Registered in public employment agency', 'Registered in private employment agency', 'Approached employer directly', 'Approached relatives or friends', 'Placed or answered advertisements ', 'Searched and applied Online']"
                                                                 prepend-inner-icon="mdi-clipboard-account"
-                                                                label="Select Option" v-model="usrelevel"
+                                                                label="Select Option"
                                                                 required></v-select>
 
 
@@ -1603,7 +1640,7 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="12" md="10" class="mt-n5">
                                                             <p class="font-weight-bold">How many weeks have you been
                                                                 looking for work?</p>
-                                                            <v-text-field label="Write # of weeks" required
+                                                            <v-text-field v-model="Clear_Write_N_of_weeks" label="Write # of weeks" required
                                                                 prepend-inner-icon="mdi-calendar">
                                                             </v-text-field>
 
@@ -1613,7 +1650,7 @@ Gender Preference<strong>
                                                             <p class="font-weight-bold">Had opportunity for work
                                                                 existed last week or within two weeks, would you have been
                                                                 available? </p>
-                                                            <v-radio-group row>
+                                                            <v-radio-group v-model="Clear_Had_opportunity_for_work" row>
 
                                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                                 <v-radio value="no" label="No"></v-radio>
@@ -4848,6 +4885,79 @@ genderpreference:[
         clear_Did_you_Vote_in_the_last_SK_Election_yes_no:'',
         clear_Did_you_Vote_in_the_regular_yes_no:'',
 
+
+              Carpentry_clear:false,
+            Masonry_clear:false,
+            Driving_clear:false,
+            Dressmaking_clear:false,
+            Practical_Electricity_clear:false,
+            Plumbing_clear:false,
+            Handcraft_making_clear:false,
+            Beauty_Care_clear:false,
+            Agri_Fishery_Production_clear:false,
+          
+            Skills_training_others_clear:'',
+
+            YesNo_Can_you_Read_and_write_clear:'',
+
+
+            clear_Working_for_private_household:false,
+            clear_Working_private_business_establishment_farm:false,
+            clear_Working_for_government_government_corporation:false,
+            clear_Self_employed_with_no_paid_employee:false,
+            Clear_no_of_works:'',
+            Clear_YES_NO_Did_you_look_for_additional_work:true,
+            Clear_Managers:false,
+            Clear_Professionals:false,
+            Clear_Technicians_Associate_Professionals:false,
+            Clear_Clerical_Support_Workers:false,
+            Clear_Service_and_Sales_Workers:false,
+            Clear_Skilled_Agri_Fishery_Forest_Workers:false,
+            Clear_Craft_Related_Trades_Works:false,
+            Clear_Plant_Machine_Operations_Assembler:false,
+            Clear_Elementary_Occupations_labourer_jobs:false,
+            Clear_Armed_Forces_Occupations:false,
+            Clear_Virtual_Assistant_worker_onlinejobs:false,
+            Clear_Real_Estate_Activities:false,
+            Clear_Professional_Scientific_and_Technical_Activities:false,
+            Clear_Administrative_Support_Service_Activities:false,
+            Clear_Public_Administration_Defense_Compulsory_Social_Security:false,
+            Clear_Education:false,
+            Clear_Human_Health_and_Social_Work_Activities:false,
+            Clear_Arts_Entertainment_and_Recreation:false,
+            Clear_Activities_of_Households_as_Employers:false,
+            Clear_Activities_of_Extra_territorial:false,
+            Clear_Other_Service_Activities:'',
+            Clear_household_member_work_during_the_past_weeks:'',
+            Clear_others_specfyHouseholdmember:'',
+            Clear_Permanent_Job_business_unpaid_family_work:'',
+            Clear_what_was_your_Normal_working_hours:'',
+            Clear_what_was_the_total_number_of_hours:'',
+
+                Clear_Agriculture_plantations_other_rural_sectors:false,
+                Clear_Basic_Metal_Production:false,
+                Clear_Chemical_industries:false,
+                Clear_Commerce:false,
+                Clear_Construction:false,
+                Clear_Education_Business:false,
+                Clear_Financial_services_professional_service:false,
+                Clear_Forestry_wood_pulp_and_pape:false,
+                Clear_Health_services:false,
+                Clear_Hotels_tourism_catering:false,
+                Clear_Mining_coal_other_mining:false,
+                Clear_Transport:false,
+                Clear_Business_others:'',
+                
+
+            Clear_Was_this_your_first_time_to_look_for_work:'',
+            Clear_What_you_have_been_doing_to_find_a_work:'',
+            Clear_Write_N_of_weeks:'',
+            Clear_Had_opportunity_for_work:'',
+
+            Clear_Tired_believe_no_work_available:'',
+            Clear_Tired_believe_no_work_available_Others:'',
+            Clear_When_was_the_last_time_you_looked_for_work:'',
+
         };
     },
 
@@ -4929,7 +5039,6 @@ genderpreference:[
      cleargenderpreference() {
      this.genderpreferencedawkuno = null
     this.countrydestination_clear = null   
-
             },
 
      clear_Did_you_Vote_in_the_last_SK_Election()
@@ -4939,6 +5048,120 @@ genderpreference:[
 
 
     },
+
+        clear_How_many_skills_training_have_you_attended()
+        {
+
+            this.Carpentry_clear = false
+            this.Masonry_clear = false
+            this.Driving_clear = false
+            this.Dressmaking_clear = false
+
+            this.Practical_Electricity_clear = false
+            this.Plumbing_clear = false
+            this.Handcraft_making_clear = false
+            this.Beauty_Care_clear = false
+            this.Agri_Fishery_Production_clear = false
+            this.Practical_Electricity_clear = false
+            this.Skills_training_others_clear = ''
+
+
+          
+            this.can_you_read_and_write_yes_no = true
+
+        },
+
+        clear_Can_you_read_and_write_a_simple_message_in_any_language_or_dialect ()
+        {
+            this.YesNo_Can_you_Read_and_write_clear = ''
+            this.skill_training_program = true
+
+        },
+
+       
+        clear_What_is_your_class_of_worker()
+
+        {
+
+            this.clear_Working_for_private_household = false
+            this.clear_Working_private_business_establishment_farm = false
+            this.clear_Working_for_government_government_corporation = false
+            this.clear_Self_employed_with_no_paid_employee = false
+            this.Clear_no_of_works = ''
+
+            this.Clear_YES_NO_Did_you_look_for_additional_work = true
+
+            this.Clear_Managers = false
+            this.Clear_Professionals = false
+            this.Clear_Technicians_Associate_Professionals = false
+            this.Clear_Clerical_Support_Workers = false
+            this.Clear_Service_and_Sales_Workers = false
+            this.Clear_Skilled_Agri_Fishery_Forest_Workers = false
+            this.Clear_Craft_Related_Trades_Works = false
+            this.Clear_Plant_Machine_Operations_Assembler = false
+            this.Clear_Elementary_Occupations_labourer_jobs = false
+            this.Clear_Armed_Forces_Occupations = false
+            this.Clear_Virtual_Assistant_worker_onlinejobs = false
+            this.Clear_Real_Estate_Activities = false
+            this.Clear_Professional_Scientific_and_Technical_Activities = false
+            this.Clear_Administrative_Support_Service_Activities = false
+            this.Clear_Public_Administration_Defense_Compulsory_Social_Security = false
+            this.Clear_Education = false
+            this.Clear_Human_Health_and_Social_Work_Activities = false
+            this.Clear_Arts_Entertainment_and_Recreation = false
+            this.Clear_Activities_of_Households_as_Employers = false
+            this.Clear_Activities_of_Extra_territorial = false
+            this.Clear_Other_Service_Activities = ''
+            this.Clear_household_member_work_during_the_past_weeks= ''
+            this.Clear_others_specfyHouseholdmember = ''
+
+            this.Clear_Permanent_Job_business_unpaid_family_work = ''
+            this.Clear_what_was_your_Normal_working_hours = ''
+            this.Clear_what_was_the_total_number_of_hours = ''
+
+
+        },
+
+
+        Clear_What_is_the_Sector_of_Your_Business(){
+                this.Clear_Agriculture_plantations_other_rural_sectors = false
+                this.Clear_Basic_Metal_Production = false
+                this.Clear_Chemical_industries = false
+                this.Clear_Commerce = false
+                this.Clear_Construction = false
+                this.Clear_Education_Business = false
+                this.Clear_Financial_services_professional_service = false
+                this.Clear_Forestry_wood_pulp_and_pape = false
+                this.Clear_Health_services = false
+                this.Clear_Hotels_tourism_catering = false
+                this.Clear_Mining_coal_other_mining = false
+                this.Clear_Transport = false
+                this.Clear_Business_others = ''
+
+
+        },
+
+        Clear_Was_this_your_first_time_to_look_for_work_or_try_to_establish_a_business(){
+
+            this.Clear_Was_this_your_first_time_to_look_for_work = ''
+            this.Clear_What_you_have_been_doing_to_find_a_work = ''
+            this.Clear_Write_N_of_weeks = ''
+            this.Clear_Had_opportunity_for_work = ''
+            this.why_did_you_not_look_for_work = true
+        },
+
+        Clear_Why_did_you_not_look_for_work()
+        {
+
+            this.Clear_Tired_believe_no_work_available = ''
+            this.Clear_Tired_believe_no_work_available_Others = ''
+            this.Clear_When_was_the_last_time_you_looked_for_work = ''
+            this.was_this_your_first_time_to_look_for_work = true
+
+        },
+
+
+
 
         validate() {
         

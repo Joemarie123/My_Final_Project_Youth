@@ -13,6 +13,7 @@ import YouthRegisterEnumerator from '../views/Youth_Enumerator/YouthRegisterEnum
 import Youth_Enumerator_List_Member from '../views/Youth_Enumerator/Youth_Enumerator_List_Member.vue'
 
 import EnumeratorRecord from '../views/AdminMenu_ADMIN/EnumeratorRecord.vue'
+import RegisteredOnline from '../views/AdminMenu_ADMIN/RegisteredOnline.vue'
 
 
  import LogInForm from '../views/LogInForm.vue'
@@ -73,6 +74,14 @@ const routes = [
     component: PrintAllSinag
   },
 
+
+  {
+    path: '/RegisteredOnline',
+    name: 'RegisteredOnline',
+    component: RegisteredOnline
+  },
+
+  
 
     
   {

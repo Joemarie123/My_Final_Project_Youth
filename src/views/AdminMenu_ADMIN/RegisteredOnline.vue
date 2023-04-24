@@ -1,68 +1,15 @@
-<template>    
-  <v-app>
+<template>
+<v-app>
     <Navbar/>
+<h1>Registered Online List</h1>
+
+
 <v-row>
-
-    <v-col cols=12 lg="4" md="12" sm="12" class="mt-3">
-      
-   <div class="text-center ">
-  <v-alert dense dark color="blue darken-3">
-    Enumerator's Record<strong> </strong>
-
-   </v-alert> 
-   </div>
-
-
-  <v-col cols="12" md="12" lg="12" sm="12" >
-    
-    <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
-                  autofocus outlined rounded dense></v-text-field>
-           
-
-           
-    <v-data-table @click='sinag(item-key)' 
-      id="mytable"
-   
-      v-model="selected"
-      :headers="headers"
-      :items="desserts"
-      :items-per-page="10"
-      class="  elevation-1"
-      item-key="name"
-    
-      :hide-default-footer="true"
-      :hide-default-header="true"
-      tile
-      :search="search"   
-    >
-
-    <template v-slot:item.image="{ item }">
-               <v-avatar size="40">
-                              <img v-bind:src="`/${item.image}`" alt="">
-                      </v-avatar>
-</template>
-
-    <template slot="item.actions" slot-scope="props" >
-
-      <v-btn class="pa-2" color="green" dark @click="()=>sinagmembro(props.item)">
-       Record List
-      </v-btn>
-  
-    
-    </template>
- 
-    </v-data-table>
-  </v-col>
-
-
-  </v-col>
-
-
-<v-col cols="12" lg="8" md="12" sm="12"  >
+    <v-col cols="12" lg="12" md="12" sm="12"  >
     <!-- Another data Table -->
 
-    <v-data-table :headers="headers_recordlist" :items="recordlist" sort-by="calories"  class="btn-hover color-1 elevation-1 pa-2" 
-        :search="searchyouthrecord"
+    <v-data-table :headers="headers_recordlist" :items="filteredItems" sort-by="calories"  class="btn-hover color-1 elevation-1 pa-2" 
+       
         :hide-default-footer="true"
         @click:row="redirecttoformregistration"
         
@@ -84,7 +31,7 @@
   
             <div class="d-flex-column">
             <p style="color:white;" class="mt-7">Total Youth</p>
-            <p style="color:white;" class="mt-n4" > {{rowCount}}</p>
+            <p style="color:white;" class="mt-n4" >{{ rowCount }}</p>
               </div>
 
             <v-divider class="mx-4" inset vertical></v-divider>
@@ -95,7 +42,7 @@
               ></v-text-field>
   
   
-            <v-dialog v-model="dialogDelete" max-width="500px">
+          <!--   <v-dialog v-model="dialogDelete" max-width="500px">
               <v-card>
                 <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
                 <v-card-actions>
@@ -105,195 +52,53 @@
                   <v-spacer></v-spacer>
                 </v-card-actions>
               </v-card>
-            </v-dialog>
+            </v-dialog> -->
           </v-toolbar>
   
-   
-  
         </template>
-  
-  
       </v-data-table>
-
-
-
-
     </v-col>
 
-    </v-row>
-
-  </v-app>
+</v-row>  
 
 
+
+</v-app>
 </template>
+
+
 <script>
 
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar' 
+
+
 export default {
   name: 'App',
 
   components: {
    /*  LogInForm, */
-  /*  Navbar, */
+    Navbar,
    /* YouTherecord, */
-   Navbar,
+
    /* Footer */
   },
 
   data () {
     return {
-     
-      model: 'no',
-      
-      dialog_for_input_hours:false,
-      dialog:false,
-      dialog_sample:false,
-      
-
-      editedItem:[
-
-
-      ],
-
-
-      selected:[], 
-     
-      search: '',
-      searchyouthrecord: '',
-
-      headers: [
-      { text: 'Image', value: 'image',  align: 'center' },
-
-        {
-          text: 'Full Name',
-          align: 'left',
-          sortable: false,
-          value: 'name',
-        },
-        { text: 'Actions', value: 'actions',  align: 'center', sortable: false },
-       
-      ],
-
-
-      headers_recordlist: [
+        searchyouthrecord:'',
+        headers_recordlist: [
 
     
-        { text: "Full Name", value: "name",
-         align: 'start', sortable: false, }, { text: "Email",
-           value: "email" }, { text: "Mobile Number", value: "mobilenum", 
-           align: ' d-none d-xl-table-cell' }, { text: "Age", value: "age", align: ' d-none d-xl-table-cell' }, 
-           { text: "Barangay & Purok", value: "barangay" },
-           { text: "Date Survey", value: "datesurvey" }
+{ text: "Full Name", value: "name",
+ align: 'start', sortable: false, }, { text: "Email",
+   value: "email" }, { text: "Mobile Number", value: "mobilenum", 
+   align: ' d-none d-xl-table-cell' }, { text: "Age", value: "age", align: ' d-none d-xl-table-cell' }, 
+   { text: "Barangay & Purok", value: "barangay" },
+   { text: "Date Survey", value: "datesurvey" }
 
-      ],
-   
- 
-
-        
-      desserts: [
-        {
-            
-          name: 'Rodel Casimina',
-          sinagmember:true,
-          image: 'EnumeratorPic/rodel.jpg'
-       
-        },
-        {
-
-          name: 'Lovely Fuerzas',
-          sinagmember:true,
-          image: 'EnumeratorPic/LovelyFuerzas.jpg'
-         
-        },
-        {
-          name: 'Curay Honey Marjie',
-          sinagmember:false,
-          image: 'profilepic/curay.png'
-        
-        },
-        {
-          name: 'Pablo Escobar Roland',
-          sinagmember:false,
-          image: 'profilepic/escobar.png'
-          
-         
-        },
-        {
-          name: 'NEil Arms Trong',
-          sinagmember:false,
-          image: 'profilepic/armstrong.png'
-
-          
-
-        },
-        {
-          name: 'Jelly bean Del Cruz',
-          sinagmember:true,
-          image: 'profilepic/Screenshot_1.png'
-         
-        },
-        {
-          name: 'Mahusay Jograd JOGZ',
-          sinagmember:true,
-          image: 'profilepic/jogz.jpg'
-         
-        },
-        {
-          name: 'Benjamin Roble',
-          sinagmember:true,
-          image: 'profilepic/Neil.jpg'
-        
-        },
-        {
-          name: 'LeBron Raymone James',
-          sinagmember:true,
-          image: 'profilepic/lebron.png'
-
-
-        },
-        {
-          name: 'Wardell Stephen Curry II',
-          sinagmember:false,
-          image: 'profilepic/curry.png'
-
-        },
-
-        {
-          name: 'Kevin Wayne Durant',
-          sinagmember:true,
-          image: 'profilepic/durant.png'
-
-        },
-
-        {
-          name: 'James Edward Harden Jr.',
-          sinagmember:true,
-          image: 'profilepic/harden.png'
-
-          
-        },
-        {
-          name: 'Albert Einstein',
-          sinagmember:true,
-          image: 'profilepic/albert.png'
-
-        },
-        {
-          name: 'Antonio Narciso Luna de San Pedro',
-          sinagmember:true,
-          image: 'profilepic/luna.png'
-        },
-
-        {
-          name: 'Antonio Narciso Luna de San Pedro',
-          sinagmember:true,
-          image: 'profilepic/luna.png'
-        },
-
-      ],
-
-
-      recordlist:[
+],
+    
+recordlist:[
   
   {
     image: 'profilepic/jom.jpg',
@@ -596,28 +401,16 @@ export default {
 ],
 
 
+
+
     }
+
+    
+
   },
 
-  created() {
-      this.selected_event.push(this.listevent.find(e => e.id == this.$route.params.id));
-     /*  this.initialize() */
-      // console.log("selected=>", this.selected);
-      // console.log("selected=>", this.$route.params.id);
-  },
-
-
- computed: {
-  tableLength: function() {
-      return this.desserts.length;
-    },
-
-      formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
-      },
-
-
-      filteredItems() {
+  computed: {
+    filteredItems() {
       return this.recordlist.filter(item =>
         item.name.toLowerCase().includes(this.searchyouthrecord.toLowerCase()) ||
         item.email.toLowerCase().includes(this.searchyouthrecord.toLowerCase()) ||
@@ -631,60 +424,11 @@ export default {
     rowCount() {
       return this.filteredItems.length;
     }
+  }
 
-    },
+    };
 
 
     
-
-
- methods:{
-  redirecttoformregistration (item) {
-            
-            /*   this.navigateTo('/SelectYouth');  */
-    
-              this.$router.push({ name: 'RegisterNew', params: { id: item.id } })
-            },
-
- /*    initialize() {
-        this.
-        }
- */
- },
-
- 
-}
 
 </script>
-
-
-<style>
-
-@media screen and (max-width: 1420px) and (min-width: 1283px) 
-
-{
-
-  .data_table_1{
-
-    height:640px;
-    
-  }
-
-
-}
-
-@media screen and (max-width: 1283px) 
-
-{
-
-  .data_table_1{
-
-    height:710px;
-    
-  }
-
-
-}
-
-
-</style>

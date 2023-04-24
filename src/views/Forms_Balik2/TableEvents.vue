@@ -75,14 +75,12 @@ Create Events<strong>
    <v-text-field height="10" dense type="date" outlined label="Date Event"></v-text-field>
    </v-col>
 
-   <v-col cols="10" sm="10" md="5"
- style=" margin-top: -30px;">
+   <v-col cols="10" sm="10" md="5" class="mt-n8 ml-5 ml-md-n1">
    <v-text-field height="10" dense 
    hide-spin-buttons
   type="number" maxlength="5"
   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-   
-   
+  
    outlined label="Num# Participants"></v-text-field>
    </v-col>
 

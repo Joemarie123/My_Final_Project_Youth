@@ -1,6 +1,6 @@
 <template>
   <v-app>
-   
+  
     <v-data-table :headers="headers" :items="desserts" sort-by="calories"  class="btn-hover color-1 elevation-1 pa-2" dark
       :search="search">
 
@@ -24,9 +24,6 @@
 
       </template>
 
-
-
-
       <template v-slot:top>
         <v-toolbar flat dark class=" btn-hover color-1 elevation-1">
 
@@ -39,7 +36,9 @@
           <v-text-field v-model="search" outlined dense  rounded append-icon="mdi-magnify" label="Search" single-line hide-details
             dark></v-text-field>
 
-
+            <v-btn color="green" class="mx-2"  dark @click="$router.push({ name: 'PrintAllSinag' })">
+              Print
+             </v-btn>
           <v-dialog v-model="dialog" max-width="700px" tile>
             <!--  
               <div class="text-center" >
@@ -188,7 +187,7 @@
 
           
 
-          <v-dialog v-model="dialogDelete" max-width="500px">
+          <!-- <v-dialog v-model="dialogDelete" max-width="500px">
             <v-card>
               <div class="text-center ">
               <v-alert dense dark color="blue darken-3">
@@ -204,12 +203,13 @@
                 <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>
-          </v-dialog>
+          </v-dialog> -->
         </v-toolbar>
 
         <v-dialog v-model="dialog_events_attended" max-width="1000px" tile>
           <v-card>
 
+          <!--   <v-btn color="green" @click="sumField" >CLICK ME</v-btn> -->
             <!--  <div class="text-center ">
 
               <v-alert dense dark color="blue darken-3">
@@ -233,8 +233,10 @@
                       </v-col>
                  -->
                 <v-col cols="12 " sm="12" md="12">
-                  <v-data-table  class="pa-md-6" :headers="headers_event" :hide-default-footer="true" :items="desserts"
-                    :search="search_events">
+                  <v-data-table  class="pa-md-6" :headers="headers_event" :hide-default-footer="true" :items="filteredItems"
+                    :search="search_events"
+                    
+                    >
                     <template v-slot:top>
 
 
@@ -248,12 +250,28 @@
                             </v-avatar>
                           </v-col>
 
-                          <v-col cols="12" sm="11" md="5">
-                            <v-text-field class="some-style ml-4" v-model="editedItem.name" flat readonly></v-text-field>
+                          <v-row>
+
+                          <v-col cols="12" sm="11" md="12">
+                           <!--  <v-text-field class="some-style ml-6" v-model="editedItem.name" flat readonly></v-text-field> -->
+                            <p class="ml-6 mt-5">{{ editedItem.name }} </p>
+                      
                           </v-col>
 
+
+                          <v-col cols="12" sm="11" md="5" class="ml-6 mt-n7">
+                       <p > <!-- Total Hours: {{ sumField('hoursearned') }} -->
+                        Total Hours: {{total}}
+
+                      </p>
+                      
+                          </v-col>
+
+                        </v-row>
+
+
                           <v-col cols="11" md="5">
-                            <v-text-field v-model="search_events" class="mt-md-3 ml-2" append-icon="mdi-magnify"
+                            <v-text-field  v-model="search_events" class="mt-md-3 ml-2" append-icon="mdi-magnify"
                               label="Search" single-line hide-details outlined rounded dense></v-text-field>
                           </v-col>
 
@@ -280,7 +298,7 @@
                       </v-card>
 
 
-
+<!-- 
                       <v-dialog v-model="dialogDelete" max-width="450px">
                         <v-card>
                           <h3 class="text-center">Are you sure to delete this?</h3>
@@ -292,13 +310,16 @@
                             <v-spacer></v-spacer>
                           </v-card-actions>
                         </v-card>
-                      </v-dialog>
+                      </v-dialog> -->
 
 
 
 
                     </template>
                     <template v-slot:item.actions="{ item }">
+
+            
+
                       <v-icon small class="mr-2" @click="viewItem(item)">
                         mdi-eye
                       </v-icon>
@@ -306,7 +327,9 @@
                         mdi-pencil
                       </v-icon>
 
-                      <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+                      
+
+                  <!--     <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon> -->
                     </template>
                     <template slot="item.switch1" slot-scope="{ item }">
                       <v-switch v-model="item.switch1" color="success" dense></v-switch>
@@ -326,15 +349,16 @@
 
 
 
-        <v-dialog v-model="dialog_viewProfile" max-width="660px" persistent>
-          <v-card>
-            <v-container>
+        <v-dialog   v-model="dialog_viewProfile" max-width="660px" persistent   >
+          <v-card class="hidescrollbar">
+            <v-container >
               <div class="text-center ">
 
                 <v-alert dense dark color="blue darken-3">
                   PERSONAL INFORMATION <strong> </strong>
 
                 </v-alert>
+
                <!--  <v-col cols="10" lg="1" style="margin-top: -63px; margin-left: 570px;">
                   <v-btn text color="red" dark @click="dialog_viewProfile = false">
                     <v-icon>
@@ -352,27 +376,26 @@
 
                 <v-col cols="12" lg="6">
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field class="font-weight-bold centered-input" style="margin-top: -18px; margin-left: -38px;"
+                  <v-col cols="10" lg="12" class="sinagkabai_dakoscreen ">
+                    <v-text-field class=" font-weight-bold centered-input" style="margin-top: -18px; margin-left: -38px;"
                       v-model="editedItem.sinag" flat solo readonly>
 
                     </v-text-field>
-
-
+                      
                   </v-col>
 
 
 
-                  <v-col cols="10" lg="12" style="margin-top:-50px; margin-left: 18px;">
-                    <v-avatar size="100" class="ml-11 mr-7">
+                  <v-col cols="10" lg="12" class=" imagemobile"  >
+                    <v-avatar style="margin-top:-50px; margin-left: 18px;" size="100"  class="ml-11 mr-7">
                       <img v-bind:src="`/${editedItem.image}`" alt="">
                     </v-avatar>
                   </v-col>
 
 
 
-                  <v-col cols="4" lg="10" sm="12" md="12" align-self="center">
-                    <v-text-field class="font-weight-medium centered-input" dense height="30" background-color="#00695C"
+                  <v-col cols="12" lg="10" sm="12" md="12" align-self="center">
+                    <v-text-field class="font-weight-medium centered-input" dense  background-color="#00695C"
                       dark v-model="editedItem.name" flat solo readonly></v-text-field>
                   </v-col>
 
@@ -389,7 +412,7 @@
                       class="font-weight-bold"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="10">
+                  <v-col cols="10" sm="12" lg="10">
                     <v-text-field style="margin-top: -103px; margin-left: 95px;" v-model="editedItem.datesurvey" flat solo
                       readonly></v-text-field>
                   </v-col>
@@ -442,95 +465,116 @@
 
                   <v-col cols="10" lg="4">
                     <v-text-field style="margin-bottom: -20px; margin-left: -70px;" class="font-weight-bold" color="white"
-                      flat solo readonly value="esbog Ni bai  :"></v-text-field>
+                      flat solo readonly value=":"></v-text-field>
                   </v-col>
 
                   <v-col cols="10" lg="12">
                     <v-text-field style="margin-top: -75px; margin-left:   30px;" color="white" flat solo
                       readonly></v-text-field>
                   </v-col>
-                  <v-col cols="10" lg="5">
+
+
+                  <v-col cols="10" lg="5" class="birthdayname" >
                     <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -120px;" flat solo
                       readonly value="Birth Day:"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
+               <!--    <v-col cols="10" lg="5">
+                    <v-text-field class="font-weight-bold" :style="`margin-left: ${ margin-left < 600 ? 125 : -700}px`" flat solo
+                      readonly value="Birth Day:"></v-text-field>
+                  </v-col>
+ -->
+
+                  <v-col cols="10" lg="12" class="birthdayvalue">
                     <v-text-field style="margin-top: -144px; margin-left: 30px;" v-model="editedItem.birthday" flat solo
                       readonly></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="5">
+                  <v-col cols="10" lg="5" class="agevalue">
                     <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -135px;" flat solo
                       readonly value="Age:"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
+                  <v-col cols="10" lg="12" class="agevalue">
                     <v-text-field style="margin-top: -158px; margin-left: 30px;" v-model="editedItem.age" flat solo
                       readonly></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="5">
+                  <v-col cols="10" lg="5" class="agevalue">
                     <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -150px;" flat solo
-                      readonly value="Address:"></v-text-field>
+                      readonly value="Barangay:"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
+                  <v-col cols="10" lg="12" class="agevalue">
                     <v-text-field style="margin-top: -175px; margin-left: 30px;" v-model="editedItem.barangay" flat solo
                       readonly></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="5">
-                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -120px;" flat solo
+                  <v-col cols="10" lg="5" class="agevalue">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -160px;" flat solo
+                      readonly value="Purok:"></v-text-field>
+                  </v-col>
+
+                  <v-col cols="10" lg="12" class="agevalue">
+                    <v-text-field style="margin-top: -185px; margin-left: 30px;" v-model="editedItem.purok" flat solo
+                      readonly></v-text-field>
+                  </v-col>
+
+
+
+
+                  <v-col cols="10" lg="5" class="email_padong_education">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -170px;" flat solo
                       readonly value="Email:"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -145px; margin-left: 30px;" v-model="editedItem.email" flat solo
+                  <v-col cols="10" lg="12" class="email_padong_education">
+                    <v-text-field style="margin-top: -195px; margin-left: 30px;" v-model="editedItem.email" flat solo
                       readonly></v-text-field>
                   </v-col>
 
 
 
-                  <v-col cols="10" lg="5">
-                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -135px;" flat solo
+                  <v-col cols="10" lg="5" class="email_padong_education">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -185px;" flat solo
                       readonly value="Cell Phone :"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -158px; margin-left: 30px;" v-model="editedItem.mobilenum" flat solo
+                  <v-col cols="10" lg="12" class="email_padong_education">
+                    <v-text-field style="margin-top: -208px; margin-left: 30px;" v-model="editedItem.mobilenum" flat solo
                       readonly></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="5">
-                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -140px;" flat solo
+                  <v-col cols="10" lg="5" class="email_padong_education">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -200px;" flat solo
                       readonly value="Voters :"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -163px; margin-left: 30px;" v-model="editedItem.voters" flat solo
+                  <v-col cols="10" lg="12" class="email_padong_education">
+                    <v-text-field style="margin-top: -223px; margin-left: 30px;" v-model="editedItem.voters" flat solo
                       readonly></v-text-field>
                   </v-col>
 
 
-                  <v-col cols="10" lg="5">
-                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -155px;" flat solo
+                  <v-col cols="10" lg="5" class="email_padong_education">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -210px;" flat solo
                       readonly value="Ethnicity :"></v-text-field>
                   </v-col>
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -179px; margin-left: 30px;" v-model="editedItem.ethnicity" flat solo
+                  <v-col cols="10" lg="12" class="email_padong_education">
+                    <v-text-field style="margin-top: -235px; margin-left: 30px;" v-model="editedItem.ethnicity" flat solo
                       readonly></v-text-field>
                   </v-col>
 
 
-                  <v-col cols="10" lg="5">
-                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -173px;" flat solo
+                  <v-col cols="10" lg="5" class="email_padong_education">
+                    <v-text-field class="font-weight-bold" style="margin-left: -70px; margin-top: -210px;" flat solo
                       readonly value="Education:"></v-text-field>
                   </v-col>
 
 
-                  <v-col cols="10" lg="12">
-                    <v-text-field style="margin-top: -197px; margin-left: 30px; " v-model="editedItem.educational_level"
+                  <v-col cols="10" lg="12" class="email_padong_education">
+                    <v-text-field style="margin-top: -234px; margin-left: 30px; " v-model="editedItem.educational_level"
                       flat solo readonly></v-text-field>
                   </v-col>
 
@@ -540,7 +584,7 @@
 
               <v-row>
 
-<v-col cols="12" sm="12" md="12" class="mt-n12" >
+<v-col cols="12" sm="12" md="12" class="buttonnako" >
 
   <v-btn color="red" class="pa-2 ml-2 mt-n8"
          dark
@@ -559,6 +603,8 @@
         Close
     </v-btn>
 </v-col>
+
+
 
 </v-row>
 
@@ -583,10 +629,10 @@
         <!-- <v-icon small class="ml-n5 " @click="editItem(item)">
           mdi-pencil
         </v-icon> -->
-
+<!-- 
         <v-icon small class="ml-1 ma-2" @click="deleteItem(item)">
           mdi-delete
-        </v-icon>
+        </v-icon> -->
 
         <v-btn outlined @click="Events_History(item)" class="white--text mr-2" small color="blue">
           <v-icon left class="white--text">mdi-account-check</v-icon>
@@ -695,10 +741,69 @@ export default {
     },
   }),
 
-  props: ['name'],
+  props: ['name'], 
 
 
   computed: {
+
+    filteredItems() {
+      
+   return this.desserts.filter((desserts) =>
+      desserts.eventdate.toLowerCase().includes(this.search_events.toLowerCase()) ||
+      desserts.eventname.toLowerCase().includes(this.search_events.toLowerCase()) ||
+      desserts.eventdetails.toLowerCase().includes(this.search_events.toLowerCase())
+      );
+
+
+
+
+    /*   let res=this.desserts.filter((item) =>
+        item.eventdate.toLowerCase().includes(this.search_events.toLowerCase()),
+       
+      ); */
+      /* eslint-disable */
+     /*  console.log("res=>",res)
+
+      if(res.length == 0){
+        return this.desserts.filter((item) =>
+        item.eventname.toLowerCase().includes(this.search_events.toLowerCase()),
+       
+      );
+
+      
+      }
+
+
+      else{
+        return this.desserts.filter((item) =>
+        item.eventdate.toLowerCase().includes(this.search_events.toLowerCase()),
+       
+      );
+      } */
+
+    
+    },
+
+
+
+
+
+
+
+    total() {
+      return this.filteredItems.reduce(
+        (accumulator, desserts) => accumulator + desserts.hoursearned,
+        0
+      );
+    },
+
+
+    tableLength: function() {
+      return this.desserts.length;
+    },
+  
+
+
     msg() {
       return `ALL YOUTH RECORD`
     },
@@ -719,17 +824,26 @@ export default {
   },
   created() {
     this.initialize()
+   
 
   },
 
   components: {
-    
+  
     /*    DataTable_EventsAttended, */
   },
 
 
 
   methods: {
+
+/*  
+    sumField(key) {
+        // sum data in give key (property)
+        return this.desserts.reduce((a, b) => a + (b[key] || 0), 0)
+    }, */
+
+
     initialize() {
       this.desserts = [
 
@@ -758,7 +872,7 @@ export default {
           eventname: 'Tagum Lighting of Christmas tree',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '5 Hours',
+          hoursearned: 5,
           sinag: 'Sinag Member',
 
           disability: "Mental/Intellectual"
@@ -796,7 +910,7 @@ export default {
           eventname: 'Youth Event Basket Ball Men',
           eventdate: 'January 4,2023',
           eventdetails: 'The Basketball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-          hoursearned: '3 Hours',
+          hoursearned: 3,
           disability: "Hearing Disability"
 
 
@@ -826,11 +940,10 @@ export default {
           voters: 'Yes',
 
 
-
           eventname: 'Youth Volley Ball Apokon Vs. Bincungan',
           eventdate: 'February 8,2023',
           eventdetails: 'The Volley Ball Tournament is an open-application, single-elimination tournament played each summer in Tagum City',
-          hoursearned: '2 Hours',
+          hoursearned: 2,
           disability: "Psychological Disability"
 
         },
@@ -861,7 +974,7 @@ export default {
           eventname: 'Youth Event Sepak takraw',
           eventdate: 'March 11,2022',
           eventdetails: 'Sepak Takraw is a foot volleyball game where players touch as well as handle the ball using only their feet, knee, chest and head.',
-          hoursearned: '7 Hours',
+          hoursearned: 7,
           activestatus:'Active Member',
 
           disability: "Visual Diability"
@@ -892,7 +1005,7 @@ export default {
           eventname: 'Tagum Youth Dota 2 Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '3 Hours',
+          hoursearned: 3,
           disability: "Speech Impairement",
           activestatus:'Active Member',
 
@@ -923,7 +1036,7 @@ export default {
           eventname: 'Tagum Youth Mobile Legends Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '4 Hours',
+          hoursearned: 4,
 
           disability: "Mental/Intellectual",
           activestatus:'Active Member',
@@ -954,7 +1067,7 @@ export default {
           eventname: 'Tagum Youth Soccer Tournament',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '6 Hours',
+          hoursearned: 6,
           disability: "Disability due to chronic illness",
 
           activestatus:'Active Member',
@@ -987,7 +1100,7 @@ export default {
           eventname: 'Tagum Sayawan nang Kabatan-onan',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '2 Hours',
+          hoursearned: 2,
           disability: "Orthopaedic (Musculoskeletal) Disability",
           activestatus:'Active Member',
 
@@ -1018,7 +1131,7 @@ export default {
           eventname: 'Tagum Youth Golf Event ',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '4 Hours',
+          hoursearned: 4,
           disability: "Learning Disability",
           activestatus:'Active Member',
 
@@ -1050,14 +1163,11 @@ export default {
           eventname: 'Tagum Lighting of Christmas tree',
           eventdate: 'December 4,2022',
           eventdetails: 'The tallest Christmas tree in the Philippines was illuminated on Wednesday night in Tagum City, Davao del Norte.',
-          hoursearned: '6 Hours',
+          hoursearned: 6,
           disability: "Mental/Intellectual",
           activestatus:'Active Member',
 
-
         },
-
-
 
 
       ]
@@ -1081,9 +1191,6 @@ export default {
       this.editedItem = Object.assign({}, item)
       this.dialog_viewProfile = true
     },
-
-
-
 
     deleteItem(item) {
       this.editedIndex = this.desserts.indexOf(item)
@@ -1121,12 +1228,11 @@ export default {
 
   },
 
-
   mounted() {
 
 
     if (this.msg == "ALL YOUTH RECORD") {
-      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email" }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
+      this.headers.push({ text: "Full Name", value: "name", align: 'start', sortable: false, }, { text: "Email", value: "email"  , align: ' d-none d-md-table-cell' }, { text: "Mobile Number", value: "mobilenum", align: "center" }, { text: "Age", value: "age" , align: ' d-none d-xl-table-cell' }, { text: "Barangay & Purok", value: "barangay" }, { text: "Actions", value: "actions", align: "center" });
     }
 
    
@@ -1134,14 +1240,127 @@ export default {
   },
 
 
-
-
-
 }
 </script>
 
 
 <style scoped>
+
+@media screen and (max-width: 450px) {
+/*   h1 {
+    font-size: 7px;
+  }
+  div #search {
+    size: 5px;
+  }
+ */
+
+ .imagemobile{
+
+margin-left: 30px;
+}
+
+
+
+    .sinagkabai{     
+      margin-left: 50px;
+}
+
+.birthdayname{
+
+  margin-left: 60px;
+  margin-top: -140px;
+
+}
+ 
+.birthdayvalue{
+
+  margin-left: 60px;
+}
+
+
+.agevalue{
+
+  margin-left: 60px;
+
+}
+
+
+.email_padong_education{
+  margin-left: 60px;
+
+}
+
+
+}
+
+
+@media screen and (max-width:  1263px) {
+
+  .hidescrollbar {
+
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+
+
+}
+
+
+/*   h1 {
+    font-size: 7px;
+  }
+  div #search {
+    size: 5px;
+  }
+
+ */
+
+ .imagedagway{
+
+  margin-left: 210px;
+ }
+
+    .sinagkabai_dakoscreen{
+     
+      margin-left: -5px;
+}
+
+
+.birthdayname{
+
+  margin-left: 60px;
+  margin-top: -140px;
+
+}
+ 
+.birthdayvalue{
+
+  margin-left: 60px;
+}
+
+
+.agevalue{
+
+  margin-left: 60px;
+
+}
+
+
+.email_padong_education{
+  margin-left: 60px;
+
+}
+
+
+.buttonnako{
+
+  margin-top: -150px;
+
+}
+
+
+}
+
 .some-style>>>.v-input__slot::before {
   border-style: none !important;
 }
@@ -1181,7 +1400,6 @@ export default {
   background-image: linear-gradient(to right, #0b5879, #076437, #0e6d3f, #078045);
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644);
 }
-
 
 
 </style>

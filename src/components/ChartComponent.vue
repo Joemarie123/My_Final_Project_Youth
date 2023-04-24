@@ -23,6 +23,7 @@ import VueApexCharts from 'vue-apexcharts'
     components: {
       apexcharts: VueApexCharts,
     },
+    
     data: function() {
       return {
         
@@ -94,7 +95,7 @@ import VueApexCharts from 'vue-apexcharts'
   }
 },
 
-responsive: [
+/* responsive: [
     {
       breakpoint: 1000,
       options: {
@@ -108,7 +109,7 @@ responsive: [
         }
       }
     }
-  ]
+  ] */
 
   },
 

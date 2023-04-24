@@ -163,7 +163,7 @@
           children: [
         { icon: 'mdi-account-check', text: 'Add User Account' , route:'/AddUseraccount'},
         { icon: 'mdi-account-check', text: 'Enumerators Record  ' , route:'/EnumeratorRecord'},
-
+        { icon: 'mdi-account-check', text: 'Registered Online  ' , route:'/RegisteredOnline'},
 
         ],
           
