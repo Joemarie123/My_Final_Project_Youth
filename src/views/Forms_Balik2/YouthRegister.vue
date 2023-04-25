@@ -1112,7 +1112,7 @@ Gender Preference<strong>
                                                 week?</p>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
-                                                    @change="did_you_look_additional_word = true, whats_your_class_of_worker = false, did_you_look_work_to_eastablish_business = false"
+                                                    @click="Clear_Did_you_want_more_hours_of_work_during_the_past_week"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no"
                                                     @change="did_you_look_additional_word = false, whats_your_class_of_worker = false, did_you_look_work_to_eastablish_business = true"
@@ -1477,7 +1477,7 @@ Gender Preference<strong>
                                         <v-col cols="12" sm="12" md="3" v-show="did_you_look_work_to_eastablish_business">
                                             <p class="font-weight-bold"> Did you look for work or try to establish business
                                                 during the past week?</p>
-                                            <v-radio-group row>
+                                            <v-radio-group v-model="Clear_Yes_No_Did_you_look_for_work_or_try_to_establish_business" row>
                                                 <v-radio value="yes" @click="Clear_Why_did_you_not_look_for_work"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no" @click="Clear_Was_this_your_first_time_to_look_for_work_or_try_to_establish_a_business"
@@ -1927,10 +1927,10 @@ Gender Preference<strong>
                                             <p class="mt-2  font-weight-bold">Are you a member of PhilHealth?</p>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
-                                                    @click="what_is_your_philhealth_membership = true, are_your_depende_of_philhealth_member = false"
+                                                    @click="Clear_Are_you_a_dependent_of_a_PhilHealth_Member"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no"
-                                                    @click="are_your_depende_of_philhealth_member = true, what_is_your_philhealth_membership = false"
+                                                    @click=" Clear_What_is_your_PhilHealth_membership_type"
                                                     label="No"></v-radio>
 
                                             </v-radio-group>
@@ -2012,7 +2012,7 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n7">
 
-                                                            <v-radio-group row>
+                                                            <v-radio-group v-model="Clear_Are_you_a_dependent_of_a_PhilHealth"  row>
                                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                                 <v-radio value="no" label="No"></v-radio>
 
@@ -2058,7 +2058,7 @@ Gender Preference<strong>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" @click="do_you_have_solo_parent_id = true"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" @click="do_you_have_solo_parent_id = false"
+                                                <v-radio value="no" @click="Clear_Do_you_Have_a_Solo_Parent_ID"
                                                     label="No"></v-radio>
 
                                             </v-radio-group>
@@ -2084,7 +2084,7 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n7">
 
-                                                            <v-radio-group row>
+                                                            <v-radio-group v-model="Clear_Yes_No_Do_you_Have_a_Solo_Parent_ID"  row>
                                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                                 <v-radio value="no" label="No"></v-radio>
                                                             </v-radio-group>
@@ -2126,7 +2126,7 @@ Gender Preference<strong>
                                             <v-radio-group row class="mt-n2">
                                                 <v-radio value="yes" @click="what_type_of_disability_do_you_have = true"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" label="No"></v-radio>
+                                                <v-radio @click="Clear_What_type_of_disability_do_you_have" value="no" label="No"></v-radio>
 
                                             </v-radio-group>
                                         </v-col>
@@ -2152,23 +2152,31 @@ Gender Preference<strong>
 
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox label="Mental/Intellectual"></v-checkbox>
-                                                                <v-checkbox label="Hearing Disability"
+                                                                <v-checkbox v-model="Clear_Mental_Intellectual"
+                                                                 label="Mental/Intellectual"></v-checkbox>
+                                                                <v-checkbox v-model="Clear_Hearing_Disability"
+                                                                 label="Hearing Disability"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Psychological Disability"
+                                                                <v-checkbox  v-model="Clear_Psychological_Disability"
+                                                                label="Psychological Disability"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Visual Disability"
+                                                                <v-checkbox v-model="Clear_Visual_Disabilityy"
+                                                                 label="Visual Disability"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Speech Impairement"
+                                                                <v-checkbox  v-model="Clear_Speech_Impairement"
+                                                                 label="Speech Impairement"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Disability due to chronic illness"
+                                                                <v-checkbox v-model="Clear_Disability_due_to_chronic_illness"
+                                                                 label="Disability due to chronic illness"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Orthopaedic (Musculoskeletal) Disability"
+                                                                <v-checkbox  v-model="Clear_Orthopaedic_Musculoskeletal_Disability"
+                                                                 label="Orthopaedic (Musculoskeletal) Disability"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Learning Disability"
+                                                                <v-checkbox v-model="Clear_LearningDisability"
+                                                                 label="Learning Disability"
                                                                     style="margin-top: -10px"></v-checkbox>
 
-                                                                <v-text-field
+                                                                <v-text-field v-model="Clear_Multiple_Disability_Specify"
                                                                     label="Multiple Disability, Specify"></v-text-field>
                                                             </v-checkbox-group>
 
@@ -2178,7 +2186,7 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="12" md="12" class="mt-n4">
 
                                                             <p class="font-weight-bold">Do you have a PWD ID?</p>
-                                                            <v-radio-group row>
+                                                            <v-radio-group row v-model="Clear_Do_you_have_a_PWD_ID">
                                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                                 <v-radio value="no" label="No"></v-radio>
 
@@ -2237,7 +2245,7 @@ Gender Preference<strong>
                                                 <v-radio value="yes"
                                                     @click="what_kind_of_health_related_issues_or_lifestle_61 = true"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" label="No"></v-radio>
+                                                <v-radio @click="Clear_What_kind_of_health_related_issues_or_lifestyle_diseases_you_have " value="no" label="No"></v-radio>
 
                                             </v-radio-group>
                                         </v-col>
@@ -2251,7 +2259,7 @@ Gender Preference<strong>
                                                     @click="where_did_you_avail_medical_treatment_62_A = true, do_you_have_illness_or_any_health_related_62_B = true"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no"
-                                                    @click="do_you_have_illness_or_any_health_related_62_B = false, where_did_you_avail_medical_treatment_62_A = false"
+                                                    @click="Clear_Where_did_you_avail_medical_treatment"
                                                     label="No"></v-radio>
 
                                             </v-radio-group>
@@ -2263,14 +2271,12 @@ Gender Preference<strong>
 
                                             <p class="font-weight-bold">Do you have illness or any health-related
                                                 issues of this time (upon survey time) </p>
-                                            <v-radio-group row>
+                                            <v-radio-group v-model="Clear_Do_you_have_illness_or_any_health" row>
                                                 <v-radio value="yes" @click="what_kind_of_illness_or_health_realted_issues_63 = true
-
-
 
                                                 " label="Yes"></v-radio>
                                                 <v-radio value="no"
-                                                    @click="what_kind_of_illness_or_health_realted_issues_63 = false"
+                                                    @click="Clear_What_kind_of_illness_or_health_related_issues_does_you"
                                                     label="No"></v-radio>
 
 
@@ -2336,9 +2342,9 @@ Gender Preference<strong>
                                             <p class="font-weight-bold">If married or sexually active, have
                                                 you ever used contraceptive methods? </p>
                                             <v-radio-group row>
-                                                <v-radio value="yes" @click="what_methods_have_you_used_73_2 = true"
+                                                <v-radio value="yes" @click="Clear_why_did_sexualy_ActiveDidnoteverusecontraciptive"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" @click="why_did_you_not_use_contraceptive_73_3 = true"
+                                                <v-radio value="no" @click="Clear_Contraceptive_Methods"
                                                     label="No"></v-radio>
 
                                             </v-radio-group>
@@ -2353,7 +2359,7 @@ Gender Preference<strong>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" @click="what_crime_or_violation_75_76_77_78 = true"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" label="No"></v-radio>
+                                                <v-radio @click="Clear_What_crime_or_violation" value="no" label="No"></v-radio>
 
                                             </v-radio-group>
                                         </v-col>
@@ -2366,7 +2372,7 @@ Gender Preference<strong>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes" @click="what_type_of_program_80_81 = true"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" @click="what_type_of_program_80_81 = false"
+                                                <v-radio value="no" @click="Clear_Whatypeoprogramserviceidoureceiveorasarecipientof"
                                                     label="No"></v-radio>
 
                                             </v-radio-group>
@@ -2379,10 +2385,10 @@ Gender Preference<strong>
                                             <p class="mt-1 font-weight-bold">Do you have a disaster preparedness kit?</p>
                                             <v-radio-group row class="mt-n3">
                                                 <v-radio value="yes"
-                                                    @click="do_you_have_following_preparedness_kit_83 = true, did_you_attend_disaster_preparedness_84 = false"
+                                                    @click="Clear_Yes_do_you_havepreparednesskit"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no"
-                                                    @change="do_you_have_following_preparedness_kit_83 = false, did_you_attend_disaster_preparedness_84 = true"
+                                                    @click="Clear_Do_you_have_aDisasterPreparednessKit"
                                                     label="No"></v-radio>
 
                                             </v-radio-group>
@@ -2392,10 +2398,10 @@ Gender Preference<strong>
                                         <v-col cols="12" sm="12" md="2" v-show="did_you_attend_disaster_preparedness_84">
                                             <p class="font-weight-bold">(84)Did you attend disaster preparedness training
                                                 and drills?</p>
-                                            <v-radio-group row>
-                                                <v-radio value="yes" @click="disaster_related_training_seminars_84_1 = true"
+                                            <v-radio-group v-model="Clear_Yes_No_Didyouattenddisaster" row>
+                                                <v-radio value="yes" @click="Clear_HaveyouattendedanyofthefollowingDisasterPreparednessDrills"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" @click="fire_evacuation_drill_84_3 = true"
+                                                <v-radio value="no" @click="Clear_Disaster_Related_Training_Seminars"
                                                     label="No"></v-radio>
 
                                             </v-radio-group>
@@ -2482,7 +2488,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n7">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_YESNO_FloodEvacuationDrill" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2490,10 +2496,10 @@ Gender Preference<strong>
 
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n5">
-                                                                <v-select
+                                                                <v-select v-model="Clear_Select_FloodEvacuationDrill"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2505,7 +2511,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_YESNO_TsunamiEvacuationDrill" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2513,10 +2519,10 @@ Gender Preference<strong>
 
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-select
+                                                                <v-select v-model="Clear_Select_TsunamiEvacuationDrill"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2531,7 +2537,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_YESNO_LockdownDrill" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2539,10 +2545,10 @@ Gender Preference<strong>
 
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-select
+                                                                <v-select v-model="Clear_Select_LockdownDrill"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2555,7 +2561,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_YESNO_BombDrill" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2563,10 +2569,10 @@ Gender Preference<strong>
 
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-select
+                                                                <v-select v-model="Clear_Select_BombDrill"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2577,7 +2583,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_YESNO_EarthquakEvacuationDrill" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2585,10 +2591,10 @@ Gender Preference<strong>
 
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-select
+                                                                <v-select v-model="Clear_Select_EarthquakEvacuationDrill"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2597,12 +2603,12 @@ Gender Preference<strong>
                                                         <v-row>
                                                             <v-col cols="10" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-3 mt-md-n8">
-                                                                <v-text-field elevation="5" color="green" dense
+                                                                <v-text-field v-model="Clear_Textfield_DisasterPreparednessDrills_Others" elevation="5" color="green" dense
                                                                     label="Others Specify"></v-text-field>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-1 mt-n12">
-                                                                <v-radio-group row>
+                                                                <v-radio-group  v-model="Clear_YESNO_DisasterPreparednessDrills_Others" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2610,10 +2616,10 @@ Gender Preference<strong>
 
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-select
+                                                                <v-select v-model="Clear_Select_DisasterPreparednessDrills_Others"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2667,7 +2673,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n7">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_IncidentCommand" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2676,9 +2682,10 @@ Gender Preference<strong>
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n5">
                                                                 <v-select
+                                                                v-model="Clear_Select_IncidentCommand"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2689,7 +2696,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_EvacuationManagement" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2698,9 +2705,10 @@ Gender Preference<strong>
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
                                                                 <v-select
+                                                                     v-model="Clear_Select_EvacuationManagement"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2716,7 +2724,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_BasicLifeSupport" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2725,9 +2733,10 @@ Gender Preference<strong>
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
                                                                 <v-select
+                                                                    v-model="Clear_select_BasicLifeSupport"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2741,7 +2750,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_Communitybased" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2750,9 +2759,10 @@ Gender Preference<strong>
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
                                                                 <v-select
+                                                                v-model="Clear_select_Communitybased"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2764,7 +2774,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_CampManagement" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2773,9 +2783,10 @@ Gender Preference<strong>
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
                                                                 <v-select
+                                                                v-model="Clear_Select_CampManagement"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar"
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2786,7 +2797,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_FirstAidTraining" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2795,9 +2806,10 @@ Gender Preference<strong>
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
                                                                 <v-select
+                                                                v-model="Clear_Select_FirstAidTraining"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2808,12 +2820,12 @@ Gender Preference<strong>
                                                         <v-row>
                                                             <v-col cols="10" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-3 mt-md-n8">
-                                                                <v-text-field elevation="5" color="green" dense
+                                                                <v-text-field v-model="Clear_TextBox_DisasterRelatedTraining_Others" elevation="5" color="green" dense
                                                                     label="Others Specify"></v-text-field>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-1 mt-n12">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_YesNo_DisasterRelatedTraining" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2821,10 +2833,10 @@ Gender Preference<strong>
 
                                                             <v-col cols="10" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-select
+                                                                <v-select v-model="Clear_selectd_DisasterRelatedTraining_Others"
                                                                     :items="['Within This Month', 'Within the past six months', 'Within this year', 'Within the past two years', 'Within the past three years', 'Don’t know/remember']"
                                                                     label="When was The Training"
-                                                                    prepend-inner-icon="mdi-calendar" v-model="Barangay"
+                                                                    prepend-inner-icon="mdi-calendar" 
                                                                     required solo elevation="5" color="green"></v-select>
                                                             </v-col>
                                                         </v-row>
@@ -2909,7 +2921,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_Water" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2917,7 +2929,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_Text_Field_Water" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -2929,7 +2941,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_CANDLE" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2937,7 +2949,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_Text_Field_CANDLE" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -2949,7 +2961,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group  v-model="Clear_Yes_No_WHISTLE" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2957,7 +2969,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_Text_Field_WHISTLE" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -2969,7 +2981,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_CLOTHES" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2977,7 +2989,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_Text_Field_CLOTHES" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -2990,7 +3002,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n14">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_BLANKET" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -2998,7 +3010,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_Text_Field_BLANKET" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -3014,7 +3026,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n15">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_Flashlight" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -3022,7 +3034,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_Text_Field_Flashlight" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -3037,7 +3049,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n15">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_Matches" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -3045,7 +3057,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_Text_Field_Matches" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -3059,7 +3071,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n15">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_Food" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -3067,7 +3079,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_Text_Field_Food" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -3081,7 +3093,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n15">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_Radio" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -3089,7 +3101,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_Text_Field_Radio" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -3103,7 +3115,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n15">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_Battery" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -3111,7 +3123,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_Text_Field_Battery" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -3126,7 +3138,7 @@ Gender Preference<strong>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3" class="ml-4 mt-n15">
-                                                                <v-radio-group row>
+                                                                <v-radio-group  v-model="Clear_Yes_No_mportantdocuments" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -3141,13 +3153,13 @@ Gender Preference<strong>
                                                         <v-row>
                                                             <v-col cols="11" sm="12" md="5"
                                                                 class="ml-3 mt-n6 ml-md-4 mt-md-n8">
-                                                                <v-text-field elevation="5" color="green" dense
+                                                                <v-text-field v-model="Clear_Praparedness_Kit_Others" elevation="5" color="green" dense
                                                                     label="Others Specify"></v-text-field>
                                                             </v-col>
 
                                                             <v-col cols="10" sm="12" md="3"
                                                                 class="ml-4 mt-n13 ml-md-1 mt-md-n13">
-                                                                <v-radio-group row>
+                                                                <v-radio-group v-model="Clear_Yes_No_Preparedness_Kit_Others" row>
                                                                     <v-radio value="yes" label="Yes"></v-radio>
                                                                     <v-radio value="no" label="No"></v-radio>
                                                                 </v-radio-group>
@@ -3155,7 +3167,7 @@ Gender Preference<strong>
 
                                                             <v-col cols="11" sm="12" md="4"
                                                                 class="ml-3 mt-n6 ml-md-n10 mt-md-n11">
-                                                                <v-text-field outlined elevation="5" color="green" solo
+                                                                <v-text-field v-model="Clear_TextField_Preparedness_Kit_Others" outlined elevation="5" color="green" solo
                                                                     dense label="How many Days will it last"></v-text-field>
                                                             </v-col>
 
@@ -3206,21 +3218,24 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="12" md="6" class="mt-n7">
                                                             <v-checkbox-group>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_SustainableLivelihood"
                                                                     label="Sustainable Livelihood Program"></v-checkbox>
-                                                                <v-checkbox label="Food for work"
+                                                                <v-checkbox  v-model="Clear_Foodforwork"
+                                                                label="Food for work"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Cash for work"
+                                                                <v-checkbox v-model="Clear_Cashforwork"
+                                                                 label="Cash for work"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="PantawidPamilyang Pilipino Program (4Ps)"
+                                                                <v-checkbox v-model="Clear_PantawidPamilyangPilipino"
+                                                                 label="Pantawid Pamilyang Pilipino Program (4Ps)"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_AgrarianReformCommunity"
                                                                     label="Agrarian Reform Community Development Program"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_TrainingforWorkScholarship"
                                                                     label="Training for Work Scholarship Program (TWSP)"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_CommunityBasedEmployment"
                                                                     label="Community Based Employment Program (CBEB)"
                                                                     style="margin-top: -10px"></v-checkbox>
 
@@ -3233,19 +3248,25 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="12" md="6" class="mt-n7">
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_OtherHealthInsurance"
                                                                     label="Other Health Insurance (Maxicare, Medicare, etc.)"></v-checkbox>
-                                                                <v-checkbox label="Health Care Assistance"
+                                                                <v-checkbox v-model="Clear_HealthCareAssistance"
+                                                                 label="Health Care Assistance"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Supplemental Feeding"
+                                                                <v-checkbox  v-model="Clear_SupplementalFeeding"
+                                                                 label="Supplemental Feeding"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Skills and Livelihood Training Program"
+                                                                <v-checkbox  v-model="Clear_SkillsandLivelihood"
+                                                                 label="Skills and Livelihood Training Program"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Credit Assistance Program"
+                                                                <v-checkbox v-model="Clear_CreditAssistanceProgram"
+                                                                 label="Credit Assistance Program"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Housing Program"
+                                                                <v-checkbox v-model="Clear_HousingProgram"
+                                                                 label="Housing Program"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="SulongDunong Program"
+                                                                <v-checkbox v-model="Clear_SulongDunongProgram"
+                                                                 label="SulongDunong Program"
                                                                     style="margin-top: -10px"></v-checkbox>
 
 
@@ -3257,13 +3278,16 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="12" md="6" class="mt-n7">
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox label="DOST Scholarship Program"></v-checkbox>
-                                                                <v-checkbox label="CHED Scholarship Program"
+                                                                <v-checkbox v-model="Clear_DOSTScholarshipProgram"
+                                                                 label="DOST Scholarship Program"></v-checkbox>
+                                                                <v-checkbox  v-model="Clear_CHEDScholarshipProgram"
+                                                                label="CHED Scholarship Program"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_SPES"
                                                                     label="Special Program for the Employment of Students (SPES)"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Animal Dispersal Program"
+                                                                <v-checkbox v-model="Clear_AnimalDispersalProgram"
+                                                                 label="Animal Dispersal Program"
                                                                     style="margin-top: -10px"></v-checkbox>
 
                                                             </v-checkbox-group>
@@ -3272,21 +3296,21 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="12" md="6" class="mt-n2">
                                                             <v-checkbox-group>
-                                                                <v-checkbox label="Crisis Intervention program"
+                                                                <v-checkbox v-model="Clear_CrisisInterventionprogram" 
+                                                                label="Crisis Intervention program"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Pagkalingasa Bayan Program"
+                                                                <v-checkbox  v-model="Clear_PagkalingasaBayanProgram"
+                                                                label="Pagkalingasa Bayan Program"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Health Indigency Program"
+                                                                <v-checkbox v-model="Clear_HealthIndigencyProgram"
+                                                                 label="Health Indigency Program"
                                                                     style="margin-top: -10px"></v-checkbox>
 
-                                                                <v-text-field label="Others/Specify"></v-text-field>
+                                                                <v-text-field v-model="Clear_Whattypeofprogram_others"
+                                                                 label="Others/Specify"></v-text-field>
 
                                                             </v-checkbox-group>
                                                         </v-col>
-
-
-
-
 
 
                                                         <v-col cols="10" sm="12" md="7" class="mt-n6">
@@ -3295,23 +3319,30 @@ Gender Preference<strong>
                                                                 of the program/s, project/s or service/s?</p>
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_SNational_Government"
                                                                     label="SNational Government (DSWD, DA, DOST, DTI, TESDA, DepEd, CHED, DAR, DILG, DOLE, etc)"></v-checkbox>
-                                                                <v-checkbox label="Provincial Government"
+                                                                <v-checkbox  v-model="Clear_ProvincialGovernment"
+                                                                 label="Provincial Government"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="City Government"
-                                                                    style="margin-top: -10px"></v-checkbox>
-
-                                                                <v-checkbox label="Barangay LGU"
-                                                                    style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Congressional/District"
-                                                                    style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Private Organizations/NGOs"
-                                                                    style="margin-top: -10px"></v-checkbox>
-                                                                    <v-checkbox label="Barangay SK"
+                                                                <v-checkbox v-model="Clear_CityGovernment"
+                                                                 label="City Government"
                                                                     style="margin-top: -10px"></v-checkbox>
 
-                                                                <v-text-field label="Others/Specify"></v-text-field>
+                                                                <v-checkbox  v-model="Clear_BarangayLGU"
+                                                                label="Barangay LGU"
+                                                                    style="margin-top: -10px"></v-checkbox>
+                                                                <v-checkbox  v-model="Clear_Congressional_District"
+                                                                label="Congressional/District"
+                                                                    style="margin-top: -10px"></v-checkbox>
+                                                                <v-checkbox  v-model="Clear_PrivateOrganizations"
+                                                                label="Private Organizations/NGOs"
+                                                                    style="margin-top: -10px"></v-checkbox>
+                                                                    <v-checkbox  v-model="Clear_BarangaySK"
+                                                                    label="Barangay SK"
+                                                                    style="margin-top: -10px"></v-checkbox>
+
+                                                                <v-text-field  v-model="Clear_Whowasweretheimplementer_Others"
+                                                                 label="Others/Specify"></v-text-field>
                                                                 <!--   <v-text-field label="Others/Specify"></v-text-field> -->
                                                             </v-checkbox-group>
 
@@ -3363,29 +3394,40 @@ Gender Preference<strong>
                                                             v-show="what_crime_or_violation_75_76_77_78">
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox label="Theft"
+                                                                <v-checkbox
+                                                                 label="Theft" v-model="Clear_Theft"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Robbery"
+                                                                <v-checkbox
+                                                                 label="Robbery" v-model="Clear_Robbery"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Rape and other type of sexual abuse"
+                                                                <v-checkbox v-model="Clear_Rape_and_other_type_of_sexual_abuse"
+                                                                 label="Rape and other type of sexual abuse"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Physical Injury"
+                                                                <v-checkbox  v-model="Clear_Physical_Injury"
+                                                                label="Physical Injury"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Car napping"
-                                                                    style="margin-top: -10px"></v-checkbox>
-
-                                                                <v-checkbox label="Cattle rustling"
-                                                                    style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="All type of physical abuse"
-                                                                    style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="All type of Psychological Abuse"
-                                                                    style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Economic Abuse"
-                                                                    style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Emotional Abuse"
+                                                                <v-checkbox v-model="Clear_Car_napping"
+                                                                 label="Car napping"
                                                                     style="margin-top: -10px"></v-checkbox>
 
-                                                                <v-text-field label="Others/Specify"></v-text-field>
+                                                                <v-checkbox   v-model="Clear_Cattle_rustling"
+                                                                label="Cattle rustling"
+                                                                    style="margin-top: -10px"></v-checkbox>
+                                                                <v-checkbox v-model="Clear_All_type_of_physical_abuse"
+                                                                 label="All type of physical abuse"
+                                                                    style="margin-top: -10px"></v-checkbox>
+                                                                <v-checkbox  v-model="Clear_All_type_of_Psychological_Abuse"
+                                                                label="All type of Psychological Abuse"
+                                                                    style="margin-top: -10px"></v-checkbox>
+                                                                <v-checkbox v-model="Clear_Economic_Abuse"
+                                                                 label="Economic Abuse"
+                                                                    style="margin-top: -10px"></v-checkbox>
+                                                                <v-checkbox  v-model="Clear_Emotional_Abuse"
+                                                                label="Emotional Abuse"
+                                                                    style="margin-top: -10px"></v-checkbox>
+
+                                                                <v-text-field v-model="Clear_crime_or_violation_Others"
+                                                                 label="Others/Specify"></v-text-field>
 
                                                             </v-checkbox-group>
                                                         </v-col>
@@ -3399,7 +3441,7 @@ Gender Preference<strong>
                                                             <v-select
                                                                 :items="['Within the house/household', 'Within the relative’s/ neighbor’s household', 'Within the barangay', 'Outside the barangay but within the municipality/city', 'Outside the municipality', 'Outside the province']"
                                                                 label="Location of Crime/Violence"
-                                                                prepend-inner-icon="mdi-map-marker" v-model="crime_violence"
+                                                                prepend-inner-icon="mdi-map-marker" v-model="crime_violence_happen"
                                                                 required></v-select>
                                                         </v-col>
 
@@ -3407,10 +3449,10 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="12" md="12" class="mt-n6">
                                                             <p class="font-weight-bold">Who was/ were the perpetrator/s
                                                                 of the crime/ violence?</p>
-                                                            <v-select
+                                                            <v-select v-model="crime_violence"
                                                                 :items="['Member of the household ', 'Not member of the household but know to the household', 'Do not know']"
                                                                 label="Location of Crime/Violence"
-                                                                prepend-inner-icon="mdi-map-marker" v-model="crime_violence"
+                                                                prepend-inner-icon="mdi-map-marker" 
                                                                 required></v-select>
                                                         </v-col>
 
@@ -3471,22 +3513,26 @@ Gender Preference<strong>
 
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox
+                                                                <v-checkbox  v-model="Clear_Hormonal"
                                                                     label="Hormonal (pills or Depo Provera Indection)"></v-checkbox>
-                                                                <v-checkbox label="Barrier Method"
+                                                                <v-checkbox  v-model="Clear_BarrierMethod"
+                                                                label="Barrier Method"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Long – acting reversible (IUD)"
+                                                                <v-checkbox  v-model="Clear_onactingreversibl"
+                                                                label="Long – acting reversible (IUD)"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_EmergencyMethod"
                                                                     label="Emergency Method (emergency contraceptive pill or copper IUD)"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_FertilityAwareness"
                                                                     label="Fertility Awareness (rhythm/natural method)"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Permanent Method (tubal ligation)"
+                                                                <v-checkbox v-model="Clear_PermanentMethod"
+                                                                label="Permanent Method (tubal ligation)"
                                                                     style="margin-top: -10px"></v-checkbox>
 
-                                                                <v-text-field label="Others/Specify"></v-text-field>
+                                                                <v-text-field  v-model="Clear_ContraceptiveMethods_Others"
+                                                                label="Others/Specify"></v-text-field>
                                                             </v-checkbox-group>
 
 
@@ -3525,7 +3571,7 @@ Gender Preference<strong>
                                                         <v-col cols="12" sm="12" md="12" class="">
                                                             <div class="text-center ">
                                                                 <v-alert dense dark color="blue darken-3">
-                                                                    why did married or sexually active woman did not ever
+                                                                    why did married or sexually active did not ever
                                                                     use contraceptive methods?<strong> </strong>
 
                                                                 </v-alert>
@@ -3536,15 +3582,19 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="12" md="12" class="mt-n7">
                                                             <v-checkbox-group>
 
-                                                                <v-checkbox label="Culture/ Tradition"></v-checkbox>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_cultureTraditional"
+                                                                label="Culture/ Tradition"></v-checkbox>
+                                                                <v-checkbox v-model="Clear_Nocontraceptivemethod"
                                                                     label="No contraceptive method available in nearest health facility"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Cannot afford to buy"
+                                                                <v-checkbox  v-model="Clear_Cannotaffordtobuy"
+                                                                label="Cannot afford to buy"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Health problem"
+                                                                <v-checkbox  v-model="Clear_Healthproblem"
+                                                                label="Health problem"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-text-field label="Other Address, Specify">
+                                                                <v-text-field v-model="Clear_ctivedidnoteverusecontraceptive_Others"
+                                                                 label="Other Address, Specify">
 
                                                                 </v-text-field>
                                                             </v-checkbox-group>
@@ -3739,7 +3789,7 @@ Gender Preference<strong>
                                                                 :items="['Fever', 'Cold', 'Cough', 'Sore throat/ tonsillitis', 'Diarrhea', 'Headache', 'Tiredness', 'Body aches and pains', 'Skin Rashes', 'Chest pains', 'Loss of taste and smell', 'Loss of speech', 'Loss of movement', 'Disconnection of Fingers or toes', 'None']"
                                                                 label="Select Type of Health Issues "
                                                                 prepend-inner-icon="mdi-thermometer-lines"
-                                                                v-model="philhealth_membership" required></v-select>
+                                                                v-model="Clear_health_related_issues" required></v-select>
                                                         </v-col>
 
 
@@ -3785,7 +3835,7 @@ Gender Preference<strong>
 
 
                                                         <v-col cols="10" sm="12" md="10" class="mt-n6">
-                                                            <v-text-field label="Write"></v-text-field>
+                                                            <v-text-field v-model="Clear_where_did_you_avail_write" label="Write"></v-text-field>
                                                         </v-col>
 
 
@@ -3836,23 +3886,31 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="12" md="10" class="mt-n7">
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox label="Cardiovascular Diseases"></v-checkbox>
-                                                                <v-checkbox label="Obesity & Type 2 Diseases"
+                                                                <v-checkbox v-model="Clear_Cardiovascular_Diseases"
+                                                                 label="Cardiovascular Diseases"></v-checkbox>
+                                                                <v-checkbox v-model="Clear_Obesity_Type__Diseases"
+                                                                 label="Obesity & Type 2 Diseases"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Cancer"
+                                                                <v-checkbox v-model="Clear_Cancer"
+                                                                label="Cancer"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Hypertension"
+                                                                <v-checkbox   v-model="Clear_Hypertension"
+                                                                label="Hypertension"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_Disease_associated_with_smoking"
                                                                     label="Disease associated with smoking & alcohol"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Infectious Diseases"
+                                                                <v-checkbox  v-model="Clear_Infectious_Diseases"
+                                                                label="Infectious Diseases"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Respiratory Diseases"
+                                                                <v-checkbox  v-model="Clear_Respiratory_Diseases"
+                                                                 label="Respiratory Diseases"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Mental Health Problem/illness"
+                                                                <v-checkbox v-model="Clear_Mental_Health_Problem_illness"
+                                                                 label="Mental Health Problem/illness"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-text-field label="Others" required>
+                                                                <v-text-field v-model="Clear_health_related_issues_Others_Specify"
+                                                                 label="Others" required>
                                                                 </v-text-field>
 
                                                             </v-checkbox-group>
@@ -4509,7 +4567,7 @@ export default {
 
            
 
-            e1: 2,
+            e1: 3,
 
             /*  Codes FOR 61 What kind of health Related */
             ethnicity: [
@@ -4958,6 +5016,153 @@ genderpreference:[
             Clear_Tired_believe_no_work_available_Others:'',
             Clear_When_was_the_last_time_you_looked_for_work:'',
 
+            philhealth_membership:'',
+
+            Clear_Yes_No_Do_you_Have_a_Solo_Parent_ID:'',
+
+
+            Clear_Mental_Intellectual:false,
+            Clear_Hearing_Disability:false,
+            Clear_Psychological_Disability:false,
+            Clear_Visual_Disabilityy:false,
+            Clear_Speech_Impairement:false,
+            Clear_Disability_due_to_chronic_illness:false,
+            Clear_Orthopaedic_Musculoskeletal_Disability:false,
+            Clear_LearningDisability:false,
+            Clear_Multiple_Disability_Specify:'',
+            Clear_Do_you_have_a_PWD_ID:'',
+
+
+                 Clear_Cardiovascular_Diseases:false,
+                Clear_Obesity_Type__Diseases:false,
+                Clear_Cancer:false,
+                Clear_Hypertension:false,
+                Clear_Disease_associated_with_smoking:false,
+                Clear_Infectious_Diseases:false,
+                Clear_Respiratory_Diseases:false,
+                Clear_Mental_Health_Problem_illness:false,
+                Clear_health_related_issues_Others_Specify:'',
+
+
+                Clear_where_did_you_avail_write:'',
+                Clear_Do_you_have_illness_or_any_health:'',
+
+                Clear_health_related_issues:'',
+
+                Clear_Theft:false,
+                Clear_Robbery:false,
+                Clear_Rape_and_other_type_of_sexual_abuse:false,
+                Clear_Physical_Injury:false,
+                Clear_Car_napping:false,
+                Clear_Cattle_rustling:false,
+                Clear_All_type_of_physical_abuse:false,
+                Clear_All_type_of_Psychological_Abuse:false,
+                Clear_Economic_Abuse:false,
+                Clear_Emotional_Abuse:false,
+                Clear_crime_or_violation_Others:'',
+                crime_violence_happen:'',
+                crime_violence:'',
+                what_kind_of_assistance:'',
+
+
+            Clear_SustainableLivelihood:false,
+            Clear_Foodforwork:false,
+            Clear_Cashforwork:false,
+            Clear_PantawidPamilyangPilipino:false,
+            Clear_AgrarianReformCommunity:false,
+            Clear_TrainingforWorkScholarship:false,
+            Clear_CommunityBasedEmployment:false,
+            Clear_OtherHealthInsurance:false,
+            Clear_HealthCareAssistance:false,
+            Clear_SupplementalFeeding:false,
+            Clear_SkillsandLivelihood:false,
+            Clear_CreditAssistanceProgram:false,
+            Clear_HousingProgram:false,
+            Clear_SulongDunongProgram:false,
+            Clear_DOSTScholarshipProgram:false,
+            Clear_CHEDScholarshipProgram:false,
+            Clear_SPES:false,
+            Clear_AnimalDispersalProgram:false,
+            Clear_CrisisInterventionprogram:false,
+            Clear_PagkalingasaBayanProgram:false,
+            Clear_HealthIndigencyProgram:false,
+            Clear_Whattypeofprogram_others:'',
+            Clear_SNational_Government:false,
+            Clear_ProvincialGovernment:false,
+            Clear_CityGovernment:false,
+            Clear_BarangayLGU:false,
+            Clear_Congressional_District:false,
+            Clear_PrivateOrganizations:false,
+            Clear_BarangaySK:false,
+            Clear_Whowasweretheimplementer_Others:'',
+
+
+        Clear_Yes_No_Water:'',
+        Clear_Text_Field_Water:'',
+        Clear_Yes_No_CANDLE:'',
+        Clear_Text_Field_CANDLE:'',
+        Clear_Yes_No_WHISTLE:'',
+        Clear_Text_Field_WHISTLE:'',
+        Clear_Yes_No_CLOTHES:'',
+        Clear_Text_Field_CLOTHES:'',
+        Clear_Yes_No_BLANKET:'',
+        Clear_Text_Field_BLANKET:'',
+        Clear_Yes_No_Flashlight:'',
+        Clear_Text_Field_Flashlight:'',
+        Clear_Yes_No_Matches:'',
+        Clear_Text_Field_Matches:'',
+        Clear_Yes_No_Food:'',
+        Clear_Text_Field_Food:'',
+        Clear_Yes_No_Radio:'',
+        Clear_Text_Field_Radio:'',
+        Clear_Yes_No_Battery:'',
+        Clear_Text_Field_Battery:'',
+        Clear_Yes_No_mportantdocuments:'',
+        Clear_Praparedness_Kit_Others:'',
+        Clear_Yes_No_Preparedness_Kit_Others:'',
+        Clear_TextField_Preparedness_Kit_Others:'',
+        Clear_Yes_No_Didyouattenddisaster:'',
+
+            Clear_Yes_No_IncidentCommand:'',
+            Clear_Select_IncidentCommand:'',
+            Clear_Yes_No_EvacuationManagement:'',
+            Clear_Select_EvacuationManagement:'',
+            Clear_Yes_No_BasicLifeSupport:'',
+            Clear_select_BasicLifeSupport:'',
+            Clear_Yes_No_Communitybased:'',
+            Clear_select_Communitybased:'',
+            Clear_Yes_No_CampManagement:'',
+            Clear_Select_CampManagement:'',
+            Clear_Yes_No_FirstAidTraining:'',
+            Clear_Select_FirstAidTraining:'',
+            Clear_TextBox_DisasterRelatedTraining_Others:'',
+            Clear_YesNo_DisasterRelatedTraining:'',
+            Clear_selectd_DisasterRelatedTraining_Others:'',
+
+            Clear_YESNO_FloodEvacuationDrill:'',
+            Clear_Select_FloodEvacuationDrill:'',
+            Clear_YESNO_TsunamiEvacuationDrill:'',
+            Clear_Select_TsunamiEvacuationDrill:'',
+            Clear_YESNO_LockdownDrill:'',
+            Clear_Select_LockdownDrill:'',
+            Clear_YESNO_BombDrill:'',
+            Clear_Select_BombDrill:'',
+            Clear_YESNO_EarthquakEvacuationDrill:'',
+            Clear_Select_EarthquakEvacuationDrill:'',
+            Clear_Textfield_DisasterPreparednessDrills_Others:'',
+            Clear_YESNO_DisasterPreparednessDrills_Others:'',
+            Clear_Select_DisasterPreparednessDrills_Others:'',
+
+            Clear_Hormonal:'',
+            Clear_BarrierMethod:'',
+            Clear_onactingreversibl:'',
+            Clear_EmergencyMethod:'',
+            Clear_FertilityAwareness:'',
+            Clear_PermanentMethod:'',
+            Clear_ContraceptiveMethods_Others:'',
+
+
+
         };
     },
 
@@ -5120,6 +5325,9 @@ genderpreference:[
             this.Clear_what_was_the_total_number_of_hours = ''
 
 
+
+
+
         },
 
 
@@ -5157,6 +5365,275 @@ genderpreference:[
             this.Clear_Tired_believe_no_work_available_Others = ''
             this.Clear_When_was_the_last_time_you_looked_for_work = ''
             this.was_this_your_first_time_to_look_for_work = true
+
+        },
+
+        Clear_Did_you_want_more_hours_of_work_during_the_past_week()
+        {
+
+           
+            this.Clear_Yes_No_Did_you_look_for_work_or_try_to_establish_business = ''
+            this.did_you_look_additional_word = true
+            this.whats_your_class_of_worker = false
+            this.did_you_look_work_to_eastablish_business = false
+
+        },
+
+
+        Clear_What_is_your_PhilHealth_membership_type()
+
+        {
+
+            this.philhealth_membership = ''
+            this.are_your_depende_of_philhealth_member = true
+            this.what_is_your_philhealth_membership = false 
+
+
+        },
+
+
+            Clear_Are_you_a_dependent_of_a_PhilHealth_Member()
+
+            {
+
+                this.Clear_Are_you_a_dependent_of_a_PhilHealth = ''
+                this.what_is_your_philhealth_membership = true
+                this.are_your_depende_of_philhealth_member = false
+
+            },
+
+            Clear_Do_you_Have_a_Solo_Parent_ID()
+
+            {
+           this.Clear_Yes_No_Do_you_Have_a_Solo_Parent_ID = ''
+            this.do_you_have_solo_parent_id = false
+
+            },
+
+            Clear_What_type_of_disability_do_you_have()
+            {
+                this.Clear_Mental_Intellectual = false
+                this.Clear_Hearing_Disability = false
+                this.Clear_Psychological_Disability = false
+                this.Clear_Visual_Disabilityy = false
+                this.Clear_Speech_Impairement = false
+                this.Clear_Disability_due_to_chronic_illness = false
+                this.Clear_Orthopaedic_Musculoskeletal_Disability = false
+                this.Clear_LearningDisability = false
+                this.Clear_Multiple_Disability_Specify = ''
+                this.Clear_Do_you_have_a_PWD_ID = ''
+
+            },
+
+        Clear_What_kind_of_health_related_issues_or_lifestyle_diseases_you_have ()
+        {
+                this.Clear_Cardiovascular_Diseases = false
+                this.Clear_Obesity_Type__Diseases = false
+                this.Clear_Cancer = false
+                this.Clear_Hypertension = false
+                this.Clear_Disease_associated_with_smoking = false
+                this.Clear_Infectious_Diseases = false
+                this.Clear_Respiratory_Diseases = false
+                this.Clear_Mental_Health_Problem_illness = false
+                this.Clear_health_related_issues_Others_Specify = ''
+
+        },
+
+        Clear_Where_did_you_avail_medical_treatment()
+
+        {
+
+            this.Clear_where_did_you_avail_write = ''
+            this.Clear_Do_you_have_illness_or_any_health = ''
+            
+            this.do_you_have_illness_or_any_health_related_62_B = false
+            this.where_did_you_avail_medical_treatment_62_A = false
+            this.Clear_health_related_issues = ''
+
+        },
+
+        Clear_What_kind_of_illness_or_health_related_issues_does_you(){
+
+            this.Clear_health_related_issues = ''
+            this.what_kind_of_illness_or_health_realted_issues_63 = false
+
+
+        },
+
+        Clear_What_crime_or_violation(){
+
+                this.Clear_Theft = false
+                this.Clear_Robbery = false
+                this.Clear_Rape_and_other_type_of_sexual_abuse = false
+                this.Clear_Physical_Injury = false
+                this.Clear_Car_napping = false
+                this.Clear_Cattle_rustling = false
+                this.Clear_All_type_of_physical_abuse = false
+                this.Clear_All_type_of_Psychological_Abuse = false
+                this.Clear_Economic_Abuse = false
+                this.Clear_Emotional_Abuse = false
+                this.Clear_crime_or_violation_Others = ''
+                this.crime_violence_happen = ''
+                this.crime_violence = ''
+                this.what_kind_of_assistance = ''
+        },
+
+Clear_Whatypeoprogramserviceidoureceiveorasarecipientof()
+{
+
+            this.Clear_SustainableLivelihood = false
+            this.Clear_Foodforwork = false
+            this.Clear_Cashforwork = false
+            this.Clear_PantawidPamilyangPilipino = false
+            this.Clear_AgrarianReformCommunity = false
+            this.Clear_TrainingforWorkScholarship = false
+            this.Clear_CommunityBasedEmployment = false
+            this.Clear_OtherHealthInsurance = false
+            this.Clear_HealthCareAssistance = false
+            this.Clear_SupplementalFeeding = false
+            this.Clear_SkillsandLivelihood = false
+            this.Clear_CreditAssistanceProgram = false
+            this.Clear_HousingProgram = false
+            this.Clear_SulongDunongProgram = false
+            this.Clear_DOSTScholarshipProgram = false
+            this.Clear_CHEDScholarshipProgram = false
+            this.Clear_SPES = false
+            this.Clear_AnimalDispersalProgram = false
+            this.Clear_CrisisInterventionprogram = false
+            this.Clear_PagkalingasaBayanProgram = false
+            this.Clear_HealthIndigencyProgram = false
+            this.Clear_Whattypeofprogram_others = ''
+            this.Clear_SNational_Government = false
+            this.Clear_ProvincialGovernment = false
+            this.Clear_CityGovernment = false
+            this.Clear_BarangayLGU = false
+            this.Clear_Congressional_District = false
+            this.Clear_PrivateOrganizations = false
+            this.Clear_BarangaySK = false
+            this.Clear_Whowasweretheimplementer_Others = ''
+
+            this.what_type_of_program_80_81 = false
+
+},
+
+    Clear_Yes_do_you_havepreparednesskit(){
+
+
+       
+
+        this.do_you_have_following_preparedness_kit_83 = true
+        this.did_you_attend_disaster_preparedness_84 = false
+
+        this.Clear_Yes_No_Didyouattenddisaster= ''
+
+    },
+
+
+
+    Clear_Do_you_have_aDisasterPreparednessKit()
+    {
+
+        this.Clear_Yes_No_Water = ''
+        this.Clear_Text_Field_Water = ''
+        this.Clear_Yes_No_CANDLE = ''
+        this.Clear_Text_Field_CANDLE = ''
+        this.Clear_Yes_No_WHISTLE = ''
+        this.Clear_Text_Field_WHISTLE = ''
+        this.Clear_Yes_No_CLOTHES = ''
+        this.Clear_Text_Field_CLOTHES = ''
+        this.Clear_Yes_No_BLANKET = ''
+        this.Clear_Text_Field_BLANKET = ''
+        this.Clear_Yes_No_Flashlight = ''
+        this.Clear_Text_Field_Flashlight = ''
+        this.Clear_Yes_No_Matches = ''
+        this.Clear_Text_Field_Matches = ''
+        this.Clear_Yes_No_Food = ''
+        this.Clear_Text_Field_Food = ''
+        this.Clear_Yes_No_Radio = ''
+        this.Clear_Text_Field_Radio = ''
+        this.Clear_Yes_No_Battery = ''
+        this.Clear_Text_Field_Battery = ''
+        this.Clear_Yes_No_mportantdocuments = ''
+        this.Clear_Praparedness_Kit_Others = ''
+        this.Clear_Yes_No_Preparedness_Kit_Others = ''
+        this.Clear_TextField_Preparedness_Kit_Others = ''
+        
+        this.do_you_have_following_preparedness_kit_83 = false
+        this.did_you_attend_disaster_preparedness_84 = true
+        
+
+    },
+
+
+        Clear_Disaster_Related_Training_Seminars()
+        {
+
+            this.Clear_Yes_No_IncidentCommand = ''
+            this.Clear_Select_IncidentCommand = ''
+            this.Clear_Yes_No_EvacuationManagement = ''
+            this.Clear_Select_EvacuationManagement = ''
+            this.Clear_Yes_No_BasicLifeSupport = ''
+            this.Clear_select_BasicLifeSupport = ''
+            this.Clear_Yes_No_Communitybased = ''
+            this.Clear_select_Communitybased = ''
+            this.Clear_Yes_No_CampManagement = ''
+            this.Clear_Select_CampManagement = ''
+            this.Clear_Yes_No_FirstAidTraining = ''
+            this.Clear_Select_FirstAidTraining = ''
+            this.Clear_TextBox_DisasterRelatedTraining_Others = ''
+            this.Clear_YesNo_DisasterRelatedTraining = ''
+            this.Clear_selectd_DisasterRelatedTraining_Others = ''
+            this.fire_evacuation_drill_84_3 = true
+
+        },
+
+        Clear_HaveyouattendedanyofthefollowingDisasterPreparednessDrills()
+        {
+
+            this.Clear_YESNO_FloodEvacuationDrill = ''
+            this.Clear_Select_FloodEvacuationDrill = ''
+            this.Clear_YESNO_TsunamiEvacuationDrill = ''
+            this.Clear_Select_TsunamiEvacuationDrill = ''
+            this.Clear_YESNO_LockdownDrill = ''
+            this.Clear_Select_LockdownDrill = ''
+            this.Clear_YESNO_BombDrill = ''
+            this.Clear_Select_BombDrill = ''
+            this.Clear_YESNO_EarthquakEvacuationDrill = ''
+            this.Clear_Select_EarthquakEvacuationDrill = ''
+            this.Clear_Textfield_DisasterPreparednessDrills_Others = ''
+            this.Clear_YESNO_DisasterPreparednessDrills_Others = ''
+            this.Clear_Select_DisasterPreparednessDrills_Others = ''
+
+            this.disaster_related_training_seminars_84_1 = true
+
+        },
+
+        Clear_Contraceptive_Methods()
+        {
+
+            this.Clear_Hormonal = ''
+            this.Clear_BarrierMethod = ''
+            this.Clear_onactingreversibl = ''
+            this.Clear_EmergencyMethod = ''
+            this.Clear_FertilityAwareness = ''
+            this.Clear_PermanentMethod = ''
+            this.Clear_ContraceptiveMethods_Others = ''
+            
+            this.why_did_you_not_use_contraceptive_73_3 = true
+
+        },
+
+
+        Clear_why_did_sexualy_ActiveDidnoteverusecontraciptive()
+
+        {
+            this.Clear_cultureTraditional = false
+            this.Clear_Nocontraceptivemethod = false
+            this.Clear_Cannotaffordtobuy = false
+            this.Clear_Healthproblem = false
+            this.Clear_ctivedidnoteverusecontraceptive_Others = ''
+
+            this.what_methods_have_you_used_73_2 = true
 
         },
 

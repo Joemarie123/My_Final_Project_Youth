@@ -1,13 +1,15 @@
 <template>
 
-  <div >
+  <div id="chart" >
   <!--   style="min-width:100%" -->
  <!--  style="min-width:90%" -->
     <apexcharts 
     
   
     height="340" :options="chartOptions" 
-    :series="series"></apexcharts>
+    :series="series"
+    class="kinidaw"
+    ></apexcharts>
   </div>
 
 
@@ -134,3 +136,28 @@ import VueApexCharts from 'vue-apexcharts'
 
   }
 </script>
+
+<style scoped>
+
+#chart {
+  max-width: 930px;
+  margin: 35px auto;
+}
+
+  
+@media screen and (max-width: 300px)
+
+{
+
+  .kinidaw{
+
+    width: 400px;
+
+  }
+
+
+}
+
+
+
+</style>

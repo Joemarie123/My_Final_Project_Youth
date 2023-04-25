@@ -1,7 +1,7 @@
 <template>
-    <div >
+    <div id="chart" >
       <apexcharts 
-      height="310" :options="chartOptions" 
+      height="310" class="todochart" :options="chartOptions" 
       :series="series"></apexcharts>
    
     </div>
@@ -136,3 +136,21 @@ import VueApexCharts from 'vue-apexcharts'
     }
   </script>
   
+  <style scoped>
+  #chart {
+  max-width: 650px;
+  margin: 35px auto;
+}
+/* .pa-2 {
+  min-width: 90%;
+} */
+
+@media screen and (max-width: 300px)  {
+    .todochart {
+    width: 400px;
+  }
+
+}
+
+
+  </style>
