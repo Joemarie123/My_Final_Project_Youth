@@ -10,7 +10,7 @@
           <v-row>
 
             <v-col cols="12"  sm="4" md="4" >
-               <v-card  class="class_sa_card_1 btn-hover color-1 mx-1 rounded-xl  draw-border " 
+               <v-card  class="class_sa_card_lapas class_sa_card_1 btn-hover color-1 mx-1 rounded-xl  draw-border " 
                :height="height123"
                tile
                elevation="16"> 
@@ -202,7 +202,7 @@
            
             </v-col>
             <v-col cols="12" sm="4" md="4" >
-              <v-card  class="class_sa_card_1 btn-hover color-1 mx-1 rounded-xl  draw-border" 
+              <v-card  class="class_sa_card_lapas class_sa_card_1 btn-hover color-1 mx-1 rounded-xl  draw-border" 
                tile
                elevation="16"> 
                 <v-row>
@@ -280,18 +280,18 @@
            
             
 
-            <v-col cols="12" sm="6" md="6" lg="7">
+            <v-col cols="12" sm="12" md="6" lg="7">
               <v-card class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" 
             tile
              >
-             <p class="mt font-weight-bold" style="color:white;" >Total Youth Members  - 50,000 As of {{ currMonth }} {{ currDay }}, {{ currYear }}</p>
+             <p class="class_sa_totalyouthmember mt font-weight-bold" style="color:white;" >Total Youth Members  - 50,000 As of {{ currMonth }} {{ currDay }}, {{ currYear }}</p>
             <ChartComponent/>
           </v-card>
          </v-col>
        
        
          
-         <v-col cols="12" sm="2" md="2"  lg="2" >
+         <v-col cols="12" sm="6" md="2"  lg="2" >
               <v-card height="395" class="btn-hover color-1 mx-2 mt-n1 rounded-xl draw-border" tile>
 
                 <v-col cols="12" 
@@ -350,7 +350,7 @@
 
 
 
-  <v-col cols="12" sm="4" md="4" lg="3" >
+  <v-col cols="12" sm="6" md="4" lg="3" >
   
     <v-card  class="  mt-n6  rounded-xl draw-border" 
             tile height=" "
@@ -467,6 +467,44 @@
 
 
 
+@media screen and (max-width: 684px) and (min-width: 600px) {
+
+.class_sa_card_married{
+  font-size:14px;
+
+}
+
+.class_sa_card_lapas{
+  height:325px;
+
+}
+
+
+
+}
+
+
+@media screen and (max-width: 460px) and (min-width: 411px) {
+
+  .class_sa_totalyouthmember{
+    height: 300px;
+
+  }
+
+}
+
+@media screen and  (max-width: 411px) {
+
+.class_sa_totalyouthmember{
+  font-size:12px;
+
+}
+
+}
+
+
+
+
 
 @media screen and (max-width: 1699px) and (min-width: 960px) {
 
@@ -474,6 +512,7 @@
 
     height: 171px;
   }
+
 
 
 }

@@ -1,37 +1,47 @@
 <template>
   <div>
-    <v-text-field v-model="search" label="Search"></v-text-field>
-    <v-data-table :items="filteredItems" :headers="headers"></v-data-table>
-    <p>Total rows: {{ rowCount }}</p>
+    <apexchart type="bar" :options="chartOptions" :series="chartSeries"></apexchart>
   </div>
 </template>
 
 <script>
+import VueApexCharts from 'vue-apexcharts';
+
 export default {
+  components: {
+    apexchart: VueApexCharts,
+  },
   data() {
     return {
-      search: '',
-      items: [
-        { name: 'John', age: 25 },
-        { name: 'Mary', age: 30 },
-        { name: 'Bob', age: 40 }
+      chartOptions: {
+        chart: {
+          id: 'mychart',
+        },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        xaxis: {
+          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        },
+        yaxis: {
+          title: {
+            text: 'Sales',
+          },
+        },
+        showTotal: false, // set showTotal to false to remove the total number
+      },
+      chartSeries: [
+        {
+          name: 'Sales',
+          data: [30, 40, 25, 50, 49, 21, 70],
+        },
       ],
-      headers: [
-        { text: 'Name', value: 'name' },
-        { text: 'Age', value: 'age' }
-      ],
-     
     };
   },
-  computed: {
-    filteredItems() {
-      return this.items.filter(item =>
-        item.name.toLowerCase().includes(this.search.toLowerCase())
-      );
-    },
-    rowCount() {
-      return this.filteredItems.length;
-    }
-  }
 };
 </script>

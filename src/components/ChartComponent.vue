@@ -6,7 +6,7 @@
     <apexcharts 
     
   
-    height="340" :options="chartOptions" 
+    height="322" :options="chartOptions" 
     :series="series"
     class="kinidaw"
     ></apexcharts>
@@ -40,17 +40,26 @@ import VueApexCharts from 'vue-apexcharts'
            
           },
           
-      
+          dataLabels: {
+              
+              enabled: false,
+              /* style: {
+                fontSize: "5px",
+                fontFamily: "Helvetica, Arial, sans-serif",
+                fontWeight: "bold"
+              } */
+            },
+
           plotOptions: {
 
             dataLabels: {
               
-              enabled: true,
-              style: {
+              enabled: false,
+              /* style: {
                 fontSize: "5px",
                 fontFamily: "Helvetica, Arial, sans-serif",
                 fontWeight: "bold"
-              }
+              } */
             },
 
             bar: {
@@ -79,6 +88,7 @@ import VueApexCharts from 'vue-apexcharts'
           
             },
           
+            showTotal: false,
             
           },
 

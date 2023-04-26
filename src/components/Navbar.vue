@@ -162,8 +162,8 @@
           model: false,
           children: [
         { icon: 'mdi-account-check', text: 'Add User Account' , route:'/AddUseraccount'},
-        { icon: 'mdi-account-check', text: 'Enumerators Record  ' , route:'/EnumeratorRecord'},
-        { icon: 'mdi-account-check', text: 'Registered Online  ' , route:'/RegisteredOnline'},
+        { icon: 'mdi-book-open-page-variant', text: 'Enumerators Record  ' , route:'/EnumeratorRecord'},
+        { icon: 'mdi-book-open-variant', text: 'Registered Online  ' , route:'/RegisteredOnline'},
 
         ],
           

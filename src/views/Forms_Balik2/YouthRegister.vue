@@ -2307,9 +2307,9 @@ Gender Preference<strong>
                                                     label="Yes"></v-radio>
 
 
-                                                <v-radio @click="which_type_of_health_facility_did_you_visit = false,
-                                                    what_health_services_did_you_receievein_in_the_goverment_69 = false,
-                                                    during_delivery_where_did_you_give_birth_70 = false" value="no" label="No"></v-radio>
+                                                <v-radio @click="Clear_Whichtypeofhealthfacilitydidyouvisitformaternal"
+                                                    
+                                                     value="no" label="No"></v-radio>
                                             </v-radio-group>
 
                                         </v-col>
@@ -2427,15 +2427,19 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n6">
 
-                                                            <v-radio-group>
+                                                            <v-radio-group v-model="Clear_Globe_Smart_DITo">
 
-                                                                <v-radio value="Globe and subsidiarie"
+                                                                <v-radio 
+                                                                value="Globe and subsidiarie"
                                                                     label="Globe and subsidiaries"></v-radio>
-                                                                <v-radio value="Smart and subsidiaries"
+                                                                <v-radio 
+                                                                value="Smart and subsidiaries"
                                                                     label="Smart and subsidiaries"></v-radio>
-                                                                <v-radio value="Both Globe and Smart"
+                                                                <v-radio 
+                                                                value="Both Globe and Smart"
                                                                     label="Both Globe and Smart"></v-radio>
-                                                                <v-radio value="DITO" label="DITO"></v-radio>
+                                                                <v-radio
+                                                                 value="DITO" label="DITO"></v-radio>
                                                             </v-radio-group>
 
                                                         </v-col>
@@ -3664,48 +3668,55 @@ Gender Preference<strong>
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n8"
                                                             v-show="what_was_the_primary_reason_of_not_seeking_service_goverment_67">
-                                                            <p class="font-weight-bold">(67) What was the primary reason of
+                                                            <p class="font-weight-bold">What was the primary reason of
                                                                 not seeking maternal health service in any government
                                                                 facility. </p>
 
                                                             <v-select
+                                                                v-model="Clear_primaryreasonofnotseekingmaternalhealth"
                                                                 :items="['Service not necessary', 'Long waiting time', 'Doctors/ health personnel are always not available ', 'Medicines are always not available ']"
                                                                 label="Reasons for not seeking health services from government facilities"
-                                                                prepend-inner-icon="mdi-account-convert" v-model="Barangay"
+                                                                prepend-inner-icon="mdi-account-convert" 
                                                                 required></v-select>
 
                                                         </v-col>
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n7"
                                                             v-show="how_many_times_did_you_visited_the_government_health_68">
-                                                            <p class="font-weight-bold">(68) How many times did you visited
+                                                            <p class="font-weight-bold">How many times did you visited
                                                                 the government health facility during your pregnancy? </p>
 
                                                             <v-select class="mt-n5"
+                                                                v-model="Clear_HowmanytimesdidyouvisitedGovernment"
                                                                 :items="['1 to 3', 'More than 3 visits but not as required number of visits', 'Complete prenatal & postnatal care visits as advised the attending doctor']"
                                                                 label="No Of Visits"
-                                                                prepend-inner-icon="mdi-account-convert" v-model="Barangay"
+                                                                prepend-inner-icon="mdi-account-convert" 
                                                                 required></v-select>
                                                         </v-col>
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n6">
-                                                            <p class="font-weight-bold">(69) What health services did you
+                                                            <p class="font-weight-bold">What health services did you
                                                                 receive when you visited the government health facility
                                                                 during pregnancy? </p>
 
                                                             <v-checkbox-group class="mt-n7">
-                                                                <v-checkbox
+                                                                <v-checkbox v-model="Clear_PhysicalExam"
                                                                     label="Physical Exam (weight, blood, pressure, heart rate)"></v-checkbox>
-                                                                <v-checkbox label="Gynecological Exam"
+                                                                <v-checkbox v-model="Clear_GynecologicalExam"
+                                                                 label="Gynecological Exam"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Ultrasound"
+                                                                <v-checkbox v-model="Clear_Ultrasound"
+                                                                 label="Ultrasound"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="HIV/STI/STD Testing"
+                                                                <v-checkbox v-model="Clear_HIVSTISTDTesting"
+                                                                 label="HIV/STI/STD Testing"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Nutritious Supplement"
+                                                                <v-checkbox v-model="Clear_NutritiousSupplement"
+                                                                 label="Nutritious Supplement"
                                                                     style="margin-top: -10px"></v-checkbox>
 
-                                                                <v-checkbox label="Tetanus Vaccinet"
+                                                                <v-checkbox v-model="Clear_TetanusVaccinet"
+                                                                 label="Tetanus Vaccinet"
                                                                     style="margin-top: -10px"></v-checkbox>
 
                                                             </v-checkbox-group>
@@ -3714,7 +3725,7 @@ Gender Preference<strong>
                                                         </v-col>
 
                                                         <v-col cols="10" sm="12" md="12" class="mt-n5">
-                                                            <p class="font-weight-bold">(70) During delivery, where did you
+                                                            <p class="font-weight-bold">During delivery, where did you
                                                                 give birth? See codes below </p>
                                                             <v-select class="mt-n3"
                                                                 @change="function_during_deliry_where_did_you_give_birth"
@@ -3729,10 +3740,10 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="12" md="12"
                                                             v-show="was_the_public_health_midwife_71" class="mt-n7">
 
-                                                            <p class="font-weight-bold">(71) Was the public health midwife
+                                                            <p class="font-weight-bold">Was the public health midwife
                                                                 or any skilled birth attendant attended the birth delivery?
                                                             </p>
-                                                            <v-radio-group row class="mt-n3">
+                                                            <v-radio-group v-model="Clear_YesNo_midwife" row class="mt-n3">
                                                                 <v-radio value="yes" label="Yes"></v-radio>
                                                                 <v-radio value="no" label="No"></v-radio>
 
@@ -4005,7 +4016,7 @@ Gender Preference<strong>
 
                                                 <v-radio value="yes" @click="what_mobile_phone_services_87 = true"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" @click="what_mobile_phone_services_87 = false"
+                                                <v-radio value="no" @click="Clear_Do_you_have_cellular_mobile_phones"
                                                     label="No"></v-radio>
                                             </v-radio-group>
                                         </v-col>
@@ -4018,7 +4029,7 @@ Gender Preference<strong>
 
                                                 <v-radio value="yes" @click="what_is_your_means_intern_connection_89 = true"
                                                     label="Yes"></v-radio>
-                                                <v-radio value="no" @change="what_is_your_means_intern_connection_89 = false"
+                                                <v-radio value="no" @change="Clear_Whatisyourmeansforinternetconnection"
                                                     label="No"></v-radio>
                                             </v-radio-group>
                                         </v-col>
@@ -4097,10 +4108,10 @@ Gender Preference<strong>
                                             <v-radio-group row class="mt-n3">
 
                                                 <v-radio value="yes"
-                                                    @click="where_would_you_like_volunteer_93 = true, during_what_hours_are_you_available_volunteer = true"
+                                                    @click="Clear_State_Reason"
                                                     label="Yes"></v-radio>
                                                 <v-radio value="no"
-                                                    @click="state_reason_92 = true, during_what_hours_are_you_available_volunteer = false"
+                                                    @click="Clear_AreyounterestedtojoinanyvoluntaryworkClear"
                                                     label="No"></v-radio>
                                             </v-radio-group>
                                         </v-col>
@@ -4110,19 +4121,74 @@ Gender Preference<strong>
 
                                             <v-radio-group row class="mt-n2">
 
-                                                <v-radio value="yes" label="Yes"></v-radio>
+                                                <v-radio @click="sinagmemberComfirmation = true" value="yes" label="Yes"></v-radio>
                                                 <v-radio value="no" label="No"></v-radio>
 
                                             </v-radio-group>
 
                                         </v-col>
 
+
+                                        <v-dialog v-model="sinagmemberComfirmation" persistent max-width="380px">
+                                                        <v-card>
+                                                            <v-container>
+                                                                <v-row>
+
+
+                                                                    <v-col cols="12" sm="12" md="12" class="">
+                                                                        <div class="text-center ">
+                                                                            <v-alert dense dark color="blue darken-3">
+                                                                                Confirm Sinag ID Number<strong>
+                                                                                </strong>
+
+                                                                            </v-alert>
+                                                                        </div>
+
+                                                                    </v-col>
+
+                                                                    <v-col cols="10" sm="10" md="10"
+                                                                        style="margin-left: 20px; margin-top: -25px;">
+                                                                        <v-text-field  label="Type ID Number"></v-text-field>
+                                                                    </v-col>
+
+
+                                                            </v-row>
+
+                                                            <v-row>
+
+<v-col cols="10" sm="12" md="12" class="mt-n1 ">
+
+    <v-btn color="green" class="pa-2 ml-4 mt-n4"
+        outlined dark
+        @click="sinagmemberComfirmation = false">
+        Confirm
+    </v-btn>
+
+    <v-btn color="red" class="pa-2 ml-2 mt-n4" outlined
+        dark @click="sinagmemberComfirmation = false ">
+        Close
+    </v-btn>
+</v-col>
+
+</v-row>
+
+                                                        </v-container>
+                                                                </v-card>                
+                                                </v-dialog>                           
+
+
+
+
+
+
+
                                         <v-col cols="12" md="3" sm="12"
                                             v-show="during_what_hours_are_you_available_volunteer">
                                             <p class="font-weight-bold">During what hours are you available for volunteer
                                                 assignment?</p>
                                             <v-select
-                                            outlined dense
+                                                v-model="Clear_During_What_hours_are_you_available"
+                                                  outlined dense
                                                 :items="['Weekday morning', 'Weekday afternoon', 'Weekday evening', 'Weekend morning', 'Weekend afternoon', 'Weekend evening', 'Any day will do', 'Any time will do']"
                                                 label="Select Type" prepend-inner-icon="mdi-calendar-multiple-check"
                                                 required></v-select>
@@ -4134,6 +4200,7 @@ Gender Preference<strong>
                                             v-show="during_what_hours_are_you_available_volunteer">
                                             <p class="font-weight-bold">Reason/s for Volunteering. See codes below</p>
                                             <v-select class="mt-9"
+                                                v-model="Clear_ReasonsforVolunteering"
                                             outlined dense
                                                 :items="['To gain or improve Skills', 'To gain experience', 'To gain Friends', 'To gain employment skills', 'To share skills and talents', 'For academic credit']"
                                                 label="Select Reason" prepend-inner-icon="mdi-account-plus"
@@ -4180,17 +4247,23 @@ Gender Preference<strong>
                                                                                 Build</v-expansion-panel-header>
                                                                             <v-expansion-panel-content>
                                                                                 <v-checkbox-group>
-                                                                                    <v-checkbox label="Mason"
+                                                                                    <v-checkbox  v-model="Clear_Mason"
+                                                                                    label="Mason"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Painter"
+                                                                                    <v-checkbox v-model="Clear_Painter"
+                                                                                    label="Painter"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Carpentry"
+                                                                                    <v-checkbox  v-model="Clear_Carpentry"
+                                                                                    label="Carpentry"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Electrical"
+                                                                                    <v-checkbox v-model="Clear_Electrical"
+                                                                                     label="Electrical"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Plumbing"
+                                                                                    <v-checkbox v-model="Clear_Plumbing"
+                                                                                     label="Plumbing"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-text-field style="margin-top: -10px"
+                                                                                    <v-text-field v-model="Clear_HouseBuildSchool_Others"
+                                                                                     style="margin-top: -10px"
                                                                                         label="Others, specify"></v-text-field>
                                                                                 </v-checkbox-group>
                                                                             </v-expansion-panel-content>
@@ -4202,20 +4275,23 @@ Gender Preference<strong>
                                                                                 Environment</v-expansion-panel-header>
                                                                             <v-expansion-panel-content>
                                                                                 <v-checkbox-group>
-                                                                                    <v-checkbox label="Tree Planting"
+                                                                                    <v-checkbox v-model="Clear_TreePlanting"
+                                                                                     label="Tree Planting"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Mangrove Planting"
+                                                                                    <v-checkbox  v-model="Clear_MangrovePlanting"
+                                                                                    label="Mangrove Planting"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox  v-model="Clear_CleanupdriveRiver"
                                                                                         label="Clean-up drive - River"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Clear_CleanupdriveCoastal"
                                                                                         label="Clean-up drive - Coastal"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Clear_CleaupdrivStreet"
                                                                                         label="Clean-up drive - Street"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-text-field style="margin-top: -10px"
+                                                                                    <v-text-field v-model="Clear_Environment_Others"
+                                                                                     style="margin-top: -10px"
                                                                                         label="Others, specify"></v-text-field>
                                                                                 </v-checkbox-group>
                                                                             </v-expansion-panel-content>
@@ -4227,22 +4303,25 @@ Gender Preference<strong>
                                                                                 Response</v-expansion-panel-header>
                                                                             <v-expansion-panel-content>
                                                                                 <v-checkbox-group>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Clear_DisasterResponse"
                                                                                         label="Relief Goods Repacking"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Clear_ReliefGoodsDistribution"
                                                                                         label="Relief Goods Distribution"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Clear_ReliefGoodsOrganize"
                                                                                         label="Relief Goods Organize"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Conduct Survey"
-                                                                                        style="margin-top: -10px"></v-checkbox>
                                                                                     <v-checkbox
+                                                                                    v-model="Clear_ConductSurvey"
+                                                                                    label="Conduct Survey"
+                                                                                        style="margin-top: -10px"></v-checkbox>
+                                                                                    <v-checkbox v-model="Clear_Servesasadditional"
                                                                                         label="Serves as additional admin.support staff"
                                                                                         style="margin-top: -10px"></v-checkbox>
 
-                                                                                    <v-text-field style="margin-top: -10px"
+                                                                                    <v-text-field v-model="Clear_C_Response_Others"
+                                                                                     style="margin-top: -10px"
                                                                                         label="Others, specify"></v-text-field>
                                                                                 </v-checkbox-group>
                                                                             </v-expansion-panel-content>
@@ -4254,13 +4333,17 @@ Gender Preference<strong>
                                                                                 Programs</v-expansion-panel-header>
                                                                             <v-expansion-panel-content>
                                                                                 <v-checkbox-group>
-                                                                                    <v-checkbox label="KusinangKalinga"
+                                                                                    <v-checkbox  v-model="Clear_KusinangKalinga"
+                                                                                    label="KusinangKalinga"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="ParaisongPambata"
+                                                                                    <v-checkbox v-model="Clear_ParaisongPambata"
+                                                                                     label="ParaisongPambata"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Gulayan"
+                                                                                    <v-checkbox v-model="Clear_Gulayan"
+                                                                                     label="Gulayan"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-text-field label="Others, specify"
+                                                                                    <v-text-field v-model="Clear_D_Bayahinah_Others"
+                                                                                     label="Others, specify"
                                                                                         style="margin-top: -10px"></v-text-field>
                                                                                 </v-checkbox-group>
                                                                             </v-expansion-panel-content>
@@ -4273,14 +4356,17 @@ Gender Preference<strong>
                                                                             <v-expansion-panel-content>
                                                                                 <v-checkbox-group>
                                                                                     <v-checkbox style="margin-top: -10px"
+                                                                                        v-model="Clear_Coachofassistthecoach"
                                                                                         label="Coach of Assist the coach"></v-checkbox>
                                                                                     <v-checkbox
+                                                                                        v-model="Clear_Maintaisafekeepsports"
                                                                                         label="Maintain/ safekeep sports equipment"
                                                                                         style="margin-top: -10px"></v-checkbox>
 
 
-
-                                                                                    <v-text-field style="margin-top: -10px"
+                                                                                    <v-text-field 
+                                                                                    v-model="Clear_E_Sports_Others"
+                                                                                    style="margin-top: -10px"
                                                                                         label="Others, specify"></v-text-field>
                                                                                 </v-checkbox-group>
                                                                             </v-expansion-panel-content>
@@ -4292,26 +4378,38 @@ Gender Preference<strong>
                                                                                 Events</v-expansion-panel-header>
                                                                             <v-expansion-panel-content>
                                                                                 <v-checkbox-group>
-                                                                                    <v-checkbox style="margin-top: -10px"
-                                                                                        label="Hosting"></v-checkbox>
-                                                                                    <v-checkbox label="Usher/ Usherettes"
+                                                                                    <v-checkbox 
+                                                                                    style="margin-top: -10px"
+                                                                                        v-model="Clear_hosting"
+                                                                                        label="Hosting"
+                                                                                        ></v-checkbox>
+                                                                                    <v-checkbox  v-model="Clear_Usher"
+                                                                                    label="Usher/ Usherettes"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Clear_Secretary"
                                                                                         label="Secretary/ Documentation"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Clear_SocialMedia"
                                                                                         label="Social Media Management"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox
+                                                                                    <v-checkbox v-model="Clear_GroupPrep"
                                                                                         label="Group Prep/Stage Decor"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Food Distribution"
+                                                                                    <v-checkbox 
+                                                                                    v-model="Clear_FoodDistribution"
+                                                                                    label="Food Distribution"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Crowd Control"
+                                                                                    <v-checkbox 
+                                                                                    v-model="Clear_CrowdControl"
+                                                                                    label="Crowd Control"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-checkbox label="Restoration"
+                                                                                    <v-checkbox 
+                                                                                    v-model="Clear_Restoration"
+                                                                                    label="Restoration"
                                                                                         style="margin-top: -10px"></v-checkbox>
-                                                                                    <v-text-field label="Others, specify"
+                                                                                    <v-text-field
+                                                                                    v-model="Clear_F_Restoration_Others"
+                                                                                     label="Others, specify"
                                                                                         style="margin-top: -10px"></v-text-field>
 
                                                                                 </v-checkbox-group>
@@ -4372,17 +4470,29 @@ Gender Preference<strong>
                                                         <v-col cols="10" sm="12" md="12" class="mt-n8">
 
                                                             <v-checkbox-group>
-                                                                <v-checkbox label="Not interested"></v-checkbox>
-                                                                <v-checkbox label="Shy"
+                                                                <v-checkbox
+                                                                v-model="Clear_Notinterested"
+                                                                 label="Not interested"></v-checkbox>
+                                                                <v-checkbox
+                                                                v-model="Clear_Shy"
+                                                                 label="Shy"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Don’t know where to volunteer"
+                                                                <v-checkbox 
+                                                                v-model="Clear_Dontknowwheretovolunteer"
+                                                                label="Don’t know where to volunteer"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="No time"
+                                                                <v-checkbox 
+                                                                v-model="Clear_Notime"
+                                                                label="No time"
                                                                     style="margin-top: -10px"></v-checkbox>
-                                                                <v-checkbox label="Busy"
+                                                                <v-checkbox
+                                                                v-model="Clear_Busy"
+                                                                 label="Busy"
                                                                     style="margin-top: -10px"></v-checkbox>
 
-                                                                <v-text-field label="Others, specify"></v-text-field>
+                                                                <v-text-field 
+                                                                v-model="Clear_State_reason_Others"
+                                                                label="Others, specify"></v-text-field>
 
                                                             </v-checkbox-group>
                                                         </v-col>
@@ -4434,9 +4544,10 @@ Gender Preference<strong>
                                                         <v-col cols="11" sm="12" md="12" class="mt-n5">
 
                                                             <v-select
+                                                                v-model="Clear_cellular_mobile"
                                                                 :items="['Cellular/ Mobile data', 'Wireless/ Wifi', 'Broadband Internet Access via cable, DSL, or fiber connection', 'Dial-up', 'Satellite']"
                                                                 label="  Select" prepend-inner-icon="mdi-wifi"
-                                                                v-model="Barangay" required></v-select>
+                                                                 required></v-select>
 
                                                         </v-col>
 
@@ -4567,7 +4678,7 @@ export default {
 
            
 
-            e1: 3,
+            e1: 1,
 
             /*  Codes FOR 61 What kind of health Related */
             ethnicity: [
@@ -4714,6 +4825,7 @@ genderpreference:[
 "Evangelicals",    
 "Iglesia Evangelista Methodista en Las Filipinas",
 "Iglesia ni Cristo",    
+"Independent Baptist",
 "International Baptist Missionary Fellowship",
 "Islam",    
 "Jehovah's Witnesses",    
@@ -4787,6 +4899,8 @@ genderpreference:[
             did_you_vote_in_the_last_sk_elections: false,
 
             country_destination: false,
+            sinagmemberComfirmation: false,
+
 
             /*    EDUCATION AND LITERACY (1) */
             what_grade_year_currently_attending: false,
@@ -5161,7 +5275,66 @@ genderpreference:[
             Clear_PermanentMethod:'',
             Clear_ContraceptiveMethods_Others:'',
 
+            select_health_facility:'',
+            Clear_primaryreasonofnotseekingmaternalhealth:'',
+            Clear_HowmanytimesdidyouvisitedGovernment:'',
+            Clear_PhysicalExam:false,
+            Clear_GynecologicalExam:false,
+            Clear_Ultrasound:false,
+            Clear_HIVSTISTDTesting:false,
+            Clear_NutritiousSupplement:false,
+            Clear_TetanusVaccinet:false,
+            during_delivery_where_did_you_give_birth:'',
+            Clear_YesNo_midwife:'',
+            
+            Clear_Globe_Smart_DITo:'',
+            Clear_cellular_mobile:'',
 
+            Clear_Mason:false,
+            Clear_Painter:false,
+            Clear_Carpentry:false,
+            Clear_Electrical:false,
+            Clear_Plumbing:false,
+            Clear_HouseBuildSchool_Others:'',
+            Clear_TreePlanting:false,
+            Clear_MangrovePlanting:false,
+            Clear_CleanupdriveRiver:false,
+            Clear_CleanupdriveCoastal:false,
+            Clear_CleaupdrivStreet:false,
+            Clear_Environment_Others:'',
+            Clear_DisasterResponse:false,
+            Clear_ReliefGoodsDistribution:false,
+            Clear_ReliefGoodsOrganize:false,
+            Clear_Servesasadditional:false,
+            Clear_C_Response_Others:'',
+            Clear_KusinangKalinga:false,
+            Clear_ParaisongPambata:false,
+            Clear_Gulayan:false,
+            Clear_D_Bayahinah_Others:'',
+            Clear_Coachofassistthecoach:false,
+            Clear_Maintaisafekeepsports:false,
+            Clear_E_Sports_Others:'',
+            Clear_hosting:false,
+            Clear_Usher:false,
+            Clear_Secretary:false,
+            Clear_SocialMedia:false,
+            Clear_GroupPrep:false,
+            Clear_FoodDistribution:false,
+            Clear_CrowdControl:false,
+            Clear_Restoration:false,
+            Clear_F_Restoration_Others:'',
+
+            Clear_During_What_hours_are_you_available:'',
+            Clear_ReasonsforVolunteering:'',
+            Clear_ConductSurvey:false,
+
+
+            Clear_Notinterested:false,
+            Clear_Shy:false,
+            Clear_Dontknowwheretovolunteer:false,
+            Clear_Notime:false,
+            Clear_Busy:false,
+            Clear_State_reason_Others:'',
 
         };
     },
@@ -5323,7 +5496,7 @@ genderpreference:[
             this.Clear_Permanent_Job_business_unpaid_family_work = ''
             this.Clear_what_was_your_Normal_working_hours = ''
             this.Clear_what_was_the_total_number_of_hours = ''
-
+            
 
 
 
@@ -5637,7 +5810,100 @@ Clear_Whatypeoprogramserviceidoureceiveorasarecipientof()
 
         },
 
+        Clear_Whichtypeofhealthfacilitydidyouvisitformaternal()
+        {
+            this.select_health_facility = ''
+            this.Clear_primaryreasonofnotseekingmaternalhealth = ''
+            this.Clear_HowmanytimesdidyouvisitedGovernment = ''
+            this.Clear_PhysicalExam = false
+            this.Clear_GynecologicalExam = false
+            this.Clear_Ultrasound = false
+            this.Clear_HIVSTISTDTesting = false
+            this.Clear_NutritiousSupplement = false
+            this.Clear_TetanusVaccinet = false
+            this.during_delivery_where_did_you_give_birth = ''
+            this.Clear_YesNo_midwife = ''
 
+            this.which_type_of_health_facility_did_you_visit = false
+            this.what_health_services_did_you_receievein_in_the_goverment_69 = false
+            this.during_delivery_where_did_you_give_birth_70 = false
+        },
+
+        Clear_Do_you_have_cellular_mobile_phones()
+        {
+         this.Clear_Globe_Smart_DITo = ''
+         this.what_mobile_phone_services_87 = false
+        },
+      
+        Clear_Whatisyourmeansforinternetconnection()
+        {
+
+            this.Clear_cellular_mobile = ''
+            this.what_is_your_means_intern_connection_89 = false
+        },
+
+
+        Clear_AreyounterestedtojoinanyvoluntaryworkClear()
+
+        {
+
+            this.Clear_Mason = false
+            this.Clear_Painter = false
+            this.Clear_Carpentry = false
+            this.Clear_Electrical = false
+            this.Clear_Plumbing = false
+            this.Clear_HouseBuildSchool_Others = ''
+            this.Clear_TreePlanting = false
+            this.Clear_MangrovePlanting = false
+            this.Clear_CleanupdriveRiver = false
+            this.Clear_CleanupdriveCoastal = false
+            this.Clear_CleaupdrivStreet = false
+            this.Clear_Environment_Others = ''
+            this.Clear_DisasterResponse = false
+            this.Clear_ReliefGoodsDistribution = false
+            this.Clear_ReliefGoodsOrganize = false
+            this.Clear_Servesasadditional = false
+            this.Clear_C_Response_Others = ''
+            this.Clear_KusinangKalinga = false
+            this.Clear_ParaisongPambata = false
+            this.Clear_Gulayan = false
+            this.Clear_D_Bayahinah_Others = ''
+            this.Clear_Coachofassistthecoach = false
+            this.Clear_Maintaisafekeepsports = false
+            this.Clear_E_Sports_Others = ''
+            this.Clear_hosting = false
+            this.Clear_Usher = false
+            this.Clear_Secretary = false
+            this.Clear_SocialMedia = false
+            this.Clear_GroupPrep = false
+            this.Clear_FoodDistribution = false
+            this.Clear_CrowdControl = false
+            this.Clear_Restoration = false
+            this.Clear_F_Restoration_Others = ''
+            this.Clear_ConductSurvey = false
+
+            this.Clear_During_What_hours_are_you_available = ''
+            this.Clear_ReasonsforVolunteering = ''
+
+            this.state_reason_92 = true
+            this.during_what_hours_are_you_available_volunteer = false
+
+
+        },
+
+            Clear_State_Reason()
+           
+            {
+                this.Clear_Notinterested = false
+                this.Clear_Shy = false
+                this.Clear_Dontknowwheretovolunteer = false
+                this.Clear_Notime = false
+                this.Clear_Busy = false
+                this.Clear_State_reason_Others = ''
+                this.where_would_you_like_volunteer_93 = true
+                this.during_what_hours_are_you_available_volunteer = true
+            },
+        
 
 
         validate() {
