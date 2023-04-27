@@ -7,8 +7,13 @@
     :items-per-page="5"
     dark
     class="btn-hover color-1"
-     tile    
-  
+     tile  
+     :height="360"  
+     :footer-props="{
+        'items-per-page-options':[5],
+        'disable-items-per-page': true,
+      }"   
+
   ></v-data-table>
 
 </template> 

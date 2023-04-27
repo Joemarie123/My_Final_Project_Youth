@@ -96,7 +96,7 @@
             </v-col>
             
             <v-col cols="12" sm="4"  md="4" lg="4" >
-              <v-card class="class_sa_card_1 btn-hover color-1 mx-1 rounded-xl"  style="width: 500px;"
+              <v-card class=" class_sa_card_1 btn-hover color-1 mx-1 rounded-xl"  style="width: 500px;"
                tile
                elevation="16"> 
               <!--  <v-card class="btn-hover color-1 mt-1" style="width: 34%; height:16%; vertical-align: top;  margin-left: -10px; margin-right: -10px;position: absolute; ">  -->
@@ -167,7 +167,7 @@
                         <h2 class="class_sa_text  mb-1 white--text">
                         5,426
                         </h2>
-                        <v-list-item-subtitle class="class_sa_married white--text">Married</v-list-item-subtitle>
+                        <v-list-item-subtitle class="class_sa_married  white--text">Married</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                     
@@ -585,6 +585,21 @@ font-size:15px;
 
 
 }
+
+
+
+@media screen and  (max-width: 959px)
+
+ {
+  .class_sa_married{
+    font-size:30px;
+
+  }
+
+}
+
+
+
 
 @media screen and (max-width: 1259px)   {
   .class_sa_married{

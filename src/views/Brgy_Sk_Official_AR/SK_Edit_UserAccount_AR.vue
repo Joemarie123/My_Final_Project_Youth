@@ -22,10 +22,12 @@
                    
   
                   
-                    <v-btn type="submit" dark class="btn-hover color-5" @click="initialize">
+                    <v-btn type="submit" outlined  class="white--text mr-2"  color="blue" @click="initialize">
                       <v-icon left>mdi-account-check</v-icon>
-                     UPDATE ACCOUNT
+                      <h4 class="white--text">Update Account</h4>
                     </v-btn>
+
+
                   </v-col>
   
   

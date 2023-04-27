@@ -111,54 +111,82 @@ Create Events<strong>
 </v-row>
 
 
-
-
-
-
 </v-container>                                                  
 </v-card>                                                     
          </v-dialog>
  
-         <v-dialog v-model="dialog" max-width="700px" tile>
+
+
+         <v-dialog v-model="dialog" max-width="500px" tile>
  
-           <v-card>
-             <v-card-title>
-               <span class="text-h5">{{ formTitle }}</span>
-             </v-card-title>
- 
-             <v-card-text>
-               <v-container>
-                 <v-row>
-                   <v-col cols="12" sm="6" md="4">
- 
-                     <v-text-field v-model="editedItem.eventname" label="Full Name"></v-text-field>
-                   </v-col>
-                   <v-col cols="12" sm="6" md="4">
-                     <v-text-field v-model="editedItem.eventdate" label="Email"></v-text-field>
-                   </v-col>
-                   <v-col cols="12" sm="6" md="12">
-                     <v-text-field v-model="editedItem.eventdetails" label="Mobile Number"></v-text-field>
-                   </v-col>
-                   <v-col cols="12" sm="6" md="4">
- 
-                   </v-col>
-                 </v-row>
-               </v-container>
-             </v-card-text>
- 
-             <v-card-actions>
-               <v-spacer></v-spacer>
-               <v-btn color="blue darken-1" text @click="close">
-                 Cancel
-               </v-btn>
-               <v-btn color="blue darken-1" text @click="save">
-                 Save
-               </v-btn>
-             </v-card-actions>
- 
- 
-           </v-card>
-         </v-dialog>
+          <v-card >
+            <v-container>
+          <v-row>
+
+                                            
+          <v-col cols="12"  sm="12" md="12" class="">
+          <div class="text-center ">
+         <v-alert dense dark color="blue darken-3">
+Edit Item<strong>
+</strong>
+
+         </v-alert>
+</div>
+
+</v-col>
+
+<v-col  cols="10" sm="10" md="10"
+ style="margin-left: 20px; margin-top: -20px;">
+   <v-text-field height="10" v-model="editedItem.eventname" dense outlined label="Event Name"></v-text-field>
+   </v-col>
+
+   <v-col cols="10" sm="10" md="5 "
+ style="margin-left: 20px; margin-top: -30px;">
+   <v-text-field  v-model="editedItem.eventdate" height="10" dense type="date" outlined label="Date Event"></v-text-field>
+   </v-col>
+
+   <v-col cols="10" sm="10" md="5" class="mt-n8 ml-5 ml-md-n1">
+   <v-text-field height="10" dense 
+   hide-spin-buttons
+  type="number" maxlength="5"
+  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+  v-model="editedItem.participants"
+   outlined label="Num# Participants"></v-text-field>
+   </v-col>
+
+   <v-col cols="10" sm="10" md="10"
+ style="margin-left: 20px; margin-top: -30px;">
+   <v-textarea v-model="editedItem.eventdetails"  outlined label="Event Details"></v-textarea>
+   </v-col>
+
+
+</v-row>  
+
+<v-row>
+
+<v-col cols="10" sm="12" md="12" class="mt-n4 ">
+
+    <v-btn color="green" class="pa-2 ml-5 mt-n4"
+        outlined dark
+        @click="dialog = false">
+        Update
+    </v-btn>
+
+    <v-btn color="red" class="pa-2 ml-2 mt-n4" outlined
+        dark @click="dialog = false">
+        Close
+    </v-btn>
+</v-col>
+
+</v-row>
+
+
+</v-container>                                                  
+</v-card>        
+</v-dialog>
+
+
+
          <v-dialog v-model="dialogDelete" max-width="500px">
            <v-card>
              <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
@@ -171,7 +199,10 @@ Create Events<strong>
            </v-card>
          </v-dialog>
       
+         
      </template>
+   
+       
      <template v-slot:item.actions="{ item }">
        <v-icon small class="mr-2" @click="editItem(item)">
          mdi-pencil
@@ -188,6 +219,8 @@ Create Events<strong>
  
   
    </v-data-table>
+
+   
  
  </v-col>
        

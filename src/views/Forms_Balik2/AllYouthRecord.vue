@@ -639,6 +639,7 @@
           <h4 class="white--text">Events History</h4>
         </v-btn>
 
+        
         <v-btn outlined class="mr-2 mt-1 ma-3 mx-10 pr-8  ml-lg-0 mt-lg-3  ml-md-6" small color="blue"
           @click="View_Profile_Bai(item)">
           <v-icon class="white--text" left>mdi-account-box</v-icon>

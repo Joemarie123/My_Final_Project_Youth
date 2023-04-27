@@ -237,6 +237,7 @@
                     :search="search_events"
                     
                     >
+                    
                     <template v-slot:top>
 
 
@@ -316,6 +317,7 @@
 
 
                     </template>
+
                     <template v-slot:item.actions="{ item }">
 
             
@@ -331,6 +333,7 @@
 
                   <!--     <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon> -->
                     </template>
+
                     <template slot="item.switch1" slot-scope="{ item }">
                       <v-switch v-model="item.switch1" color="success" dense></v-switch>
                     </template>
