@@ -1,7 +1,7 @@
 <template>
   <v-app>
   
-    <v-data-table :headers="headers" :items="desserts" sort-by="calories"  class="btn-hover color-1 elevation-1 pa-2" dark
+    <v-data-table :headers="headers" :items="desserts" sort-by="calories"  class="btn-hover color-1 elevation-1" dark
       :search="search">
 
       <template v-slot:[`item.name`]="{ item }">
@@ -1375,7 +1375,7 @@ margin-left: 30px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  margin: 20px;
+ 
   text-align: center;
   border: none;
   background-size: 300% 100%;
