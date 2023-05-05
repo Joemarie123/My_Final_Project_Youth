@@ -375,8 +375,6 @@
 
               <v-row>
 
-
-
                 <v-col cols="12" lg="6">
 
                   <v-col cols="10" lg="12" class="sinagkabai_dakoscreen ">
@@ -387,11 +385,9 @@
                       
                   </v-col>
 
-
-
-                  <v-col cols="10" lg="12" class=" imagemobile"  >
-                    <v-avatar style="margin-top:-50px; margin-left: 18px;" size="100"  class="ml-11 mr-7">
-                      <img v-bind:src="`/${editedItem.image}`" alt="">
+                  <v-col cols="10" lg="12" class="imagemobile"  >
+                    <v-avatar style="margin-top:-50px; margin-left: 18px;" size="100"  class=" ml-11 mr-7">
+                      <img  v-bind:src="`/${editedItem.image}`" alt="">
                     </v-avatar>
                   </v-col>
 
@@ -670,6 +666,7 @@
 import Navbar from "../components/Navbar.vue";
 export default {
   data: () => ({
+
     dialog: false,
     dialogDelete: false,
     dialog_events_attended: false,
@@ -1309,6 +1306,20 @@ export default {
 
 
 <style scoped>
+
+
+@media screen and (max-width: 1263px) {
+
+  .class_sa_imagenako{
+
+    margin-right:100px;
+
+  }
+
+
+}
+
+
 
 @media screen and (max-width: 450px) {
 /*   h1 {

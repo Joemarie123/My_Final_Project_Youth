@@ -367,15 +367,13 @@
 
   </template>
   
-  
-
-
   <script>
            import SK_DataTable_Purok from '@/views/Brgy_Sk_Official_AR/SK_DataTable_Purok'
       import SK_NavBar from '@/views/Brgy_Sk_Official_AR/SK_NavBar'
       import ChartComponent from '@/components/ChartComponent'
   
     export default {
+      
       name: 'Home',
             
     

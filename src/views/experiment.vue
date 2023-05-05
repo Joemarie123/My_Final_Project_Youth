@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <v-checkbox-group class="mt-n7">
      <v-checkbox v-model="checked"
      label="Physical Exam (weight, blood, pressure, heart rate)"></v-checkbox>
@@ -34,6 +35,7 @@
     </v-radio-group>
 
     <v-btn @click="clearCheckbox">Clear Checkbox</v-btn>
+
   </div>
 </template>
 

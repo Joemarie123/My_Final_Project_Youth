@@ -11,7 +11,7 @@
 <script>
 
 // import { reactive } from "vue";
-import Navbar from "../components/Navbar.vue";
+import Navbar from "../../components/Navbar.vue";
 // import YouthRegister from "../views/Forms_Balik2/YouthRegister.vue"
 
 export default {

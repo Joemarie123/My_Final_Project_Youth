@@ -1,47 +1,25 @@
 <template>
   <div>
-    <apexchart type="bar" :options="chartOptions" :series="chartSeries"></apexchart>
+    <v-data-table :items="tableData"></v-data-table>
+    <button @click="transferData">Transfer Data</button>
   </div>
 </template>
 
 <script>
-import VueApexCharts from 'vue-apexcharts';
-
 export default {
-  components: {
-    apexchart: VueApexCharts,
-  },
   data() {
     return {
-      chartOptions: {
-        chart: {
-          id: 'mychart',
-        },
-        plotOptions: {
-          bar: {
-            horizontal: false,
-          },
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        xaxis: {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-        },
-        yaxis: {
-          title: {
-            text: 'Sales',
-          },
-        },
-        showTotal: false, // set showTotal to false to remove the total number
-      },
-      chartSeries: [
-        {
-          name: 'Sales',
-          data: [30, 40, 25, 50, 49, 21, 70],
-        },
-      ],
-    };
+      tableData: [
+        { name: 'John Doe', age: 30, email: 'john.doe@example.com' },
+        { name: 'Jane Smith', age: 25, email: 'jane.smith@example.com' },
+        { name: 'Bob Johnson', age: 45, email: 'bob.johnson@example.com' }
+      ]
+    }
   },
-};
+  methods: {
+    transferData() {
+      this.$emit('data-transfer', this.tableData)
+    }
+  }
+}
 </script>

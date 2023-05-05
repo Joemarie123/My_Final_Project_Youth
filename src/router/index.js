@@ -1,41 +1,41 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Dashboard from '../views/Dashboard.vue'
-import RegisterNew from '../views/RegisterNew.vue'
-import AddUseraccount from '../views/AddUseraccount.vue'
-import DashboardVersion2 from '../views/DashboardVersion2.vue'
-import DashboardVersion3 from '../views/DashboardVersion3.vue'
-import DashboardVersion4 from '../views/DashboardVersion4.vue'
-import YouTherecord from '../views/YouTherecord.vue'
 
 /* import DisplayAllusers from '../views/DisplayAllusers'; */
 import YouthRegisterEnumerator from '../views/Youth_Enumerator/YouthRegisterEnumerator.vue'
 import Youth_Enumerator_List_Member from '../views/Youth_Enumerator/Youth_Enumerator_List_Member.vue'
 
-import EnumeratorRecord from '../views/AdminMenu_ADMIN/EnumeratorRecord.vue'
-import RegisteredOnline from '../views/AdminMenu_ADMIN/RegisteredOnline.vue'
+import DashboardVersion4 from '../views/DashboardVersion4.vue'
+import EnumeratorRecord from '../views/ADMIN_FILE/EnumeratorRecord.vue'
+import RegisteredOnline from '../views/ADMIN_FILE/RegisteredOnline.vue'
+import AddUseraccount from '../views/ADMIN_FILE/AddUseraccount.vue'
+import AnnounCement from '../views/ADMIN_FILE/AnnounCement.vue'
+import RegisterNew from '../views/ADMIN_FILE/RegisterNew.vue'
+import YouTherecord from '../views/ADMIN_FILE/YouTherecord.vue'
+import SignUpMemberYouth from '../views/ADMIN_FILE/SignUpMemberYouth.vue'
+import AttenDance from '../views/ADMIN_FILE/AttenDance.vue'
+import DatatableSelectYouthAttended from '../views/ADMIN_FILE/DatatableSelectYouthAttended.vue' 
+import DataTableEvents from '../views/ADMIN_FILE/DataTableEvents.vue'
+
+import DatatableAttendance from '../views/ADMIN_FILE/DatatableAttendance.vue'
 
 
  import LogInForm from '../views/LogInForm.vue'
  import experiment from '../views/experiment.vue'
  import Navbar from '../components/Navbar.vue'
  import LoginVersion2 from '../views/LoginVersion2.vue'
- import AnnounCement from '../views/AnnounCement.vue'
- import experiment2 from '../views/experiment2.vue'
- import SignUpMemberYouth from '../views/SignUpMemberYouth.vue'
- import FilterDashBoard from '../views/FilterDashBoard.vue'
-import ColumnChart from  '../components/ColumnChart.vue'
- import AttenDance from '../views/EventsMenu_ADMIN/AttenDance.vue'
-import FilterDashBoard123 from '../components/FilterDashBoard123.vue'
-import FilterFromDashBoard from '../components/FilterFromDashBoard.vue'
 
-import DatatableAttendance from '../views/EventsMenu_ADMIN/DatatableAttendance.vue'
-import DataTableEvents from '../views/EventsMenu_ADMIN/DataTableEvents.vue'
+ import experiment2 from '../views/experiment2.vue'
+
+
+
+import FilterDashBoard123 from '../components/FilterDashBoard123.vue'
+
 import PrintAllSinag from '../views/PrintLayout/PrintAllSinag.vue'
 
 
 
- import DatatableSelectYouthAttended from '../views/EventsMenu_ADMIN/DatatableSelectYouthAttended.vue' 
+
  import SK_DashBoard from '../views/Brgy_Sk_Official_AR/SK_DashBoard.vue'
  import SK_SearchRecord_Youth from '../views/Brgy_Sk_Official_AR/SK_SearchRecord_Youth.vue'
  import SK_AddRecord_Youth from '../views/Brgy_Sk_Official_AR/SK_AddRecord_Youth.vue'
@@ -129,23 +129,6 @@ const routes = [
     name: 'DataTableEvents',
     component: DataTableEvents
   }, 
-
-  
-
-
-  
-
-
-
-  {
-    path: '/FilterFromDashBoard',
-    name: 'FilterFromDashBoard',
-    component:FilterFromDashBoard
-  }, 
-
-
-
-
 
   {
     path: '/Youth_Member_Dashboard',
@@ -254,30 +237,11 @@ const routes = [
   }, 
 
   
-
-  {
-
-    path: '/ColumnChart',
-    name: 'ColumnChart',
-    component: ColumnChart
-  },  
-
-
   {
     path: '/SignUpMemberYouth',
     name: 'SignUpMemberYouth',
     component: SignUpMemberYouth
   },  
-
-
-  
-  
-  {
-    path: '/FilterDashBoard',
-    name: 'FilterDashBoard',
-    component: FilterDashBoard
-  }, 
-
 
 
   {
@@ -306,11 +270,6 @@ const routes = [
   },
 
 
-  {
-    path: '/Dashboard',
-    name: 'Dashboard',
-    component: Dashboard
-  },
 
 
 
@@ -327,25 +286,6 @@ const routes = [
     //component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
 
-  {
-    path: '/DashboardVersion2',
-    name: 'DashboardVersion2',
-    component: DashboardVersion2
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    //component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-
-  {
-    path: '/DashboardVersion3',
-    name: 'DashboardVersion3',
-    component: DashboardVersion3
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    //component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
 
 
   {
@@ -359,10 +299,6 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     //component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
-
-  
-
-  
 
   
 

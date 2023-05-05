@@ -703,7 +703,5 @@ color:white;
   /*  background-image: linear-gradient(to right, #186f94, #0e7e48,  #0c8a4d,  #078045);
    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.644); */
 }
-
-
   </style>
   

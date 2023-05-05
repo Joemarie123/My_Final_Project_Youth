@@ -4,14 +4,11 @@
     <v-app>
       <v-data-table :headers="headers" :items="desserts" sort-by="calories" class=" btn-hover color-1 elevation-1 pa-3" dark>
 
-
-        
     <template v-slot:top >
 
       <!-- <v-toolbar flat dark class=" btn-hover color-1 elevation-1"> -->
         
         <v-card flat dark color="blue darken-3" class="btn-hover color-1 ma-3">
-        
         
           <v-row>
 

@@ -10,9 +10,6 @@
 
                     <v-row>
           
-   
-
-
             <v-col cols="12" sm="12" md="12" lg="12" >
                 
                 <DatatableAttendance/>
@@ -42,7 +39,7 @@
 <script>
 import Navbar from '@/components/Navbar' 
 
-import DatatableAttendance from '@/views/EventsMenu_ADMIN/DatatableAttendance' 
+import DatatableAttendance from '@/views/ADMIN_FILE/DatatableAttendance' 
 
 export default {
   name: 'App',

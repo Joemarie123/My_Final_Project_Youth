@@ -8,15 +8,14 @@
  
    <v-data-table 
    :search="search"
-   :headers="headers" :items="desserts" 
+   :headers="headers" 
+   :items="desserts" 
    sort-by="calories" class="pa-2 btn-hover color-1 elevation-1" 
    @click:row="onRowClick(args)" 
    dark>
 
      <template v-slot:top>
        
-    
- 
       <v-row>
 
 <v-col cols="12" md="1" class="mt-4">
@@ -47,7 +46,6 @@ Announcement List
 
 
 </v-row>
- 
  
          <v-dialog   v-model="dialog_Create_Announcement" max-width="500px"  >
           <v-card >
@@ -103,11 +101,6 @@ Announcement List
 </v-col>
 
 </v-row>
-
-
-
-
-
 
 </v-container>                                                  
 </v-card>                                                     
@@ -196,8 +189,6 @@ Announcement List
  
  export default {
    
- 
- 
    data: () => ({
     search: '',
     
@@ -416,7 +407,7 @@ Announcement List
    text-align: center;
    border: none;
    background-size: 300% 100%;
-   border-radius: 50px;
+   border-radius: 30px;
    moz-transition: all .4s ease-in-out;
    -o-transition: all .4s ease-in-out;
    -webkit-transition: all .4s ease-in-out;

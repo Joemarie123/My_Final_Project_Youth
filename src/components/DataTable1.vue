@@ -18,20 +18,14 @@
 
   <template v-slot:item.image="{ item }">
 
-    
-
-
 <v-avatar size="45">
          <img  v-bind:src="`/${item.image}`" alt="">
          
  </v-avatar>
 
-
-
 <!-- 
  {{ item.name }}
  {{ item.category }} -->
-
 </template>
 
 
@@ -261,6 +255,31 @@ color: rgb(0, 0, 0);
    }
 
 
+   .v-btn.withoutupercase {
+  text-transform: none !important;
+}
+.col-12 {
+  padding: 5px !important;
+}
+.v-card__subtitle,
+.v-card__text,
+.v-card__title {
+  padding: 0px !important;
+}
+.v-navigation-drawer .v-list:not(.v-select-list) {
+  padding-top: 0px;
+}
+.v-list-item__avatar {
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+}
+.v-list--two-line .v-list-item,
+.v-list-item--two-line {
+  min-height: 50px !important;
+}
+.v-messages {
+  min-height: 0px !important;
+}
 
 </style>
 

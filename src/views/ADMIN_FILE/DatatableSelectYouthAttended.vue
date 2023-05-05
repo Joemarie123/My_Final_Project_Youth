@@ -7,7 +7,7 @@
 <v-row>
 
 
-    <v-col lg="4" sm="12">
+    <v-col lg="5" md="6" sm="12">
       <v-card v-for="items in selected_event" :key="items.id" height="200px">
    <div class="text-center ">
   <v-alert dense dark color="blue darken-3">
@@ -21,15 +21,17 @@
   <p  class="font-weight-bold ml-5">Event Name: {{ items.eventname }} </p>                     
 
    <p class="font-weight-bold ml-5 mt-n2">Event Date:  {{ items.eventdate }} </p>
-
+   
    <p class="ml-5">Event Details:  {{ items.eventdetails }}  </p>
    
   
   </v-card>
   <v-card>
-  <v-col cols="12" md="11"  class="ml-4 mt-n6">
+
+
+  <v-col cols="12"  md="11"  class="ml-4 mt-n6">
   
-    <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
+    <v-text-field v-model="search" class="mx-n3" append-icon="mdi-magnify" label="Search" single-line hide-details
                   outlined rounded dense></v-text-field>
             </v-col>
 
@@ -47,8 +49,8 @@
       height="420"
       :hide-default-footer="true"
       :hide-default-header="true"
-        tile
-        :search="search"
+      tile
+      :search="search"
       
     >
 
@@ -163,9 +165,10 @@
 
 
 
-<v-col lg="5" md="12" sm="12" >
+<v-col lg="6" md="6" sm="12" >
 
-<v-card height="650"  class="wrapper">
+
+<v-card  height="650"  class="wrapper">
 
 
   <div class="text-center " >
@@ -179,6 +182,7 @@
     </v-alert>
     </div>
 
+   
 
     <v-data-table 
 
@@ -187,7 +191,7 @@
     :hide-default-footer="true"
     :hide-default-header="true"
     :items-per-page="20"
-     scrollable
+     
     >
 
     <template v-slot:item.sinagmark ="{ item }">
@@ -224,7 +228,7 @@
 
     </v-data-table>
 
-
+  
 
 </v-card>
 
@@ -296,6 +300,13 @@ label="Name">
                       prepend-inner-icon="mdi-clock"
                     
          ></v-select>
+
+         <v-checkbox-group class="mt-1" >
+
+          <v-checkbox v-model="applytoall"  class="mt-n2"   label="Apply To ALL"></v-checkbox>
+
+         </v-checkbox-group>
+
         </v-col> 
 
 </v-row>
@@ -305,7 +316,7 @@ label="Name">
        
        
       
-              <v-col offset="1" cols="5" class="mt-n6"   >
+              <v-col offset="1" cols="5" class="mt-n2"   >
              
               <v-btn @click="save"  color="blue" class="rounded-xl" >
                 <v-icon left>mdi-account-check</v-icon>
@@ -315,7 +326,7 @@ label="Name">
             </v-col>
           
 
-              <v-col offset="" cols="4" class="mt-n6"  >
+              <v-col offset="" cols="4" class="mt-n2"  >
                
               <v-btn @click="close" color="green" class="rounded-xl">
                 <v-icon left>mdi-account-check</v-icon>
@@ -357,6 +368,8 @@ export default {
   data () {
     return {
      
+     
+      applytoall:false,
       dialog_for_input_hours:false,
       dialog:false,
       dialog_sample:false,
@@ -372,6 +385,7 @@ export default {
       
       ],
  */
+
 
       /* selected: [{name:'first',address:'',gender:'',contact:''}], */
       editedItem:[
@@ -407,7 +421,7 @@ export default {
 
       sinagheaders: [
 
-      { text: 'Sinag Image', value: 'sinagmark',  align: 'center', width: '10'  },
+      { text: 'Sinag Image', value: 'sinagmark',  align: 'center', width: '10 '  },
       { text: 'Image', value: 'image',  align: 'center' },
 
         {
@@ -720,8 +734,6 @@ this.desserts.push({  sinagmark: items.sinagmark,   image: items.image, name: it
 
 },
 
-
-
 editItem (item) {
         this.editedIndex = this.sinagmembers.indexOf(item)
         this.editedItem = Object.assign({}, item)
@@ -744,6 +756,13 @@ editItem (item) {
           this.sinagmembers.push(this.editedItem)
   
         }
+        
+        if(this.applytoall == true){
+          for (let i = 0; i < this.sinagmembers.length; i++) {
+        this.sinagmembers[i].hours=this.editedItem.hours
+        }
+        }
+
         this.close()
       },
 
